@@ -10,6 +10,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import Image from "next/image";
 
 export default function Footer() {
   const { openModal } = useConsultation();
@@ -29,69 +30,14 @@ export default function Footer() {
           <div className="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-3 flex flex-col gap-6 lg:border-r lg:border-white/10 lg:pr-8">
             <a href="#home" className="flex items-center gap-3 group">
               {/* Droplet blue modern layered brand logo matching image */}
-              <div className="relative shrink-0">
-                <svg
-                  viewBox="0 0 40 40"
-                  className="w-[36px] h-[36px]"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  {/* Outer layered flame / water swoosh */}
-                  <path
-                    d="M20 4C20 4 31 13 31 22C31 28.08 26.08 33 20 33C13.92 33 9 28.08 9 22C9 13 20 4 20 4Z"
-                    fill="url(#logo_grad_1)"
-                  />
-                  {/* Middle energetic crescent */}
-                  <path
-                    d="M20 9C20 9 28 16.5 28 22C28 26.42 24.42 30 20 30C15.58 30 12 26.42 12 22C12 16.5 20 9 20 9Z"
-                    fill="url(#logo_grad_2)"
-                  />
-                  {/* Inner luminous glow */}
-                  <path
-                    d="M20 14C20 14 24.5 19.5 24.5 22C24.5 24.48 22.48 26.5 20 26.5C17.52 26.5 15.5 24.48 15.5 22C15.5 19.5 20 14 20 14Z"
-                    fill="url(#logo_grad_3)"
-                  />
-                  <defs>
-                    <linearGradient
-                      id="logo_grad_1"
-                      x1="20"
-                      y1="4"
-                      x2="20"
-                      y2="33"
-                      gradientUnits="userSpaceOnUse"
-                    >
-                      <stop offset="0%" stopColor="#2563eb" />
-                      <stop offset="50%" stopColor="#1d4ed8" />
-                      <stop offset="100%" stopColor="#1e3a8a" />
-                    </linearGradient>
-                    <linearGradient
-                      id="logo_grad_2"
-                      x1="20"
-                      y1="9"
-                      x2="20"
-                      y2="30"
-                      gradientUnits="userSpaceOnUse"
-                    >
-                      <stop offset="0%" stopColor="#3b82f6" />
-                      <stop offset="100%" stopColor="#1d4ed8" />
-                    </linearGradient>
-                    <linearGradient
-                      id="logo_grad_3"
-                      x1="20"
-                      y1="14"
-                      x2="20"
-                      y2="26.5"
-                      gradientUnits="userSpaceOnUse"
-                    >
-                      <stop offset="0%" stopColor="#60a5fa" />
-                      <stop offset="100%" stopColor="#2563eb" />
-                    </linearGradient>
-                  </defs>
-                </svg>
+              <div className="relative w-36 h-14">
+                <Image
+                  src={"/logo/logo.png"}
+                  alt=""
+                  fill
+                  className="object-cover"
+                />
               </div>
-              <span className="font-sans text-[20px] font-bold text-white tracking-[0.05em] leading-none transition-colors duration-200">
-                Netsaarthi
-              </span>
             </a>
             <p className="text-zinc-400 font-sans text-[13.5px] leading-relaxed max-w-xs sm:max-w-sm">
               We create luxury kitchens and interiors that inspire. Delivering
