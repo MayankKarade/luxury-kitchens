@@ -1,8 +1,10 @@
+import Brands from "@/components/home/Brands";
 import Expertise from "@/components/home/Expertise";
 import Hero from "@/components/home/Hero";
 import Portfolio from "@/components/home/Portfolio";
 import Process from "@/components/home/Process";
 import Stats from "@/components/home/Stats";
+import Testimonials from "@/components/home/Testimonials";
 import Image from "next/image";
 
 export default function Home() {
@@ -13,6 +15,8 @@ export default function Home() {
       <Expertise />
       <Portfolio />
       <Process />
+      <Testimonials />
+      <Brands />
     </div>
   );
 }

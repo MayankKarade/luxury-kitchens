@@ -1,7 +1,14 @@
 "use client";
 
 import React, { createContext, useContext, useState } from "react";
-import { X, CheckCircle, Calendar, ArrowRight } from "lucide-react";
+import {
+  X,
+  CheckCircle,
+  Calendar,
+  ArrowRight,
+  ChevronDown,
+} from "lucide-react";
+import * as yup from "yup";
 
 const ConsultationContext = createContext(null);
 
@@ -15,9 +22,25 @@ export function useConsultation() {
   return context;
 }
 
+// Validation schema using yup
+const validationSchema = yup.object().shape({
+  name: yup.string().required("Full name is required"),
+  email: yup
+    .string()
+    .email("Invalid email format")
+    .required("Email is required"),
+  phone: yup.string().required("Phone number is required"),
+  service: yup.string().required(),
+  location: yup.string().required(),
+  date: yup.string().nullable(),
+  budget: yup.string(),
+  message: yup.string(), // optional, no validation
+});
+
 export function ConsultationProvider({ children }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -29,24 +52,59 @@ export function ConsultationProvider({ children }) {
     message: "",
   });
 
+  // Custom dropdown states
+  const [serviceDropdownOpen, setServiceDropdownOpen] = useState(false);
+  const [locationDropdownOpen, setLocationDropdownOpen] = useState(false);
+
   const openModal = () => {
     setModalOpen(true);
     setIsSubmitted(false);
+    setErrors({});
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.phone) {
-      alert("Please fill in all required fields (Name, Email, and Phone).");
-      return;
+    try {
+      await validationSchema.validate(formData, { abortEarly: false });
+      setErrors({});
+      setIsSubmitted(true);
+    } catch (err) {
+      const newErrors = {};
+      err.inner.forEach((error) => {
+        newErrors[error.path] = error.message;
+      });
+      setErrors(newErrors);
     }
-    setIsSubmitted(true);
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    // Clear error for this field when user starts typing
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
   };
+
+  const handleDropdownSelect = (name, value) => {
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
+    // Close dropdown after selection
+    if (name === "service") setServiceDropdownOpen(false);
+    if (name === "location") setLocationDropdownOpen(false);
+  };
+
+  // Service options
+  const serviceOptions = [
+    "Modular Kitchens",
+    "Luxury Wardrobes",
+    "Interior Design",
+    "Renovations",
+    "Commercial Interiors",
+  ];
+
+  // Location options
+  const locationOptions = ["USA", "Canada", "UK", "Europe", "Ghana"];
 
   return (
     <ConsultationContext.Provider value={{ openModal }}>
@@ -69,7 +127,7 @@ export function ConsultationProvider({ children }) {
             </button>
 
             {/* Scrollable Container */}
-            <div className="p-6 sm:p-10 overflow-y-auto flex-grow">
+            <div className="p-6 sm:p-10 overflow-y-auto no-scrollbar flex-grow">
               {!isSubmitted ? (
                 <form
                   onSubmit={handleFormSubmit}
@@ -93,12 +151,18 @@ export function ConsultationProvider({ children }) {
                       <input
                         type="text"
                         name="name"
-                        required
                         value={formData.name}
                         onChange={handleInputChange}
                         placeholder="John Doe"
-                        className="bg-white/5 border border-white/10 focus:border-brand-gold/80 rounded px-4.5 py-3 text-sm text-white placeholder-gray-500 focus:outline-none transition-all w-full"
+                        className={`bg-white/5 border ${
+                          errors.name ? "border-red-500" : "border-white/10"
+                        } focus:border-brand-gold/80 rounded px-4.5 py-3 text-sm text-white placeholder-gray-500 focus:outline-none transition-all w-full`}
                       />
+                      {errors.name && (
+                        <p className="text-xs text-red-500 mt-1">
+                          {errors.name}
+                        </p>
+                      )}
                     </div>
 
                     {/* Email Field */}
@@ -109,12 +173,18 @@ export function ConsultationProvider({ children }) {
                       <input
                         type="email"
                         name="email"
-                        required
                         value={formData.email}
                         onChange={handleInputChange}
                         placeholder="john@example.com"
-                        className="bg-white/5 border border-white/10 focus:border-brand-gold/80 rounded px-4.5 py-3 text-sm text-white placeholder-gray-500 focus:outline-none transition-all w-full"
+                        className={`bg-white/5 border ${
+                          errors.email ? "border-red-500" : "border-white/10"
+                        } focus:border-brand-gold/80 rounded px-4.5 py-3 text-sm text-white placeholder-gray-500 focus:outline-none transition-all w-full`}
                       />
+                      {errors.email && (
+                        <p className="text-xs text-red-500 mt-1">
+                          {errors.email}
+                        </p>
+                      )}
                     </div>
 
                     {/* Phone Field */}
@@ -125,59 +195,117 @@ export function ConsultationProvider({ children }) {
                       <input
                         type="tel"
                         name="phone"
-                        required
                         value={formData.phone}
                         onChange={handleInputChange}
                         placeholder="+1 (123) 456-7890"
-                        className="bg-white/5 border border-white/10 focus:border-brand-gold/80 rounded px-4.5 py-3 text-sm text-white placeholder-gray-500 focus:outline-none transition-all w-full"
+                        className={`bg-white/5 border ${
+                          errors.phone ? "border-red-500" : "border-white/10"
+                        } focus:border-brand-gold/80 rounded px-4.5 py-3 text-sm text-white placeholder-gray-500 focus:outline-none transition-all w-full`}
                       />
+                      {errors.phone && (
+                        <p className="text-xs text-red-500 mt-1">
+                          {errors.phone}
+                        </p>
+                      )}
                     </div>
 
-                    {/* Targeted Service Selection */}
-                    <div className="flex flex-col gap-2">
+                    {/* Custom Service Dropdown */}
+                    <div className="flex flex-col gap-2 relative">
                       <label className="text-xs text-gray-300 font-semibold uppercase tracking-wider font-display">
                         Target Service
                       </label>
-                      <select
-                        name="service"
-                        value={formData.service}
-                        onChange={handleInputChange}
-                        className="bg-[#0f1115] border border-white/10 focus:border-brand-gold/80 rounded px-4 py-3 text-sm text-white focus:outline-none transition-all w-full cursor-pointer"
+                      <div
+                        className="relative cursor-pointer"
+                        onClick={() =>
+                          setServiceDropdownOpen(!serviceDropdownOpen)
+                        }
                       >
-                        <option value="Modular Kitchens">
-                          Modular Kitchens
-                        </option>
-                        <option value="Luxury Wardrobes">
-                          Luxury Wardrobes
-                        </option>
-                        <option value="Interior Design">Interior Design</option>
-                        <option value="Renovations">Renovations</option>
-                        <option value="Commercial Interiors">
-                          Commercial Interiors
-                        </option>
-                      </select>
+                        <div
+                          className={`bg-white/5 border ${
+                            errors.service
+                              ? "border-red-500"
+                              : "border-white/10"
+                          } rounded px-4.5 py-3 text-sm text-white flex items-center justify-between transition-all`}
+                        >
+                          <span>{formData.service}</span>
+                          <ChevronDown
+                            className={`w-4 h-4 transition-transform ${
+                              serviceDropdownOpen ? "rotate-180" : ""
+                            }`}
+                          />
+                        </div>
+                        {serviceDropdownOpen && (
+                          <div className="absolute z-20 w-full mt-1 bg-[#1a1c22] border border-white/10 rounded-md shadow-lg max-h-48 overflow-auto">
+                            {serviceOptions.map((option) => (
+                              <div
+                                key={option}
+                                className="px-4.5 py-2.5 text-sm text-white hover:bg-brand-gold/20 cursor-pointer transition-colors"
+                                onClick={() =>
+                                  handleDropdownSelect("service", option)
+                                }
+                              >
+                                {option}
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                      {errors.service && (
+                        <p className="text-xs text-red-500 mt-1">
+                          {errors.service}
+                        </p>
+                      )}
                     </div>
 
-                    {/* Service Location Selection */}
-                    <div className="flex flex-col gap-2">
+                    {/* Custom Location Dropdown */}
+                    <div className="flex flex-col gap-2 relative">
                       <label className="text-xs text-gray-300 font-semibold uppercase tracking-wider font-display">
                         Your Location
                       </label>
-                      <select
-                        name="location"
-                        value={formData.location}
-                        onChange={handleInputChange}
-                        className="bg-[#0f1115] border border-white/10 focus:border-brand-gold/80 rounded px-4 py-3 text-sm text-white focus:outline-none transition-all w-full cursor-pointer"
+                      <div
+                        className="relative cursor-pointer"
+                        onClick={() =>
+                          setLocationDropdownOpen(!locationDropdownOpen)
+                        }
                       >
-                        <option value="USA">USA</option>
-                        <option value="Canada">Canada</option>
-                        <option value="UK">UK</option>
-                        <option value="Europe">Europe</option>
-                        <option value="Ghana">Ghana</option>
-                      </select>
+                        <div
+                          className={`bg-white/5 border ${
+                            errors.location
+                              ? "border-red-500"
+                              : "border-white/10"
+                          } rounded px-4.5 py-3 text-sm text-white flex items-center justify-between transition-all`}
+                        >
+                          <span>{formData.location}</span>
+                          <ChevronDown
+                            className={`w-4 h-4 transition-transform ${
+                              locationDropdownOpen ? "rotate-180" : ""
+                            }`}
+                          />
+                        </div>
+                        {locationDropdownOpen && (
+                          <div className="absolute z-20 w-full mt-1 bg-[#1a1c22] border border-white/10 rounded-md shadow-lg">
+                            {locationOptions.map((option) => (
+                              <div
+                                key={option}
+                                className="px-4.5 py-2.5 text-sm text-white hover:bg-brand-gold/20 cursor-pointer transition-colors"
+                                onClick={() =>
+                                  handleDropdownSelect("location", option)
+                                }
+                              >
+                                {option}
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                      {errors.location && (
+                        <p className="text-xs text-red-500 mt-1">
+                          {errors.location}
+                        </p>
+                      )}
                     </div>
 
-                    {/* Target Date Field */}
+                    {/* Preferred Date */}
                     <div className="flex flex-col gap-2">
                       <label className="text-xs text-gray-300 font-semibold uppercase tracking-wider font-display">
                         Preferred Date
@@ -221,14 +349,14 @@ export function ConsultationProvider({ children }) {
                     </div>
                   </div>
 
-                  {/* Message Field */}
+                  {/* Message Field (Optional) */}
                   <div className="flex flex-col gap-2">
                     <label className="text-xs text-gray-300 font-semibold uppercase tracking-wider font-display">
                       Special Design Goals & Requirements (Optional)
                     </label>
                     <textarea
                       name="message"
-                      rows={3}
+                      rows={5}
                       value={formData.message}
                       onChange={handleInputChange}
                       placeholder="Share details about your space design, preferred materials, and vision..."

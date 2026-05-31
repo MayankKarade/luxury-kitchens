@@ -12,6 +12,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { useConsultation } from "@/context/ConsultationContext";
+import Image from "next/image";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -49,101 +50,51 @@ export default function Navbar() {
           : "bg-black/25 backdrop-blur-[2px]"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-3 lg:py-5 flex justify-between items-center">
-        {/* Brand Logo - Flame/Water Droplet Modern Blue Shape + Text */}
-        <a href="#home" className="flex items-center gap-3.5 group shrink-0">
+      <div className="max-w-7xl mx-auto px-6 md:px-16 pt-3 lg:pt-5 flex justify-between items-center">
+        {/* Brand Logo */}
+        <a href="#home" className="flex flex-col items-start group shrink-0">
           <div className="relative">
-            {/* Elegant wavy futuristic flame logo from image - multiple shades of blue */}
-            <div className="w-11 h-11 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-              <svg
-                viewBox="0 0 100 100"
-                className="w-full h-full drop-shadow-[0_0_8px_rgba(29,78,216,0.4)]"
-              >
-                <defs>
-                  <linearGradient
-                    id="blueGrad1"
-                    x1="0%"
-                    y1="100%"
-                    x2="100%"
-                    y2="0%"
-                  >
-                    <stop offset="0%" stopColor="#2563eb" />
-                    <stop offset="100%" stopColor="#60a5fa" />
-                  </linearGradient>
-                  <linearGradient
-                    id="blueGrad2"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="100%"
-                  >
-                    <stop offset="0%" stopColor="#1d4ed8" />
-                    <stop offset="100%" stopColor="#1e3a8a" />
-                  </linearGradient>
-                </defs>
-                {/* Wavy luxury leaves/flame petals matching the NetSaarthi logo perfectly */}
-                <path
-                  d="M50,15 C68,40 85,55 85,72 C85,88 70,95 50,95 C30,95 15,88 15,72 C15,55 32,40 50,15 Z"
-                  fill="url(#blueGrad2)"
-                />
-                <path
-                  d="M50,22 C64,43 78,56 78,70 C78,82 66,88 50,88 C34,88 22,82 22,70 C22,56 36,43 50,22 Z"
-                  fill="url(#blueGrad1)"
-                  opacity="0.9"
-                />
-                {/* Internal accent curves */}
-                <path
-                  d="M50,35 C58,50 68,60 68,72 C68,80 60,84 50,84 C40,84 32,80 32,72 C32,60 42,50 50,35 Z"
-                  fill="#ffffff"
-                  opacity="0.9"
-                />
-                <path
-                  d="M50,45 C54,55 60,62 60,70 C60,75 55,78 50,78 C45,78 40,75 40,70 C40,62 46,55 50,45 Z"
-                  fill="#1d4ed8"
-                />
-              </svg>
+            <div className="relative w-[140px] h-14">
+              <Image
+                src={"/logo/logo.png"}
+                alt=""
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
           <div className="flex flex-col">
-            <div className="font-sans text-2xl sm:text-3xl font-bold text-white tracking-wide leading-none">
-              Netsaarthi
-            </div>
-            <span className="text-[9px] text-brand-gold tracking-[0.22em] font-medium uppercase mt-1">
+            <span className="text-[9px] text-brand-gold tracking-[0.22em] font-medium uppercase my-1">
               LUXURY KITCHENS & INTERIORS
             </span>
           </div>
         </a>
 
-        {/* Right side container: floats contacts on top and links on bottom for desktop */}
+        {/* Desktop view */}
         <div className="hidden xl:flex flex-col items-end gap-3.5">
-          {/* Top row Contacts layout (exactly matching reference image layout and golden icons) */}
           <div className="flex items-center gap-5 text-[11px] text-gray-300 font-sans tracking-wider">
             <a
-              href="tel:+11234567890"
+              href="#"
               className="flex items-center gap-2 hover:text-brand-gold transition-colors"
             >
               <Phone className="w-3.5 h-3.5 text-brand-gold" />
               <span>USA +1 (123) 456-7890</span>
             </a>
             <span className="text-white/20">|</span>
-
             <a
-              href="mailto:info@netsaarthi.com"
+              href="#"
               className="flex items-center gap-2 hover:text-brand-gold transition-colors"
             >
               <Mail className="w-3.5 h-3.5 text-brand-gold" />
               <span>info@netsaarthi.com</span>
             </a>
             <span className="text-white/20">|</span>
-
             <div className="flex items-center gap-2">
               <Clock className="w-3.5 h-3.5 text-brand-gold" />
               <span>Mon - Sat: 09.00 AM - 06.00 PM</span>
             </div>
           </div>
-
-          {/* Bottom row: nav links and gold button matching the golden theme */}
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-8 pl-5 py-2 bg-brand-gold/5 rounded-md">
             <div className="flex items-center gap-3">
               {navLinks.map((link) => (
                 <a
@@ -165,8 +116,6 @@ export default function Navbar() {
                 </a>
               ))}
             </div>
-
-            {/* Book Consultation target */}
             <button
               onClick={openModal}
               className="px-5 py-3 bg-brand-gold hover:bg-[#eec176] text-[#08090d] font-sans text-xs font-bold tracking-[0.16em] rounded-[3px] transition-all duration-300 shadow-md flex items-center gap-2"
@@ -177,7 +126,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Small/Tablet screen actions */}
+        {/* Mobile actions (hamburger + book button) */}
         <div className="flex xl:hidden items-center gap-3">
           <button
             onClick={openModal}
@@ -199,7 +148,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Drawer Navigation overlay */}
+      {/* Mobile Drawer Navigation - ADDED explicit X close button inside */}
       <div
         className={`xl:hidden fixed inset-x-0 top-0 h-screen bg-[#07080b]/98 backdrop-blur-lg z-40 transition-all duration-300 transform ${
           mobileMenuOpen
@@ -207,7 +156,17 @@ export default function Navbar() {
             : "-translate-y-full opacity-0 pointer-events-none"
         }`}
       >
-        <div className="flex flex-col h-full p-6 pt-24 gap-6">
+        <div className="flex flex-col h-full p-6 pt-24 gap-6 relative">
+          {/* ========== NEW CLOSE BUTTON INSIDE DRAWER ========== */}
+          <button
+            onClick={() => setMobileMenuOpen(false)}
+            className="absolute top-6 right-6 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors focus:outline-none"
+            aria-label="Close menu"
+          >
+            <X className="w-6 h-6 text-white" />
+          </button>
+          {/* ================================================== */}
+
           <div className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <a

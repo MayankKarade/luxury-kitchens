@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import {
   ArrowRight,
   ChevronRight,
@@ -25,7 +26,7 @@ export default function Expertise() {
       desc: "Stylish, functional and customized kitchens designed for modern living.",
       img: kitchenImg,
       iconElement: (
-        <LayoutGrid className="w-5 h-5 text-brand-gold" strokeWidth={1.8} />
+        <LayoutGrid className="w-5 h-5 text-[#dfab56]" strokeWidth={1.8} />
       ),
     },
     {
@@ -34,7 +35,7 @@ export default function Expertise() {
       desc: "Smart storage solutions that blend elegance with functionality.",
       img: wardrobeImg,
       iconElement: (
-        <Sliders className="w-5 h-5 text-brand-gold" strokeWidth={1.8} />
+        <Sliders className="w-5 h-5 text-[#dfab56]" strokeWidth={1.8} />
       ),
     },
     {
@@ -43,7 +44,7 @@ export default function Expertise() {
       desc: "Complete interior solutions tailored to your taste and lifestyle.",
       img: interiorImg,
       iconElement: (
-        <Sofa className="w-5 h-5 text-brand-gold" strokeWidth={1.8} />
+        <Sofa className="w-5 h-5 text-[#dfab56]" strokeWidth={1.8} />
       ),
     },
     {
@@ -52,7 +53,7 @@ export default function Expertise() {
       desc: "Transform your existing spaces with our renovation expertise.",
       img: renovationImg,
       iconElement: (
-        <RefreshCw className="w-5 h-5 text-brand-gold" strokeWidth={1.8} />
+        <RefreshCw className="w-5 h-5 text-[#dfab56]" strokeWidth={1.8} />
       ),
     },
     {
@@ -61,18 +62,58 @@ export default function Expertise() {
       desc: "Premium interior solutions for offices, retail and commercial spaces.",
       img: officeImg,
       iconElement: (
-        <Building2 className="w-5 h-5 text-brand-gold" strokeWidth={1.8} />
+        <Building2 className="w-5 h-5 text-[#dfab56]" strokeWidth={1.8} />
       ),
     },
   ];
 
+  // Animation variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+    hover: { y: -8, transition: { duration: 0.2 } },
+  };
+
   return (
-    <section id="services" className="bg-[#ffffff] px-4 sm:px-9 py-16 lg:py-24">
-      <div className="max-w-7xl mx-auto ">
-        {/* Section Header exactly formatted as the attached image */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-14">
-          <div className="lg:col-span-7 flex flex-col gap-3">
-            <span className="text-brand-gold font-sans text-[12.5px] font-bold tracking-[0.2em] uppercase">
+    <section
+      id="services"
+      className="bg-[#ffffff] px-4 sm:px-10 md:px-16  py-12 sm:py-16 lg:py-20"
+    >
+      <div className="max-w-7xl mx-auto">
+        {/* Section Header with staggered animation */}
+        <motion.div
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-14"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <motion.div
+            variants={fadeInUp}
+            className="lg:col-span-7 flex flex-col gap-3"
+          >
+            <span className="text-[#dfab56] font-sans text-[12.5px] font-bold tracking-[0.2em] uppercase">
               OUR EXPERTISE
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-[46px] leading-[1.15] text-[#111827] font-semibold tracking-tight">
@@ -81,34 +122,47 @@ export default function Expertise() {
                 For Every Space
               </span>
             </h2>
-          </div>
+          </motion.div>
 
-          <div className="lg:col-span-5 flex flex-col items-start gap-5">
+          <motion.div
+            variants={fadeInUp}
+            className="lg:col-span-5 flex flex-col items-start gap-5"
+          >
             <p className="text-zinc-500 font-sans text-base leading-relaxed max-w-md">
               From concept to completion, we deliver bespoke interior solutions
               that reflect your style and elevate your living and working
               spaces.
             </p>
-            <a
+            <motion.a
               href="#portfolio"
-              className="inline-flex items-center gap-1 text-[13px] font-sans font-bold tracking-wider text-brand-gold hover:text-[#eec176] transition-colors uppercase"
+              className="inline-flex items-center gap-1 text-[13px] font-sans font-bold tracking-wider text-[#dfab56] hover:text-[#eec176] transition-colors uppercase"
+              whileHover={{ x: 5 }}
+              transition={{ type: "spring", stiffness: 400 }}
             >
               <span>VIEW ALL SERVICES</span>
               <span className="text-lg leading-none select-none relative -top-0.5 ml-1">
                 →
               </span>
-            </a>
-          </div>
-        </div>
+            </motion.a>
+          </motion.div>
+        </motion.div>
 
-        {/* 5-Column Grid conforming strictly to the image layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+        {/* 5-Column Grid with staggered card animations */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
           {services.map((service) => (
-            <div
+            <motion.div
               key={service.id}
+              variants={cardVariants}
+              whileHover="hover"
               className="bg-white rounded-2xl overflow-hidden border border-zinc-200/50 shadow-sm transition-all duration-300 flex flex-col h-full group hover:shadow-lg"
             >
-              {/* Card Image section with exact aspect ratios and floating badge overlay */}
+              {/* Card Image section with floating badge overlay */}
               <div className="relative">
                 <div className="relative h-44 overflow-hidden shrink-0">
                   <Image
@@ -118,12 +172,14 @@ export default function Expertise() {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     referrerPolicy="no-referrer"
                   />
-
-                  {/* Floating overlapping absolute black badging */}
                 </div>
-                <div className="absolute -bottom-6 left-5 w-11 h-11 bg-[#0f1115] border border-white/10 rounded-xl flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-105 z-40">
+                <motion.div
+                  className="absolute -bottom-6 left-5 w-11 h-11 bg-[#0f1115] border border-white/10 rounded-xl flex items-center justify-center shadow-lg z-40"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
                   {service.iconElement}
-                </div>
+                </motion.div>
               </div>
 
               {/* Card content block */}
@@ -138,20 +194,22 @@ export default function Expertise() {
                 </div>
 
                 <div className="pt-4 border-t border-zinc-100 mt-2">
-                  <a
+                  <motion.a
                     href="#contact"
-                    className="inline-flex items-center gap-1 text-[11px] font-sans font-extrabold tracking-widest text-brand-gold hover:text-[#eec176] transition-colors"
+                    className="inline-flex items-center gap-1 text-[11px] font-sans font-extrabold tracking-widest text-[#dfab56] hover:text-[#eec176] transition-colors"
+                    whileHover={{ x: 4 }}
+                    transition={{ type: "spring", stiffness: 400 }}
                   >
                     <span>EXPLORE</span>
                     <span className="text-base leading-none select-none relative -top-0.5 ml-0.5 transition-transform duration-300 group-hover:translate-x-1">
                       →
                     </span>
-                  </a>
+                  </motion.a>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
