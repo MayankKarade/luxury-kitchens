@@ -7,8 +7,10 @@
   --font-display: "Space Grotesk", sans-serif;
 
   --color-brand-gold: #dfab56;
+  --color-gb-hover: #e5b667;
   --color-brand-light: #fbf9f6;
   --color-brand-white: #faf8f6;
+  --color-brand-dark: #0b0c10;
 }
 
 /* Base custom styles to guarantee a luxury layout and scrollbar behavior */
@@ -19,6 +21,7 @@ html {
 body {
   background-color: #0b0c10;
   color: #f3f4f6;
+  /* max-width: 1500px; */
   font-family: var(--font-sans);
 }
 

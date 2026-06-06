@@ -49,7 +49,7 @@ export default function Testimonials() {
   return (
     <section
       id="blog"
-      className="bg-[#0b0c10] relative overflow-hidden select-none"
+      className="bg-brand-dark relative overflow-hidden select-none"
     >
       {/* Subtle gold-ambient radial illumination backdrops */}
       {/* <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-brand-gold/5 blur-[160px] pointer-events-none"></div> */}
@@ -137,7 +137,7 @@ export default function Testimonials() {
                       {/* Author group with custom gold frame avatar matching reference image */}
                       <div className="flex items-center gap-4">
                         <div className="relative shrink-0">
-                          <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-brand-gold/30 p-0.5 bg-[#0b0c10]/80">
+                          <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-brand-gold/30 p-0.5 bg-brand-dark/80">
                             <Image
                               src={reviews[activeTestimonial].avatar}
                               alt={reviews[activeTestimonial].author}
@@ -185,12 +185,12 @@ export default function Testimonials() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className=" bg-brand-gold text-[#0b0c10] mx-1 sm:mx-14 lg:mx-0 px-3 md:px-10 py-8 sm:py-12 xl:py-14 flex flex-col justify-between relative overflow-hidden rounded-2xl lg:rounded-l-3xl lg:rounded-r-none h-full "
+            className=" bg-brand-gold text-brand-dark mx-1 sm:mx-14 lg:mx-0 px-3 md:px-10 py-8 sm:py-12 xl:py-14 flex flex-col justify-between relative overflow-hidden rounded-2xl lg:rounded-l-3xl lg:rounded-r-none h-full "
           >
             <div className="relative z-10 flex flex-col  gap-6 md:gap-8">
               {/* Custom SVG Wire Binder Calendar with badge matches image layout perfectly */}
               <div className="flex items-start gap-4">
-                <div className="shrink-0 text-[#0b0c10]">
+                <div className="shrink-0 text-brand-dark">
                   <svg
                     viewBox="0 0 44 44"
                     className="w-[48px] h-[48px]"
@@ -240,13 +240,13 @@ export default function Testimonials() {
                       cx="32"
                       cy="30"
                       r="8"
-                      className="fill-brand-gold stroke-[#0b0c10]"
+                      className="fill-brand-gold stroke-brand-dark"
                       strokeWidth="2.5"
                     />
                     <polyline
                       points="30 30 32 32 35 29"
                       strokeWidth="2.2"
-                      className="stroke-[#0b0c10]"
+                      className="stroke-brand-dark"
                       fill="none"
                     />
                   </svg>

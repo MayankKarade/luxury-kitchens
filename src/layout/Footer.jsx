@@ -20,9 +20,9 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#0b0c10] border-t border-white/5 px-4 sm:px-10 md:px-16 pt-16 pb-8 relative text-neutral-400 text-sm overflow-hidden select-none">
+    <footer className="bg-brand-dark border-t border-white/5 px-4 sm:px-10 md:px-16 pt-16 pb-8 relative text-neutral-400 text-sm overflow-hidden select-none">
       {/* Subtly glowing luxury ambiance light backing */}
-      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] rounded-full bg-[#dfab56]/5 blur-[150px] pointer-events-none"></div>
+      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] rounded-full bg-brand-gold/5 blur-[150px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto  relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-12 gap-10 lg:gap-0 pb-10 border-b border-white/5">
@@ -79,9 +79,9 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={social.aria}
-                  className="w-8.5 h-8.5 rounded-full border border-white/15 flex items-center justify-center hover:border-[#dfab56] hover:bg-[#dfab56]/5 transition-all duration-300 group cursor-pointer"
+                  className="w-8.5 h-8.5 rounded-full border border-white/15 flex items-center justify-center hover:border-brand-gold hover:bg-brand-gold/5 transition-all duration-300 group cursor-pointer"
                 >
-                  <social.Icon className="w-3.8 h-3.8 text-zinc-400 group-hover:text-[#dfab56] transition-colors" />
+                  <social.Icon className="w-3.8 h-3.8 text-zinc-400 group-hover:text-brand-gold transition-colors" />
                 </a>
               ))}
             </div>
@@ -89,7 +89,7 @@ export default function Footer() {
 
           {/* Column 2: Quick Links */}
           <div className="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-2 flex flex-col gap-5 lg:border-r lg:border-white/10 lg:pl-8 lg:pr-4">
-            <h4 className="text-[#dfab56] font-sans text-[11px] font-bold tracking-[0.2em] uppercase leading-none">
+            <h4 className="text-brand-gold font-sans text-[11px] font-bold tracking-[0.2em] uppercase leading-none">
               QUICK LINKS
             </h4>
             <ul className="flex flex-col gap-3 font-sans text-[13.5px] text-zinc-400">
@@ -115,7 +115,7 @@ export default function Footer() {
 
           {/* Column 3: Our Services */}
           <div className="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-2 flex flex-col gap-5 lg:border-r lg:border-white/10 lg:pl-8 lg:pr-4">
-            <h4 className="text-[#dfab56] font-sans text-[11px] font-bold tracking-[0.2em] uppercase leading-none">
+            <h4 className="text-brand-gold font-sans text-[11px] font-bold tracking-[0.2em] uppercase leading-none">
               OUR SERVICES
             </h4>
             <ul className="flex flex-col gap-3 font-sans text-[13.5px] text-zinc-400">
@@ -141,7 +141,7 @@ export default function Footer() {
 
           {/* Column 4: Locations */}
           <div className="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-2 flex flex-col gap-5 lg:border-r lg:border-white/10 lg:pl-8 lg:pr-4">
-            <h4 className="text-[#dfab56] font-sans text-[11px] font-bold tracking-[0.2em] uppercase leading-none">
+            <h4 className="text-brand-gold font-sans text-[11px] font-bold tracking-[0.2em] uppercase leading-none">
               LOCATIONS
             </h4>
             <ul className="flex flex-col gap-3 font-sans text-[13.5px] text-zinc-400">
@@ -159,7 +159,7 @@ export default function Footer() {
 
           {/* Column 5: Get In Touch */}
           <div className="col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-3 flex flex-col gap-5 lg:pl-8">
-            <h4 className="text-[#dfab56] font-sans text-[11px] font-bold tracking-[0.2em] uppercase leading-none">
+            <h4 className="text-brand-gold font-sans text-[11px] font-bold tracking-[0.2em] uppercase leading-none">
               GET IN TOUCH
             </h4>
 
@@ -169,7 +169,7 @@ export default function Footer() {
                 href="tel:+11234567890"
                 className="flex items-center gap-3 hover:text-white transition-all group"
               >
-                <Phone className="w-[19px] h-[19px] text-[#dfab56] shrink-0" />
+                <Phone className="w-[19px] h-[19px] text-brand-gold shrink-0" />
                 <span>+1 (123) 456-7890</span>
               </a>
 
@@ -178,20 +178,20 @@ export default function Footer() {
                 href="mailto:info@netsaarthi.com"
                 className="flex items-center gap-3 hover:text-white transition-all group"
               >
-                <Mail className="w-[19px] h-[19px] text-[#dfab56] shrink-0" />
+                <Mail className="w-[19px] h-[19px] text-brand-gold shrink-0" />
                 <span className="break-all">info@netsaarthi.com</span>
               </a>
 
               {/* Clock/Hours item */}
               <div className="flex items-center gap-3">
-                <Clock className="w-[19px] h-[19px] text-[#dfab56] shrink-0" />
+                <Clock className="w-[19px] h-[19px] text-brand-gold shrink-0" />
                 <span>Mon - Sat: 09:00 AM - 06:00 PM</span>
               </div>
 
               {/* Book Consultation Solid Rounded Card Button matching image layout */}
               <button
                 onClick={openModal}
-                className="mt-4 w-full py-3.5 px-5 bg-[#dfab56] hover:bg-[#ebd0a3] text-neutral-900 font-sans text-xs font-bold tracking-[0.16em] uppercase rounded-sm flex items-center justify-between transition-all duration-300 shadow-[0_12px_24px_rgba(223,171,86,0.15)] group cursor-pointer focus:outline-none"
+                className="mt-4 w-full py-3.5 px-5 bg-brand-gold hover:bg-[#ebd0a3] text-neutral-900 font-sans text-xs font-bold tracking-[0.16em] uppercase rounded-sm flex items-center justify-between transition-all duration-300 shadow-[0_12px_24px_rgba(223,171,86,0.15)] group cursor-pointer focus:outline-none"
               >
                 <span>BOOK CONSULTATION</span>
                 <Calendar className="w-[18px] h-[18px] text-neutral-900 shrink-0 opacity-80" />
@@ -206,13 +206,13 @@ export default function Footer() {
           <div className="flex items-center gap-8">
             <a
               href="#privacy"
-              className="hover:text-[#dfab56] transition-colors duration-200"
+              className="hover:text-brand-gold transition-colors duration-200"
             >
               Privacy Policy
             </a>
             <a
               href="#terms"
-              className="hover:text-[#dfab56] transition-colors duration-200"
+              className="hover:text-brand-gold transition-colors duration-200"
             >
               Terms & Conditions
             </a>

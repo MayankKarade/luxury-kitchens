@@ -13,11 +13,14 @@ import {
 } from "lucide-react";
 import { useConsultation } from "@/context/ConsultationContext";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation"; // Import usePathname
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { openModal } = useConsultation();
+  const pathname = usePathname(); // Get current route
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,27 +35,35 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "HOME", href: "#home", active: true },
-    { name: "ABOUT", href: "#about" },
-    { name: "SERVICES", href: "#services", hasDropdown: true },
-    { name: "PORTFOLIO", href: "#portfolio" },
-    { name: "LOCATIONS", href: "#locations", hasDropdown: true },
-    { name: "PROCESS", href: "#process" },
-    { name: "BLOG", href: "#blog" },
-    { name: "CONTACT", href: "#contact" },
+    { name: "HOME", href: "/" },
+    { name: "ABOUT", href: "/about" },
+    { name: "SERVICES", href: "/our-services" },
+    { name: "PORTFOLIO", href: "/portfolio" },
+    { name: "LOCATIONS", href: "#" },
+    { name: "PROCESS", href: "#" },
+    { name: "BLOG", href: "#" },
+    { name: "CONTACT", href: "#" },
   ];
+
+  // Helper to determine if a link is active
+  const isActive = (href) => {
+    if (href === "/") {
+      return pathname === href;
+    }
+    return pathname === href || pathname?.startsWith(`${href}/`);
+  };
 
   return (
     <header
       className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#0b0c10]/98 shadow-2xl border-b border-white/5"
+          ? "bg-brand-dark/98 shadow-2xl border-b border-white/5"
           : "bg-black/25 backdrop-blur-[2px]"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-16 pt-3 lg:pt-5 flex justify-between items-center">
         {/* Brand Logo */}
-        <a href="#home" className="flex flex-col items-start group shrink-0">
+        <Link href="/" className="flex flex-col items-start group shrink-0">
           <div className="relative">
             <div className="relative w-[140px] h-14">
               <Image
@@ -68,7 +79,7 @@ export default function Navbar() {
               LUXURY KITCHENS & INTERIORS
             </span>
           </div>
-        </a>
+        </Link>
 
         {/* Desktop view */}
         <div className="hidden xl:flex flex-col items-end gap-3.5">
@@ -97,28 +108,26 @@ export default function Navbar() {
           <div className="flex items-center gap-8 pl-5 py-2 bg-brand-gold/5 rounded-md">
             <div className="flex items-center gap-3">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
                   href={link.href}
                   className={`text-[12px] font-medium tracking-tight transition-all duration-300 flex items-center gap-1 py-1 relative group ${
-                    link.active
+                    isActive(link.href)
                       ? "text-brand-gold"
                       : "text-gray-300 hover:text-brand-gold"
                   }`}
                 >
                   <span>{link.name}</span>
-                  {link.hasDropdown && (
-                    <ChevronDown className="w-3 h-3 opacity-70" />
-                  )}
-                  {link.active && (
+                  {/* Remove dropdown chevron if not needed; or keep but without functionality */}
+                  {isActive(link.href) && (
                     <span className="absolute bottom-[-4px] left-0 right-0 h-[2.5px] bg-brand-gold"></span>
                   )}
-                </a>
+                </Link>
               ))}
             </div>
             <button
               onClick={openModal}
-              className="px-5 py-3 bg-brand-gold hover:bg-[#eec176] text-[#08090d] font-sans text-xs font-bold tracking-[0.16em] rounded-[3px] transition-all duration-300 shadow-md flex items-center gap-2"
+              className="px-5 py-3 bg-brand-gold hover:bg-[#eec176] text-[#08090d] font-sans text-xs font-bold tracking-[0.1em] rounded-[3px] transition-all duration-300 shadow-md flex items-center gap-2"
             >
               <span>BOOK CONSULTATION</span>
               <Calendar className="w-4 h-4 text-[#08090d]" />
@@ -136,7 +145,7 @@ export default function Navbar() {
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-1.5 rounded-md hover:bg-white/5 transition-colors focus:outline-none"
+            className="p-1.5 rounded-md hover:bg-brand-white/5 transition-colors focus:outline-none"
             aria-label="Toggle Menu"
           >
             {mobileMenuOpen ? (
@@ -148,7 +157,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Drawer Navigation - ADDED explicit X close button inside */}
+      {/* Mobile Drawer Navigation */}
       <div
         className={`xl:hidden fixed inset-x-0 top-0 h-screen bg-[#07080b]/98 backdrop-blur-lg z-40 transition-all duration-300 transform ${
           mobileMenuOpen
@@ -157,31 +166,29 @@ export default function Navbar() {
         }`}
       >
         <div className="flex flex-col h-full p-6 pt-24 gap-6 relative">
-          {/* ========== NEW CLOSE BUTTON INSIDE DRAWER ========== */}
           <button
             onClick={() => setMobileMenuOpen(false)}
-            className="absolute top-6 right-6 p-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors focus:outline-none"
+            className="absolute top-6 right-6 p-2 rounded-md bg-brand-white/10 hover:bg-brand-white/20 transition-colors focus:outline-none"
             aria-label="Close menu"
           >
             <X className="w-6 h-6 text-white" />
           </button>
-          {/* ================================================== */}
 
           <div className="flex flex-col gap-4">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className={`text-sm font-semibold tracking-widest py-3 border-b border-white/5 flex justify-between items-center ${
-                  link.active
+                  isActive(link.href)
                     ? "text-brand-gold"
                     : "text-gray-300 hover:text-white"
                 }`}
               >
                 <span>{link.name}</span>
                 <ArrowRight className="w-4 h-4 opacity-70" />
-              </a>
+              </Link>
             ))}
           </div>
 

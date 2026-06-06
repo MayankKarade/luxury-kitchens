@@ -73,8 +73,8 @@ export default function Hero() {
         <div className="absolute top-1/2 left-2/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-amber-500/5 blur-[180px] pointer-events-none rounded-full" />
       </div>
 
-      <div className="flex flex-col md:flex-row items-center justify-center px-4 sm:px-10 md:px-16 w-full max-w-7xl">
-        <div className="w-full md:w-[45%] mx-auto relative z-10 flex-grow flex flex-col justify-center">
+      <div className="flex flex-col lg:flex-row items-center justify-center px-4 sm:px-10 lg:px-16 w-full max-w-7xl">
+        <div className="w-full lg:w-[45%] mx-auto relative z-10 flex-grow flex flex-col justify-center">
           <div className="grid grid-cols-1 gap-8 items-center">
             {/* Left animated content */}
             <motion.div
@@ -179,22 +179,22 @@ export default function Hero() {
 
         {/* Floating panel – animated slide from right */}
         <motion.div
-          className="w-full md:w-[55%] mx-auto relative z-10 mt-auto pt-6"
+          className="w-full lg:w-[55%] mx-auto relative z-10 mt-auto pt-6"
           variants={slideInRight}
           initial="hidden"
           animate="visible"
         >
           <div className="flex justify-end">
-            <div className="w-full lg:max-w-4xl bg-black/20 backdrop-blur-xl border border-white/10 rounded-xl p-6 sm:p-7 shadow-2xl relative overflow-hidden group">
-              <div className="grid grid-cols-2 gap-4 md:flex md:flex-row md:justify-between md:items-center md:gap-0 px-2 sm:px-4">
+            <div className="w-full lg:max-w-4xl bg-black/20 backdrop-blur-xs border border-white/10 rounded-xl p-6 sm:p-7 shadow-2xl relative overflow-hidden group">
+              <div className="grid grid-cols-2 gap-4 lg:flex lg:flex-row lg:justify-between lg:items-center md:gap-0 px-2 sm:px-4">
                 {features.map((feat, index) => (
                   <motion.div
                     key={index}
-                    className="flex flex-col items-center md:items-start justify-center gap-4 py-2"
+                    className="flex flex-col items-center lg:items-start justify-center gap-4 py-2"
                     whileHover={{ y: -3, transition: { duration: 0.2 } }}
                   >
                     <div className="w-12 h-12 rounded-full border border-brand-gold/40 flex items-center justify-center text-brand-gold shrink-0">
-                      <feat.Icon className="w-5 h-5 text-brand-gold" />
+                      <feat.Icon className="w-7 h-7 text-brand-gold" />
                     </div>
                     <div className="flex flex-col items-center md:items-start">
                       <h4 className="text-white font-semibold text-xs sm:text-sm tracking-wide font-sans">

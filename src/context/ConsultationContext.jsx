@@ -120,7 +120,7 @@ export function ConsultationProvider({ children }) {
             {/* Close Toggle */}
             <button
               onClick={() => setModalOpen(false)}
-              className="absolute top-5 right-5 p-2 rounded-full hover:bg-white/5 text-gray-400 hover:text-white transition-colors focus:outline-none z-10"
+              className="absolute top-5 right-5 p-2 rounded-full hover:bg-brand-white/5 text-gray-400 hover:text-white transition-colors focus:outline-none z-10"
               aria-label="Close dialogue"
             >
               <X className="w-5.5 h-5.5" />
@@ -154,7 +154,7 @@ export function ConsultationProvider({ children }) {
                         value={formData.name}
                         onChange={handleInputChange}
                         placeholder="John Doe"
-                        className={`bg-white/5 border ${
+                        className={`bg-brand-white/5 border ${
                           errors.name ? "border-red-500" : "border-white/10"
                         } focus:border-brand-gold/80 rounded px-4.5 py-3 text-sm text-white placeholder-gray-500 focus:outline-none transition-all w-full`}
                       />
@@ -176,7 +176,7 @@ export function ConsultationProvider({ children }) {
                         value={formData.email}
                         onChange={handleInputChange}
                         placeholder="john@example.com"
-                        className={`bg-white/5 border ${
+                        className={`bg-brand-white/5 border ${
                           errors.email ? "border-red-500" : "border-white/10"
                         } focus:border-brand-gold/80 rounded px-4.5 py-3 text-sm text-white placeholder-gray-500 focus:outline-none transition-all w-full`}
                       />
@@ -198,7 +198,7 @@ export function ConsultationProvider({ children }) {
                         value={formData.phone}
                         onChange={handleInputChange}
                         placeholder="+1 (123) 456-7890"
-                        className={`bg-white/5 border ${
+                        className={`bg-brand-white/5 border ${
                           errors.phone ? "border-red-500" : "border-white/10"
                         } focus:border-brand-gold/80 rounded px-4.5 py-3 text-sm text-white placeholder-gray-500 focus:outline-none transition-all w-full`}
                       />
@@ -221,7 +221,7 @@ export function ConsultationProvider({ children }) {
                         }
                       >
                         <div
-                          className={`bg-white/5 border ${
+                          className={`bg-brand-white/5 border ${
                             errors.service
                               ? "border-red-500"
                               : "border-white/10"
@@ -269,7 +269,7 @@ export function ConsultationProvider({ children }) {
                         }
                       >
                         <div
-                          className={`bg-white/5 border ${
+                          className={`bg-brand-white/5 border ${
                             errors.location
                               ? "border-red-500"
                               : "border-white/10"
@@ -315,7 +315,7 @@ export function ConsultationProvider({ children }) {
                         name="date"
                         value={formData.date}
                         onChange={handleInputChange}
-                        className="bg-white/5 border border-white/10 focus:border-brand-gold/80 rounded px-4.5 py-3 text-sm text-white focus:outline-none transition-all w-full cursor-pointer"
+                        className="bg-brand-white/5 border border-white/10 focus:border-brand-gold/80 rounded px-4.5 py-3 text-sm text-white focus:outline-none transition-all w-full cursor-pointer"
                       />
                     </div>
                   </div>
@@ -340,7 +340,7 @@ export function ConsultationProvider({ children }) {
                           className={`py-2 px-3 border rounded text-xs tracking-wider font-medium font-display transition-all ${
                             formData.budget === tier
                               ? "bg-brand-gold/20 border-brand-gold text-brand-gold"
-                              : "bg-white/5 border-white/10 text-gray-400 hover:border-white/20"
+                              : "bg-brand-white/5 border-white/10 text-gray-400 hover:border-white/20"
                           }`}
                         >
                           {tier}
@@ -360,7 +360,7 @@ export function ConsultationProvider({ children }) {
                       value={formData.message}
                       onChange={handleInputChange}
                       placeholder="Share details about your space design, preferred materials, and vision..."
-                      className="bg-white/5 border border-white/10 focus:border-brand-gold/80 rounded px-4.5 py-3 text-sm text-white placeholder-gray-500 focus:outline-none transition-all w-full resize-none"
+                      className="bg-brand-white/5 border border-white/10 focus:border-brand-gold/80 rounded px-4.5 py-3 text-sm text-white placeholder-gray-500 focus:outline-none transition-all w-full resize-none"
                     />
                   </div>
 
@@ -369,7 +369,7 @@ export function ConsultationProvider({ children }) {
                     <button
                       type="button"
                       onClick={() => setModalOpen(false)}
-                      className="px-5 py-3.5 border border-white/10 hover:bg-white/5 text-gray-300 font-display text-xs font-bold tracking-widest rounded-sm transition-all"
+                      className="px-5 py-3.5 border border-white/10 hover:bg-brand-white/5 text-gray-300 font-display text-xs font-bold tracking-widest rounded-sm transition-all"
                     >
                       CANCEL
                     </button>
@@ -408,7 +408,7 @@ export function ConsultationProvider({ children }) {
                     </p>
                   </div>
 
-                  <div className="p-5 rounded-lg bg-white/5 border border-white/5 max-w-md w-full flex flex-col gap-3.5 text-left text-xs text-gray-300">
+                  <div className="p-5 rounded-lg bg-brand-white/5 border border-white/5 max-w-md w-full flex flex-col gap-3.5 text-left text-xs text-gray-300">
                     <div className="flex justify-between items-center border-b border-white/5 pb-2.5">
                       <span className="font-semibold text-white">
                         Representative Contact:
@@ -433,7 +433,7 @@ export function ConsultationProvider({ children }) {
 
                   <button
                     onClick={() => setModalOpen(false)}
-                    className="mt-4 px-8 py-3.5 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-brand-gold text-white font-display text-xs font-bold tracking-widest rounded-sm transition-all duration-300 flex items-center gap-2"
+                    className="mt-4 px-8 py-3.5 bg-brand-white/5 hover:bg-brand-white/10 border border-white/10 hover:border-brand-gold text-white font-display text-xs font-bold tracking-widest rounded-sm transition-all duration-300 flex items-center gap-2"
                   >
                     <span>CLOSE OVERLAY</span>
                     <ArrowRight className="w-4 h-4 text-brand-gold" />

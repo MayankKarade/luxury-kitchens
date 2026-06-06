@@ -141,9 +141,9 @@ export default function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="bg-[#0b0c10] px-4 sm:px-10 md:px-16 py-12 sm:py-16 lg:py-20 relative overflow-hidden select-none"
+      className="bg-brand-dark px-4 sm:px-10 md:px-16 py-12 sm:py-16 lg:py-20 relative overflow-hidden select-none"
     >
-      <div className="absolute top-1/3 left-0 w-[500px] h-[500px] rounded-full bg-white/[0.01] blur-[150px] pointer-events-none"></div>
+      <div className="absolute top-1/3 left-0 w-[500px] h-[500px] rounded-full bg-brand-white/[0.01] blur-[150px] pointer-events-none"></div>
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-2 items-start">
           {/* Left Column with staggered animation */}
@@ -176,7 +176,7 @@ export default function Portfolio() {
             <motion.a
               variants={fadeInUp}
               href="#contact"
-              className="px-3 w-full sm:w-fit sm:px-7 py-3.5 bg-brand-gold hover:bg-[#eec176] text-[#0b0c10] font-sans text-xs font-bold tracking-[0.16em] uppercase rounded-[2px] transition-all duration-350 shadow-md flex items-center justify-center gap-2 group-hover:scale-[1.02]"
+              className="px-3 w-full sm:w-fit sm:px-7 py-3.5 bg-brand-gold hover:bg-[#eec176] text-brand-dark font-sans text-xs font-bold tracking-[0.16em] uppercase rounded-[2px] transition-all duration-350 shadow-md flex items-center justify-center gap-2 group-hover:scale-[1.02]"
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -390,7 +390,7 @@ export default function Portfolio() {
                   <button
                     key={idx}
                     onClick={() => emblaApi?.scrollTo(idx)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${idx === selectedIndex ? "bg-brand-gold w-4" : "bg-white/30"}`}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${idx === selectedIndex ? "bg-brand-gold w-4" : "bg-brand-white/30"}`}
                   />
                 ))}
               </div>

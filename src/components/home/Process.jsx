@@ -64,12 +64,12 @@ export default function Process() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="mb-16 text-left"
+          className="mb-10 text-left"
         >
           <span className="text-brand-gold font-sans text-xs font-bold tracking-[0.25em] uppercase block mb-3">
             OUR PROCESS
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[44px] leading-tight text-neutral-900 font-semibold tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-[35px] leading-tight text-neutral-900 font-normal tracking-tight">
             From Concept To Creation
           </h2>
         </motion.div>
@@ -89,7 +89,7 @@ export default function Process() {
               className="flex gap-5 sm:gap-7 items-start relative z-10 group"
             >
               {/* Process timeline circle badge */}
-              <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full bg-white border border-brand-gold/20 flex items-center justify-center text-brand-gold shadow-sm transform transition-all duration-300 group-hover:scale-105 group-hover:border-brand-gold group-hover:shadow-md group-hover:bg-amber-50/90 shrink-0">
+              <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full bg-brand-white border border-brand-gold/20 flex items-center justify-center text-brand-gold shadow-sm transform transition-all duration-300 group-hover:scale-105 group-hover:border-brand-gold group-hover:shadow-md group-hover:bg-amber-50/90 shrink-0">
                 <step.Icon
                   className="w-7 h-7 sm:w-8 sm:h-8 text-brand-gold"
                   strokeWidth={1.3}
@@ -129,7 +129,7 @@ export default function Process() {
               {/* Step circle & Dotted connector flow */}
               <div className="flex items-center w-full mb-6 relative">
                 {/* Process Circle Frame with delicate gold shadow hover */}
-                <div className="w-24 h-24 rounded-full bg-white border border-brand-gold/20 flex items-center justify-center text-brand-gold shadow-sm transform transition-all duration-300 group-hover:scale-105 group-hover:border-brand-gold group-hover:shadow group-hover:bg-amber-50/10 z-10 shrink-0">
+                <div className="w-24 h-24 rounded-full bg-brand-white border border-brand-gold/20 flex items-center justify-center text-brand-gold shadow-sm transform transition-all duration-300 group-hover:scale-105 group-hover:border-brand-gold group-hover:shadow group-hover:bg-amber-50/10 z-10 shrink-0">
                   <step.Icon
                     className="w-12 h-12 text-brand-gold"
                     strokeWidth={1.3}
@@ -151,14 +151,14 @@ export default function Process() {
               <div className="flex flex-col items-start text-left">
                 {/* Luxury mini step gold tag */}
                 <span className="text-[11px] font-sans font-bold text-brand-gold tracking-widest uppercase mb-1.5 leading-none block">
-                  {step.num} /
+                  {step.num}
                 </span>
 
                 <h3 className="text-neutral-900 font-serif text-[17px] font-bold tracking-tight mb-2.5 leading-snug">
                   {step.title}
                 </h3>
 
-                <p className="text-[13px] text-zinc-500 leading-relaxed font-sans max-w-[170px]">
+                <p className="text-[12px] text-zinc-500 leading-relaxed font-sans max-w-[170px]">
                   {step.desc}
                 </p>
               </div>

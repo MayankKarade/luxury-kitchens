@@ -107,9 +107,9 @@ export default function Stats() {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
               key={index}
-              className={`flex flex-col sm:flex-row items-center sm:items-start lg:items-center gap-4 justify-center text-center sm:text-left lg:text-center px-4 py-1 ${
+              className={`flex flex-col sm:flex-row items-center sm:items-center lg:items-center gap-4 justify-center text-center sm:text-center lg:text-center px-4 py-1 ${
                 index === statsList.length - 1
-                  ? "col-span-2 sm:col-span-1 lg:col-span-1"
+                  ? "col-span-2 sm:col-span-2 lg:col-span-1"
                   : ""
               }`}
             >

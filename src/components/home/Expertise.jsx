@@ -17,6 +17,7 @@ import interiorImg from "../../assets/images/interior_living_room_1780070361503.
 import renovationImg from "../../assets/images/renovation_kitchen_living_1780070378792.png";
 import officeImg from "../../assets/images/executive_office_card_1780070403397.png";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Expertise() {
   const services = [
@@ -26,7 +27,7 @@ export default function Expertise() {
       desc: "Stylish, functional and customized kitchens designed for modern living.",
       img: kitchenImg,
       iconElement: (
-        <LayoutGrid className="w-5 h-5 text-[#dfab56]" strokeWidth={1.8} />
+        <LayoutGrid className="w-5 h-5 text-brand-gold" strokeWidth={1.8} />
       ),
     },
     {
@@ -35,7 +36,7 @@ export default function Expertise() {
       desc: "Smart storage solutions that blend elegance with functionality.",
       img: wardrobeImg,
       iconElement: (
-        <Sliders className="w-5 h-5 text-[#dfab56]" strokeWidth={1.8} />
+        <Sliders className="w-5 h-5 text-brand-gold" strokeWidth={1.8} />
       ),
     },
     {
@@ -44,7 +45,7 @@ export default function Expertise() {
       desc: "Complete interior solutions tailored to your taste and lifestyle.",
       img: interiorImg,
       iconElement: (
-        <Sofa className="w-5 h-5 text-[#dfab56]" strokeWidth={1.8} />
+        <Sofa className="w-5 h-5 text-brand-gold" strokeWidth={1.8} />
       ),
     },
     {
@@ -53,7 +54,7 @@ export default function Expertise() {
       desc: "Transform your existing spaces with our renovation expertise.",
       img: renovationImg,
       iconElement: (
-        <RefreshCw className="w-5 h-5 text-[#dfab56]" strokeWidth={1.8} />
+        <RefreshCw className="w-5 h-5 text-brand-gold" strokeWidth={1.8} />
       ),
     },
     {
@@ -62,7 +63,7 @@ export default function Expertise() {
       desc: "Premium interior solutions for offices, retail and commercial spaces.",
       img: officeImg,
       iconElement: (
-        <Building2 className="w-5 h-5 text-[#dfab56]" strokeWidth={1.8} />
+        <Building2 className="w-5 h-5 text-brand-gold" strokeWidth={1.8} />
       ),
     },
   ];
@@ -113,7 +114,7 @@ export default function Expertise() {
             variants={fadeInUp}
             className="lg:col-span-7 flex flex-col gap-3"
           >
-            <span className="text-[#dfab56] font-sans text-[12.5px] font-bold tracking-[0.2em] uppercase">
+            <span className="text-brand-gold font-sans text-[12.5px] font-bold tracking-[0.2em] uppercase">
               OUR EXPERTISE
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-[46px] leading-[1.15] text-[#111827] font-semibold tracking-tight">
@@ -133,9 +134,9 @@ export default function Expertise() {
               that reflect your style and elevate your living and working
               spaces.
             </p>
-            <motion.a
-              href="#portfolio"
-              className="inline-flex items-center gap-1 text-[13px] font-sans font-bold tracking-wider text-[#dfab56] hover:text-[#eec176] transition-colors uppercase"
+            <Link
+              href="/our-services"
+              className="inline-flex items-center gap-1 text-[13px] font-sans font-bold tracking-wider text-brand-gold hover:text-[#eec176] transition-colors uppercase"
               whileHover={{ x: 5 }}
               transition={{ type: "spring", stiffness: 400 }}
             >
@@ -143,7 +144,7 @@ export default function Expertise() {
               <span className="text-lg leading-none select-none relative -top-0.5 ml-1">
                 →
               </span>
-            </motion.a>
+            </Link>
           </motion.div>
         </motion.div>
 
@@ -160,7 +161,7 @@ export default function Expertise() {
               key={service.id}
               variants={cardVariants}
               whileHover="hover"
-              className="bg-white rounded-2xl overflow-hidden border border-zinc-200/50 shadow-sm transition-all duration-300 flex flex-col h-full group hover:shadow-lg"
+              className="bg-brand-white rounded-2xl overflow-hidden border border-zinc-200/50 shadow-sm transition-all duration-300 flex flex-col h-full group hover:shadow-lg"
             >
               {/* Card Image section with floating badge overlay */}
               <div className="relative">
@@ -174,8 +175,8 @@ export default function Expertise() {
                   />
                 </div>
                 <motion.div
-                  className="absolute -bottom-6 left-5 w-11 h-11 bg-[#0f1115] border border-white/10 rounded-xl flex items-center justify-center shadow-lg z-40"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  className="absolute -bottom-6 left-5 w-11 h-11 bg-[#0f1115] border border-white/10 rounded-xl flex items-center justify-center shadow-lg z-40 group-hover:scale-[1.1] group-hover:rotate-6 transition-all duration-200"
+                  // whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   {service.iconElement}
@@ -183,7 +184,7 @@ export default function Expertise() {
               </div>
 
               {/* Card content block */}
-              <div className="p-5 flex flex-col justify-between flex-grow pt-8 bg-white pb-6">
+              <div className="p-5 flex flex-col justify-between flex-grow pt-8 bg-brand-white pb-6">
                 <div className="flex flex-col gap-2.5">
                   <h3 className="font-serif text-[18px] md:text-[19px] font-bold text-[#111827] tracking-tight leading-snug">
                     {service.title}
@@ -196,7 +197,7 @@ export default function Expertise() {
                 <div className="pt-4 border-t border-zinc-100 mt-2">
                   <motion.a
                     href="#contact"
-                    className="inline-flex items-center gap-1 text-[11px] font-sans font-extrabold tracking-widest text-[#dfab56] hover:text-[#eec176] transition-colors"
+                    className="inline-flex items-center gap-1 text-[11px] font-sans font-extrabold tracking-widest text-brand-gold hover:text-[#eec176] transition-colors"
                     whileHover={{ x: 4 }}
                     transition={{ type: "spring", stiffness: 400 }}
                   >

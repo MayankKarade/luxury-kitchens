@@ -162,8 +162,8 @@ export default function Brands() {
   }, [index, brandLogos.length]);
 
   return (
-    <section className="bg-[#fbf9f6] px-4 sm:px-10 md:px-16 py-9 sm:py-10 border-y border-brand-gold/15 relative overflow-hidden select-none">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section className="bg-[#fbf9f6] px-4 sm:px-10 md:px-20 py-9 sm:py-10 border-y border-brand-gold/15 relative overflow-hidden select-none">
+      <div className="max-w-7xl mx-auto ">
         {/* Centered Heading */}
         <div className="text-center pb-6">
           <p className="text-[11px] sm:text-[14px] tracking-[0.25em] font-extrabold text-neutral-900 font-sans uppercase">
