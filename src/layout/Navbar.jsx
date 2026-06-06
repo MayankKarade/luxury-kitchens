@@ -69,6 +69,7 @@ export default function Navbar() {
               <Image
                 src={"/logo/logo.png"}
                 alt=""
+                loading="eager"
                 fill
                 className="object-cover"
               />

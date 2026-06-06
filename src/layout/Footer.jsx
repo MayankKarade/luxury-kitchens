@@ -33,6 +33,7 @@ export default function Footer() {
               <div className="relative w-36 h-14">
                 <Image
                   src={"/logo/logo.png"}
+                  loading="eager"
                   alt=""
                   fill
                   className="object-cover"
