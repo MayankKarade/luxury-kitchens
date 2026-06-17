@@ -7,9 +7,8 @@ import Image from "next/image";
 
 import PortfolioHero from "./PortfolioHero";
 import FeaturedProjects from "./FeaturedProjects";
-// import FeaturedProjects from "./FeaturedProjects";
-// import ProjectSpotlight from "./ProjectSpotlight";
-// import BeforeAfterTransformations from "./BeforeAfterTransformations";
+import ProjectSpotlight from "./ProjectSpotlight";
+import BeforeAfterTransformations from "./BeforeAfterTransformations";
 
 export default function PortfolioClient() {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -38,15 +37,15 @@ export default function PortfolioClient() {
       {/* SECTION 2: SLIDABLE FEATURED PROJECTS */}
       <FeaturedProjects activeCategory={activeCategory} />
 
-      {/* SECTION 3: PROJECT SPOTLIGHT & INTERACTIVE TIMELINE */}
-      {/* <ProjectSpotlight
+      {/* SECTION 3: PROJECT SPOTLIGHT & INTERACTIVE GALLERY */}
+      <ProjectSpotlight
         setLightboxOpen={setLightboxOpen}
         spotlightIdx={spotlightIdx}
         setSpotlightIdx={setSpotlightIdx}
-      /> */}
+      />
 
       {/* SECTION 4: BEFORE & AFTER SLIDER COMPILATIONS */}
-      {/* <BeforeAfterTransformations /> */}
+      <BeforeAfterTransformations />
 
       {/* GLOBAL LIGHTBOX MODULE FOR PRESTIGE SHOWCASES */}
       <AnimatePresence>

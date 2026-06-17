@@ -94,7 +94,7 @@ export default function Team() {
   return (
     <section
       id="team-section"
-      className=" py-12 sm:py-16 lg:py-24 bg-[#fdfdfd] text-brand-dark relative select-none overflow-hidden"
+      className=" py-12 bg-[#fdfdfd] text-brand-dark relative select-none overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-10 md:px-16 relative">
         {/* Section Header Split layout matching mockup */}
