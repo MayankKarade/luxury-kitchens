@@ -47,7 +47,7 @@ function ArticleCard({ article, index }) {
             {article.readTime}
           </div>
           <Link
-            href="#newsletter"
+            href={`/blog/${article.slug}`}
             className="inline-flex items-center gap-2 text-brand-gold transition-colors hover:text-[#eec176]"
           >
             Read More

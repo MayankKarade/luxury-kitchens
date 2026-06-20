@@ -41,6 +41,7 @@ export const categories = [
 
 export const articles = [
   {
+    slug: "top-kitchen-design-trends-for-2025",
     category: "KITCHEN DESIGN TRENDS",
     title: "Top Kitchen Design Trends For 2025",
     description:
@@ -50,6 +51,7 @@ export const articles = [
     image: kitchenImg,
   },
   {
+    slug: "luxury-interior-ideas-that-never-go-out-of-style",
     category: "LUXURY INTERIOR IDEAS",
     title: "Luxury Interior Ideas That Never Go Out Of Style",
     description:
@@ -59,6 +61,7 @@ export const articles = [
     image: livingImg,
   },
   {
+    slug: "smart-space-optimization-for-modern-homes",
     category: "SPACE OPTIMIZATION",
     title: "Smart Space Optimization For Modern Homes",
     description:
@@ -68,6 +71,7 @@ export const articles = [
     image: wardrobeImg,
   },
   {
+    slug: "ultimate-guide-to-premium-materials",
     category: "MATERIAL GUIDES",
     title: "The Ultimate Guide To Premium Materials",
     description:
@@ -77,6 +81,7 @@ export const articles = [
     image: materialImg,
   },
   {
+    slug: "modern-european-design-inspiration-for-homes",
     category: "INTERNATIONAL DESIGN INSPIRATION",
     title: "Modern European Design Inspiration For Homes",
     description:
@@ -86,6 +91,7 @@ export const articles = [
     image: exteriorImg,
   },
   {
+    slug: "minimalist-kitchens-the-new-luxury",
     category: "KITCHEN DESIGN TRENDS",
     title: "Minimalist Kitchens: The New Luxury",
     description:

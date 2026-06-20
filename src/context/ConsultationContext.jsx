@@ -1,6 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   X,
   CheckCircle,
@@ -38,6 +39,7 @@ const validationSchema = yup.object().shape({
 });
 
 export function ConsultationProvider({ children }) {
+  const router = useRouter();
   const [modalOpen, setModalOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
@@ -57,9 +59,7 @@ export function ConsultationProvider({ children }) {
   const [locationDropdownOpen, setLocationDropdownOpen] = useState(false);
 
   const openModal = () => {
-    setModalOpen(true);
-    setIsSubmitted(false);
-    setErrors({});
+    router.push("/consultation");
   };
 
   const handleFormSubmit = async (e) => {

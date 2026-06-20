@@ -42,8 +42,9 @@ export default function Navbar() {
     { name: "LOCATIONS", href: "/locations" },
     { name: "PROCESS", href: "/process" },
     { name: "BLOG", href: "/blog" },
+    { name: "GALLERY", href: "/gallery" },
     { name: "TESTIMONIALS", href: "/testimonials" },
-    { name: "CONTACT", href: "#" },
+    { name: "CONTACT", href: "/contact" },
   ];
 
   // Helper to determine if a link is active

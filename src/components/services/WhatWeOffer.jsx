@@ -3,8 +3,8 @@
 import React from "react";
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
-import { useConsultation } from "../../context/ConsultationContext";
 import Image from "next/image";
+import Link from "next/link";
 import image1 from "../../assets/images/modular_kitchen_card_1780250098516.png";
 import image2 from "../../assets/images/modular_kitchen_card_1780250098516.png";
 import image3 from "../../assets/images/modular_kitchen_card_1780250098516.png";
@@ -13,12 +13,11 @@ import image5 from "../../assets/images/modular_kitchen_card_1780250098516.png";
 import image6 from "../../assets/images/modular_kitchen_card_1780250098516.png";
 
 export default function WhatWeOffer() {
-  const { openModal } = useConsultation();
-
   // Premium services checklist data block with golden icon SVGs
   const servicesList = [
     {
       id: "01",
+      slug: "modular-kitchens",
       title: "Modular Kitchens",
       description:
         "Stylish, functional and customized kitchens designed for modern living. Premium materials, smart storage and elegant finishes.",
@@ -46,6 +45,7 @@ export default function WhatWeOffer() {
     },
     {
       id: "02",
+      slug: "luxury-wardrobes",
       title: "Luxury Wardrobes",
       description:
         "Smart storage solutions that blend elegance with functionality. Designed to maximize space and complement your lifestyle.",
@@ -70,6 +70,7 @@ export default function WhatWeOffer() {
     },
     {
       id: "03",
+      slug: "interior-design",
       title: "Interior Design",
       description:
         "Complete interior solutions tailored to your taste and lifestyle. We create beautiful, functional and inspiring spaces.",
@@ -92,6 +93,7 @@ export default function WhatWeOffer() {
     },
     {
       id: "04",
+      slug: "renovation-services",
       title: "Renovation Services",
       description:
         "Transform your existing spaces with our renovation expertise. We bring new life and value to your home or workspace.",
@@ -131,6 +133,7 @@ export default function WhatWeOffer() {
     },
     {
       id: "05",
+      slug: "commercial-interiors",
       title: "Commercial Interiors",
       description:
         "Premium interior solutions for offices, retail and commercial spaces that enhance productivity and leave a lasting impression.",
@@ -152,6 +155,7 @@ export default function WhatWeOffer() {
     },
     {
       id: "06",
+      slug: "custom-furniture",
       title: "Custom Furniture",
       description:
         "Bespoke furniture crafted with precision and premium materials to match your space, style and functional needs.",
@@ -248,13 +252,13 @@ export default function WhatWeOffer() {
                 </p>
 
                 {/* Call to action explore trigger */}
-                <button
-                  onClick={openModal}
+                <Link
+                  href={`/our-services/${service.slug}`}
                   className="text-brand-gold hover:text-[#e5b667] font-sans text-xs font-bold tracking-[0.2em] flex items-center gap-2 mt-auto group transition-colors cursor-pointer select-none"
                 >
                   <span>EXPLORE SERVICE</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1.5" />
-                </button>
+                </Link>
               </div>
             </motion.div>
           ))}
