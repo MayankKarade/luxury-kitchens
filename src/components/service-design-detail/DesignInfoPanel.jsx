@@ -24,29 +24,27 @@ function Rating({ product }) {
 export default function DesignInfoPanel({ product }) {
   return (
     <aside className="pt-1">
-      <span className="text-xs font-extrabold uppercase tracking-[0.18em] text-brand-gold">
+      <span className="text-xs font-bold uppercase tracking-[0.18em] text-brand-gold">
         {product.serviceLabel}
       </span>
-      <h1 className="mt-3 font-serif text-4xl font-semibold leading-tight text-neutral-900 md:text-[44px]">
+      <h1 className="mt-2 font-serif text-3xl font-semibold leading-tight text-neutral-900 ">
         {product.title}
       </h1>
       <Rating product={product} />
 
-      <p className="mt-5 text-[15px] font-medium leading-7 text-zinc-700">
+      <p className="mt-3 text-[14px] font-medium leading-5 text-zinc-700">
         {product.detailText}
       </p>
 
-      <div className="mt-5">
-        <p className="text-3xl font-extrabold text-neutral-900">
-          {product.price}
-        </p>
+      <div className="mt-3">
+        <p className="text-2xl font-bold text-neutral-900">{product.price}</p>
         <p className="mt-1 text-xs font-semibold text-zinc-500">
           {product.note}
         </p>
       </div>
 
-      <div className="mt-6 border-y border-neutral-200 py-5">
-        <div className="space-y-5">
+      <div className="mt-3 border-y border-neutral-200 py-5">
+        <div className="space-y-2">
           {product.quickFeatures.map((feature) => (
             <div
               key={feature.title}
@@ -57,10 +55,10 @@ export default function DesignInfoPanel({ product }) {
                 className="h-8 w-8 text-brand-gold"
               />
               <div>
-                <h3 className="text-sm font-extrabold text-neutral-900">
+                <h3 className="text-sm font-bold text-neutral-900">
                   {feature.title}
                 </h3>
-                <p className="mt-1 text-sm font-medium leading-5 text-zinc-600">
+                <p className="mt-0 text-sm font-medium leading-5 text-zinc-600">
                   {feature.text}
                 </p>
               </div>
@@ -69,24 +67,24 @@ export default function DesignInfoPanel({ product }) {
         </div>
       </div>
 
-      <div className="mt-6 grid gap-4 sm:grid-cols-2">
+      <div className="mt-3 grid gap-3 sm:grid-cols-2">
         <Link
           href="/consultation"
-          className="inline-flex h-12 items-center justify-center gap-4 rounded-md bg-brand-gold px-5 text-[11px] font-extrabold uppercase tracking-wide text-black transition-colors hover:bg-[#eec176]"
+          className="inline-flex h-12 items-center justify-center gap-4 rounded-md bg-brand-gold px-5 text-[11px] font-bold uppercase tracking-wide text-black transition-colors hover:bg-[#eec176]"
         >
           Book A Consultation
           <DetailIcon name="calendar" className="h-4 w-4" />
         </Link>
         <Link
           href="/consultation"
-          className="inline-flex h-12 items-center justify-center gap-4 rounded-md border border-neutral-300 bg-white px-5 text-[11px] font-extrabold uppercase tracking-wide text-neutral-900 transition-colors hover:border-brand-gold hover:text-brand-gold"
+          className="inline-flex h-12 items-center justify-center gap-4 rounded-md border border-neutral-300 bg-white px-5 text-[11px] font-bold uppercase tracking-wide text-neutral-900 transition-colors hover:border-brand-gold hover:text-brand-gold"
         >
           Request A Quote
           <DetailIcon name="arrow" className="h-4 w-4" />
         </Link>
       </div>
 
-      <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm font-semibold text-zinc-700">
           Have questions? Chat with our experts
         </p>
@@ -94,7 +92,7 @@ export default function DesignInfoPanel({ product }) {
           href="https://wa.me/11234567890"
           target="_blank"
           rel="noreferrer"
-          className="inline-flex h-11 items-center justify-center gap-3 rounded-md border border-neutral-200 bg-white px-6 text-[11px] font-extrabold uppercase tracking-wide text-neutral-900 transition-colors hover:border-[#25d366] hover:text-[#25d366]"
+          className="inline-flex h-11 items-center justify-center gap-3 rounded-md border border-neutral-200 bg-white px-6 text-[11px] font-bold uppercase tracking-wide text-neutral-900 transition-colors hover:border-[#25d366] hover:text-[#25d366]"
         >
           Chat On WhatsApp
           <DetailIcon name="whatsapp" className="h-4 w-4 text-[#25d366]" />

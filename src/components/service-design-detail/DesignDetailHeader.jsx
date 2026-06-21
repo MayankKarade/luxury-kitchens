@@ -8,7 +8,10 @@ export default function DesignDetailHeader({ service, product }) {
     <section className="bg-brand-white px-4 pb-8 pt-6 text-brand-dark sm:px-10 md:px-16">
       <div className="mx-auto max-w-7xl">
         <div className="mb-7 flex flex-wrap items-center gap-2 text-xs font-semibold">
-          <Link href="/" className="text-zinc-600 transition-colors hover:text-brand-gold">
+          <Link
+            href="/"
+            className="text-zinc-600 transition-colors hover:text-brand-gold"
+          >
             Home
           </Link>
           <span className="text-brand-gold">&gt;</span>
@@ -29,7 +32,7 @@ export default function DesignDetailHeader({ service, product }) {
           <span className="text-brand-gold">{product.title}</span>
         </div>
 
-        <div className="grid gap-9 lg:grid-cols-[1.45fr_0.85fr]">
+        <div className="grid gap-7 lg:grid-cols-[1.35fr_0.95fr]">
           <DesignImageGallery product={product} />
           <DesignInfoPanel product={product} />
         </div>

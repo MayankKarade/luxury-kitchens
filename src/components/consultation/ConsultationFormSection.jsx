@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { ArrowRight, Calendar, Clock3 } from "lucide-react";
 
@@ -26,6 +26,55 @@ function Field({ label, children }) {
 
 const inputClass =
   "h-12 w-full rounded-md border border-neutral-200 bg-white px-4 text-sm text-zinc-800 outline-none transition-colors placeholder:text-zinc-400 focus:border-brand-gold";
+
+function DateTimePickerField({ label, type, Icon }) {
+  const inputRef = useRef(null);
+  const [value, setValue] = useState("");
+
+  const openPicker = () => {
+    const input = inputRef.current;
+
+    if (!input) {
+      return;
+    }
+
+    input.focus();
+
+    if (typeof input.showPicker === "function") {
+      try {
+        input.showPicker();
+      } catch {
+        // Some browsers only allow showPicker during direct user activation.
+      }
+    }
+  };
+
+  return (
+    <label className="block">
+      <span className="mb-2 block text-xs font-bold text-zinc-700">
+        {label}
+      </span>
+      <span className="relative block">
+        <input
+          ref={inputRef}
+          type={type}
+          value={value}
+          onChange={(event) => setValue(event.target.value)}
+          onClick={openPicker}
+          className={`${inputClass} luxury-native-picker cursor-pointer pr-12`}
+        />
+        <button
+          type="button"
+          onClick={openPicker}
+          aria-label={`Open ${label.toLowerCase()} picker`}
+          className="absolute right-2 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-md border border-neutral-200 bg-brand-light text-brand-gold transition-colors hover:border-brand-gold hover:bg-brand-gold hover:text-black"
+        >
+          <Icon className="h-4 w-4" />
+        </button>
+      </span>
+    </label>
+  );
+}
 
 export default function ConsultationFormSection() {
   const [submitted, setSubmitted] = useState(false);
@@ -121,25 +170,17 @@ export default function ConsultationFormSection() {
               </select>
             </Field>
 
-            <label className="block">
-              <span className="mb-2 block text-xs font-bold text-zinc-700">
-                Preferred Date
-              </span>
-              <span className="relative block">
-                <input type="date" className={`${inputClass} pr-11`} />
-                <Calendar className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" />
-              </span>
-            </label>
+            <DateTimePickerField
+              label="Preferred Date"
+              type="date"
+              Icon={Calendar}
+            />
 
-            <label className="block">
-              <span className="mb-2 block text-xs font-bold text-zinc-700">
-                Preferred Time
-              </span>
-              <span className="relative block">
-                <input type="time" className={`${inputClass} pr-11`} />
-                <Clock3 className="pointer-events-none absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-500" />
-              </span>
-            </label>
+            <DateTimePickerField
+              label="Preferred Time"
+              type="time"
+              Icon={Clock3}
+            />
           </div>
 
           <label className="mt-5 block">

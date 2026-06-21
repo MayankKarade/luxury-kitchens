@@ -36,7 +36,7 @@ export default function TestimonialsHero() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#08090b] via-transparent to-black/35" />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-[560px] max-w-7xl flex-col justify-between px-4 sm:px-10 md:px-16">
+      <div className="relative z-10 mx-auto flex min-h-[560px] max-w-7xl flex-col justify-between px-4 sm:px-10 md:px-16 pb-16">
         <motion.div
           variants={stagger}
           initial="hidden"

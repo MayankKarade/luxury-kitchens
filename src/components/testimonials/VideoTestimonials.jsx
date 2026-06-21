@@ -51,7 +51,7 @@ function FlagIcon({ region }) {
 function VideoCard({ video }) {
   return (
     <article className="h-full overflow-hidden rounded-lg border border-white/15 bg-[#071014] shadow-[0_18px_45px_rgba(0,0,0,0.34)]">
-      <div className="relative aspect-[16/11.15] overflow-hidden">
+      <div className="relative aspect-[16/13.15] overflow-hidden">
         <Image
           src={video.image}
           alt={video.title}

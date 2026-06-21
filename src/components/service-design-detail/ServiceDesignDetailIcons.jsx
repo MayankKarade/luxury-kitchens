@@ -25,6 +25,14 @@ export function DetailIcon({ name, className = "" }) {
     );
   }
 
+  if (name === "x") {
+    return (
+      <svg viewBox="0 0 24 24" className={className} {...common}>
+        <path d="M18 6 6 18M6 6l12 12" />
+      </svg>
+    );
+  }
+
   if (name === "play") {
     return (
       <svg viewBox="0 0 64 64" className={className} aria-hidden="true">

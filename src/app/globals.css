@@ -41,3 +41,24 @@ body {
 .no-scrollbar {
   scrollbar-width: none;
 }
+
+.luxury-native-picker {
+  color-scheme: light;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.luxury-native-picker::-webkit-calendar-picker-indicator {
+  display: none;
+  opacity: 0;
+  -webkit-appearance: none;
+}
+
+.luxury-native-picker::-webkit-inner-spin-button,
+.luxury-native-picker::-webkit-clear-button {
+  display: none;
+}
+
+.luxury-native-picker::-webkit-date-and-time-value {
+  text-align: left;
+}

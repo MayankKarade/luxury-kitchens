@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
+import { AnimatePresence, motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
@@ -10,6 +11,7 @@ import { DetailIcon } from "./ServiceDesignDetailIcons";
 export default function DesignImageGallery({ product }) {
   const slides = product.galleryImages;
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   const plugins = useMemo(
     () => [
       Autoplay({
@@ -58,7 +60,7 @@ export default function DesignImageGallery({ product }) {
             {slides.map((image, index) => (
               <div
                 key={`${product.title}-main-${index}`}
-                className="relative min-w-0 flex-[0_0_100%] aspect-[16/10.7]"
+                className="relative min-w-0 flex-[0_0_100%] aspect-[16/11]"
               >
                 <Image
                   src={image}
@@ -79,6 +81,7 @@ export default function DesignImageGallery({ product }) {
         </span>
         <button
           type="button"
+          onClick={() => setLightboxOpen(true)}
           aria-label="View full design image"
           className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full bg-black/65 text-white backdrop-blur-sm transition-colors hover:bg-brand-gold hover:text-black"
         >
@@ -103,7 +106,7 @@ export default function DesignImageGallery({ product }) {
         </button>
       </div>
 
-      <div className="mt-2 grid grid-cols-3 gap-2 sm:grid-cols-6">
+      <div className="mt-2 grid grid-cols-3 gap-1 sm:grid-cols-6">
         {slides.slice(0, 6).map((image, index) => {
           const isLast = index === 5;
 
@@ -111,8 +114,15 @@ export default function DesignImageGallery({ product }) {
             <button
               key={`${product.title}-thumb-${index}`}
               type="button"
-              onClick={() => scrollTo(index)}
-              className={`relative aspect-[16/9] overflow-hidden rounded-md border-2 transition-colors ${
+              onClick={() => {
+                if (isLast) {
+                  setLightboxOpen(true);
+                  return;
+                }
+
+                scrollTo(index);
+              }}
+              className={`relative aspect-[16/13] overflow-hidden rounded-md border-2 transition-colors ${
                 selectedIndex === index
                   ? "border-brand-gold"
                   : "border-neutral-200 hover:border-brand-gold/60"
@@ -135,6 +145,73 @@ export default function DesignImageGallery({ product }) {
           );
         })}
       </div>
+
+      <AnimatePresence>
+        {lightboxOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[80] flex flex-col items-center justify-center bg-black/95 p-4 text-white backdrop-blur-md sm:p-8"
+          >
+            <div className="absolute inset-x-6 top-6 z-10 flex items-center justify-between gap-4 sm:inset-x-12">
+              <div className="min-w-0">
+                <span className="block text-[10px] font-black uppercase tracking-[0.25em] text-brand-gold">
+                  {product.serviceLabel}
+                </span>
+                <span className="mt-1 block truncate font-serif text-sm font-bold text-zinc-100 sm:text-base">
+                  {product.title} (Frame {selectedIndex + 1} of {slides.length})
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={() => setLightboxOpen(false)}
+                aria-label="Close design gallery"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-all hover:scale-105 hover:bg-brand-gold hover:text-black"
+              >
+                <DetailIcon name="x" className="h-5 w-5" />
+              </button>
+            </div>
+
+            <div className="relative mt-8 aspect-[16/10] w-full max-w-5xl overflow-hidden rounded-xl border border-white/5 shadow-2xl sm:aspect-[16/9]">
+              <Image
+                src={slides[selectedIndex]}
+                alt={`${product.title} expanded view ${selectedIndex + 1}`}
+                fill
+                sizes="90vw"
+                className="object-contain"
+              />
+            </div>
+
+            <div className="mt-6 flex max-w-full items-center gap-3 overflow-x-auto pb-1 no-scrollbar">
+              {slides.map((image, index) => (
+                <button
+                  key={`${product.title}-lightbox-thumb-${index}`}
+                  type="button"
+                  onClick={() => {
+                    setSelectedIndex(index);
+                    emblaApi?.scrollTo(index);
+                  }}
+                  aria-label={`Show expanded design image ${index + 1}`}
+                  className={`relative h-12 w-16 shrink-0 overflow-hidden rounded-lg border-2 transition-all ${
+                    selectedIndex === index
+                      ? "scale-[1.05] border-brand-gold"
+                      : "border-transparent opacity-60 hover:opacity-100"
+                  }`}
+                >
+                  <Image
+                    src={image}
+                    alt={`${product.title} expanded thumbnail ${index + 1}`}
+                    fill
+                    sizes="64px"
+                    className="object-cover"
+                  />
+                </button>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

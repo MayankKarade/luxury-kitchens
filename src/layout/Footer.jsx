@@ -11,6 +11,33 @@ import {
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import Image from "next/image";
+import Link from "next/link";
+
+const quickLinks = [
+  { name: "About Us", href: "/about" },
+  { name: "Services", href: "/our-services" },
+  { name: "Portfolio", href: "/portfolio" },
+  { name: "Process", href: "/process" },
+  { name: "Blog", href: "/blog" },
+  { name: "Contact Us", href: "/contact" },
+];
+
+const serviceLinks = [
+  { name: "Modular Kitchens", href: "/our-services/modular-kitchens" },
+  { name: "Luxury Wardrobes", href: "/our-services/luxury-wardrobes" },
+  { name: "Interior Design", href: "/our-services/interior-design" },
+  { name: "Renovation Services", href: "/our-services/renovation-services" },
+  { name: "Commercial Interiors", href: "/our-services/commercial-interiors" },
+  { name: "Custom Furniture", href: "/our-services/custom-furniture" },
+];
+
+const locationLinks = [
+  { name: "USA", href: "/locations#usa" },
+  { name: "Canada", href: "/locations#canada" },
+  { name: "UK", href: "/locations#uk" },
+  { name: "Europe", href: "/locations#europe" },
+  { name: "Ghana", href: "/locations#ghana" },
+];
 
 export default function Footer() {
   const { openModal } = useConsultation();
@@ -28,7 +55,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-12 gap-10 lg:gap-0 pb-10 border-b border-white/5">
           {/* Column 1: Logo and Professional Bio */}
           <div className="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-3 flex flex-col gap-6 lg:border-r lg:border-white/10 lg:pr-8">
-            <a href="#home" className="flex items-center gap-3 group">
+            <Link href="/" className="flex items-center gap-3 group">
               {/* Droplet blue modern layered brand logo matching image */}
               <div className="relative w-36 h-14">
                 <Image
@@ -39,7 +66,7 @@ export default function Footer() {
                   className="object-cover"
                 />
               </div>
-            </a>
+            </Link>
             <p className="text-zinc-400 font-sans text-[13.5px] leading-relaxed max-w-xs sm:max-w-sm">
               We create luxury kitchens and interiors that inspire. Delivering
               excellence across USA, Canada, UK, Europe and Ghana.
@@ -94,21 +121,14 @@ export default function Footer() {
               QUICK LINKS
             </h4>
             <ul className="flex flex-col gap-3 font-sans text-[13.5px] text-zinc-400">
-              {[
-                { name: "About Us", href: "#about" },
-                { name: "Services", href: "#services" },
-                { name: "Portfolio", href: "#portfolio" },
-                { name: "Process", href: "#process" },
-                { name: "Blog", href: "#blog" },
-                { name: "Contact Us", href: "#contact" },
-              ].map((link, idx) => (
-                <li key={idx}>
-                  <a
+              {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
                     href={link.href}
                     className="hover:text-white transition-colors duration-200"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -120,21 +140,14 @@ export default function Footer() {
               OUR SERVICES
             </h4>
             <ul className="flex flex-col gap-3 font-sans text-[13.5px] text-zinc-400">
-              {[
-                "Modular Kitchens",
-                "Wardrobes",
-                "Interior Design",
-                "Renovations",
-                "Commercial Interiors",
-                "Custom Furniture",
-              ].map((service, idx) => (
-                <li key={idx}>
-                  <a
-                    href="#services"
+              {serviceLinks.map((service) => (
+                <li key={service.href}>
+                  <Link
+                    href={service.href}
                     className="hover:text-white transition-colors duration-200"
                   >
-                    {service}
-                  </a>
+                    {service.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -146,15 +159,16 @@ export default function Footer() {
               LOCATIONS
             </h4>
             <ul className="flex flex-col gap-3 font-sans text-[13.5px] text-zinc-400">
-              {["USA", "Canada", "UK", "Europe", "Ghana"].map(
-                (location, idx) => (
-                  <li key={idx}>
-                    <span className="cursor-default hover:text-white transition-colors duration-200">
-                      {location}
-                    </span>
-                  </li>
-                ),
-              )}
+              {locationLinks.map((location) => (
+                <li key={location.href}>
+                  <Link
+                    href={location.href}
+                    className="hover:text-white transition-colors duration-200"
+                  >
+                    {location.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -205,18 +219,18 @@ export default function Footer() {
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-sans tracking-wide text-zinc-500">
           <p>© 2025 Netsaarthi. All Rights Reserved.</p>
           <div className="flex items-center gap-8">
-            <a
-              href="#privacy"
+            <Link
+              href="/privacy-policy"
               className="hover:text-brand-gold transition-colors duration-200"
             >
               Privacy Policy
-            </a>
-            <a
-              href="#terms"
+            </Link>
+            <Link
+              href="/terms-and-conditions"
               className="hover:text-brand-gold transition-colors duration-200"
             >
               Terms & Conditions
-            </a>
+            </Link>
           </div>
         </div>
       </div>

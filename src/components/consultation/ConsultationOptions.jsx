@@ -33,7 +33,7 @@ export default function ConsultationOptions() {
               <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-brand-gold/14 text-brand-gold">
                 <ConsultationIcon name={option.icon} className="h-12 w-12" />
               </div>
-              <h3 className="mt-5 font-serif text-2xl font-semibold text-neutral-900">
+              <h3 className="mt-5 font-serif text-xl font-semibold text-neutral-900">
                 {option.title}
               </h3>
               <p className="mx-auto mt-4 min-h-[48px] max-w-[210px] text-sm font-medium leading-6 text-zinc-600">
@@ -41,12 +41,8 @@ export default function ConsultationOptions() {
               </p>
               <a
                 href={option.href}
-                target={
-                  option.href.startsWith("http") ? "_blank" : undefined
-                }
-                rel={
-                  option.href.startsWith("http") ? "noreferrer" : undefined
-                }
+                target={option.href.startsWith("http") ? "_blank" : undefined}
+                rel={option.href.startsWith("http") ? "noreferrer" : undefined}
                 className="group mt-6 inline-flex h-12 w-full items-center justify-center gap-5 rounded-md bg-brand-gold text-[11px] font-extrabold tracking-wide text-black transition-colors hover:bg-[#eec176]"
               >
                 {option.action}
