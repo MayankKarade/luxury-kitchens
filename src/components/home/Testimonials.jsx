@@ -63,9 +63,9 @@ export default function Testimonials() {
       {/* <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-brand-gold/5 blur-[160px] pointer-events-none"></div> */}
       <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white via-transparent to-transparent pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-2 md:px-10 lg:px-0  relative z-10">
+      <div className=" mx-auto px-2 md:px-10 lg:px-0  relative z-10">
         {/* Rounded Slate Container with thin borders enclosing all three visual columns */}
-        <div className="  bg-[#0c0d12]/95 shadow-[0_30px_60px_rgba(0,0,0,0.85)] relative overflow-hidden grid grid-cols-1 lg:grid-cols-[3.6fr_3.7fr_3.7fr] items-stretch gap-6">
+        <div className="  bg-brand-dark/85 shadow-[0_30px_60px_rgba(0,0,0,0.85)] relative overflow-hidden grid grid-cols-1 lg:grid-cols-[3.6fr_3.7fr_3.7fr] items-stretch gap-6">
           {/* Left Column matching exact structure & text layout */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -123,7 +123,7 @@ export default function Testimonials() {
             transition={{ duration: 0.6, delay: 0.05 }}
             className=" py-8 sm:py-8 lg:py-14 px-1 sm:px-14 lg:px-0  flex flex-col justify-center relative z-10"
           >
-            <div className="border border-brand-gold/15 bg-[#12141c]/55 rounded-2xl py-8 pl-6 pr-4 flex flex-col justify-between h-full shadow-[0_20px_50px_rgba(0,0,0,0.45)]  hover:border-brand-gold/30 transition-colors duration-300">
+            <div className="border border-brand-gold/15 bg-brand-dark/35 rounded-2xl py-8 pl-6 pr-4 flex flex-col justify-between h-full shadow-[0_20px_50px_rgba(0,0,0,0.45)]  hover:border-brand-gold/30 transition-colors duration-300">
               <div className="flex-grow flex flex-col justify-between">
                 <div>
                   {/* Gold Curly Double Quote */}
@@ -193,12 +193,12 @@ export default function Testimonials() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className=" bg-brand-gold text-brand-dark mx-1 sm:mx-14 lg:mx-0 px-3 md:px-10 py-8 sm:py-12 xl:py-14 flex flex-col justify-between relative overflow-hidden rounded-2xl lg:rounded-l-3xl lg:rounded-r-none h-full "
+            className=" bg-brand-gold text-white mx-1 sm:mx-14 lg:mx-0 px-3 md:px-10 py-8 sm:py-12 xl:py-14 flex flex-col justify-between relative overflow-hidden rounded-2xl lg:rounded-l-3xl lg:rounded-r-none h-full "
           >
             <div className="relative z-10 flex flex-col  gap-6 md:gap-8">
               {/* Custom SVG Wire Binder Calendar with badge matches image layout perfectly */}
               <div className="flex items-start gap-4">
-                <div className="shrink-0 text-brand-dark">
+                <div className="shrink-0 text-white">
                   <svg
                     viewBox="0 0 44 44"
                     className="w-[48px] h-[48px]"
@@ -217,56 +217,56 @@ export default function Testimonials() {
                       cx="11"
                       cy="18"
                       r="1.5"
-                      className="fill-current text-neutral-900"
+                      className="fill-current text-white"
                     />
                     <circle
                       cx="18"
                       cy="18"
                       r="1.5"
-                      className="fill-current text-neutral-900"
+                      className="fill-current text-white"
                     />
                     <circle
                       cx="25"
                       cy="18"
                       r="1.5"
-                      className="fill-current text-neutral-900"
+                      className="fill-current text-white"
                     />
                     <circle
                       cx="11"
                       cy="25"
                       r="1.5"
-                      className="fill-current text-neutral-900"
+                      className="fill-current text-white"
                     />
                     <circle
                       cx="18"
                       cy="25"
                       r="1.5"
-                      className="fill-current text-neutral-900"
+                      className="fill-current text-white"
                     />
                     {/* Badge circle with checkmark/emblem */}
                     <circle
                       cx="32"
                       cy="30"
                       r="8"
-                      className="fill-brand-gold stroke-brand-dark"
+                      className="fill-brand-gold stroke-white"
                       strokeWidth="2.5"
                     />
                     <polyline
                       points="30 30 32 32 35 29"
                       strokeWidth="2.2"
-                      className="stroke-brand-dark"
+                      className="stroke-white"
                       fill="none"
                     />
                   </svg>
                 </div>
 
-                <h3 className="font-serif text-[24px] sm:text-[27px] font-semibold text-neutral-900 leading-[1.12] tracking-tight">
+                <h3 className="font-serif text-[24px] sm:text-[27px] font-semibold text-white leading-[1.12] tracking-tight">
                   Book Your <br />
                   Free Consultation
                 </h3>
               </div>
 
-              <p className="text-[14.5px] sm:text-[18px] text-neutral-900/85 font-sans leading-relaxed">
+              <p className="text-[14.5px] sm:text-[18px] text-white/85 font-sans leading-relaxed">
                 Let's bring your dream space to life. Schedule a free
                 consultation with our experts today.
               </p>
@@ -276,7 +276,7 @@ export default function Testimonials() {
             <div className="relative z-10 mt-4 ">
               <button
                 onClick={openModal}
-                className="w-full py-4.5 px-6 bg-[#0c0d12] hover:bg-black text-white font-sans text-xs font-bold tracking-[0.2em] rounded-md flex items-center justify-between transition-all duration-300 focus:outline-none group cursor-pointer shadow-[0_12px_32px_rgba(12,13,18,0.25)]"
+                className="w-full py-4.5 px-6 bg-brand-dark/90 hover:bg-brand-dark text-white font-sans text-xs font-bold tracking-[0.2em] rounded-md flex items-center justify-between transition-all duration-300 focus:outline-none group cursor-pointer shadow-[0_12px_32px_rgba(12,13,18,0.25)]"
               >
                 <span>BOOK NOW</span>
                 <span className="text-xl text-brand-gold font-light leading-none relative -top-0.5 group-hover:translate-x-1 duration-300">

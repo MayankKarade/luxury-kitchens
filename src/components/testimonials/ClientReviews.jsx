@@ -10,7 +10,7 @@ import { ReviewQuoteIcon, StarRating } from "./TestimonialIcons";
 export default function ClientReviews() {
   return (
     <section className="bg-brand-white px-4 py-12 text-brand-dark sm:px-10 sm:py-14 md:px-16">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto ">
         <div className="mb-8 flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-end">
           <div>
             <span className="text-xs font-extrabold uppercase tracking-[0.16em] text-brand-gold">
@@ -21,7 +21,7 @@ export default function ClientReviews() {
             </h2>
             <div className="mt-3 h-0.5 w-10 bg-brand-gold" />
           </div>
-          <button className="group inline-flex items-center gap-4 rounded-md border border-brand-gold px-5 py-3 text-[10px] font-bold tracking-widest text-brand-gold transition-colors hover:bg-brand-gold hover:text-black">
+          <button className="group inline-flex items-center gap-4 rounded-md border border-brand-gold px-5 py-3 text-[10px] font-bold tracking-widest text-brand-gold transition-colors hover:bg-brand-gold hover:text-white">
             VIEW ALL REVIEWS
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </button>

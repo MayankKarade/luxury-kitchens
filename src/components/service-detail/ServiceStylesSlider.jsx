@@ -8,7 +8,10 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
 export default function ServiceStylesSlider({ service }) {
-  const slides = useMemo(() => [...service.styles, ...service.styles], [service]);
+  const slides = useMemo(
+    () => [...service.styles, ...service.styles],
+    [service],
+  );
   const plugins = useMemo(
     () => [
       Autoplay({
@@ -35,7 +38,7 @@ export default function ServiceStylesSlider({ service }) {
       id="service-styles"
       className="bg-brand-white px-4 py-8 text-brand-dark sm:px-10 md:px-16"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto ">
         <div className="mb-8 text-center">
           <h2 className="font-serif text-3xl font-medium uppercase sm:text-[36px]">
             {service.stylesTitle}
@@ -73,7 +76,7 @@ export default function ServiceStylesSlider({ service }) {
                     </p>
                     <Link
                       href={`/our-services/${service.slug}/designs`}
-                      className="mt-4 inline-flex items-center gap-3 text-[11px] font-extrabold tracking-wide text-brand-gold transition-colors hover:text-[#b98220]"
+                      className="mt-4 inline-flex items-center gap-3 text-[11px] font-extrabold tracking-wide text-brand-gold transition-colors hover:text-[#9A0101]"
                     >
                       EXPLORE DESIGNS
                       <ArrowRight className="h-4 w-4" />

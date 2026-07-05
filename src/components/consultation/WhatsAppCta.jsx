@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 export default function WhatsAppCta() {
   return (
     <section className="bg-brand-white px-4 pb-8 text-white sm:px-10 md:px-16">
-      <div className="mx-auto grid max-w-7xl overflow-hidden rounded-lg bg-[#071014] shadow-sm lg:grid-cols-[280px_1fr_280px]">
+      <div className="mx-auto grid  overflow-hidden rounded-lg bg-[#071014] shadow-sm lg:grid-cols-[280px_1fr_280px]">
         <div className="relative hidden min-h-[130px] overflow-hidden bg-black/30 lg:block">
           <div className="absolute left-16 top-8 h-24 w-14 rotate-[-16deg] rounded-[18px] border-4 border-zinc-900 bg-white shadow-2xl">
             <div className="mx-auto mt-2 h-1 w-5 rounded-full bg-zinc-300" />
@@ -35,7 +35,7 @@ export default function WhatsAppCta() {
             href="https://wa.me/11234567890"
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex h-13 w-full items-center justify-center gap-4 rounded-md bg-brand-gold text-[11px] font-extrabold tracking-wide text-black transition-colors hover:bg-[#eec176]"
+            className="group inline-flex h-13 w-full items-center justify-center gap-4 rounded-md bg-brand-gold text-[11px] font-extrabold tracking-wide text-white transition-colors hover:bg-[#9A0101]"
           >
             CHAT ON WHATSAPP
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

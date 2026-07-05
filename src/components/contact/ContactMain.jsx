@@ -43,7 +43,7 @@ export default function ContactMain() {
 
   return (
     <section className="bg-brand-white px-4 py-8 text-brand-dark sm:px-10 md:px-16">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 lg:grid-cols-[1.55fr_1fr]">
+      <div className="mx-auto grid  grid-cols-1 gap-6 lg:grid-cols-[1.55fr_1fr]">
         <form
           onSubmit={handleSubmit}
           className="rounded-lg border border-neutral-200 bg-white p-6 shadow-sm sm:p-8"
@@ -52,8 +52,8 @@ export default function ContactMain() {
             Send Us A Message
           </h2>
           <p className="mt-3 text-sm font-medium text-zinc-600">
-            Fill out the form below and our team will get back to you as soon
-            as possible.
+            Fill out the form below and our team will get back to you as soon as
+            possible.
           </p>
 
           <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2">
@@ -134,7 +134,7 @@ export default function ContactMain() {
             I agree to the Privacy Policy and Terms &amp; Conditions.
           </label>
 
-          <button className="group mt-6 flex h-13 w-full items-center justify-center gap-5 rounded-md bg-brand-gold text-xs font-extrabold tracking-wide text-black transition-colors hover:bg-[#eec176]">
+          <button className="group mt-6 flex h-13 w-full items-center justify-center gap-5 rounded-md bg-brand-gold text-xs font-extrabold tracking-wide text-white transition-colors hover:bg-[#9A0101]">
             SEND MESSAGE
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </button>
@@ -169,7 +169,7 @@ export default function ContactMain() {
                 }}
                 className="flex gap-4 py-5 first:pt-0"
               >
-                <span className="flex h-13 w-13 shrink-0 items-center justify-center rounded-full bg-[#080b0e] text-brand-gold">
+                <span className="flex h-13 w-13 shrink-0 items-center justify-center rounded-full bg-[#010129] text-white">
                   <ContactIcon name={method.icon} className="h-6 w-6" />
                 </span>
                 <span>
@@ -195,17 +195,22 @@ export default function ContactMain() {
               Stay connected for design inspiration and updates.
             </p>
             <div className="mt-4 flex items-center gap-3">
-              {[FaFacebookF, FaInstagram, FaPinterestP, FaLinkedinIn, FaYoutube]
-                .map((Icon, index) => (
-                  <a
-                    key={index}
-                    href="#"
-                    aria-label="Social link"
-                    className="flex h-10 w-10 items-center justify-center rounded-full bg-[#080b0e] text-white transition-colors hover:bg-brand-gold hover:text-black"
-                  >
-                    <Icon className="h-4 w-4" />
-                  </a>
-                ))}
+              {[
+                FaFacebookF,
+                FaInstagram,
+                FaPinterestP,
+                FaLinkedinIn,
+                FaYoutube,
+              ].map((Icon, index) => (
+                <a
+                  key={index}
+                  href="#"
+                  aria-label="Social link"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[#010129] text-white transition-colors hover:bg-brand-gold hover:text-white"
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              ))}
             </div>
           </div>
         </aside>

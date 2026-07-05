@@ -160,7 +160,7 @@ export default function FeaturedProjects({ activeCategory }) {
 
   return (
     <section className="bg-brand-white py-12 sm:py-16 text-zinc-900 border-y border-neutral-100/80 overflow-hidden relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-10 md:px-16  z-10 relative">
+      <div className=" mx-auto px-4 sm:px-10 md:px-16  z-10 relative">
         {/* Section Header with exact details from image */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10">
           <div className="relative flex flex-col gap-3">
@@ -174,7 +174,7 @@ export default function FeaturedProjects({ activeCategory }) {
           <button
             id="view-all-featured-btn"
             onClick={openModal}
-            className="group border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-[#0b0c10] transition-all duration-300 px-5 py-2.5 rounded-md text-xs tracking-widest font-sans font-bold flex items-center gap-2 uppercase shrink-0 cursor-pointer"
+            className="group border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white transition-all duration-300 px-5 py-2.5 rounded-md text-xs tracking-widest font-sans font-bold flex items-center gap-2 uppercase shrink-0 cursor-pointer"
           >
             <span>VIEW ALL PROJECTS</span>
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -240,7 +240,7 @@ export default function FeaturedProjects({ activeCategory }) {
                                   className="object-cover"
                                   referrerPolicy="no-referrer"
                                 />
-                                <div className="absolute bottom-3 right-3 bg-brand-gold/90 px-2 py-0.5 rounded text-[9px] font-sans font-extrabold text-black tracking-wider uppercase z-10 whitespace-nowrap">
+                                <div className="absolute bottom-3 right-3 bg-brand-gold/90 px-2 py-0.5 rounded text-[9px] font-sans font-extrabold text-white tracking-wider uppercase z-10 whitespace-nowrap">
                                   AFTER
                                 </div>
                               </div>
@@ -284,7 +284,7 @@ export default function FeaturedProjects({ activeCategory }) {
                               <span className="text-[10px] text-brand-gold font-sans font-extrabold tracking-widest uppercase block mb-1">
                                 {project.categoryLabel}
                               </span>
-                              <h3 className="text-[#0a0c10] text-base sm:text-[17px] font-serif font-bold leading-snug group-hover:text-brand-gold transition-colors duration-300">
+                              <h3 className="text-[#010129] text-base sm:text-[17px] font-serif font-bold leading-snug group-hover:text-brand-gold transition-colors duration-300">
                                 {project.title}
                               </h3>
                             </div>
@@ -294,7 +294,7 @@ export default function FeaturedProjects({ activeCategory }) {
                                 <MapPin className="w-3.5 h-3.5 text-brand-gold shrink-0" />
                                 <span>{project.location}</span>
                               </div>
-                              <div className="w-7 h-7 rounded-full border border-neutral-200/80 flex items-center justify-center text-zinc-400 group-hover:bg-brand-gold group-hover:text-[#0b0c10] group-hover:border-brand-gold transition-all duration-300 shrink-0">
+                              <div className="w-7 h-7 rounded-full border border-neutral-200/80 flex items-center justify-center text-zinc-400 group-hover:bg-brand-gold group-hover:text-white group-hover:border-brand-gold transition-all duration-300 shrink-0">
                                 <ArrowRight className="w-3.5 h-3.5" />
                               </div>
                             </div>
@@ -310,7 +310,7 @@ export default function FeaturedProjects({ activeCategory }) {
               <button
                 id="carousel-left-btn"
                 onClick={scrollPrev}
-                className="absolute top-1/2 -left-2 lg:-left-12 -translate-y-1/2 z-20 w-10 h-10 bg-zinc-950 hover:bg-brand-gold text-brand-white hover:text-black flex items-center justify-center rounded-full border border-zinc-800 transition-all hover:scale-105 cursor-pointer shadow-lg active:scale-95"
+                className="absolute top-1/2 -left-2 lg:-left-12 -translate-y-1/2 z-20 w-10 h-10 bg-zinc-950 hover:bg-brand-gold text-brand-white hover:text-white flex items-center justify-center rounded-full border border-zinc-800 transition-all hover:scale-105 cursor-pointer shadow-lg active:scale-95"
                 title="Scroll Left"
               >
                 <ChevronLeft className="w-5 h-5 stroke-[2.5]" />
@@ -318,7 +318,7 @@ export default function FeaturedProjects({ activeCategory }) {
               <button
                 id="carousel-right-btn"
                 onClick={scrollNext}
-                className="absolute top-1/2 -right-2 sm:-right-12 -translate-y-1/2 z-20 w-10 h-10 bg-zinc-950 hover:bg-brand-gold text-brand-white hover:text-black flex items-center justify-center rounded-full border border-zinc-800 transition-all hover:scale-105 cursor-pointer shadow-lg active:scale-95"
+                className="absolute top-1/2 -right-2 sm:-right-12 -translate-y-1/2 z-20 w-10 h-10 bg-zinc-950 hover:bg-brand-gold text-brand-white hover:text-white flex items-center justify-center rounded-full border border-zinc-800 transition-all hover:scale-105 cursor-pointer shadow-lg active:scale-95"
                 title="Scroll Right"
               >
                 <ChevronRight className="w-5 h-5 stroke-[2.5]" />

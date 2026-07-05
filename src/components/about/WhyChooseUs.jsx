@@ -48,17 +48,17 @@ export default function WhyChooseUs() {
   return (
     <section
       id="why-choose-us"
-      className=" py-12 sm:py-16  bg-[#090a0f] text-white relative select-none overflow-hidden"
+      className=" py-12 sm:py-16  bg-[#010129] text-white relative select-none overflow-hidden"
     >
       {/* Immersive organic dark gold marble / vein background matching reference image */}
       <div className="absolute inset-0 opacity-15 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(#dfab56_0.8px,transparent_0.8px)] [background-size:32px_32px]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(#9A0101_0.8px,transparent_0.8px)] [background-size:32px_32px]"></div>
         {/* Subtle decorative golden veins using CSS radial waves */}
         <div className="absolute top-[20%] right-[10%] w-[500px] h-[500px] bg-brand-gold/5 blur-[160px] rounded-full pointer-events-none"></div>
         <div className="absolute bottom-[10%] left-[5%] w-[400px] h-[400px] bg-brand-gold/3 blur-[140px] rounded-full pointer-events-none"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-10 md:px-16 z-10s relative">
+      <div className=" mx-auto px-4 sm:px-10 md:px-16 z-10s relative">
         {/* Left-Aligned Header exactly same as in the reference image */}
         <div className="flex flex-col items-start text-left mb-10 max-w-4xl">
           <span className="text-brand-gold font-sans text-xs font-bold tracking-[0.25em] uppercase block mb-3">

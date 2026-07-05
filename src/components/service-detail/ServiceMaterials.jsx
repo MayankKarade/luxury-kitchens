@@ -3,7 +3,7 @@ import { ServiceDetailIcon } from "./ServiceDetailIcons";
 export default function ServiceMaterials({ service }) {
   return (
     <section className="bg-brand-white px-4 py-6 text-white sm:px-10 md:px-16">
-      <div className="mx-auto grid max-w-7xl overflow-hidden rounded-lg bg-[#071014] shadow-sm lg:grid-cols-[0.85fr_1.65fr]">
+      <div className="mx-auto grid  overflow-hidden rounded-lg bg-[#071014] shadow-sm lg:grid-cols-[0.85fr_1.65fr]">
         <div className="border-b border-white/10 px-6 py-7 lg:border-b-0 lg:border-r">
           <h2 className="font-serif text-2xl font-medium uppercase">
             Materials We Use

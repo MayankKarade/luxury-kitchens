@@ -5,19 +5,76 @@ import { DetailIcon } from "./ServiceDesignDetailIcons";
 
 function DimensionSketch() {
   return (
-    <svg viewBox="0 0 560 270" className="h-full w-full text-neutral-500" aria-hidden="true">
-      <rect x="90" y="70" width="310" height="105" fill="#f7f7f4" stroke="#c8c8c4" strokeWidth="2" />
-      <path d="M90 70 150 35h310v105l-60 35V70z" fill="#f1f1ee" stroke="#c8c8c4" strokeWidth="2" />
+    <svg
+      viewBox="0 0 560 270"
+      className="h-full w-full text-neutral-500"
+      aria-hidden="true"
+    >
+      <rect
+        x="90"
+        y="70"
+        width="310"
+        height="105"
+        fill="#f7f7f4"
+        stroke="#c8c8c4"
+        strokeWidth="2"
+      />
+      <path
+        d="M90 70 150 35h310v105l-60 35V70z"
+        fill="#f1f1ee"
+        stroke="#c8c8c4"
+        strokeWidth="2"
+      />
       <path d="M400 70 460 35M400 175l60-35M150 35v105M210 35v105M270 35v105M330 35v105M390 35v105" />
-      <path d="M105 105h280M105 140h280M130 175v50M240 175v50M350 175v50" stroke="#c8c8c4" strokeWidth="2" fill="none" />
-      <path d="M110 28h340M110 28l8-8M110 28l8 8M450 28l-8-8M450 28l-8 8" stroke="#9b9b96" strokeWidth="2" fill="none" />
-      <text x="250" y="18" textAnchor="middle" fontSize="14" fill="#555">3600 mm</text>
-      <path d="M470 35h50M470 35l8-8M470 35l8 8M520 35l-8-8M520 35l-8 8" stroke="#9b9b96" strokeWidth="2" fill="none" />
-      <text x="495" y="26" textAnchor="middle" fontSize="14" fill="#555">1200 mm</text>
-      <path d="M62 70v155M62 70l-8 8M62 70l8 8M62 225l-8-8M62 225l8-8" stroke="#9b9b96" strokeWidth="2" fill="none" />
-      <text x="42" y="154" transform="rotate(-90 42 154)" textAnchor="middle" fontSize="14" fill="#555">2400 mm</text>
-      <path d="M130 238h230M130 238l8-8M130 238l8 8M360 238l-8-8M360 238l-8 8" stroke="#9b9b96" strokeWidth="2" fill="none" />
-      <text x="245" y="260" textAnchor="middle" fontSize="14" fill="#555">2400 mm</text>
+      <path
+        d="M105 105h280M105 140h280M130 175v50M240 175v50M350 175v50"
+        stroke="#c8c8c4"
+        strokeWidth="2"
+        fill="none"
+      />
+      <path
+        d="M110 28h340M110 28l8-8M110 28l8 8M450 28l-8-8M450 28l-8 8"
+        stroke="#9b9b96"
+        strokeWidth="2"
+        fill="none"
+      />
+      <text x="250" y="18" textAnchor="middle" fontSize="14" fill="#555">
+        3600 mm
+      </text>
+      <path
+        d="M470 35h50M470 35l8-8M470 35l8 8M520 35l-8-8M520 35l-8 8"
+        stroke="#9b9b96"
+        strokeWidth="2"
+        fill="none"
+      />
+      <text x="495" y="26" textAnchor="middle" fontSize="14" fill="#555">
+        1200 mm
+      </text>
+      <path
+        d="M62 70v155M62 70l-8 8M62 70l8 8M62 225l-8-8M62 225l8-8"
+        stroke="#9b9b96"
+        strokeWidth="2"
+        fill="none"
+      />
+      <text
+        x="42"
+        y="154"
+        transform="rotate(-90 42 154)"
+        textAnchor="middle"
+        fontSize="14"
+        fill="#555"
+      >
+        2400 mm
+      </text>
+      <path
+        d="M130 238h230M130 238l8-8M130 238l8 8M360 238l-8-8M360 238l-8 8"
+        stroke="#9b9b96"
+        strokeWidth="2"
+        fill="none"
+      />
+      <text x="245" y="260" textAnchor="middle" fontSize="14" fill="#555">
+        2400 mm
+      </text>
     </svg>
   );
 }
@@ -47,7 +104,7 @@ export default function DesignOverview({ product }) {
       id="overview"
       className="bg-brand-white px-4 py-8 text-brand-dark sm:px-10 md:px-16"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto ">
         <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
           <div>
             <h2 className="font-serif text-3xl font-semibold text-neutral-900">
@@ -114,7 +171,7 @@ export default function DesignOverview({ product }) {
             </div>
             <Link
               href="/consultation"
-              className="mt-8 inline-flex items-center gap-3 text-[12px] font-extrabold uppercase tracking-wide text-brand-gold hover:text-[#b98220]"
+              className="mt-8 inline-flex items-center gap-3 text-[12px] font-extrabold uppercase tracking-wide text-brand-gold hover:text-[#9A0101]"
             >
               View All Materials
               <DetailIcon name="arrow" className="h-4 w-4" />
@@ -141,7 +198,7 @@ export default function DesignOverview({ product }) {
                 </p>
                 <Link
                   href="/consultation"
-                  className="inline-flex h-10 items-center justify-center gap-3 rounded-md border border-brand-gold px-5 text-[11px] font-extrabold uppercase tracking-wide text-brand-gold transition-colors hover:bg-brand-gold hover:text-black"
+                  className="inline-flex h-10 items-center justify-center gap-3 rounded-md border border-brand-gold px-5 text-[11px] font-extrabold uppercase tracking-wide text-brand-gold transition-colors hover:bg-brand-gold hover:text-white"
                 >
                   Get Free Design
                   <DetailIcon name="arrow" className="h-4 w-4" />
@@ -152,7 +209,10 @@ export default function DesignOverview({ product }) {
             <div className="rounded-lg bg-brand-light p-5">
               <div className="space-y-7">
                 {product.dimensionFeatures.map((item) => (
-                  <div key={item.title} className="grid grid-cols-[34px_1fr] gap-3">
+                  <div
+                    key={item.title}
+                    className="grid grid-cols-[34px_1fr] gap-3"
+                  >
                     <DetailIcon
                       name={item.icon}
                       className="h-7 w-7 text-brand-gold"

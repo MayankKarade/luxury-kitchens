@@ -83,7 +83,7 @@ export default function DesignImageGallery({ product }) {
           type="button"
           onClick={() => setLightboxOpen(true)}
           aria-label="View full design image"
-          className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full bg-black/65 text-white backdrop-blur-sm transition-colors hover:bg-brand-gold hover:text-black"
+          className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full bg-black/65 text-white backdrop-blur-sm transition-colors hover:bg-brand-gold hover:text-white"
         >
           <DetailIcon name="expand" className="h-5 w-5" />
         </button>
@@ -92,7 +92,7 @@ export default function DesignImageGallery({ product }) {
           type="button"
           onClick={scrollPrev}
           aria-label="Previous design image"
-          className="absolute left-5 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white text-brand-dark shadow-lg transition-colors hover:bg-brand-gold hover:text-black"
+          className="absolute left-5 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white text-brand-dark shadow-lg transition-colors hover:bg-brand-gold hover:text-white"
         >
           <DetailIcon name="chevron-left" className="h-6 w-6" />
         </button>
@@ -100,7 +100,7 @@ export default function DesignImageGallery({ product }) {
           type="button"
           onClick={scrollNext}
           aria-label="Next design image"
-          className="absolute right-5 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white text-brand-dark shadow-lg transition-colors hover:bg-brand-gold hover:text-black"
+          className="absolute right-5 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white text-brand-dark shadow-lg transition-colors hover:bg-brand-gold hover:text-white"
         >
           <DetailIcon name="chevron-right" className="h-6 w-6" />
         </button>
@@ -167,7 +167,7 @@ export default function DesignImageGallery({ product }) {
                 type="button"
                 onClick={() => setLightboxOpen(false)}
                 aria-label="Close design gallery"
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-all hover:scale-105 hover:bg-brand-gold hover:text-black"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-all hover:scale-105 hover:bg-brand-gold hover:text-white"
               >
                 <DetailIcon name="x" className="h-5 w-5" />
               </button>

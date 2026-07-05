@@ -97,7 +97,7 @@ export default function Stats() {
 
   return (
     <section className="w-full bg-brand-light py-10 lg:py-12 border-y border-brand-gold/15 relative">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className=" mx-auto px-4">
         {/* Five column modular responsive grid: adapts from stacked to 2-columns (grid-cols-2) then 3, and cleanly aligned in 5-columns on desktop */}
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-y-5 gap-x-6 lg:gap-0 items-center justify-between lg:divide-x-2 lg:divide-zinc-200">
           {statsList.map((stat, index) => (

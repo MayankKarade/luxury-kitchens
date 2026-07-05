@@ -12,13 +12,13 @@ const flagStyles = {
   USA: "from-[#1f4ea8] via-white to-[#c62828]",
   CAN: "from-[#d92828] via-white to-[#d92828]",
   UK: "from-[#1f4ea8] via-white to-[#c62828]",
-  360: "from-brand-gold via-[#f5d287] to-brand-gold",
+  360: "from-brand-gold via-[#FFFFFF] to-brand-gold",
 };
 
 function RegionBadge({ region }) {
   return (
     <span
-      className={`inline-flex h-5 min-w-8 items-center justify-center rounded-sm bg-gradient-to-r px-1.5 text-[9px] font-extrabold text-black ${flagStyles[region] || flagStyles.USA}`}
+      className={`inline-flex h-5 min-w-8 items-center justify-center rounded-sm bg-gradient-to-r px-1.5 text-[9px] font-extrabold text-white ${flagStyles[region] || flagStyles.USA}`}
     >
       {region}
     </span>
@@ -122,14 +122,14 @@ export default function MediaSlider({ items, variant }) {
       <button
         onClick={scrollPrev}
         aria-label="Previous gallery item"
-        className="absolute left-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-neutral-200 bg-white text-brand-dark shadow-lg transition-colors hover:border-brand-gold hover:bg-brand-gold hover:text-black lg:left-[-22px]"
+        className="absolute left-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-neutral-200 bg-white text-brand-dark shadow-lg transition-colors hover:border-brand-gold hover:bg-brand-gold hover:text-white lg:left-[-22px]"
       >
         <ArrowLeft className="h-5 w-5" />
       </button>
       <button
         onClick={scrollNext}
         aria-label="Next gallery item"
-        className="absolute right-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-neutral-200 bg-white text-brand-dark shadow-lg transition-colors hover:border-brand-gold hover:bg-brand-gold hover:text-black lg:right-[-22px]"
+        className="absolute right-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-neutral-200 bg-white text-brand-dark shadow-lg transition-colors hover:border-brand-gold hover:bg-brand-gold hover:text-white lg:right-[-22px]"
       >
         <ArrowRight className="h-5 w-5" />
       </button>

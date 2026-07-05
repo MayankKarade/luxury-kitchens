@@ -48,7 +48,7 @@ function ArticleCard({ article, index }) {
           </div>
           <Link
             href={`/blog/${article.slug}`}
-            className="inline-flex items-center gap-2 text-brand-gold transition-colors hover:text-[#eec176]"
+            className="inline-flex items-center gap-2 text-brand-gold transition-colors hover:text-[#9A0101]"
           >
             Read More
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -61,8 +61,8 @@ function ArticleCard({ article, index }) {
 
 export default function LatestArticles() {
   return (
-    <section className="bg-brand-white px-4 pb-10 pt-8 text-brand-dark sm:px-10 sm:pt-10 md:px-16 lg:pt-32">
-      <div className="mx-auto max-w-7xl">
+    <section className="bg-brand-white px-4 pb-10 pt-8 text-brand-dark sm:px-10 sm:pt-10 md:px-16 lg:pt-36">
+      <div className="mx-auto ">
         <div className="mb-8 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <span className="text-xs font-extrabold uppercase tracking-[0.16em] text-brand-gold">
@@ -74,7 +74,7 @@ export default function LatestArticles() {
           </div>
           <Link
             href="#newsletter"
-            className="group inline-flex w-fit items-center gap-4 rounded-md border border-brand-gold px-6 py-3 text-xs font-bold tracking-wide text-brand-gold transition-colors hover:bg-brand-gold hover:text-black"
+            className="group inline-flex w-fit items-center gap-4 rounded-md border border-brand-gold px-6 py-3 text-xs font-bold tracking-wide text-brand-gold transition-colors hover:bg-brand-gold hover:text-white"
           >
             VIEW ALL ARTICLES
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

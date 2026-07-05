@@ -154,8 +154,8 @@ function ProcessHero() {
           sizes="100vw"
           className="object-cover object-center brightness-[1.1] contrast-[1.04]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/78 to-black/10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#08090b] via-transparent to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/72 via-brand-dark/48 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/48 via-transparent to-brand-dark/24" />
       </div>
 
       <button
@@ -165,7 +165,7 @@ function ProcessHero() {
         <Menu className="h-6 w-6" />
       </button>
 
-      <div className="relative z-10 mx-auto flex min-h-[460px] max-w-7xl items-center px-4 pb-12 sm:px-10 md:px-16">
+      <div className="relative z-10 mx-auto flex min-h-[460px]  items-center px-4 pb-12 sm:px-10 md:px-16">
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -214,7 +214,7 @@ function ProcessHero() {
           <motion.button
             variants={fadeInUp}
             onClick={openModal}
-            className="mt-7 inline-flex items-center gap-6 rounded-[4px] bg-brand-gold px-7 py-4 text-xs font-extrabold tracking-wide text-black shadow-[0_10px_24px_rgba(223,171,86,.18)] transition-colors hover:bg-[#eec176]"
+            className="mt-7 inline-flex items-center gap-6 rounded-[4px] bg-brand-gold px-7 py-4 text-xs font-extrabold tracking-wide text-white shadow-[0_10px_24px_rgba(154,1,1,.18)] transition-colors hover:bg-[#9A0101]"
           >
             BOOK A CONSULTATION
             <ArrowRight className="h-4 w-4" />
@@ -251,12 +251,12 @@ function ProcessTimeline() {
 
                 <div className="grid overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-[0_8px_24px_rgba(15,17,23,.05)] md:grid-cols-[1.2fr_1fr]">
                   <div className="flex items-center gap-3 sm:gap-5 p-5 sm:p-7">
-                    <div className="hidden sm:flex w-14 h-14 sm:h-20 sm:w-20 shrink-0 items-center justify-center rounded-full bg-[#080b0e] text-brand-gold shadow-lg">
+                    <div className="hidden sm:flex w-14 h-14 sm:h-20 sm:w-20 shrink-0 items-center justify-center rounded-full bg-[#010129] text-brand-gold shadow-lg">
                       <step.Icon className="h-9 w-9" strokeWidth={1.55} />
                     </div>
                     <div>
                       <div className="flex flex-row gap-3">
-                        <div className="flex sm:hidden w-11 h-11 sm:h-20 sm:w-20 shrink-0 items-center justify-center rounded-full bg-[#080b0e] text-brand-gold shadow-lg">
+                        <div className="flex sm:hidden w-11 h-11 sm:h-20 sm:w-20 shrink-0 items-center justify-center rounded-full bg-[#010129] text-brand-gold shadow-lg">
                           <step.Icon className="h-4 w-4" strokeWidth={1.55} />
                         </div>
                         <div>
@@ -296,8 +296,8 @@ function ProcessTimeline() {
 
 function ProcessValues() {
   return (
-    <section className="bg-[#080b0e] px-4 py-12 text-white sm:px-10 md:px-16">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
+    <section className="bg-brand-dark px-4 py-12 text-white sm:px-10 md:px-16">
+      <div className="mx-auto grid  grid-cols-1 gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
         <div>
           <span className="text-xs font-extrabold uppercase tracking-[0.16em] text-brand-gold">
             WHY OUR PROCESS
@@ -311,7 +311,7 @@ function ProcessValues() {
 
         <div className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
           {valueCards.map(({ Icon, title, text }) => (
-            <div key={title} className="bg-[#080b0e] px-6 py-7 text-center">
+            <div key={title} className="bg-white/5 px-6 py-7 text-center">
               <Icon
                 className="mx-auto mb-5 h-9 w-9 text-brand-gold"
                 strokeWidth={1.6}
@@ -342,7 +342,7 @@ function ProcessCta() {
         <div className="absolute inset-0 bg-black/65" />
       </div>
 
-      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-8 lg:grid-cols-[0.9fr_1.15fr_0.75fr] lg:items-center">
+      <div className="relative z-10 mx-auto grid  grid-cols-1 gap-8 lg:grid-cols-[0.9fr_1.15fr_0.75fr] lg:items-center">
         <div>
           <span className="text-xs font-extrabold uppercase tracking-[0.16em] text-brand-gold">
             LET&apos;S BRING YOUR VISION TO LIFE
@@ -372,7 +372,7 @@ function ProcessCta() {
 
         <button
           onClick={openModal}
-          className="inline-flex items-center justify-center gap-8 rounded-md bg-brand-gold px-8 py-4 text-xs font-extrabold tracking-wide text-black transition-colors hover:bg-[#eec176]"
+          className="inline-flex items-center justify-center gap-8 rounded-md bg-brand-gold px-8 py-4 text-xs font-extrabold tracking-wide text-white transition-colors hover:bg-[#9A0101]"
         >
           BOOK A CONSULTATION
           <Calendar className="h-4 w-4" />
@@ -384,11 +384,14 @@ function ProcessCta() {
 
 export default function ProcessClient() {
   return (
-    <div className="min-h-screen bg-brand-white">
-      <ProcessHero />
-      <ProcessTimeline />
-      <ProcessValues />
-      <ProcessCta />
+    // <div className="min-h-screen bg-brand-white">
+    <div className="w-full  flex  justify-center items-center">
+      <div className="w-full max-w-[1500px]">
+        <ProcessHero />
+        <ProcessTimeline />
+        <ProcessValues />
+        <ProcessCta />
+      </div>
     </div>
   );
 }

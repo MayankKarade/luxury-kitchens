@@ -31,7 +31,7 @@ const benefits = [
 export default function DesignBenefitStrip() {
   return (
     <section className="bg-brand-dark px-4 py-5 text-white sm:px-10 md:px-16">
-      <div className="mx-auto grid max-w-7xl overflow-hidden rounded-lg bg-[#0a0e11] sm:grid-cols-2 lg:grid-cols-5">
+      <div className="mx-auto grid  overflow-hidden rounded-lg bg-[#0a0e11] sm:grid-cols-2 lg:grid-cols-5">
         {benefits.map((benefit) => (
           <div
             key={benefit.title}

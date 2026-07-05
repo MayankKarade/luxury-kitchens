@@ -18,7 +18,7 @@ function SearchBox() {
         <button
           type="button"
           aria-label="Search articles"
-          className="flex h-12 w-13 items-center justify-center bg-neutral-900 text-white transition-colors hover:bg-brand-gold hover:text-black"
+          className="flex h-12 w-13 items-center justify-center bg-neutral-900 text-white transition-colors hover:bg-brand-gold hover:text-white"
         >
           <BlogDetailIcon name="search" className="h-5 w-5" />
         </button>
@@ -96,7 +96,7 @@ function SidebarCTA({ cta }) {
       </p>
       <Link
         href="/consultation"
-        className="mt-5 inline-flex h-11 items-center justify-center gap-3 rounded-md bg-brand-gold px-6 text-[11px] font-extrabold uppercase tracking-wide text-black transition-colors hover:bg-[#eec176]"
+        className="mt-5 inline-flex h-11 items-center justify-center gap-3 rounded-md bg-brand-gold px-6 text-[11px] font-extrabold uppercase tracking-wide text-white transition-colors hover:bg-[#9A0101]"
       >
         Book A Consultation
         <BlogDetailIcon name="calendar" className="h-4 w-4" />

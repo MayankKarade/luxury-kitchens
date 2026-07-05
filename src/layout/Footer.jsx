@@ -51,21 +51,19 @@ export default function Footer() {
       {/* Subtly glowing luxury ambiance light backing */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] rounded-full bg-brand-gold/5 blur-[150px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto  relative z-10">
+      <div className="max-w-[1500px] mx-auto  relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-12 gap-10 lg:gap-0 pb-10 border-b border-white/5">
           {/* Column 1: Logo and Professional Bio */}
           <div className="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-3 flex flex-col gap-6 lg:border-r lg:border-white/10 lg:pr-8">
             <Link href="/" className="flex items-center gap-3 group">
-              {/* Droplet blue modern layered brand logo matching image */}
-              <div className="relative w-36 h-14">
-                <Image
-                  src={"/logo/logo.png"}
-                  loading="eager"
-                  alt=""
-                  fill
-                  className="object-cover"
-                />
-              </div>
+              <Image
+                src="/logo/CaliWood.jpeg"
+                loading="eager"
+                alt="CaliWood"
+                width={180}
+                height={120}
+                className="h-20 w-auto object-contain"
+              />
             </Link>
             <p className="text-zinc-400 font-sans text-[13.5px] leading-relaxed max-w-xs sm:max-w-sm">
               We create luxury kitchens and interiors that inspire. Delivering
@@ -206,10 +204,10 @@ export default function Footer() {
               {/* Book Consultation Solid Rounded Card Button matching image layout */}
               <button
                 onClick={openModal}
-                className="mt-4 w-full py-3.5 px-5 bg-brand-gold hover:bg-[#ebd0a3] text-neutral-900 font-sans text-xs font-bold tracking-[0.16em] uppercase rounded-sm flex items-center justify-between transition-all duration-300 shadow-[0_12px_24px_rgba(223,171,86,0.15)] group cursor-pointer focus:outline-none"
+                className="mt-4 w-full py-3.5 px-5 bg-brand-gold hover:bg-[#9A0101] text-white font-sans text-xs font-bold tracking-[0.16em] uppercase rounded-sm flex items-center justify-between transition-all duration-300 shadow-[0_12px_24px_rgba(154,1,1,0.15)] group cursor-pointer focus:outline-none"
               >
                 <span>BOOK CONSULTATION</span>
-                <Calendar className="w-[18px] h-[18px] text-neutral-900 shrink-0 opacity-80" />
+                <Calendar className="w-[18px] h-[18px] text-white shrink-0 opacity-80" />
               </button>
             </div>
           </div>
@@ -217,7 +215,7 @@ export default function Footer() {
 
         {/* Bottom Legal bar */}
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-sans tracking-wide text-zinc-500">
-          <p>© 2025 Netsaarthi. All Rights Reserved.</p>
+          <p>&copy; 2025 Netsaarthi. All Rights Reserved.</p>
           <div className="flex items-center gap-8">
             <Link
               href="/privacy-policy"

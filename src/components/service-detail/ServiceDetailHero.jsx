@@ -21,11 +21,11 @@ export default function ServiceDetailHero({ service }) {
           sizes="100vw"
           className="object-cover object-center brightness-[1.08] contrast-[1.05]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/78 to-black/8" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#08090b] via-transparent to-black/35" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/72 via-brand-dark/48 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/50 via-transparent to-brand-dark/28" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 pb-8 sm:px-10 md:px-16">
+      <div className="relative z-10 mx-auto  px-4 pb-8 sm:px-10 md:px-16">
         <div className="flex min-h-[500px] flex-col justify-center">
           <div className="mb-5 flex items-center gap-2 text-xs font-semibold">
             <Link href="/" className="text-white/85 hover:text-white">
@@ -73,14 +73,14 @@ export default function ServiceDetailHero({ service }) {
           <div className="mt-6 flex flex-col gap-4 sm:flex-row">
             <button
               onClick={openModal}
-              className="inline-flex h-12 items-center justify-center gap-5 rounded-md bg-brand-gold px-7 text-[11px] font-extrabold tracking-wide text-black transition-colors hover:bg-[#eec176]"
+              className="inline-flex h-12 items-center justify-center gap-5 rounded-md bg-brand-gold px-7 text-[11px] font-extrabold tracking-wide text-white transition-colors hover:bg-[#9A0101]"
             >
               BOOK CONSULTATION
               <Calendar className="h-4 w-4" />
             </button>
             <a
               href="#service-styles"
-              className="inline-flex h-12 items-center justify-center gap-5 rounded-md border border-brand-gold/70 bg-black/25 px-7 text-[11px] font-bold tracking-wide text-white transition-colors hover:bg-brand-gold hover:text-black"
+              className="inline-flex h-12 items-center justify-center gap-5 rounded-md border border-brand-gold/70 bg-brand-dark/20 px-7 text-[11px] font-bold tracking-wide text-white transition-colors hover:bg-brand-gold hover:text-white"
             >
               {service.designButtonText}
               <ArrowRight className="h-4 w-4" />
@@ -88,7 +88,7 @@ export default function ServiceDetailHero({ service }) {
           </div>
         </div>
 
-        <div className="relative z-10 mt-4 -mb-20 sm:-mb-14 grid overflow-hidden rounded-lg border border-white/10 bg-[#071014]/95 shadow-[0_16px_34px_rgba(0,0,0,0.32)] backdrop-blur-sm grid-cols-2 md:grid-cols-4">
+        <div className="relative z-10 mt-4 -mb-20 sm:-mb-14 grid overflow-hidden rounded-lg border border-white/10 bg-brand-dark/88 shadow-[0_16px_34px_rgba(0,0,0,0.32)] backdrop-blur-sm grid-cols-2 md:grid-cols-4">
           {service.trustCards.map((card) => (
             <div
               key={card.title}

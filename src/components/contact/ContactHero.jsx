@@ -36,11 +36,11 @@ export default function ContactHero() {
           sizes="100vw"
           className="object-cover object-center brightness-[1.08] contrast-[1.04]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/78 to-black/8" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#08090b] via-transparent to-black/35" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/72 via-brand-dark/48 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/50 via-transparent to-brand-dark/28" />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-7rem)] max-w-7xl flex-col justify-center px-4 pb-10 sm:px-10 md:px-16">
+      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-7rem)]  flex-col justify-center px-4 pb-10 sm:px-10 md:px-16">
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -92,28 +92,33 @@ export default function ContactHero() {
           variants={stagger}
           initial="hidden"
           animate="visible"
-          className="mt-10 grid max-w-3xl grid-cols-1 gap-5 sm:grid-cols-3"
+          className="mt-10 w-full max-w-3xl rounded-xl border border-white/10 bg-brand-dark/20 px-4 py-5 shadow-2xl backdrop-blur-xs"
         >
-          {heroHighlights.map((item) => (
-            <motion.div
-              key={item.title}
-              variants={fadeInUp}
-              className="flex items-center gap-3"
-            >
-              <ContactIcon
-                name={item.icon}
-                className="h-9 w-9 shrink-0 text-brand-gold"
-              />
-              <div>
-                <h3 className="text-xs font-extrabold text-white">
-                  {item.title}
-                </h3>
-                <p className="mt-1 text-[11px] font-medium text-zinc-300">
-                  {item.text}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            {heroHighlights.map((item) => (
+              <motion.div
+                key={item.title}
+                variants={fadeInUp}
+                className="flex items-start justify-start gap-3 rounded-lg py-2 transition-all duration-300"
+                whileHover={{ y: -3, transition: { duration: 0.2 } }}
+              >
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-brand-gold/40 text-brand-gold sm:h-12 sm:w-12">
+                  <ContactIcon
+                    name={item.icon}
+                    className="h-6 w-6 text-brand-gold sm:h-7 sm:w-7"
+                  />
+                </div>
+                <div className="flex flex-col items-start">
+                  <h3 className="text-xs font-semibold tracking-wide text-white sm:text-sm">
+                    {item.title}
+                  </h3>
+                  <p className="mt-0.5 text-[11px] font-medium text-gray-400 sm:text-xs">
+                    {item.text}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>

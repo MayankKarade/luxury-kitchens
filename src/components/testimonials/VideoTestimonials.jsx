@@ -96,7 +96,7 @@ function SectionIntro() {
         Our clients love to share their experience working with us and how we
         helped them create their dream spaces.
       </p>
-      <button className="group mt-8 inline-flex h-[58px] min-w-[246px] items-center justify-center gap-5 rounded-md bg-brand-gold px-7 text-[11px] font-extrabold tracking-wide text-black transition-colors hover:bg-[#eec176]">
+      <button className="group mt-8 inline-flex h-[58px] min-w-[246px] items-center justify-center gap-5 rounded-md bg-brand-gold px-7 text-[11px] font-extrabold tracking-wide text-white transition-colors hover:bg-[#9A0101]">
         VIEW MORE VIDEOS
         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
       </button>
@@ -137,7 +137,7 @@ export default function VideoTestimonials() {
         className="object-cover opacity-[0.13]"
       />
       <div className="absolute inset-0 bg-[#05090c]/90" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_28%,rgba(223,171,86,0.08),transparent_30%),radial-gradient(circle_at_86%_50%,rgba(255,255,255,0.035),transparent_26%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_28%,rgba(154,1,1,0.08),transparent_30%),radial-gradient(circle_at_86%_50%,rgba(255,255,255,0.035),transparent_26%)]" />
 
       <div className="relative z-10 mx-auto hidden max-w-[1610px] grid-cols-[330px_minmax(0,1fr)] gap-[64px] pr-[74px] lg:grid">
         <motion.div
@@ -172,14 +172,14 @@ export default function VideoTestimonials() {
           <button
             onClick={showPrevious}
             aria-label="Previous video"
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-brand-gold/60 bg-[#071014]/90 text-brand-gold shadow-[0_12px_28px_rgba(0,0,0,0.38)] transition-colors hover:bg-brand-gold hover:text-black"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-brand-gold/60 bg-[#071014]/90 text-brand-gold shadow-[0_12px_28px_rgba(0,0,0,0.38)] transition-colors hover:bg-brand-gold hover:text-white"
           >
             <ArrowLeft className="h-5 w-5" />
           </button>
           <button
             onClick={showNext}
             aria-label="Next video"
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-brand-gold/60 bg-[#071014]/90 text-brand-gold shadow-[0_12px_28px_rgba(0,0,0,0.38)] transition-colors hover:bg-brand-gold hover:text-black"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-brand-gold/60 bg-[#071014]/90 text-brand-gold shadow-[0_12px_28px_rgba(0,0,0,0.38)] transition-colors hover:bg-brand-gold hover:text-white"
           >
             <ArrowRight className="h-5 w-5" />
           </button>
@@ -207,7 +207,7 @@ export default function VideoTestimonials() {
             <button
               onClick={showPrevious}
               aria-label="Previous video testimonial"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-brand-gold/60 text-brand-gold transition-colors hover:bg-brand-gold hover:text-black"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-brand-gold/60 text-brand-gold transition-colors hover:bg-brand-gold hover:text-white"
             >
               <ArrowLeft className="h-5 w-5" />
             </button>
@@ -231,7 +231,7 @@ export default function VideoTestimonials() {
             <button
               onClick={showNext}
               aria-label="Next video testimonial"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-brand-gold/60 text-brand-gold transition-colors hover:bg-brand-gold hover:text-black"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-brand-gold/60 text-brand-gold transition-colors hover:bg-brand-gold hover:text-white"
             >
               <ArrowRight className="h-5 w-5" />
             </button>

@@ -10,7 +10,7 @@ const tabs = [
 export default function DesignDetailTabs() {
   return (
     <div className="border-y border-neutral-200 bg-brand-white px-4 text-brand-dark sm:px-10 md:px-16">
-      <div className="mx-auto max-w-7xl overflow-x-auto no-scrollbar">
+      <div className="mx-auto  overflow-x-auto no-scrollbar">
         <nav className="flex min-w-max items-center gap-10">
           {tabs.map((tab) => (
             <a

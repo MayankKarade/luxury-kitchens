@@ -109,7 +109,7 @@ export default function AboutStats() {
   return (
     <section
       id="stats-counter-bar"
-      className="relative py-14 bg-[#090a0f] border-y border-white/5 overflow-hidden select-none"
+      className="relative py-14 bg-[#010129] border-y border-white/5 overflow-hidden select-none"
     >
       {/* Luxury subtle marble pattern overlays matches image */}
       <div className="absolute inset-0 opacity-15 pointer-events-none">
@@ -118,7 +118,7 @@ export default function AboutStats() {
         {/* <div className="absolute -top-[50%] -left-[20%] w-[140%] h-[200%] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-neutral-800/20 via-transparent to-transparent rotate-12"></div> */}
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-5 relative z-10 w-full">
+      <div className=" mx-auto px-4 sm:px-5 relative z-10 w-full">
         {/* 5-Column Grid with vertical border separators exactly matching image */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-y-8 md:gap-y-0 text-center items-center">
           {stats.map((item, idx) => (

@@ -67,7 +67,7 @@ function DateTimePickerField({ label, type, Icon }) {
           type="button"
           onClick={openPicker}
           aria-label={`Open ${label.toLowerCase()} picker`}
-          className="absolute right-2 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-md border border-neutral-200 bg-brand-light text-brand-gold transition-colors hover:border-brand-gold hover:bg-brand-gold hover:text-black"
+          className="absolute right-2 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-md border border-neutral-200 bg-brand-light text-brand-gold transition-colors hover:border-brand-gold hover:bg-brand-gold hover:text-white"
         >
           <Icon className="h-4 w-4" />
         </button>
@@ -89,7 +89,7 @@ export default function ConsultationFormSection() {
       id="consultation-form"
       className="bg-brand-white px-4 pb-10 text-brand-dark sm:px-10 md:px-16"
     >
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-7 lg:grid-cols-[1.15fr_0.9fr]">
+      <div className="mx-auto grid  grid-cols-1 gap-7 lg:grid-cols-[1.15fr_0.9fr]">
         <form
           onSubmit={handleSubmit}
           className="rounded-lg border border-neutral-200 bg-white p-6 shadow-sm sm:p-8"
@@ -203,7 +203,7 @@ export default function ConsultationFormSection() {
             I agree to the Privacy Policy and Terms &amp; Conditions.
           </label>
 
-          <button className="group mt-6 flex h-13 w-full items-center justify-center gap-5 rounded-md bg-brand-gold text-xs font-extrabold tracking-wide text-black transition-colors hover:bg-[#eec176]">
+          <button className="group mt-6 flex h-13 w-full items-center justify-center gap-5 rounded-md bg-brand-gold text-xs font-extrabold tracking-wide text-white transition-colors hover:bg-[#9A0101]">
             BOOK CONSULTATION
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </button>

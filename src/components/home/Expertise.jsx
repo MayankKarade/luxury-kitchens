@@ -19,6 +19,8 @@ import officeImg from "../../assets/images/executive_office_card_1780070403397.p
 import Image from "next/image";
 import Link from "next/link";
 
+const MotionLink = motion.create(Link);
+
 export default function Expertise() {
   const services = [
     {
@@ -101,7 +103,7 @@ export default function Expertise() {
       id="services"
       className="bg-[#ffffff] px-4 sm:px-10 md:px-16  py-12 sm:py-16 lg:py-20"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className=" mx-auto">
         {/* Section Header with staggered animation */}
         <motion.div
           className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-14"
@@ -134,9 +136,9 @@ export default function Expertise() {
               that reflect your style and elevate your living and working
               spaces.
             </p>
-            <Link
+            <MotionLink
               href="/our-services"
-              className="inline-flex items-center gap-1 text-[13px] font-sans font-bold tracking-wider text-brand-gold hover:text-[#eec176] transition-colors uppercase"
+              className="inline-flex items-center gap-1 text-[13px] font-sans font-bold tracking-wider text-brand-gold hover:text-[#9A0101] transition-colors uppercase"
               whileHover={{ x: 5 }}
               transition={{ type: "spring", stiffness: 400 }}
             >
@@ -144,7 +146,7 @@ export default function Expertise() {
               <span className="text-lg leading-none select-none relative -top-0.5 ml-1">
                 →
               </span>
-            </Link>
+            </MotionLink>
           </motion.div>
         </motion.div>
 
@@ -175,7 +177,7 @@ export default function Expertise() {
                   />
                 </div>
                 <motion.div
-                  className="absolute -bottom-6 left-5 w-11 h-11 bg-[#0f1115] border border-white/10 rounded-xl flex items-center justify-center shadow-lg z-40 group-hover:scale-[1.1] group-hover:rotate-6 transition-all duration-200"
+                  className="absolute -bottom-6 left-5 w-11 h-11 bg-[#010129] border border-white/10 rounded-xl flex items-center justify-center shadow-lg z-40 group-hover:scale-[1.1] group-hover:rotate-6 transition-all duration-200"
                   // whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
@@ -197,7 +199,7 @@ export default function Expertise() {
                 <div className="pt-4 border-t border-zinc-100 mt-2">
                   <motion.a
                     href="#contact"
-                    className="inline-flex items-center gap-1 text-[11px] font-sans font-extrabold tracking-widest text-brand-gold hover:text-[#eec176] transition-colors"
+                    className="inline-flex items-center gap-1 text-[11px] font-sans font-extrabold tracking-widest text-brand-gold hover:text-[#9A0101] transition-colors"
                     whileHover={{ x: 4 }}
                     transition={{ type: "spring", stiffness: 400 }}
                   >

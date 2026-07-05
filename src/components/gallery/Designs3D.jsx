@@ -6,10 +6,30 @@ import { designs3d } from "./galleryData";
 
 function FloorPlanPreview({ index }) {
   const roomSets = [
-    ["left-[12%] top-[28%] h-[34%] w-[24%]", "left-[38%] top-[18%] h-[26%] w-[22%]", "left-[62%] top-[28%] h-[36%] w-[24%]", "left-[34%] top-[52%] h-[28%] w-[30%]"],
-    ["left-[10%] top-[25%] h-[42%] w-[28%]", "left-[40%] top-[24%] h-[30%] w-[20%]", "left-[62%] top-[18%] h-[38%] w-[26%]", "left-[42%] top-[58%] h-[24%] w-[34%]"],
-    ["left-[14%] top-[20%] h-[34%] w-[22%]", "left-[38%] top-[16%] h-[42%] w-[28%]", "left-[68%] top-[28%] h-[30%] w-[18%]", "left-[20%] top-[58%] h-[24%] w-[48%]"],
-    ["left-[12%] top-[30%] h-[28%] w-[24%]", "left-[38%] top-[22%] h-[36%] w-[24%]", "left-[64%] top-[26%] h-[34%] w-[24%]", "left-[28%] top-[60%] h-[22%] w-[44%]"],
+    [
+      "left-[12%] top-[28%] h-[34%] w-[24%]",
+      "left-[38%] top-[18%] h-[26%] w-[22%]",
+      "left-[62%] top-[28%] h-[36%] w-[24%]",
+      "left-[34%] top-[52%] h-[28%] w-[30%]",
+    ],
+    [
+      "left-[10%] top-[25%] h-[42%] w-[28%]",
+      "left-[40%] top-[24%] h-[30%] w-[20%]",
+      "left-[62%] top-[18%] h-[38%] w-[26%]",
+      "left-[42%] top-[58%] h-[24%] w-[34%]",
+    ],
+    [
+      "left-[14%] top-[20%] h-[34%] w-[22%]",
+      "left-[38%] top-[16%] h-[42%] w-[28%]",
+      "left-[68%] top-[28%] h-[30%] w-[18%]",
+      "left-[20%] top-[58%] h-[24%] w-[48%]",
+    ],
+    [
+      "left-[12%] top-[30%] h-[28%] w-[24%]",
+      "left-[38%] top-[22%] h-[36%] w-[24%]",
+      "left-[64%] top-[26%] h-[34%] w-[24%]",
+      "left-[28%] top-[60%] h-[22%] w-[44%]",
+    ],
   ];
   const rooms = roomSets[index % roomSets.length];
 
@@ -38,7 +58,7 @@ export default function Designs3D() {
       id="designs"
       className="bg-brand-white px-4 py-9 text-brand-dark sm:px-10 md:px-16"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto ">
         <div className="mb-6 flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-end">
           <div>
             <span className="text-xs font-extrabold uppercase tracking-[0.15em] text-brand-gold">
@@ -49,7 +69,7 @@ export default function Designs3D() {
             </h2>
           </div>
 
-          <button className="group inline-flex items-center gap-4 rounded-md border border-brand-gold px-6 py-3 text-[11px] font-extrabold tracking-wide text-brand-gold transition-colors hover:bg-brand-gold hover:text-black">
+          <button className="group inline-flex items-center gap-4 rounded-md border border-brand-gold px-6 py-3 text-[11px] font-extrabold tracking-wide text-brand-gold transition-colors hover:bg-brand-gold hover:text-white">
             VIEW ALL 3D DESIGNS
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </button>

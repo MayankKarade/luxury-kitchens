@@ -36,7 +36,7 @@ const actions = [
 export default function ServiceDetailCTA({ service }) {
   return (
     <section className="bg-brand-white px-4 pb-8 pt-4 text-brand-dark sm:px-10 md:px-16">
-      <div className="mx-auto grid max-w-7xl overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm lg:grid-cols-[270px_1fr_2fr]">
+      <div className="mx-auto grid  overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm lg:grid-cols-[270px_1fr_2fr]">
         <div className="relative min-h-[150px]">
           <Image
             src={service.showcaseImage}

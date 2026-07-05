@@ -7,7 +7,7 @@ import { ServiceDetailIcon } from "./ServiceDetailIcons";
 export default function ServiceWhyChoose({ service }) {
   return (
     <section className="bg-brand-white px-4 pb-8 pt-24 text-brand-dark sm:px-10 md:px-16">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
+      <div className="mx-auto grid  grid-cols-1 gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
         <div>
           <h2 className="font-serif text-[25px] font-medium uppercase leading-[1.18] sm:text-[35px]">
             {service.whyTitle}

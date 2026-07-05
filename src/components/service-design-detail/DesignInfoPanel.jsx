@@ -70,7 +70,7 @@ export default function DesignInfoPanel({ product }) {
       <div className="mt-3 grid gap-3 sm:grid-cols-2">
         <Link
           href="/consultation"
-          className="inline-flex h-12 items-center justify-center gap-4 rounded-md bg-brand-gold px-5 text-[11px] font-bold uppercase tracking-wide text-black transition-colors hover:bg-[#eec176]"
+          className="inline-flex h-12 items-center justify-center gap-4 rounded-md bg-brand-gold px-5 text-[11px] font-bold uppercase tracking-wide text-white transition-colors hover:bg-[#9A0101]"
         >
           Book A Consultation
           <DetailIcon name="calendar" className="h-4 w-4" />

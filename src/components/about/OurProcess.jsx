@@ -57,7 +57,7 @@ export default function OurProcess() {
       id="process"
       className="bg-brand-white  py-12 sm:py-16 lg:py-20 border-b border-zinc-200/40 relative"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-10 md:px-16 relative">
+      <div className=" mx-auto px-4 sm:px-10 md:px-16 relative">
         {/* Section Heading exactly matching the image */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}

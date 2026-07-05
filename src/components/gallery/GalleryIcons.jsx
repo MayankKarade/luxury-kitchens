@@ -59,7 +59,7 @@ export function GalleryIcon({ name, className = "" }) {
     return (
       <svg viewBox="0 0 56 56" className={className} aria-hidden="true">
         <circle cx="28" cy="28" r="27" fill="currentColor" />
-        <path d="M23 18.5v19l16-9.5-16-9.5Z" fill="#0b0c10" />
+        <path d="M23 18.5v19l16-9.5-16-9.5Z" fill="#010129" />
       </svg>
     );
   }

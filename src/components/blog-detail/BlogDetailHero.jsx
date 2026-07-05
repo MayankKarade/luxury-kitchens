@@ -15,14 +15,17 @@ export default function BlogDetailHero({ article }) {
           sizes="100vw"
           className="object-cover object-center brightness-[1.12] contrast-[1.04]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/78 to-black/10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#08090b] via-transparent to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/72 via-brand-dark/48 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/48 via-transparent to-brand-dark/24" />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-[540px] max-w-7xl flex-col justify-center px-4 pb-12 sm:px-10 md:px-16">
+      <div className="relative z-10 mx-auto flex min-h-[540px]  flex-col justify-center px-4 pb-12 sm:px-10 md:px-16">
         <div className="max-w-[620px]">
           <div className="mb-8 flex flex-wrap items-center gap-2 text-xs font-semibold">
-            <Link href="/" className="text-white/85 transition-colors hover:text-white">
+            <Link
+              href="/"
+              className="text-white/85 transition-colors hover:text-white"
+            >
               Home
             </Link>
             <span className="text-brand-gold">&gt;</span>
@@ -65,7 +68,10 @@ export default function BlogDetailHero({ article }) {
             </div>
             <span className="hidden h-10 w-px bg-white/15 sm:block" />
             <div className="flex items-center gap-3">
-              <BlogDetailIcon name="calendar" className="h-7 w-7 text-brand-gold" />
+              <BlogDetailIcon
+                name="calendar"
+                className="h-7 w-7 text-brand-gold"
+              />
               <span>
                 <span className="block text-white">{article.date}</span>
                 <span className="block text-xs text-zinc-400">

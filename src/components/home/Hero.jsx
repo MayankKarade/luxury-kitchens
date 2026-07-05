@@ -68,12 +68,12 @@ export default function Hero() {
           referrerPolicy="no-referrer"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#08090b] via-transparent to-black/40" />
-        <div className="absolute top-1/2 left-2/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-amber-500/5 blur-[180px] pointer-events-none rounded-full" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/70 via-brand-dark/46 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/50 via-transparent to-brand-dark/28" />
+        <div className="absolute top-1/2 left-2/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-brand-gold/5 blur-[180px] pointer-events-none rounded-full" />
       </div>
 
-      <div className="flex flex-col lg:flex-row items-center justify-center px-4 sm:px-10 lg:px-16 w-full max-w-7xl">
+      <div className="flex flex-col lg:flex-row items-center justify-center px-4 sm:px-10 lg:px-16 w-full ">
         <div className="w-full lg:w-[45%] mx-auto relative z-10 flex-grow flex flex-col justify-center">
           <div className="grid grid-cols-1 gap-8 items-center">
             {/* Left animated content */}
@@ -115,12 +115,12 @@ export default function Hero() {
               >
                 <motion.button
                   onClick={openModal}
-                  className="px-5 py-3.5 bg-brand-gold hover:bg-[#eec176] text-[#08090d] font-sans text-xs font-bold tracking-wide rounded-[1px] flex items-center justify-center gap-2 transition-all duration-300 shadow-lg group"
+                  className="px-5 py-3.5 bg-brand-gold hover:bg-[#9A0101] text-white font-sans text-xs font-bold tracking-wide rounded-[1px] flex items-center justify-center gap-2 transition-all duration-300 shadow-lg group"
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   <span>BOOK A CONSULTATION</span>
-                  <ArrowRight className="w-4 h-4 text-[#08090d] transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="w-4 h-4 text-white transition-transform group-hover:translate-x-1" />
                 </motion.button>
 
                 <motion.a

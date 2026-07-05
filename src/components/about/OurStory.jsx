@@ -18,7 +18,7 @@ export default function OurStory() {
       id="our-story-section"
       className="py-12 sm:py-16 lg:py-24 bg-[#fbfbfb] text-brand-dark relative select-none"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-10 md:px-16">
+      <div className=" mx-auto px-4 sm:px-10 md:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-[3.2fr_6.8fr] gap-10 items-center">
           {/* Story text (left column) */}
           <motion.div
@@ -90,7 +90,7 @@ export default function OurStory() {
               </div>
 
               {/* Overlapping Dark Mission & Vision Card */}
-              <div className="absolute right-0 top-0 w-[230px] h-[100%] bg-[#0c0d12]  rounded-2xl py-10 px-8 flex flex-col justify-center gap-5 text-[#f3f4f6] shadow-[0_25px_60px_rgba(0,0,0,0.45)] z-20">
+              <div className="absolute right-0 top-0 w-[230px] h-[100%] bg-[#010129]  rounded-2xl py-10 px-8 flex flex-col justify-center gap-5 text-[#f3f4f6] shadow-[0_25px_60px_rgba(0,0,0,0.45)] z-20">
                 {/* Item 1: Mission */}
                 <div className="flex flex-col items-start gap-4">
                   <div className="text-brand-gold transform transition-transform duration-300 hover:scale-105">
@@ -141,7 +141,7 @@ export default function OurStory() {
               </div>
 
               {/* Dark Box Content for Mobile */}
-              <div className="w-full bg-[#0c0d12] border border-white/5 rounded-2xl p-8 sm:p-10 flex flex-col gap-8 text-[#f3f4f6] shadow-lg">
+              <div className="w-full bg-[#010129] border border-white/5 rounded-2xl p-8 sm:p-10 flex flex-col gap-8 text-[#f3f4f6] shadow-lg">
                 {/* Item 1: Mission */}
                 <div className="flex flex-col items-start gap-4">
                   <div className="text-brand-gold">

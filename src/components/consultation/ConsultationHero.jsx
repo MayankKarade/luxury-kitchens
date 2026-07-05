@@ -36,11 +36,11 @@ export default function ConsultationHero() {
           sizes="100vw"
           className="object-cover object-center brightness-[1.08] contrast-[1.04]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/5" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#08090b]/90 via-transparent to-black/25" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/68 via-brand-dark/42 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/52 via-transparent to-brand-dark/22" />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-[490px] max-w-7xl flex-col justify-center px-4 pb-10 sm:px-10 md:px-16">
+      <div className="relative z-10 mx-auto flex min-h-[490px]  flex-col justify-center px-4 pb-10 sm:px-10 md:px-16">
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -81,8 +81,8 @@ export default function ConsultationHero() {
             variants={fadeInUp}
             className="mt-6 max-w-lg text-sm font-semibold leading-7 text-zinc-100 sm:text-base"
           >
-            Book a consultation with our experts and take the first step
-            towards your luxury kitchen or interior.
+            Book a consultation with our experts and take the first step towards
+            your luxury kitchen or interior.
           </motion.p>
         </motion.div>
 
@@ -96,7 +96,7 @@ export default function ConsultationHero() {
             <motion.div
               key={item.title}
               variants={fadeInUp}
-              className="flex items-center gap-3 bg-black/20 px-4 py-4 backdrop-blur-xs"
+              className="flex items-center gap-3 bg-brand-dark/18 px-4 py-4 backdrop-blur-xs"
             >
               <ConsultationIcon
                 name={item.icon}

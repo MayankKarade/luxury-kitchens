@@ -9,7 +9,7 @@ export default function Newsletter() {
       id="newsletter"
       className="bg-brand-white px-4 pb-10 sm:px-10 md:px-16"
     >
-      <div className="relative mx-auto max-w-7xl overflow-hidden rounded-xl bg-[#080b0e] px-6 py-8 text-white shadow-xl sm:px-10">
+      <div className="relative mx-auto  overflow-hidden rounded-xl bg-brand-dark px-6 py-8 text-white shadow-xl sm:px-10">
         <Image
           src={heroImg}
           alt="Newsletter background"
@@ -17,7 +17,7 @@ export default function Newsletter() {
           sizes="100vw"
           className="object-cover opacity-20"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/35" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/72 via-brand-dark/48 to-brand-dark/28" />
 
         <div className="relative z-10 grid grid-cols-1 gap-7 lg:grid-cols-[0.75fr_1fr] lg:items-center">
           <div>
@@ -33,7 +33,7 @@ export default function Newsletter() {
             </p>
           </div>
 
-          <form className="flex flex-col overflow-hidden rounded-md border border-white/15 bg-black/35 sm:flex-row">
+          <form className="flex flex-col overflow-hidden rounded-md border border-white/15 bg-brand-dark/25 sm:flex-row">
             <label className="sr-only" htmlFor="newsletter-email">
               Email address
             </label>
@@ -48,7 +48,7 @@ export default function Newsletter() {
             </div>
             <button
               type="submit"
-              className="inline-flex items-center justify-center gap-3 bg-brand-gold px-8 py-4 text-xs font-extrabold tracking-wide text-black transition-colors hover:bg-[#eec176]"
+              className="inline-flex items-center justify-center gap-3 bg-brand-gold px-8 py-4 text-xs font-extrabold tracking-wide text-white transition-colors hover:bg-[#9A0101]"
             >
               SUBSCRIBE
               <Send className="h-4 w-4" />

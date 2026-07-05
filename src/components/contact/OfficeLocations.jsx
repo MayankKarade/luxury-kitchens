@@ -14,7 +14,7 @@ const carouselLocations = [...officeLocations, ...officeLocations];
 
 function LocationCard({ location }) {
   return (
-    <article className="overflow-hidden rounded-lg bg-[#080d11] text-white shadow-sm">
+    <article className="flex h-full min-h-[330px] flex-col overflow-hidden rounded-lg bg-[#080d11] text-white shadow-sm">
       <div className="relative h-40 overflow-hidden">
         <Image
           src={location.image}
@@ -26,7 +26,7 @@ function LocationCard({ location }) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#080d11]/40 to-transparent" />
       </div>
-      <div className="px-4 py-4">
+      <div className="flex flex-1 flex-col px-4 py-4">
         <h3 className="text-sm font-extrabold">{location.name}</h3>
         <p className="mt-3 flex items-start gap-2 text-xs font-semibold text-zinc-200">
           <ContactIcon
@@ -35,7 +35,7 @@ function LocationCard({ location }) {
           />
           {location.city}
         </p>
-        <p className="mt-3 flex items-start gap-2 text-xs font-medium leading-5 text-zinc-300">
+        <p className="mt-3 flex flex-1 items-start gap-2 text-xs font-medium leading-5 text-zinc-300">
           <ContactIcon
             name="pin"
             className="mt-0.5 h-4 w-4 shrink-0 text-brand-gold"
@@ -80,12 +80,12 @@ export default function OfficeLocations() {
 
   return (
     <section className="bg-brand-white px-4 pb-8 text-brand-dark sm:px-10 md:px-16">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto ">
         <div className="mb-6 flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-center">
           <h2 className="font-serif text-3xl font-medium sm:text-[34px]">
             Our Office Locations
           </h2>
-          <button className="group inline-flex items-center gap-4 rounded-md border border-brand-gold px-6 py-3 text-[11px] font-extrabold tracking-wide text-brand-gold transition-colors hover:bg-brand-gold hover:text-black">
+          <button className="group inline-flex items-center gap-4 rounded-md border border-brand-gold px-6 py-3 text-[11px] font-extrabold tracking-wide text-brand-gold transition-colors hover:bg-brand-gold hover:text-white">
             VIEW ALL LOCATIONS
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </button>
@@ -95,17 +95,17 @@ export default function OfficeLocations() {
           <button
             onClick={scrollPrev}
             aria-label="Previous locations"
-            className="absolute left-2 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black text-white shadow-lg transition-colors hover:bg-brand-gold hover:text-black lg:left-[-22px]"
+            className="absolute left-2 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black text-white shadow-lg transition-colors hover:bg-brand-gold hover:text-white lg:left-[-22px]"
           >
             <ArrowLeft className="h-5 w-5" />
           </button>
 
           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="-ml-4 flex touch-pan-y">
+            <div className="-ml-4 flex touch-pan-y items-stretch">
               {carouselLocations.map((location, index) => (
                 <div
                   key={`${location.name}-${index}`}
-                  className="min-w-0 flex-[0_0_100%] pl-4 sm:flex-[0_0_50%] lg:flex-[0_0_20%]"
+                  className="flex min-w-0 flex-[0_0_100%] pl-4 sm:flex-[0_0_50%] lg:flex-[0_0_20%]"
                 >
                   <LocationCard location={location} />
                 </div>
@@ -116,7 +116,7 @@ export default function OfficeLocations() {
           <button
             onClick={scrollNext}
             aria-label="Next locations"
-            className="absolute right-2 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black text-white shadow-lg transition-colors hover:bg-brand-gold hover:text-black lg:right-[-22px]"
+            className="absolute right-2 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black text-white shadow-lg transition-colors hover:bg-brand-gold hover:text-white lg:right-[-22px]"
           >
             <ArrowRight className="h-5 w-5" />
           </button>
@@ -165,7 +165,7 @@ export default function OfficeLocations() {
               </ul>
               <button
                 onClick={openModal}
-                className="group mt-7 inline-flex items-center gap-5 rounded-md bg-brand-gold px-7 py-4 text-[11px] font-extrabold tracking-wide text-black transition-colors hover:bg-[#eec176]"
+                className="group mt-7 inline-flex items-center gap-5 rounded-md bg-brand-gold px-7 py-4 text-[11px] font-extrabold tracking-wide text-white transition-colors hover:bg-[#9A0101]"
               >
                 GET DIRECTIONS
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

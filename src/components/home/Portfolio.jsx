@@ -144,7 +144,7 @@ export default function Portfolio() {
       className="bg-brand-dark px-4 sm:px-10 md:px-16 py-12 sm:py-16 lg:py-20 relative overflow-hidden select-none"
     >
       <div className="absolute top-1/3 left-0 w-[500px] h-[500px] rounded-full bg-brand-white/[0.01] blur-[150px] pointer-events-none"></div>
-      <div className="max-w-7xl mx-auto">
+      <div className=" mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-2 items-start">
           {/* Left Column with staggered animation */}
           <motion.div
@@ -176,7 +176,7 @@ export default function Portfolio() {
             <motion.a
               variants={fadeInUp}
               href="#contact"
-              className="px-3 w-full sm:w-fit sm:px-7 py-3.5 bg-brand-gold hover:bg-[#eec176] text-brand-dark font-sans text-xs font-bold tracking-[0.16em] uppercase rounded-[2px] transition-all duration-350 shadow-md flex items-center justify-center gap-2 group-hover:scale-[1.02]"
+              className="px-3 w-full sm:w-fit sm:px-7 py-3.5 bg-brand-gold hover:bg-[#9A0101] text-white font-sans text-xs font-bold tracking-[0.16em] uppercase rounded-[2px] transition-all duration-350 shadow-md flex items-center justify-center gap-2 group-hover:scale-[1.02]"
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -193,7 +193,7 @@ export default function Portfolio() {
             <div className="hidden md:grid grid-cols-12 gap-5 w-full md:h-[550px] items-stretch">
               {/* Card 1 */}
               <motion.div
-                className="col-span-4 flex flex-col h-full bg-[#12141c] border border-white/5 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 hover:border-brand-gold/30 group"
+                className="col-span-4 flex flex-col h-full bg-[#010129] border border-white/5 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 hover:border-brand-gold/30 group"
                 variants={cardVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -214,9 +214,9 @@ export default function Portfolio() {
                       referrerPolicy="no-referrer"
                     />
                   </motion.div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#12141c] via-transparent to-transparent opacity-65"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/45 via-transparent to-transparent"></div>
                 </div>
-                <div className="p-6 bg-[#12141c] flex flex-col gap-1 w-full border-t border-white/5">
+                <div className="p-6 bg-[#010129] flex flex-col gap-1 w-full border-t border-white/5">
                   <h3 className="text-white text-lg font-serif font-bold group-hover:text-brand-gold transition-colors">
                     {visible[0].title}
                   </h3>
@@ -229,7 +229,7 @@ export default function Portfolio() {
               {/* Card 2 & 3 stacked */}
               <div className="col-span-4 flex flex-col gap-5 justify-between">
                 <motion.div
-                  className="flex flex-col h-full bg-[#12141c] border border-white/5 rounded-2xl overflow-hidden shadow-xl group"
+                  className="flex flex-col h-full bg-[#010129] border border-white/5 rounded-2xl overflow-hidden shadow-xl group"
                   variants={cardVariants}
                   initial="hidden"
                   whileInView="visible"
@@ -249,9 +249,9 @@ export default function Portfolio() {
                         className="object-cover"
                       />
                     </motion.div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#12141c] via-transparent to-transparent opacity-65"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/45 via-transparent to-transparent"></div>
                   </div>
-                  <div className="p-4 bg-[#12141c] border-t border-white/5">
+                  <div className="p-4 bg-[#010129] border-t border-white/5">
                     <h3 className="text-white text-base font-serif font-bold group-hover:text-brand-gold transition-colors">
                       {visible[1].title}
                     </h3>
@@ -262,7 +262,7 @@ export default function Portfolio() {
                 </motion.div>
 
                 <motion.div
-                  className="flex flex-col h-full bg-[#12141c] border border-white/5 rounded-2xl overflow-hidden shadow-xl group"
+                  className="flex flex-col h-full bg-[#010129] border border-white/5 rounded-2xl overflow-hidden shadow-xl group"
                   variants={cardVariants}
                   initial="hidden"
                   whileInView="visible"
@@ -282,9 +282,9 @@ export default function Portfolio() {
                         className="object-cover"
                       />
                     </motion.div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#12141c] via-transparent to-transparent opacity-65"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/45 via-transparent to-transparent"></div>
                   </div>
-                  <div className="p-4 bg-[#12141c] border-t border-white/5">
+                  <div className="p-4 bg-[#010129] border-t border-white/5">
                     <h3 className="text-white text-base font-serif font-bold group-hover:text-brand-gold transition-colors">
                       {visible[2].title}
                     </h3>
@@ -300,23 +300,23 @@ export default function Portfolio() {
                 <div className="flex justify-end gap-3.5 pb-2">
                   <motion.button
                     onClick={prevSlide}
-                    className="w-10 h-10 rounded-full border border-brand-gold/30 hover:border-brand-gold text-white hover:text-brand-gold flex items-center justify-center transition-all duration-300 bg-[#0f1115] cursor-pointer"
-                    whileHover={{ scale: 1.1, borderColor: "#dfab56" }}
+                    className="w-10 h-10 rounded-full border border-brand-gold/30 hover:border-brand-gold text-white hover:text-brand-gold flex items-center justify-center transition-all duration-300 bg-[#010129] cursor-pointer"
+                    whileHover={{ scale: 1.1, borderColor: "#9A0101" }}
                     whileTap={{ scale: 0.95 }}
                   >
                     <ChevronLeft className="w-4 h-4" />
                   </motion.button>
                   <motion.button
                     onClick={nextSlide}
-                    className="w-10 h-10 rounded-full border border-brand-gold/30 hover:border-brand-gold text-white hover:text-brand-gold flex items-center justify-center transition-all duration-300 bg-[#0f1115] cursor-pointer"
-                    whileHover={{ scale: 1.1, borderColor: "#dfab56" }}
+                    className="w-10 h-10 rounded-full border border-brand-gold/30 hover:border-brand-gold text-white hover:text-brand-gold flex items-center justify-center transition-all duration-300 bg-[#010129] cursor-pointer"
+                    whileHover={{ scale: 1.1, borderColor: "#9A0101" }}
                     whileTap={{ scale: 0.95 }}
                   >
                     <ChevronRight className="w-4 h-4" />
                   </motion.button>
                 </div>
                 <motion.div
-                  className="flex flex-col h-full bg-[#12141c] border border-white/5 rounded-2xl overflow-hidden shadow-2xl group"
+                  className="flex flex-col h-full bg-[#010129] border border-white/5 rounded-2xl overflow-hidden shadow-2xl group"
                   variants={cardVariants}
                   initial="hidden"
                   whileInView="visible"
@@ -336,9 +336,9 @@ export default function Portfolio() {
                         className="object-cover"
                       />
                     </motion.div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#12141c] via-transparent to-transparent opacity-65"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/45 via-transparent to-transparent"></div>
                   </div>
-                  <div className="p-6 bg-[#12141c] border-t border-white/5">
+                  <div className="p-6 bg-[#010129] border-t border-white/5">
                     <h3 className="text-white text-lg font-serif font-bold group-hover:text-brand-gold transition-colors">
                       {visible[3].title}
                     </h3>
@@ -362,7 +362,7 @@ export default function Portfolio() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: idx * 0.1 }}
                   >
-                    <div className="bg-[#12141c] border border-white/5 rounded-2xl overflow-hidden shadow-xl">
+                    <div className="bg-[#010129] border border-white/5 rounded-2xl overflow-hidden shadow-xl">
                       <div className="relative aspect-[4/3] w-full">
                         <Image
                           src={project.img}
@@ -372,7 +372,7 @@ export default function Portfolio() {
                           referrerPolicy="no-referrer"
                         />
                       </div>
-                      <div className="p-5 bg-[#12141c] border-t border-white/5">
+                      <div className="p-5 bg-[#010129] border-t border-white/5">
                         <h3 className="text-white text-lg font-serif font-bold mb-1">
                           {project.title}
                         </h3>

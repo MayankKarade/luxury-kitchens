@@ -68,7 +68,7 @@ export default function GalleryCTA() {
 
   return (
     <section className="bg-brand-white px-4 pb-8 pt-6 text-white sm:px-10 md:px-16">
-      <div className="mx-auto max-w-7xl overflow-hidden rounded-lg bg-[#071014] px-6 py-5 shadow-sm sm:px-8">
+      <div className="mx-auto  overflow-hidden rounded-lg bg-[#071014] px-6 py-5 shadow-sm sm:px-8">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <h2 className="font-serif text-xl sm:text-2xl font-medium ">
@@ -97,7 +97,7 @@ export default function GalleryCTA() {
 
           <button
             onClick={openModal}
-            className="group inline-flex items-center justify-center gap-4 rounded-md bg-brand-gold px-7 py-4 text-[11px] font-extrabold tracking-wide text-black transition-colors hover:bg-[#eec176]"
+            className="group inline-flex items-center justify-center gap-4 rounded-md bg-brand-gold px-7 py-4 text-[11px] font-extrabold tracking-wide text-white transition-colors hover:bg-[#9A0101]"
           >
             BOOK CONSULTATION
             <Calendar className="h-4 w-4" />

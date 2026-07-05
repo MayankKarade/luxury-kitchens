@@ -163,7 +163,7 @@ export default function Brands() {
 
   return (
     <section className="bg-[#fbf9f6] px-4 sm:px-10 md:px-20 py-9 sm:py-10 border-y border-brand-gold/15 relative overflow-hidden select-none">
-      <div className="max-w-7xl mx-auto ">
+      <div className=" mx-auto ">
         {/* Centered Heading */}
         <div className="text-center pb-6">
           <p className="text-[11px] sm:text-[14px] tracking-[0.25em] font-extrabold text-neutral-900 font-sans uppercase">
@@ -176,7 +176,7 @@ export default function Brands() {
           {/* Gold Thin Left Chevron arrow */}
           <button
             onClick={handlePrev}
-            className="absolute left-[-12px] sm:left-[-24px] z-10 w-10 h-10 flex items-center justify-center text-brand-gold hover:text-[#eec176] active:scale-95 transition-all duration-200 cursor-pointer group focus:outline-none"
+            className="absolute left-[-12px] sm:left-[-24px] z-10 w-10 h-10 flex items-center justify-center text-brand-gold hover:text-[#9A0101] active:scale-95 transition-all duration-200 cursor-pointer group focus:outline-none"
             aria-label="Previous brand logo"
           >
             <ChevronLeft className="w-8 h-8 stroke-[1.25] transition-transform group-hover:-translate-x-0.5" />
@@ -206,7 +206,7 @@ export default function Brands() {
           {/* Gold Thin Right Chevron arrow */}
           <button
             onClick={handleNext}
-            className="absolute right-[-12px] sm:right-[-24px] z-10 w-10 h-10 flex items-center justify-center text-brand-gold hover:text-[#eec176] active:scale-95 transition-all duration-200 cursor-pointer group focus:outline-none"
+            className="absolute right-[-12px] sm:right-[-24px] z-10 w-10 h-10 flex items-center justify-center text-brand-gold hover:text-[#9A0101] active:scale-95 transition-all duration-200 cursor-pointer group focus:outline-none"
             aria-label="Next brand logo"
           >
             <ChevronRight className="w-8 h-8 stroke-[1.25] transition-transform group-hover:translate-x-0.5" />

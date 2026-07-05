@@ -85,12 +85,12 @@ export default function PortfolioHero({ activeCategory, setActiveCategory }) {
           referrerPolicy="no-referrer"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#08090b] via-transparent to-black/40" />
-        <div className="absolute top-1/2 left-2/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-amber-500/5 blur-[180px] pointer-events-none rounded-full" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/70 via-brand-dark/46 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/50 via-transparent to-brand-dark/28" />
+        <div className="absolute top-1/2 left-2/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-brand-gold/5 blur-[180px] pointer-events-none rounded-full" />
       </div>
 
-      <div className="w-full   px-4 sm:px-10 lg:px-16  max-w-7xl mx-auto relative z-10 flex-grow flex flex-col justify-center">
+      <div className="w-full   px-4 sm:px-10 lg:px-16   mx-auto relative z-10 flex-grow flex flex-col justify-center">
         <motion.div
           className="flex flex-col items-start gap-6"
           variants={staggerContainer}
@@ -100,7 +100,7 @@ export default function PortfolioHero({ activeCategory, setActiveCategory }) {
           <div className="flex items-center gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-2">
             <Link
               href="/"
-              className="text-zinc-350 hover:text-white transition-colors duration-200"
+              className="text-zinc-350 text-white transition-colors duration-200"
             >
               Home
             </Link>
@@ -135,13 +135,13 @@ export default function PortfolioHero({ activeCategory, setActiveCategory }) {
         </motion.div>
       </div>
       <motion.div
-        className="w-full  mx-auto relative z-10 mt-auto pt-6  px-4 sm:px-10 lg:px-16 max-w-7xl"
+        className="w-full  mx-auto relative z-10 mt-auto pt-6  px-4 sm:px-10 lg:px-16 "
         variants={slideInRight}
         initial="hidden"
         animate="visible"
       >
         <div className="flex w-full justify-end">
-          <div className="w-full  bg-black/20 backdrop-blur-xs border border-white/10 rounded-xl px-4 py-6  shadow-2xl relative overflow-hidden">
+          <div className="w-full bg-brand-dark/20 backdrop-blur-xs border border-white/10 rounded-xl px-4 py-6 shadow-2xl relative overflow-hidden">
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4 px-2 ">
               {categories.map((cat) => {
                 const Icon = cat.icon;
@@ -161,14 +161,14 @@ export default function PortfolioHero({ activeCategory, setActiveCategory }) {
                   >
                     {/* ${
                         isSelected
-                          ? "border-brand-gold bg-brand-gold text-black"
+                          ? "border-brand-gold bg-brand-gold text-white"
                           : "border-brand-gold/40 text-brand-gold hover:border-brand-gold hover:bg-brand-gold/10"
                       } */}
                     <div
                       className={`w-9 sm:w-12 h-9 sm:h-12 rounded-full border flex items-center justify-center shrink-0 transition-all duration-300 border-brand-gold/40 text-brand-gold `}
                     >
                       {/* {
-                          isSelected ? "text-black" : "text-brand-gold"
+                          isSelected ? "text-white" : "text-brand-gold"
                         } */}
                       <Icon
                         className={`w-5 sm:w-7 h-5 sm:h-7 text-brand-gold `}

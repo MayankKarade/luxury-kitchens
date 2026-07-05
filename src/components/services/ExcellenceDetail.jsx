@@ -47,16 +47,16 @@ export default function ExcellenceDetail() {
   return (
     <section
       id="services-excellence-section"
-      className="py-12 sm:py-16 bg-[#090a0f] border-t border-neutral-800/20 relative overflow-hidden"
+      className="py-12 sm:py-16 bg-[#010129] border-t border-neutral-800/20 relative overflow-hidden"
     >
       {/* Decorative subtle golden layout lines/glow grids */}
       <div className="absolute inset-0 opacity-15 pointer-events-none select-none">
-        <div className="absolute inset-0 bg-[radial-gradient(#dfab56_0.8px,transparent_0.8px)] [background-size:32px_32px]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(#9A0101_0.8px,transparent_0.8px)] [background-size:32px_32px]"></div>
         <div className="absolute top-[30%] right-[10%] w-[500px] h-[500px] bg-brand-gold/5 blur-[165px] rounded-full"></div>
         <div className="absolute bottom-[20%] left-[5%] w-[400px] h-[400px] bg-brand-gold/3 blur-[140px] rounded-full"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-10 md:px-16 relative z-10 w-full">
+      <div className=" mx-auto px-4 sm:px-10 md:px-16 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-[2.8fr_9.2fr] gap-6 items-start">
           {/* Left Side Copy */}
           <div className=" flex flex-col items-start text-left">
@@ -77,10 +77,10 @@ export default function ExcellenceDetail() {
             {/* Learn More trigger */}
             <button
               onClick={openModal}
-              className="px-6 py-3.5 bg-brand-gold hover:bg-[#eec176] text-brand-dark font-sans text-xs font-bold tracking-[0.18em] rounded-[1px] flex items-center justify-center gap-2 transition-all duration-300 shadow-[0_8px_20px_rgba(223,171,86,0.15)] group cursor-pointer"
+              className="px-6 py-3.5 bg-brand-gold hover:bg-[#9A0101] text-white font-sans text-xs font-bold tracking-[0.18em] rounded-[1px] flex items-center justify-center gap-2 transition-all duration-300 shadow-[0_8px_20px_rgba(154,1,1,0.15)] group cursor-pointer"
             >
               <span>LEARN MORE ABOUT US</span>
-              <ArrowRight className="w-3.5 h-3.5 text-brand-dark transition-transform duration-300 group-hover:translate-x-1" />
+              <ArrowRight className="w-3.5 h-3.5 text-white transition-transform duration-300 group-hover:translate-x-1" />
             </button>
           </div>
 

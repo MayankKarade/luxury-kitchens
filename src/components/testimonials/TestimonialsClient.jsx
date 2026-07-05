@@ -6,12 +6,15 @@ import VideoTestimonials from "./VideoTestimonials";
 
 export default function TestimonialsClient() {
   return (
-    <div className="min-h-screen bg-brand-white">
-      <TestimonialsHero />
-      <ClientReviews />
-      <VideoTestimonials />
-      <SuccessStories />
-      <TrustedBrands />
+    // <div className="min-h-screen bg-brand-white">
+    <div className="w-full  flex  justify-center items-center">
+      <div className="w-full max-w-[1500px]">
+        <TestimonialsHero />
+        <ClientReviews />
+        <VideoTestimonials />
+        <SuccessStories />
+        <TrustedBrands />
+      </div>
     </div>
   );
 }

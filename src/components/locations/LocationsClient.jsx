@@ -137,7 +137,7 @@ const stagger = {
 
 function LocationsHero() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-brand-dark pt-28 sm:pt-36">
+    <section className="relative  min-h-screen overflow-hidden bg-brand-dark pt-28 sm:pt-36">
       <div className="absolute inset-0">
         <Image
           src={heroImg}
@@ -147,18 +147,18 @@ function LocationsHero() {
           sizes="100vw"
           className="object-cover object-center brightness-[1.08] contrast-[1.04]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/78 to-black/5" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#08090b] via-transparent to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/72 via-brand-dark/48 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/48 via-transparent to-brand-dark/24" />
       </div>
 
-      <button
+      {/* <button
         aria-label="Open locations menu"
         className="absolute right-8 top-40 z-10 hidden text-brand-gold lg:block"
       >
         <Menu className="h-6 w-6" />
-      </button>
+      </button> */}
 
-      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-7rem)] max-w-7xl flex-col justify-end px-4 pb-6 sm:px-10 md:px-16 lg:pb-8">
+      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-7rem)]  flex-col justify-center px-4 pb-6 sm:px-10 md:px-16 lg:pb-8">
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -167,7 +167,7 @@ function LocationsHero() {
         >
           <motion.div
             variants={fadeInUp}
-            className="mb-8 flex items-center gap-2 text-xs font-semibold"
+            className="flex items-center gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8"
           >
             <Link
               href="/"
@@ -242,7 +242,7 @@ function LocationsHero() {
 function LocationCards() {
   return (
     <section className="bg-brand-white px-4 py-10 text-brand-dark sm:px-10 sm:py-12 md:px-16">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto ">
         <div className="mb-8 text-center">
           <span className="text-xs font-extrabold uppercase tracking-[0.16em] text-brand-gold">
             OUR LOCATIONS
@@ -278,7 +278,7 @@ function LocationCards() {
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#080b0e] via-[#080b0e]/45 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/72 via-brand-dark/32 to-transparent" />
               <div className="absolute left-5 top-5 flex h-9 w-12 items-center justify-center rounded-md bg-white/95 text-2xl shadow-lg">
                 {location.flag}
               </div>
@@ -294,7 +294,7 @@ function LocationCards() {
                 </p>
                 <Link
                   href={`#${location.id}`}
-                  className="mt-4 inline-flex items-center gap-3 text-sm font-bold text-brand-gold transition-colors hover:text-[#eec176]"
+                  className="mt-4 inline-flex items-center gap-3 text-sm font-bold text-brand-gold transition-colors hover:text-[#9A0101]"
                 >
                   Explore {location.name}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -313,7 +313,7 @@ function GlobalCommitment() {
 
   return (
     <section className="bg-brand-white px-4 pb-10 text-brand-dark sm:px-10 md:px-16">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+      <div className="mx-auto grid  grid-cols-1 items-center gap-8 lg:grid-cols-[0.8fr_1.2fr]">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -344,7 +344,7 @@ function GlobalCommitment() {
 
           <button
             onClick={openModal}
-            className="mt-8 inline-flex items-center gap-4 rounded-md border border-brand-gold px-6 py-3 text-xs font-bold tracking-wide text-brand-gold transition-colors hover:bg-brand-gold hover:text-black"
+            className="mt-8 inline-flex items-center gap-4 rounded-md border border-brand-gold px-6 py-3 text-xs font-bold tracking-wide text-brand-gold transition-colors hover:bg-brand-gold hover:text-white"
           >
             BOOK A CONSULTATION
             <ArrowRight className="h-4 w-4" />
@@ -385,7 +385,7 @@ function GlobalCommitment() {
 function ServiceHighlights() {
   return (
     <section className="bg-brand-white px-4 pb-10 sm:px-10 md:px-16">
-      <div className="mx-auto grid max-w-7xl overflow-hidden rounded-xl border border-white/10 bg-[#080b0e] shadow-xl lg:grid-cols-[1fr_260px]">
+      <div className="mx-auto grid  overflow-hidden rounded-xl border border-white/10 bg-[#010129] shadow-xl lg:grid-cols-[1fr_260px]">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {serviceHighlights.map(({ Icon, title, text }) => (
             <div
@@ -417,11 +417,13 @@ function ServiceHighlights() {
 
 export default function LocationsClient() {
   return (
-    <div className="min-h-screen bg-brand-white">
-      <LocationsHero />
-      <LocationCards />
-      <GlobalCommitment />
-      <ServiceHighlights />
+    <div className="w-full  flex  justify-center items-center">
+      <div className="w-full max-w-[1500px]">
+        <LocationsHero />
+        <LocationCards />
+        <GlobalCommitment />
+        <ServiceHighlights />
+      </div>
     </div>
   );
 }

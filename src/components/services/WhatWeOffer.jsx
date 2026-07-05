@@ -183,7 +183,7 @@ export default function WhatWeOffer() {
       id="services-grid-section"
       className=" py-12 sm:py-16 lg:py-20 bg-brand-white relative z-10"
     >
-      <div className="max-w-7xl px-4 sm:px-10 md:px-16 mx-auto ">
+      <div className=" px-4 sm:px-10 md:px-16 mx-auto ">
         {/* Centered header content layout mirroring reference mockup image */}
         <div className="flex flex-col items-center text-center mb-16 select-none">
           <span className="text-brand-gold font-sans text-xs font-extrabold tracking-[0.25em] uppercase block mb-3">
@@ -227,12 +227,12 @@ export default function WhatWeOffer() {
                 </div>
 
                 <motion.div
-                  className="absolute -bottom-6 left-5 w-13 h-13 bg-[#0f1115] border border-brand-gold/30 rounded-xl flex items-center justify-center shadow-lg z-40 group-hover:scale-[1.1] group-hover:rotate-6 transition-all duration-200"
+                  className="absolute -bottom-6 left-5 w-13 h-13 bg-[#010129] border border-brand-gold/30 rounded-xl flex items-center justify-center shadow-lg z-40 group-hover:scale-[1.1] group-hover:rotate-6 transition-all duration-200"
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   {service.iconSvg}
                 </motion.div>
-                {/* <div className="absolute bottom-[-24px] left-8 w-13 h-13 sm:w-14 sm:h-14 bg-[#0a0a0c] border border-brand-gold/30 flex items-center justify-center rounded-[4px] shadow-lg z-10 group-hover:border-brand-gold transition-all duration-300">
+                {/* <div className="absolute bottom-[-24px] left-8 w-13 h-13 sm:w-14 sm:h-14 bg-[#010129] border border-brand-gold/30 flex items-center justify-center rounded-[4px] shadow-lg z-10 group-hover:border-brand-gold transition-all duration-300">
                   {service.iconSvg}
                 </div> */}
               </div>
@@ -254,7 +254,7 @@ export default function WhatWeOffer() {
                 {/* Call to action explore trigger */}
                 <Link
                   href={`/our-services/${service.slug}`}
-                  className="text-brand-gold hover:text-[#e5b667] font-sans text-xs font-bold tracking-[0.2em] flex items-center gap-2 mt-auto group transition-colors cursor-pointer select-none"
+                  className="text-brand-gold hover:text-[#9A0101] font-sans text-xs font-bold tracking-[0.2em] flex items-center gap-2 mt-auto group transition-colors cursor-pointer select-none"
                 >
                   <span>EXPLORE SERVICE</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1.5" />

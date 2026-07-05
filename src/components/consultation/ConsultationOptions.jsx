@@ -8,7 +8,7 @@ import { connectOptions } from "./consultationData";
 export default function ConsultationOptions() {
   return (
     <section className="bg-brand-white px-4 py-10 text-brand-dark sm:px-10 sm:py-12 md:px-16">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto ">
         <div className="mb-8 text-center">
           <h2 className="font-serif text-3xl font-medium sm:text-[38px]">
             Choose How You&apos;d Like To Connect
@@ -43,7 +43,7 @@ export default function ConsultationOptions() {
                 href={option.href}
                 target={option.href.startsWith("http") ? "_blank" : undefined}
                 rel={option.href.startsWith("http") ? "noreferrer" : undefined}
-                className="group mt-6 inline-flex h-12 w-full items-center justify-center gap-5 rounded-md bg-brand-gold text-[11px] font-extrabold tracking-wide text-black transition-colors hover:bg-[#eec176]"
+                className="group mt-6 inline-flex h-12 w-full items-center justify-center gap-5 rounded-md bg-brand-gold text-[11px] font-extrabold tracking-wide text-white transition-colors hover:bg-[#9A0101]"
               >
                 {option.action}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

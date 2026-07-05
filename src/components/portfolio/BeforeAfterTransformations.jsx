@@ -42,7 +42,7 @@ function TransformationCard({ project, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.06 }}
-      className="overflow-hidden rounded-lg border border-neutral-200 bg-[#080b0e] shadow-sm"
+      className="overflow-hidden rounded-lg border border-neutral-200 bg-[#010129] shadow-sm"
     >
       <div className="relative aspect-[16/8.2] overflow-hidden">
         <Image
@@ -75,7 +75,7 @@ function TransformationCard({ project, index }) {
           className="pointer-events-none absolute inset-y-0 z-10 w-px bg-white"
           style={{ left: `${position}%` }}
         >
-          <div className="absolute left-1/2 top-1/2 flex h-7 w-7 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-black bg-white text-black shadow-lg">
+          <div className="absolute left-1/2 top-1/2 flex h-7 w-7 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-black bg-white text-white shadow-lg">
             <svg
               viewBox="0 0 24 24"
               aria-hidden="true"
@@ -126,7 +126,7 @@ export default function BeforeAfterTransformations() {
       id="transformations"
       className="bg-brand-white px-4 py-12 text-zinc-900 sm:px-10 sm:py-14 md:px-16"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto ">
         <div className="mb-7 flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-center">
           <div>
             <h2 className="font-serif text-3xl font-normal tracking-tight sm:text-[34px]">
@@ -134,7 +134,7 @@ export default function BeforeAfterTransformations() {
             </h2>
             <div className="mt-3 h-0.5 w-12 bg-brand-gold" />
           </div>
-          <button className="group flex items-center gap-4 rounded-md border border-brand-gold px-5 py-3 text-[10px] font-bold tracking-widest text-brand-gold transition-colors hover:bg-brand-gold hover:text-black">
+          <button className="group flex items-center gap-4 rounded-md border border-brand-gold px-5 py-3 text-[10px] font-bold tracking-widest text-brand-gold transition-colors hover:bg-brand-gold hover:text-white">
             VIEW ALL TRANSFORMATIONS
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </button>

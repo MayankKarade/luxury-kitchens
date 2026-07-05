@@ -24,9 +24,12 @@ const MapPinIcon = () => (
       fill="currentColor"
       aria-hidden="true"
     >
-      <path d="M12 2.25c-3.78 0-6.85 3.07-6.85 6.85 0 5.14 6.85 12.65 6.85 12.65s6.85-7.51 6.85-12.65c0-3.78-3.07-6.85-6.85-6.85Z" fill="#dfab56" />
+      <path
+        d="M12 2.25c-3.78 0-6.85 3.07-6.85 6.85 0 5.14 6.85 12.65 6.85 12.65s6.85-7.51 6.85-12.65c0-3.78-3.07-6.85-6.85-6.85Z"
+        fill="#9A0101"
+      />
       <circle cx="12" cy="9.1" r="3.1" fill="#fff8eb" />
-      <circle cx="12" cy="9.1" r="1.45" fill="#dfab56" />
+      <circle cx="12" cy="9.1" r="1.45" fill="#9A0101" />
     </svg>
   </span>
 );
@@ -35,7 +38,7 @@ export default function Presence() {
 
   return (
     <section className="relative bg-[#fbfbfb] text-brand-dark">
-      <div className="max-w-7xl mx-auto relative w-full px-4 sm:px-10 md:px-16">
+      <div className=" mx-auto relative w-full px-4 sm:px-10 md:px-16">
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[4.1fr_5.9fr] lg:gap-2">
           <motion.div
             initial={{ opacity: 0, x: -20 }}

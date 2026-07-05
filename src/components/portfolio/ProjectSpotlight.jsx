@@ -37,17 +37,17 @@ export default function ProjectSpotlight({
   return (
     <section
       id="project-spotlight"
-      className="relative overflow-hidden bg-[#080b0e] px-4 py-12 text-white sm:px-10 sm:py-16 md:px-16"
+      className="relative overflow-hidden bg-[#010129] px-4 py-12 text-white sm:px-10 sm:py-16 md:px-16"
     >
       <div
         className="pointer-events-none absolute inset-0 opacity-35"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 26% 38%, rgba(223,171,86,.08), transparent 28%), linear-gradient(120deg, transparent 20%, rgba(223,171,86,.08) 20.2%, transparent 20.5%, transparent 48%, rgba(223,171,86,.05) 48.2%, transparent 48.5%)",
+            "radial-gradient(circle at 26% 38%, rgba(154,1,1,.08), transparent 28%), linear-gradient(120deg, transparent 20%, rgba(154,1,1,.08) 20.2%, transparent 20.5%, transparent 48%, rgba(154,1,1,.05) 48.2%, transparent 48.5%)",
         }}
       />
 
-      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-8 lg:grid-cols-[0.95fr_1.75fr] lg:gap-10">
+      <div className="relative z-10 mx-auto grid  grid-cols-1 gap-8 lg:grid-cols-[0.95fr_1.75fr] lg:gap-10">
         <motion.div
           initial={{ opacity: 0, x: -24 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -89,7 +89,7 @@ export default function ProjectSpotlight({
 
           <button
             onClick={() => setLightboxOpen(true)}
-            className="group flex w-fit items-center gap-5 rounded-[4px] bg-brand-gold px-6 py-3.5 text-[11px] font-extrabold tracking-wide text-black shadow-[0_10px_25px_rgba(223,171,86,.17)] transition-colors hover:bg-[#eec176]"
+            className="group flex w-fit items-center gap-5 rounded-[4px] bg-brand-gold px-6 py-3.5 text-[11px] font-extrabold tracking-wide text-white shadow-[0_10px_25px_rgba(154,1,1,.17)] transition-colors hover:bg-[#9A0101]"
           >
             VIEW PROJECT DETAILS
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

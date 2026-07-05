@@ -96,7 +96,7 @@ export default function Team() {
       id="team-section"
       className=" py-12 bg-[#fdfdfd] text-brand-dark relative select-none overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-10 md:px-16 relative">
+      <div className=" mx-auto px-4 sm:px-10 md:px-16 relative">
         {/* Section Header Split layout matching mockup */}
         <div className="flex flex-col md:flex-row justify-between items-start  gap-5 border-b border-zinc-200/60 pb-8 ">
           <div className="flex flex-col gap-3">

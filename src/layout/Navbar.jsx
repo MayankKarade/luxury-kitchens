@@ -63,25 +63,18 @@ export default function Navbar() {
           : "bg-black/25 backdrop-blur-[2px]"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-16 pt-3 lg:pt-5 flex justify-between items-center">
+      <div className="max-w-[1500px] mx-auto px-4 sm:px-10 lg:px-16 pt-3 lg:pt-5 flex justify-between items-center">
         {/* Brand Logo */}
-        <Link href="/" className="flex flex-col items-start group shrink-0">
-          <div className="relative">
-            <div className="relative w-[140px] h-14">
-              <Image
-                src={"/logo/logo.png"}
-                alt=""
-                loading="eager"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-          <div className="flex flex-col">
-            <span className="text-[9px] text-brand-gold tracking-[0.22em] font-medium uppercase my-1">
-              LUXURY KITCHENS & INTERIORS
-            </span>
-          </div>
+        <Link href="/" className="flex items-center group shrink-0">
+          <Image
+            src="/logo/CaliWood.jpeg"
+            alt="CaliWood"
+            width={150}
+            height={100}
+            loading="eager"
+            priority
+            className="h-14 w-auto object-contain"
+          />
         </Link>
 
         {/* Desktop view */}
@@ -108,7 +101,7 @@ export default function Navbar() {
               <span>Mon - Sat: 09.00 AM - 06.00 PM</span>
             </div>
           </div>
-          <div className="flex items-center gap-8 pl-5 py-2 bg-brand-gold/5 rounded-md">
+          <div className="flex items-center gap-8 pl-5 py-2 bg-brand-gold/10 rounded-md">
             <div className="flex items-center gap-3">
               {navLinks.map((link) => (
                 <Link
@@ -130,10 +123,10 @@ export default function Navbar() {
             </div>
             <button
               onClick={openModal}
-              className="px-5 py-3 bg-brand-gold hover:bg-[#eec176] text-[#08090d] font-sans text-xs font-bold tracking-[0.1em] rounded-[3px] transition-all duration-300 shadow-md flex items-center gap-2"
+              className="px-5 py-3 bg-brand-gold hover:bg-[#9A0101] text-white font-sans text-xs font-bold tracking-[0.1em] rounded-[3px] transition-all duration-300 shadow-md flex items-center gap-2"
             >
               <span>BOOK CONSULTATION</span>
-              <Calendar className="w-4 h-4 text-[#08090d]" />
+              <Calendar className="w-4 h-4 text-white" />
             </button>
           </div>
         </div>
@@ -142,7 +135,7 @@ export default function Navbar() {
         <div className="flex xl:hidden items-center gap-3">
           <button
             onClick={openModal}
-            className="px-4 py-2 text-xs bg-brand-gold text-[#08090d] font-bold tracking-wider rounded-[3px]"
+            className="px-4 py-2 text-xs bg-brand-gold text-white font-bold tracking-wider rounded-[3px]"
           >
             BOOK
           </button>
@@ -162,7 +155,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer Navigation */}
       <div
-        className={`xl:hidden fixed inset-x-0 top-0 h-screen bg-[#07080b]/98 backdrop-blur-lg z-40 transition-all duration-300 transform ${
+        className={`xl:hidden fixed inset-x-0 top-0 h-screen bg-[#010129]/98 backdrop-blur-lg z-40 transition-all duration-300 transform ${
           mobileMenuOpen
             ? "translate-y-0 opacity-100"
             : "-translate-y-full opacity-0 pointer-events-none"
@@ -201,7 +194,7 @@ export default function Navbar() {
                 setMobileMenuOpen(false);
                 openModal();
               }}
-              className="w-full flex items-center justify-center gap-2 py-4 bg-brand-gold hover:bg-[#eec176] text-black font-bold tracking-widest text-xs rounded transition-all"
+              className="w-full flex items-center justify-center gap-2 py-4 bg-brand-gold hover:bg-[#9A0101] text-white font-bold tracking-widest text-xs rounded transition-all"
             >
               <Calendar className="w-4 h-4" />
               <span>BOOK APPOINTMENT</span>

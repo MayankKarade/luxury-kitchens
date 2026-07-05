@@ -9,14 +9,16 @@ import Team from "./Team";
 
 const AboutClient = () => {
   return (
-    <div id="about-page-root" className=" overflow-hidden">
-      <AboutHero />
-      <OurStory />
-      <AboutStats />
-      <OurProcess />
-      <WhyChooseUs />
-      <Presence />
-      <Team />
+    <div className="w-full  flex  justify-center items-center">
+      <div id="about-page-root" className="w-full max-w-[1500px]">
+        <AboutHero />
+        <OurStory />
+        <AboutStats />
+        <OurProcess />
+        <WhyChooseUs />
+        <Presence />
+        <Team />
+      </div>
     </div>
   );
 };

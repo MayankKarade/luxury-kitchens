@@ -113,9 +113,9 @@ export function ConsultationProvider({ children }) {
       {/* LUXURY SLIDE-IN DIALOG / MODAL (BOOK CONSULTATION) */}
       {modalOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fade-in transition-all">
-          <div className="relative w-full max-w-2xl bg-[#0f1115] border border-white/10 rounded-2xl overflow-hidden shadow-2xl transition-all max-h-[90vh] flex flex-col text-white">
+          <div className="relative w-full max-w-2xl bg-[#010129] border border-white/10 rounded-2xl overflow-hidden shadow-2xl transition-all max-h-[90vh] flex flex-col text-white">
             {/* Header trim */}
-            <div className="h-2 w-full bg-gradient-to-r from-brand-gold to-[#eec176]"></div>
+            <div className="h-2 w-full bg-gradient-to-r from-brand-gold to-[#9A0101]"></div>
 
             {/* Close Toggle */}
             <button
@@ -375,9 +375,9 @@ export function ConsultationProvider({ children }) {
                     </button>
                     <button
                       type="submit"
-                      className="px-8 py-3.5 bg-brand-gold hover:bg-[#eec176] text-[#08090d] font-display text-xs font-bold tracking-widest rounded-[1px] flex items-center gap-2 transition-all duration-300"
+                      className="px-8 py-3.5 bg-brand-gold hover:bg-[#9A0101] text-white font-display text-xs font-bold tracking-widest rounded-[1px] flex items-center gap-2 transition-all duration-300"
                     >
-                      <Calendar className="w-4 h-4 text-black" />
+                      <Calendar className="w-4 h-4 text-white" />
                       <span>SUBMIT CONFIRMATION</span>
                     </button>
                   </div>

@@ -32,11 +32,11 @@ export default function TestimonialsHero() {
           sizes="100vw"
           className="object-cover object-center brightness-[1.08] contrast-[1.04]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/78 to-black/10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#08090b] via-transparent to-black/35" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/72 via-brand-dark/48 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/50 via-transparent to-brand-dark/28" />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-[560px] max-w-7xl flex-col justify-between px-4 sm:px-10 md:px-16 pb-16">
+      <div className="relative z-10 mx-auto flex min-h-[560px]  flex-col justify-between px-4 sm:px-10 md:px-16 pb-16">
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -88,7 +88,7 @@ export default function TestimonialsHero() {
           variants={stagger}
           initial="hidden"
           animate="visible"
-          className="grid w-full grid-cols-1 overflow-hidden border-t border-white/10 bg-black/35 backdrop-blur-xs sm:grid-cols-2 lg:grid-cols-4"
+          className="grid w-full grid-cols-1 overflow-hidden border-t border-white/10 bg-brand-dark/25 backdrop-blur-xs sm:grid-cols-2 lg:grid-cols-4"
         >
           {heroStats.map((stat) => {
             const Icon = statIcons[stat.icon];

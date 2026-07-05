@@ -12,7 +12,7 @@ function CategoryList({ categories }) {
           type="button"
           className={`flex w-full items-center justify-between rounded-md px-2 py-2 text-left text-[13px] font-semibold transition-colors ${
             category.active
-              ? "bg-brand-gold/25 text-brand-dark"
+              ? "bg-brand-gold/25 text-brand-gold"
               : "text-zinc-700 hover:bg-brand-gold/10"
           }`}
         >
@@ -96,7 +96,7 @@ function FilterSidebar({ collection }) {
 
         <button
           type="button"
-          className="mt-7 flex h-11 w-full items-center justify-center rounded-md border border-brand-gold bg-white text-[11px] font-extrabold uppercase tracking-wide text-brand-gold transition-colors hover:bg-brand-gold hover:text-black"
+          className="mt-7 flex h-11 w-full items-center justify-center rounded-md border border-brand-gold bg-white text-[11px] font-extrabold uppercase tracking-wide text-brand-gold transition-colors hover:bg-brand-gold hover:text-white"
         >
           Reset Filters
         </button>
@@ -132,7 +132,7 @@ function ProductCard({ product, service }) {
         <button
           type="button"
           aria-label={`Save ${product.title}`}
-          className="absolute right-3 top-3 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-black/55 text-white backdrop-blur-sm transition-colors hover:bg-brand-gold hover:text-black"
+          className="absolute right-3 top-3 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-black/55 text-white backdrop-blur-sm transition-colors hover:bg-brand-gold hover:text-white"
         >
           <ServiceDesignIcon name="heart" className="h-4 w-4" />
         </button>
@@ -153,7 +153,7 @@ function ProductCard({ product, service }) {
         </p>
         <Link
           href={detailHref}
-          className="mt-5 flex h-11 items-center justify-center gap-3 rounded-md border border-brand-gold text-[11px] font-bold uppercase tracking-wide text-brand-gold transition-colors hover:bg-brand-gold hover:text-black"
+          className="mt-5 flex h-11 items-center justify-center gap-3 rounded-md border border-brand-gold text-[11px] font-bold uppercase tracking-wide text-brand-gold transition-colors hover:bg-brand-gold hover:text-white"
         >
           View Details
           <ServiceDesignIcon name="arrow" className="h-4 w-4" />
@@ -183,7 +183,7 @@ function CustomDesignCTA({ collection }) {
       </div>
       <Link
         href="/consultation"
-        className="inline-flex h-12 items-center justify-center gap-4 rounded-md bg-brand-gold px-8 text-[11px] font-extrabold uppercase tracking-wide text-black transition-colors hover:bg-[#eec176]"
+        className="inline-flex h-12 items-center justify-center gap-4 rounded-md bg-brand-gold px-8 text-[11px] font-extrabold uppercase tracking-wide text-white transition-colors hover:bg-[#9A0101]"
       >
         Book A Consultation
         <ServiceDesignIcon name="arrow" className="h-4 w-4" />
@@ -221,7 +221,7 @@ function BenefitStrip({ benefits }) {
 export default function ServiceDesignsBrowser({ service, collection }) {
   return (
     <section className="bg-brand-white px-4 py-9 text-brand-dark sm:px-10 md:px-16">
-      <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[235px_minmax(0,1fr)]">
+      <div className="mx-auto grid  gap-6 lg:grid-cols-[235px_minmax(0,1fr)]">
         <FilterSidebar collection={collection} />
 
         <div className="min-w-0">
@@ -260,7 +260,7 @@ export default function ServiceDesignsBrowser({ service, collection }) {
         </div>
       </div>
 
-      <div className="mx-auto mt-8 max-w-7xl">
+      <div className="mx-auto mt-8 ">
         <BenefitStrip benefits={collection.benefits} />
       </div>
     </section>

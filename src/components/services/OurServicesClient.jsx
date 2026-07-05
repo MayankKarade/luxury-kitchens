@@ -7,15 +7,14 @@ import ExcellenceDetail from "./ExcellenceDetail";
 
 export default function OurServicesClient() {
   return (
-    <div id="services-page-root" className="bg-brand-dark overflow-hidden">
-      {/* SECTION 1: SERVICES HERO WITH LUXURY DEPTH MASK */}
-      <ServicesHero />
+    <div className="w-full  flex  justify-center items-center">
+      <div id="services-page-root" className="w-full max-w-[1500px] ">
+        <ServicesHero />
 
-      {/* SECTION 2: WHAT WE OFFER / PREMIUM 6 SERVICES GRID (LIGHT BG) */}
-      <WhatWeOffer />
+        <WhatWeOffer />
 
-      {/* SECTION 3: WHY CHOOSE US - EXCELLENCE IN EVERY DETAIL (DARK GRID CONTRAST) */}
-      <ExcellenceDetail />
+        <ExcellenceDetail />
+      </div>
     </div>
   );
 }

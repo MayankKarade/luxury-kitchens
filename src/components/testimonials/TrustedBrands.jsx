@@ -2,8 +2,8 @@ import { brandLogos } from "./testimonialData";
 
 export default function TrustedBrands() {
   return (
-    <section className="border-y border-white/10 bg-[#080b0e] px-4 py-8 sm:px-10 md:px-16">
-      <div className="mx-auto max-w-7xl">
+    <section className="border-y border-white/10 bg-[#010129] px-4 py-8 sm:px-10 md:px-16">
+      <div className="mx-auto ">
         <p className="text-center text-xs font-extrabold uppercase tracking-[0.22em] text-zinc-400">
           Trusted By Leading Brands &amp; Clients Worldwide
         </p>
