@@ -22,13 +22,15 @@ export default function BlogArticleContent({ article }) {
               {section.body}
             </p>
             <div className="relative mt-6 aspect-[16/7.2] min-h-[220px] overflow-hidden rounded-lg border border-neutral-200 bg-neutral-100 shadow-sm">
-              <Image
-                src={section.image}
-                alt={section.title}
-                fill
-                sizes="(min-width: 1024px) 65vw, 100vw"
-                className="object-cover"
-              />
+              {section.image ? (
+                <Image
+                  src={section.image}
+                  alt={section.title}
+                  fill
+                  sizes="(min-width: 1024px) 65vw, 100vw"
+                  className="object-cover"
+                />
+              ) : null}
             </div>
           </section>
         ))}

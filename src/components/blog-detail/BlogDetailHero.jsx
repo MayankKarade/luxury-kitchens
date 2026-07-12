@@ -3,18 +3,35 @@ import Link from "next/link";
 
 import { BlogDetailIcon } from "./BlogDetailIcons";
 
+function getAuthorInitials(author = "") {
+  return author
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((namePart) => namePart[0])
+    .join("")
+    .toUpperCase();
+}
+
 export default function BlogDetailHero({ article }) {
+  const authorInitials = getAuthorInitials(article.author);
+
   return (
     <section className="relative overflow-hidden bg-brand-dark pt-28 text-white sm:pt-36">
       <div className="absolute inset-0">
-        <Image
-          src={article.heroImage}
-          alt={article.title}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center brightness-[1.12] contrast-[1.04]"
-        />
+        {article.heroImage ? (
+          <Image
+            src={article.heroImage}
+            alt={article.title}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center brightness-[1.12] contrast-[1.04]"
+          />
+        ) : (
+          <div className="h-full w-full bg-brand-dark" />
+        )}
         <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/72 via-brand-dark/48 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/48 via-transparent to-brand-dark/24" />
       </div>
@@ -57,7 +74,7 @@ export default function BlogDetailHero({ article }) {
           <div className="mt-8 flex flex-wrap items-center gap-6 text-sm font-semibold text-zinc-200">
             <div className="flex items-center gap-3">
               <span className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/10 text-sm font-extrabold text-brand-gold">
-                NS
+                {authorInitials}
               </span>
               <span>
                 <span className="block text-white">By {article.author}</span>

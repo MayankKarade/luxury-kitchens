@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { HtmlContent } from "./HtmlContent";
 import { DetailIcon } from "./ServiceDesignDetailIcons";
 
 function Rating({ product }) {
@@ -32,9 +33,10 @@ export default function DesignInfoPanel({ product }) {
       </h1>
       <Rating product={product} />
 
-      <p className="mt-3 text-[14px] font-medium leading-5 text-zinc-700">
-        {product.detailText}
-      </p>
+      <HtmlContent
+        value={product.detailText}
+        className="mt-3 text-[14px] font-medium leading-5 text-zinc-700 [&_p]:mb-2 [&_p:last-child]:mb-0"
+      />
 
       <div className="mt-3">
         <p className="text-2xl font-bold text-neutral-900">{product.price}</p>
@@ -58,9 +60,10 @@ export default function DesignInfoPanel({ product }) {
                 <h3 className="text-sm font-bold text-neutral-900">
                   {feature.title}
                 </h3>
-                <p className="mt-0 text-sm font-medium leading-5 text-zinc-600">
-                  {feature.text}
-                </p>
+                <HtmlContent
+                  value={feature.text}
+                  className="mt-0 text-sm font-medium leading-5 text-zinc-600 [&_p]:mb-1 [&_p:last-child]:mb-0"
+                />
               </div>
             </div>
           ))}

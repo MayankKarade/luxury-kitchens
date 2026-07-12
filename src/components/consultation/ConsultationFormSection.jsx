@@ -12,6 +12,9 @@ import {
   serviceOptions,
   whyItems,
 } from "./consultationData";
+import axios from "axios";
+import { API_ENDPOINTS } from "@/config";
+import { toast } from "react-toastify";
 
 function Field({ label, children }) {
   return (
@@ -27,9 +30,8 @@ function Field({ label, children }) {
 const inputClass =
   "h-12 w-full rounded-md border border-neutral-200 bg-white px-4 text-sm text-zinc-800 outline-none transition-colors placeholder:text-zinc-400 focus:border-brand-gold";
 
-function DateTimePickerField({ label, type, Icon }) {
+function DateTimePickerField({ label, name, type, Icon }) {
   const inputRef = useRef(null);
-  const [value, setValue] = useState("");
 
   const openPicker = () => {
     const input = inputRef.current;
@@ -57,9 +59,8 @@ function DateTimePickerField({ label, type, Icon }) {
       <span className="relative block">
         <input
           ref={inputRef}
+          name={name}
           type={type}
-          value={value}
-          onChange={(event) => setValue(event.target.value)}
           onClick={openPicker}
           className={`${inputClass} luxury-native-picker cursor-pointer pr-12`}
         />
@@ -78,10 +79,40 @@ function DateTimePickerField({ label, type, Icon }) {
 
 export default function ConsultationFormSection() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    setSubmitted(true);
+    setSubmitted(false);
+    setSubmitError("");
+    setIsSubmitting(true);
+
+    try {
+      const formData = new FormData(event.currentTarget);
+
+      const response = await axios.post(
+        `${API_ENDPOINTS.BookConsultation.booking}`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        },
+      );
+
+      if (response?.data) {
+        toast.success(response?.data?.msg);
+      }
+
+      event.currentTarget.reset();
+      setSubmitted(true);
+    } catch (error) {
+      console.log(error.response);
+      setSubmitError("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -106,6 +137,7 @@ export default function ConsultationFormSection() {
             <Field label="Full Name">
               <input
                 required
+                name="name"
                 type="text"
                 placeholder="Enter your full name"
                 className={inputClass}
@@ -114,6 +146,7 @@ export default function ConsultationFormSection() {
             <Field label="Email Address">
               <input
                 required
+                name="email"
                 type="email"
                 placeholder="Enter your email address"
                 className={inputClass}
@@ -122,6 +155,7 @@ export default function ConsultationFormSection() {
             <Field label="Phone Number">
               <input
                 required
+                name="mobile"
                 type="tel"
                 placeholder="Enter your phone number"
                 className={inputClass}
@@ -130,6 +164,7 @@ export default function ConsultationFormSection() {
             <Field label="Country">
               <select
                 required
+                name="country"
                 defaultValue=""
                 className={`${inputClass} text-zinc-500`}
               >
@@ -144,6 +179,7 @@ export default function ConsultationFormSection() {
             <Field label="Service Interested In">
               <select
                 required
+                name="service"
                 defaultValue=""
                 className={`${inputClass} text-zinc-500`}
               >
@@ -158,6 +194,7 @@ export default function ConsultationFormSection() {
             <Field label="Project Type">
               <select
                 required
+                name="type"
                 defaultValue=""
                 className={`${inputClass} text-zinc-500`}
               >
@@ -172,12 +209,14 @@ export default function ConsultationFormSection() {
 
             <DateTimePickerField
               label="Preferred Date"
+              name="preferred_date"
               type="date"
               Icon={Calendar}
             />
 
             <DateTimePickerField
               label="Preferred Time"
+              name="preferred_time"
               type="time"
               Icon={Clock3}
             />
@@ -188,6 +227,7 @@ export default function ConsultationFormSection() {
               Project Details
             </span>
             <textarea
+              name="detail"
               rows={5}
               placeholder="Tell us about your project, your requirements, style preferences, budget range, etc."
               className="w-full resize-none rounded-md border border-neutral-200 bg-white px-4 py-3 text-sm text-zinc-800 outline-none transition-colors placeholder:text-zinc-400 focus:border-brand-gold"
@@ -203,8 +243,12 @@ export default function ConsultationFormSection() {
             I agree to the Privacy Policy and Terms &amp; Conditions.
           </label>
 
-          <button className="group mt-6 flex h-13 w-full items-center justify-center gap-5 rounded-md bg-brand-gold text-xs font-extrabold tracking-wide text-white transition-colors hover:bg-[#9A0101]">
-            BOOK CONSULTATION
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="group mt-6 flex h-13 w-full items-center justify-center gap-5 rounded-md bg-brand-gold text-xs font-extrabold tracking-wide text-white transition-colors hover:bg-[#9A0101] disabled:cursor-not-allowed disabled:opacity-70"
+          >
+            {isSubmitting ? "SUBMITTING..." : "BOOK CONSULTATION"}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </button>
 
@@ -212,6 +256,12 @@ export default function ConsultationFormSection() {
             <p className="mt-4 rounded-md bg-brand-gold/10 px-4 py-3 text-sm font-semibold text-zinc-800">
               Thank you. Your consultation request is ready for the Netsaarthi
               team.
+            </p>
+          )}
+
+          {submitError && (
+            <p className="mt-4 rounded-md bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
+              {submitError}
             </p>
           )}
         </form>

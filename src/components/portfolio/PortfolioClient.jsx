@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import Image from "next/image";
@@ -11,36 +11,39 @@ import ProjectSpotlight from "./ProjectSpotlight";
 import BeforeAfterTransformations from "./BeforeAfterTransformations";
 
 export default function PortfolioClient() {
-  const [activeCategory, setActiveCategory] = useState("all");
   const [spotlightIdx, setSpotlightIdx] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [selectedPortfolioSlug, setSelectedPortfolioSlug] = useState("");
+  const [selectedPortfolioRequest, setSelectedPortfolioRequest] = useState(0);
+  const [lightboxProject, setLightboxProject] = useState({
+    tag: "",
+    title: "",
+    images: [],
+  });
 
-  const spotlightProject = {
-    tag: "LUXURY KITCHEN",
-    title: "Timeless Elegance in Every Detail",
-    images: [
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c", // Main Luxury Kitchen Island
-      "https://images.unsplash.com/photo-1556911220-e15b29be8c8f", // Detailed Range Cooktop
-      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136", // Floating Walnut Shelving View
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d", // Adjoining luxury dining table setup
-    ],
-  };
+  const handlePortfolioSpotlight = useCallback((slug) => {
+    setSelectedPortfolioSlug(slug);
+    setSelectedPortfolioRequest((current) => current + 1);
+  }, []);
+
+  const activeLightboxIndex =
+    spotlightIdx < lightboxProject.images.length ? spotlightIdx : 0;
 
   return (
     <div className="w-full  flex  justify-center items-center">
       <div className="w-full max-w-[1500px]">
         {/* SECTION 1: HERO & CATEGORIES */}
-        <PortfolioHero
-          activeCategory={activeCategory}
-          setActiveCategory={setActiveCategory}
-        />
+        <PortfolioHero />
 
         {/* SECTION 2: SLIDABLE FEATURED PROJECTS */}
-        <FeaturedProjects activeCategory={activeCategory} />
+        <FeaturedProjects onPortfolioSpotlight={handlePortfolioSpotlight} />
 
         {/* SECTION 3: PROJECT SPOTLIGHT & INTERACTIVE GALLERY */}
         <ProjectSpotlight
+          selectedPortfolioSlug={selectedPortfolioSlug}
+          selectedPortfolioRequest={selectedPortfolioRequest}
           setLightboxOpen={setLightboxOpen}
+          setLightboxProject={setLightboxProject}
           spotlightIdx={spotlightIdx}
           setSpotlightIdx={setSpotlightIdx}
         />
@@ -50,7 +53,7 @@ export default function PortfolioClient() {
 
         {/* GLOBAL LIGHTBOX MODULE FOR PRESTIGE SHOWCASES */}
         <AnimatePresence>
-          {lightboxOpen && (
+          {lightboxOpen && lightboxProject.images.length > 0 && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -61,11 +64,11 @@ export default function PortfolioClient() {
               <div className="absolute top-6 inset-x-6 sm:inset-x-12 flex justify-between items-center text-white z-10">
                 <div className="flex flex-col">
                   <span className="text-[10px] text-brand-gold tracking-[0.25em] font-sans font-black uppercase">
-                    {spotlightProject.tag}
+                    {lightboxProject.tag}
                   </span>
                   <span className="font-serif font-bold text-sm sm:text-base tracking-tight text-zinc-100">
-                    {spotlightProject.title} (Frame {spotlightIdx + 1} of{" "}
-                    {spotlightProject.images.length})
+                    {lightboxProject.title} (Frame {activeLightboxIndex + 1} of{" "}
+                    {lightboxProject.images.length})
                   </span>
                 </div>
                 <button
@@ -80,7 +83,7 @@ export default function PortfolioClient() {
               {/* Central Main Media Workspace */}
               <div className="relative w-full max-w-5xl aspect-[16/10] sm:aspect-[16/9] rounded-xl overflow-hidden mt-8 shadow-2xl border border-white/5">
                 <Image
-                  src={spotlightProject.images[spotlightIdx]}
+                  src={lightboxProject.images[activeLightboxIndex]}
                   alt="Main Lightbox view"
                   fill
                   className="object-contain"
@@ -90,7 +93,7 @@ export default function PortfolioClient() {
 
               {/* Bottom Row Frame NavSelectors */}
               <div className="flex items-center gap-3 mt-6">
-                {spotlightProject.images.map((img, i) => (
+                {lightboxProject.images.map((img, i) => (
                   <button
                     key={i}
                     id={`lightbox-thumb-btn-${i}`}

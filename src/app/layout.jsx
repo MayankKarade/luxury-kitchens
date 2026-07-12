@@ -3,6 +3,8 @@ import "./globals.css";
 import { ConsultationProvider } from "@/context/ConsultationContext";
 import Navbar from "@/layout/Navbar";
 import Footer from "@/layout/Footer";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,9 +29,21 @@ export default function RootLayout({ children }) {
     >
       <body className="bg-brand-dark text-[#f3f4f6] font-sans antialiased selection:bg-brand-gold selection:text-white">
         <ConsultationProvider>
-          <div className="flex flex-col min-h-screen">
+          <div className="">
             <Navbar />
-            <main className="flex-grow">{children}</main>
+            <main className="flex-grow">
+              {children}
+
+              <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                closeOnClick
+                pauseOnHover
+                draggable
+                theme="light"
+              />
+            </main>
             <Footer />
           </div>
         </ConsultationProvider>

@@ -1,13 +1,73 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
 import heroImg from "../../assets/images/luxury_kitchen_hero_1780070314375.png";
-import { categories, fadeInUp, stagger } from "./blogData";
+import { fadeInUp, stagger } from "./blogData";
+import { getBlogCategoryIcon } from "./BlogCategoryIcons";
+import { API_ENDPOINTS } from "@/config";
+
+function getCategoryList(responseData) {
+  return (
+    responseData?.data?.blog_category ||
+    responseData?.data?.category ||
+    responseData?.data?.categories ||
+    responseData?.blog_category ||
+    responseData?.category ||
+    responseData?.categories ||
+    []
+  );
+}
+
+function mapCategory(category, index) {
+  const iconNames = [
+    "kitchen",
+    "interior",
+    "space",
+    "material",
+    "international",
+  ];
+  const count =
+    category.count ||
+    category.blog_count ||
+    category.blogs_count ||
+    category.total_blogs;
+
+  return {
+    iconName: category.icon || iconNames[index % iconNames.length],
+    title:
+      category.blogcat_name ||
+      category.name ||
+      category.category ||
+      "Blog Category",
+    count: count ? `${String(count).padStart(2, "0")} Articles` : "0 Articles",
+  };
+}
 
 export default function BlogHero() {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await axios.get(`${API_ENDPOINTS.Blog.category}`);
+        const apiCategories = getCategoryList(response.data);
+
+        if (Array.isArray(apiCategories) && apiCategories.length > 0) {
+          setCategories(apiCategories.map(mapCategory));
+        }
+      } catch (error) {
+        setCategories([]);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
   return (
     <section className="relative  min-h-screen 2xl:min-h-[50rem] bg-[#FFFFFF] pt-28 sm:pt-36">
       <div className="absolute inset-0">
@@ -72,36 +132,42 @@ export default function BlogHero() {
         </motion.div>
       </div>
 
-      <section className="hidden lg:flex absolute left-1/2 bottom-0 z-50 w-full -translate-x-1/2 translate-y-1/2 px-4  justify-center">
-        {" "}
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          animate="visible"
-          className="mx-auto grid  grid-cols-1  gap-4.5 sm:grid-cols-2 lg:grid-cols-5 justify-between"
-        >
-          {categories.map(({ Icon, title, count }) => (
-            <motion.article
-              key={title}
-              variants={fadeInUp}
-              className="flex min-h-[108px] items-center gap-3 rounded-xl border border-white/12 bg-[#010129] px-5 py-5 text-left shadow-xl sm:min-h-[150px] sm:flex-col sm:items-center sm:justify-center sm:gap-0  sm:text-center lg:shadow-2xl"
-            >
-              <Icon
-                className="h-10 w-10 shrink-0 text-brand-gold sm:mb-3 sm:h-11 sm:w-11  lg:h-12 lg:w-12"
-                strokeWidth={1.6}
-              />
-              <div className="min-w-0">
-                <h2 className="font-serif text-lg font-semibold leading-snug text-white sm:max-w-[170px] sm:text-lg">
-                  {title}
-                </h2>
-                <p className="mt-2 text-sm font-bold text-brand-gold sm:mt-4">
-                  {count}
-                </p>
-              </div>
-            </motion.article>
-          ))}
-        </motion.div>
-      </section>
+      {categories.length > 0 && (
+        <section className="hidden lg:flex absolute left-1/2 bottom-0 z-50 w-full -translate-x-1/2 translate-y-1/2 px-4  justify-center">
+          {" "}
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            animate="visible"
+            className="mx-auto grid  grid-cols-1  gap-4.5 sm:grid-cols-2 lg:grid-cols-5 justify-between"
+          >
+            {categories.map(({ iconName, title, count }) => {
+              const CategoryIcon = getBlogCategoryIcon(iconName, title);
+
+              return (
+                <motion.article
+                  key={title}
+                  variants={fadeInUp}
+                  className="flex min-h-[108px] items-center gap-3 rounded-xl border border-white/12 bg-[#010129] px-5 py-5 text-left shadow-xl sm:min-h-[150px] sm:flex-col sm:items-center sm:justify-center sm:gap-0  sm:text-center lg:shadow-2xl"
+                >
+                  <CategoryIcon
+                    className="h-10 w-10 shrink-0 text-brand-gold sm:mb-3 sm:h-11 sm:w-11  lg:h-12 lg:w-12"
+                    strokeWidth={1.6}
+                  />
+                  <div className="min-w-0">
+                    <h2 className="font-serif text-lg font-semibold leading-snug text-white sm:max-w-[170px] sm:text-lg">
+                      {title}
+                    </h2>
+                    {/* <p className="mt-2 text-sm font-bold text-brand-gold sm:mt-4">
+                      {count}
+                    </p> */}
+                  </div>
+                </motion.article>
+              );
+            })}
+          </motion.div>
+        </section>
+      )}
     </section>
   );
 }

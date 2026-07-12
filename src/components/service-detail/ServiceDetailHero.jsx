@@ -14,7 +14,7 @@ export default function ServiceDetailHero({ service }) {
     <section className="relative bg-brand-dark pt-24 text-white sm:pt-30">
       <div className="absolute inset-0 overflow-hidden">
         <Image
-          src={service.heroImage}
+          src={service.image || service.heroImage}
           alt={`${service.title} hero`}
           fill
           priority
@@ -78,13 +78,13 @@ export default function ServiceDetailHero({ service }) {
               BOOK CONSULTATION
               <Calendar className="h-4 w-4" />
             </button>
-            <a
-              href="#service-styles"
+            <Link
+              href={`/our-services/${service.slug}/designs`}
               className="inline-flex h-12 items-center justify-center gap-5 rounded-md border border-brand-gold/70 bg-brand-dark/20 px-7 text-[11px] font-bold tracking-wide text-white transition-colors hover:bg-brand-gold hover:text-white"
             >
               {service.designButtonText}
               <ArrowRight className="h-4 w-4" />
-            </a>
+            </Link>
           </div>
         </div>
 

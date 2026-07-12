@@ -23,12 +23,12 @@ const quickLinks = [
 ];
 
 const serviceLinks = [
-  { name: "Modular Kitchens", href: "/our-services/modular-kitchens" },
-  { name: "Luxury Wardrobes", href: "/our-services/luxury-wardrobes" },
-  { name: "Interior Design", href: "/our-services/interior-design" },
-  { name: "Renovation Services", href: "/our-services/renovation-services" },
-  { name: "Commercial Interiors", href: "/our-services/commercial-interiors" },
-  { name: "Custom Furniture", href: "/our-services/custom-furniture" },
+  { name: "Modular Kitchens", href: "/our-services/designs/modular-kitchens" },
+  { name: "Luxury Wardrobes", href: "/our-services/designs/luxury-wardrobes" },
+  { name: "Interior Design", href: "/our-services/designs/interior-design" },
+  { name: "Renovation Services", href: "/our-services/designs/renovation-services" },
+  { name: "Commercial Interiors", href: "/our-services/designs/commercial-interiors" },
+  { name: "Custom Furniture", href: "/our-services/designs/custom-furniture" },
 ];
 
 const locationLinks = [

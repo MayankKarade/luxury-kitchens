@@ -27,17 +27,28 @@ function RegionBadge({ region }) {
 
 function MediaCard({ item, variant }) {
   const isWalkthrough = variant === "walkthrough";
+  const isVideo = variant === "video";
 
   return (
     <article className="h-full overflow-hidden rounded-lg border border-neutral-200 bg-[#071014] shadow-sm">
       <div className="relative aspect-[16/8.8] overflow-hidden">
-        <Image
-          src={item.image}
-          alt={item.title}
-          fill
-          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-          className="object-cover transition-transform duration-700 hover:scale-[1.04]"
-        />
+        {isVideo ? (
+          <video
+            src={item.image}
+            className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.04]"
+            muted
+            playsInline
+            preload="metadata"
+          />
+        ) : (
+          <Image
+            src={item.image}
+            alt={item.title}
+            fill
+            sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+            className="object-cover transition-transform duration-700 hover:scale-[1.04]"
+          />
+        )}
         <div className="absolute inset-0 bg-black/10" />
 
         {isWalkthrough ? (
@@ -110,7 +121,7 @@ export default function MediaSlider({ items, variant }) {
         <div className="-ml-4 flex touch-pan-y">
           {carouselItems.map((item, index) => (
             <div
-              key={`${item.title}-${index}`}
+              key={`${item.id || item.title}-${index}`}
               className="min-w-0 flex-[0_0_100%] pl-4 sm:flex-[0_0_50%] lg:flex-[0_0_25%]"
             >
               <MediaCard item={item} variant={variant} />

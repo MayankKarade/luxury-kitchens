@@ -1,23 +1,14 @@
-import BlogDetailPage from "@/components/blog-detail/BlogDetailPage";
-import { getBlogArticle, getBlogSlugs } from "@/components/blog-detail/blogDetailData";
+import {
+  getBlogDetailMetadata,
+  renderBlogDetailRoute,
+} from "../blogDetailRoute";
 
-export async function generateStaticParams() {
-  return getBlogSlugs().map((slug) => ({ slug }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }) {
-  const { slug } = await params;
-  const article = getBlogArticle(slug);
-
-  return {
-    title: `${article.title} - Netsaarthi Blog`,
-    description: article.description,
-  };
+  return getBlogDetailMetadata(params);
 }
 
 export default async function BlogArticleRoute({ params }) {
-  const { slug } = await params;
-  const article = getBlogArticle(slug);
-
-  return <BlogDetailPage article={article} />;
+  return renderBlogDetailRoute(params);
 }

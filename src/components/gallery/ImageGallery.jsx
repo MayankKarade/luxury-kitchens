@@ -4,7 +4,6 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 import { GalleryIcon } from "./GalleryIcons";
-import { imageGallery } from "./galleryData";
 
 const desktopLayout = [
   "sm:col-span-2 lg:col-span-1 lg:row-span-2",
@@ -13,9 +12,13 @@ const desktopLayout = [
   "lg:col-start-2 lg:row-start-2",
   "lg:col-start-3 lg:row-start-2",
   "sm:col-span-2 lg:col-start-4 lg:row-span-2 lg:row-start-1",
+  "lg:col-start-1 lg:row-start-3",
+  "sm:col-span-2 lg:col-span-3 lg:col-start-2 lg:row-start-3",
 ];
 
-export default function ImageGallery() {
+export default function ImageGallery({ galleryImages }) {
+  const previewImages = galleryImages.slice(0, 8);
+
   return (
     <section
       id="images"
@@ -39,15 +42,15 @@ export default function ImageGallery() {
         </div>
 
         <div className="relative">
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:h-[392px] lg:grid-cols-[1.12fr_0.78fr_0.78fr_1.12fr] lg:grid-rows-2 xl:h-[420px]">
-            {imageGallery.map((item, index) => (
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:auto-rows-[195px] lg:grid-cols-[1.12fr_0.78fr_0.78fr_1.12fr] xl:auto-rows-[208px]">
+            {previewImages.map((item, index) => (
               <article
-                key={item.title}
-                className={`group relative min-h-[220px] overflow-hidden rounded-lg bg-neutral-200 shadow-sm sm:min-h-[240px] lg:min-h-0 ${desktopLayout[index]}`}
+                key={item.id}
+                className={`group relative min-h-[220px] overflow-hidden rounded-lg bg-neutral-200 shadow-sm sm:min-h-[240px] lg:min-h-0 ${desktopLayout[index] || ""}`}
               >
                 <Image
                   src={item.image}
-                  alt={item.title}
+                  alt={`Gallery image ${item.id}`}
                   fill
                   sizes="(min-width: 1024px) 32vw, (min-width: 640px) 50vw, 100vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"

@@ -1,5 +1,6 @@
+import { notFound } from "next/navigation";
+
 import ServiceDesignsPage from "@/components/service-designs/ServiceDesignsPage";
-import { getServiceDesignCollection } from "@/components/service-designs/serviceDesignData";
 import {
   getServiceDetail,
   serviceSlugs,
@@ -11,18 +12,27 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { service_name } = await params;
+
+  if (!serviceSlugs.includes(service_name)) {
+    return {};
+  }
+
   const service = getServiceDetail(service_name);
 
   return {
-    title: `${service.title} Designs - Netsaarthi | Luxury Kitchens & Interiors`,
+    title: `${service.title} Designs - Netsaarthi`,
     description: `Explore ${service.title.toLowerCase()} design collections, styles, and premium options by Netsaarthi.`,
   };
 }
 
 export default async function ServiceDesignsRoute({ params }) {
   const { service_name } = await params;
-  const service = getServiceDetail(service_name);
-  const collection = getServiceDesignCollection(service);
 
-  return <ServiceDesignsPage service={service} collection={collection} />;
+  if (!serviceSlugs.includes(service_name)) {
+    notFound();
+  }
+
+  const service = getServiceDetail(service_name);
+
+  return <ServiceDesignsPage service={service} />;
 }

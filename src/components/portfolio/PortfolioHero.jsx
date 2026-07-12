@@ -7,7 +7,7 @@ import Link from "next/link";
 import heroImg from "../../assets/images/luxury_kitchen_hero_1780070314375.png";
 import Image from "next/image";
 
-export default function PortfolioHero({ activeCategory, setActiveCategory }) {
+export default function PortfolioHero() {
   // Original categories – unchanged
   const categories = [
     {
@@ -145,31 +145,15 @@ export default function PortfolioHero({ activeCategory, setActiveCategory }) {
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4 px-2 ">
               {categories.map((cat) => {
                 const Icon = cat.icon;
-                const isSelected = activeCategory === cat.id;
-                //    ${
-                //   isSelected
-                //     ? "bg-brand-gold/10 border border-brand-gold/30"
-                //     : "hover:bg-brand-white/5"
-                // }
                 return (
-                  <motion.button
+                  <motion.div
                     key={cat.id}
-                    onClick={() => setActiveCategory(cat.id)}
-                    className={`flex flex-row items-start sm:items-center justify-start gap-2 py-3  rounded-lg transition-all duration-300 cursor-pointer 
-                    `}
+                    className="flex flex-row items-start sm:items-center justify-start gap-2 py-3 rounded-lg transition-all duration-300"
                     whileHover={{ y: -3, transition: { duration: 0.2 } }}
                   >
-                    {/* ${
-                        isSelected
-                          ? "border-brand-gold bg-brand-gold text-white"
-                          : "border-brand-gold/40 text-brand-gold hover:border-brand-gold hover:bg-brand-gold/10"
-                      } */}
                     <div
                       className={`w-9 sm:w-12 h-9 sm:h-12 rounded-full border flex items-center justify-center shrink-0 transition-all duration-300 border-brand-gold/40 text-brand-gold `}
                     >
-                      {/* {
-                          isSelected ? "text-white" : "text-brand-gold"
-                        } */}
                       <Icon
                         className={`w-5 sm:w-7 h-5 sm:h-7 text-brand-gold `}
                       />
@@ -182,7 +166,7 @@ export default function PortfolioHero({ activeCategory, setActiveCategory }) {
                         {cat.count}
                       </p>
                     </div>
-                  </motion.button>
+                  </motion.div>
                 );
               })}
             </div>

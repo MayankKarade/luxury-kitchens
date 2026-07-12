@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,7 +11,7 @@ export default function ServiceDesignsHero({ service, collection }) {
       <div className="absolute inset-0 overflow-hidden">
         <Image
           src={service.heroImage}
-          alt={`${service.title} designs`}
+          alt={collection.heroTitle}
           fill
           priority
           sizes="100vw"
@@ -44,9 +46,11 @@ export default function ServiceDesignsHero({ service, collection }) {
             </Link>
           </div>
 
-          <span className="text-xs font-extrabold uppercase tracking-[0.22em] text-brand-gold">
-            {service.label}
-          </span>
+          {service.label && (
+            <span className="text-xs font-extrabold uppercase tracking-[0.22em] text-brand-gold">
+              {service.label}
+            </span>
+          )}
           <h1 className="mt-4 max-w-[510px] font-serif text-4xl font-medium leading-[1.08] sm:text-5xl lg:text-[58px]">
             {collection.heroTitle}
           </h1>
@@ -55,22 +59,28 @@ export default function ServiceDesignsHero({ service, collection }) {
             {collection.heroText}
           </p>
 
-          <div className="mt-8 grid max-w-[500px] grid-cols-2 gap-5 sm:grid-cols-4">
-            {collection.heroFeatures.map((feature) => (
-              <div
-                key={feature.title}
-                className="flex flex-col items-center text-center"
-              >
-                <ServiceDesignIcon
-                  name={feature.icon}
-                  className="mb-2 h-9 w-9 text-brand-gold"
-                />
-                <span className="text-[11px] font-bold leading-4 text-white">
-                  {feature.title}
-                </span>
+          {collection.heroFeatures.length > 0 && (
+            <div className="mt-8 w-full max-w-3xl overflow-hidden rounded-xl border border-white/10 bg-brand-dark/20 px-4 py-6 shadow-2xl backdrop-blur-xs">
+              <div className="grid grid-cols-2 gap-4 px-2 sm:grid-cols-4">
+                {collection.heroFeatures.map((feature) => (
+                  <div
+                    key={feature.title}
+                    className="flex flex-row items-start justify-start gap-2 rounded-lg py-3 transition-all duration-300 hover:-translate-y-[3px] sm:items-center"
+                  >
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-brand-gold/40 text-brand-gold sm:h-12 sm:w-12">
+                      <ServiceDesignIcon
+                        name={feature.icon}
+                        className="h-5 w-5 text-brand-gold sm:h-7 sm:w-7"
+                      />
+                    </div>
+                    <span className="font-sans text-left text-xs font-semibold leading-4 tracking-wide text-white sm:text-sm">
+                      {feature.title}
+                    </span>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </section>

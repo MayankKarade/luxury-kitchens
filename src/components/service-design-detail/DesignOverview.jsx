@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { HtmlContent } from "./HtmlContent";
 import { DetailIcon } from "./ServiceDesignDetailIcons";
 
 function DimensionSketch() {
@@ -90,9 +91,10 @@ function MaterialCard({ material }) {
         <h4 className="text-sm font-extrabold text-neutral-900">
           {material.title}
         </h4>
-        <p className="mt-1 text-sm font-medium leading-5 text-zinc-600">
-          {material.text}
-        </p>
+        <HtmlContent
+          value={material.text}
+          className="mt-1 text-sm font-medium leading-5 text-zinc-600 [&_p]:mb-1 [&_p:last-child]:mb-0"
+        />
       </div>
     </div>
   );
@@ -110,23 +112,29 @@ export default function DesignOverview({ product }) {
             <h2 className="font-serif text-3xl font-semibold text-neutral-900">
               Overview
             </h2>
-            <p className="mt-4 max-w-2xl text-[15px] font-medium leading-8 text-zinc-700">
-              {product.overview}
-            </p>
+            <HtmlContent
+              value={product.overview}
+              className="mt-4 max-w-2xl text-[15px] font-medium leading-8 text-zinc-700 [&_p]:mb-3 [&_p:last-child]:mb-0"
+            />
 
             <div className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
               {product.facts.map((fact) => (
-                <div key={fact.label}>
+                <div
+                  key={fact.label}
+                  className="grid grid-cols-[38px_1fr] gap-4"
+                >
                   <DetailIcon
                     name={fact.icon}
                     className="mb-3 h-8 w-8 text-brand-gold"
                   />
-                  <h3 className="text-sm font-extrabold text-neutral-900">
-                    {fact.label}
-                  </h3>
-                  <p className="mt-1 text-sm font-medium leading-5 text-zinc-600">
-                    {fact.value}
-                  </p>
+                  <div>
+                    <h3 className="text-sm font-extrabold text-neutral-900">
+                      {fact.label}
+                    </h3>
+                    <p className="mt-1 text-sm font-medium leading-5 text-zinc-600">
+                      {fact.value}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -134,24 +142,39 @@ export default function DesignOverview({ product }) {
 
           <div className="relative overflow-hidden rounded-lg border border-neutral-200 shadow-sm">
             <div className="relative aspect-[16/6.6] min-h-[220px]">
-              <Image
-                src={product.galleryImages[0]}
-                alt={`${product.title} video preview`}
-                fill
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-black/18" />
-              <button
-                type="button"
-                aria-label={`Play ${product.title} walkthrough`}
-                className="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center text-white transition-transform hover:scale-105"
-              >
-                <DetailIcon name="play" className="h-20 w-20" />
-              </button>
-              <span className="absolute bottom-3 right-3 rounded bg-black/70 px-2 py-1 text-xs font-extrabold text-white">
-                02:15
-              </span>
+              {product.video ? (
+                <video
+                  src={product.video}
+                  poster={product.galleryImages[0]}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="h-full w-full object-cover"
+                >
+                  <track kind="captions" />
+                </video>
+              ) : (
+                <>
+                  <Image
+                    src={product.galleryImages[0]}
+                    alt={`${product.title} video preview`}
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/18" />
+                  <button
+                    type="button"
+                    aria-label={`Play ${product.title} walkthrough`}
+                    className="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center text-white transition-transform hover:scale-105"
+                  >
+                    <DetailIcon name="play" className="h-20 w-20" />
+                  </button>
+                  <span className="absolute bottom-3 right-3 rounded bg-black/70 px-2 py-1 text-xs font-extrabold text-white">
+                    02:15
+                  </span>
+                </>
+              )}
             </div>
           </div>
         </div>

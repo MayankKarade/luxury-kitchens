@@ -8,6 +8,12 @@ const nextConfig = {
         port: "",
         pathname: "/**", // Allows all paths under this hostname
       },
+      {
+        protocol: "https",
+        hostname: "kitchen.netsaarthi.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };

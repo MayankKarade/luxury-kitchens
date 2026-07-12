@@ -1,5 +1,3 @@
-import { notFound } from "next/navigation";
-
 import ServiceDesignDetailPage from "@/components/service-design-detail/ServiceDesignDetailPage";
 import {
   getServiceDesignCollection,
@@ -24,11 +22,6 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { service_name, design_slug } = await params;
-
-  if (!serviceSlugs.includes(service_name)) {
-    return {};
-  }
-
   const service = getServiceDetail(service_name);
   const product = getServiceDesignProduct(service, design_slug);
 
@@ -40,11 +33,6 @@ export async function generateMetadata({ params }) {
 
 export default async function ServiceDesignDetailRoute({ params }) {
   const { service_name, design_slug } = await params;
-
-  if (!serviceSlugs.includes(service_name)) {
-    notFound();
-  }
-
   const service = getServiceDetail(service_name);
   const product = getServiceDesignProduct(service, design_slug);
 

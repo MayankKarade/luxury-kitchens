@@ -82,3 +82,25 @@ export function InternationalDesignIcon({ className }) {
     </SvgIcon>
   );
 }
+
+const iconMap = {
+  kitchen: KitchenTrendsIcon,
+  interior: InteriorIdeasIcon,
+  space: SpaceOptimizationIcon,
+  material: MaterialGuidesIcon,
+  international: InternationalDesignIcon,
+};
+
+export function getBlogCategoryIcon(iconName, title = "") {
+  if (iconMap[iconName]) return iconMap[iconName];
+
+  const normalizedTitle = title.toLowerCase();
+
+  if (normalizedTitle.includes("kitchen")) return KitchenTrendsIcon;
+  if (normalizedTitle.includes("interior")) return InteriorIdeasIcon;
+  if (normalizedTitle.includes("space")) return SpaceOptimizationIcon;
+  if (normalizedTitle.includes("material")) return MaterialGuidesIcon;
+  if (normalizedTitle.includes("international")) return InternationalDesignIcon;
+
+  return KitchenTrendsIcon;
+}

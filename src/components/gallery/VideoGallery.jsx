@@ -2,16 +2,13 @@
 
 import { ArrowRight } from "lucide-react";
 
-import MediaSlider from "./MediaSlider";
-import { videos } from "./galleryData";
-
-export default function VideoGallery() {
+export default function VideoGallery({ galleryVideos }) {
   return (
     <section
       id="videos"
       className="bg-brand-white px-4 py-9 text-brand-dark sm:px-10 md:px-16"
     >
-      <div className="mx-auto ">
+      <div className="mx-auto">
         <div className="mb-6 flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-end">
           <div>
             <span className="text-xs font-extrabold uppercase tracking-[0.15em] text-brand-gold">
@@ -28,7 +25,22 @@ export default function VideoGallery() {
           </button>
         </div>
 
-        <MediaSlider items={videos} variant="video" />
+        {/* Grid of videos */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {galleryVideos.map((video) => (
+            <div
+              key={video.id}
+              className="group relative overflow-hidden rounded-lg border border-neutral-200 bg-black shadow-sm"
+            >
+              <video
+                src={video.image}
+                controls
+                playsInline
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

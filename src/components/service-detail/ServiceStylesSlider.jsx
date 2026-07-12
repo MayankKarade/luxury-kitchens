@@ -8,9 +8,10 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
 export default function ServiceStylesSlider({ service }) {
+  const shouldLoop = service.styles.length > 3;
   const slides = useMemo(
-    () => [...service.styles, ...service.styles],
-    [service],
+    () => (shouldLoop ? [...service.styles, ...service.styles] : service.styles),
+    [service.styles, shouldLoop],
   );
   const plugins = useMemo(
     () => [
@@ -27,7 +28,7 @@ export default function ServiceStylesSlider({ service }) {
     {
       align: "start",
       duration: 28,
-      loop: true,
+      loop: shouldLoop,
       slidesToScroll: 1,
     },
     plugins,
@@ -75,7 +76,7 @@ export default function ServiceStylesSlider({ service }) {
                       {style.text}
                     </p>
                     <Link
-                      href={`/our-services/${service.slug}/designs`}
+                      href={`/our-services/${style.slug || service.slug}`}
                       className="mt-4 inline-flex items-center gap-3 text-[11px] font-extrabold tracking-wide text-brand-gold transition-colors hover:text-[#9A0101]"
                     >
                       EXPLORE DESIGNS

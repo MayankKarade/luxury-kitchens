@@ -36,13 +36,15 @@ function CategoryCard({ categories }) {
       <div className="mt-5 space-y-4">
         {categories.map((category) => (
           <div
-            key={category.title}
+            key={category.id}
             className="flex items-center justify-between gap-4 text-sm font-semibold text-zinc-700"
           >
             <span>{category.title}</span>
-            <span className="rounded-full bg-neutral-100 px-2.5 py-1 text-xs font-extrabold text-zinc-500">
-              {category.count}
-            </span>
+            {category.count ? (
+              <span className="rounded-full bg-neutral-100 px-2.5 py-1 text-xs font-extrabold text-zinc-500">
+                {category.count}
+              </span>
+            ) : null}
           </div>
         ))}
       </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 import Image from "next/image";
@@ -8,123 +8,50 @@ import { useConsultation } from "../../context/ConsultationContext";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
-// Local asset imports
-import kitchenImg from "../../assets/images/luxury_kitchen_hero_1780070314375.png";
-import wardrobeImg from "../../assets/images/luxury_wardrobe_card_1780070338933.png";
-import interiorImg from "../../assets/images/interior_living_room_1780070361503.png";
-import renovationImg from "../../assets/images/renovation_kitchen_living_1780070378792.png";
-import officeImg from "../../assets/images/executive_office_card_1780070403397.png";
-import customFurnitureImg from "../../assets/images/custom_furniture_card_1780250074999.png";
+import axios from "axios";
+import { API_ENDPOINTS } from "@/config";
 
-export default function FeaturedProjects({ activeCategory }) {
+export default function FeaturedProjects({ onPortfolioSpotlight }) {
   const { openModal } = useConsultation();
+  const [projects, setProjects] = useState([]);
+  const defaultProjectSelectedRef = useRef(false);
 
-  // Raw projects in Featured Projects Section Slider
-  const allFeaturedProjects = [
-    {
-      id: "f1",
-      category: "kitchens",
-      categoryLabel: "LUXURY KITCHEN",
-      title: "Elegant Dark Kitchen Design",
-      location: "New York, USA",
-      img: kitchenImg,
-    },
-    {
-      id: "f2",
-      category: "interiors",
-      categoryLabel: "MODERN INTERIOR",
-      title: "Contemporary Living Room Makeover",
-      location: "Toronto, Canada",
-      img: interiorImg,
-    },
-    {
-      id: "f3",
-      category: "residential",
-      categoryLabel: "RESIDENTIAL PROJECT",
-      title: "Warm Wooden Kitchen Space",
-      location: "London, UK",
-      img: customFurnitureImg,
-    },
-    {
-      id: "f4",
-      category: "commercial",
-      categoryLabel: "COMMERCIAL SPACE",
-      title: "Premium Office Interior Design",
-      location: "Frankfurt, Germany",
-      img: officeImg,
-    },
-    {
-      id: "f5",
-      category: "before_after",
-      categoryLabel: "BEFORE & AFTER",
-      title: "Complete Home Transformation",
-      location: "Los Angeles, USA",
-      img: renovationImg,
-      imgBefore: "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d", // Vintage / raw room during construction
-    },
-    {
-      id: "f6",
-      category: "kitchens",
-      categoryLabel: "LUXURY KITCHEN",
-      title: "Handcrafted Luxury Cabinetry Layout",
-      location: "Paris, France",
-      img: wardrobeImg,
-    },
-    {
-      id: "f7",
-      category: "kitchens",
-      categoryLabel: "LUXURY KITCHEN",
-      title: "Elegant Dark Kitchen Design",
-      location: "New York, USA",
-      img: kitchenImg,
-    },
-    {
-      id: "f8",
-      category: "interiors",
-      categoryLabel: "MODERN INTERIOR",
-      title: "Contemporary Living Room Makeover",
-      location: "Toronto, Canada",
-      img: interiorImg,
-    },
-    {
-      id: "f9",
-      category: "residential",
-      categoryLabel: "RESIDENTIAL PROJECT",
-      title: "Warm Wooden Kitchen Space",
-      location: "London, UK",
-      img: customFurnitureImg,
-    },
-    {
-      id: "f10",
-      category: "commercial",
-      categoryLabel: "COMMERCIAL SPACE",
-      title: "Premium Office Interior Design",
-      location: "Frankfurt, Germany",
-      img: officeImg,
-    },
-    {
-      id: "f11",
-      category: "before_after",
-      categoryLabel: "BEFORE & AFTER",
-      title: "Complete Home Transformation",
-      location: "Los Angeles, USA",
-      img: renovationImg,
-      imgBefore: "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d", // Vintage / raw room during construction
-    },
-    {
-      id: "f12",
-      category: "kitchens",
-      categoryLabel: "LUXURY KITCHEN",
-      title: "Handcrafted Luxury Cabinetry Layout",
-      location: "Paris, France",
-      img: wardrobeImg,
-    },
-  ];
+  const handleProjectSpotlight = (slug) => {
+    onPortfolioSpotlight(slug);
+    document
+      .getElementById("project-spotlight")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
-  // Filter projects depending on activeCategory
-  const filteredProjects = allFeaturedProjects.filter(
-    (p) => activeCategory === "all" || p.category === activeCategory,
-  );
+  useEffect(() => {
+    const fetchPortfolio = async () => {
+      try {
+        const response = await axios.get(
+          `${API_ENDPOINTS.Portfolio.portfolio}`,
+        );
+        setProjects(response.data.data.portfolio);
+      } catch (error) {
+        console.log(error.response);
+      }
+    };
+    fetchPortfolio();
+  }, []);
+
+  useEffect(() => {
+    if (defaultProjectSelectedRef.current || !projects[0]?.slug) {
+      return;
+    }
+
+    defaultProjectSelectedRef.current = true;
+    onPortfolioSpotlight(projects[0].slug);
+  }, [onPortfolioSpotlight, projects]);
+
+  const filteredProjects = projects.map((project) => ({
+    ...project,
+    category: project.category_name,
+    categoryLabel: project.category_name,
+    img: project.image,
+  }));
 
   // Configure Embla Carousel with Autoplay Plugin natively
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -151,12 +78,11 @@ export default function FeaturedProjects({ activeCategory }) {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
 
-  // Adjust activeCategory reset logic
   useEffect(() => {
     if (emblaApi) {
       emblaApi.reInit();
     }
-  }, [activeCategory, emblaApi]);
+  }, [filteredProjects.length, emblaApi]);
 
   return (
     <section className="bg-brand-white py-12 sm:py-16 text-zinc-900 border-y border-neutral-100/80 overflow-hidden relative">
@@ -185,7 +111,7 @@ export default function FeaturedProjects({ activeCategory }) {
         <div className="relative px-2">
           {filteredProjects.length === 0 ? (
             <div className="py-20 text-center text-zinc-400">
-              No featured projects found in this category.
+              No featured projects found.
             </div>
           ) : (
             <div className="relative">
@@ -294,9 +220,16 @@ export default function FeaturedProjects({ activeCategory }) {
                                 <MapPin className="w-3.5 h-3.5 text-brand-gold shrink-0" />
                                 <span>{project.location}</span>
                               </div>
-                              <div className="w-7 h-7 rounded-full border border-neutral-200/80 flex items-center justify-center text-zinc-400 group-hover:bg-brand-gold group-hover:text-white group-hover:border-brand-gold transition-all duration-300 shrink-0">
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  handleProjectSpotlight(project.slug)
+                                }
+                                aria-label={`View ${project.title} in project spotlight`}
+                                className="w-7 h-7 rounded-full border border-neutral-200/80 flex items-center justify-center text-zinc-400 group-hover:bg-brand-gold group-hover:text-white group-hover:border-brand-gold transition-all duration-300 shrink-0"
+                              >
                                 <ArrowRight className="w-3.5 h-3.5" />
-                              </div>
+                              </button>
                             </div>
                           </div>
                         </motion.div>

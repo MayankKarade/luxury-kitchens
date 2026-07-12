@@ -6,28 +6,30 @@ import { ServiceDesignIcon } from "./ServiceDesignIcons";
 function CategoryList({ categories }) {
   return (
     <div className="space-y-1">
-      {categories.map((category) => (
-        <button
-          key={category.label}
-          type="button"
-          className={`flex w-full items-center justify-between rounded-md px-2 py-2 text-left text-[13px] font-semibold transition-colors ${
-            category.active
-              ? "bg-brand-gold/25 text-brand-gold"
-              : "text-zinc-700 hover:bg-brand-gold/10"
-          }`}
-        >
-          <span>{category.label}</span>
-          <span
-            className={`rounded-md px-2 py-1 text-[10px] font-extrabold ${
-              category.active
-                ? "bg-brand-gold text-white"
-                : "bg-neutral-100 text-zinc-500"
+      {categories.map((category, index) => {
+        return (
+          <button
+            key={category.label}
+            type="button"
+            className={`flex w-full items-center justify-between rounded-md px-2 py-2 text-left text-[13px] font-semibold transition-colors ${
+              category.active || index === 0
+                ? "bg-brand-gold/25 text-brand-gold"
+                : "text-zinc-700 hover:bg-brand-gold/10"
             }`}
           >
-            {category.count}
-          </span>
-        </button>
-      ))}
+            <span>{category.label}</span>
+            <span
+              className={`rounded-md px-2 py-1 text-[10px] font-extrabold ${
+                category.active || index === 0
+                  ? "bg-brand-gold text-white"
+                  : "bg-neutral-100 text-zinc-500"
+              }`}
+            >
+              {category.count}
+            </span>
+          </button>
+        );
+      })}
     </div>
   );
 }
@@ -36,7 +38,7 @@ function FilterSidebar({ collection }) {
   return (
     <aside className="h-fit rounded-lg border border-neutral-200 bg-white p-4 shadow-sm lg:sticky lg:top-28">
       <h2 className="text-sm font-extrabold uppercase tracking-wide text-neutral-900">
-        {collection.browseTitle}
+        Browse Designs
       </h2>
       <div className="mt-4 border-b border-neutral-200 pb-5">
         <CategoryList categories={collection.categories} />
@@ -68,16 +70,38 @@ function FilterSidebar({ collection }) {
         <div className="mt-7">
           <p className="text-sm font-bold text-neutral-900">Colors</p>
           <div className="mt-3 flex flex-wrap gap-3">
-            {collection.swatches.map((swatch) => (
-              <button
-                key={swatch}
-                type="button"
-                aria-label={`Filter color ${swatch}`}
-                className="h-7 w-7 rounded-md border border-neutral-200 shadow-sm"
-                style={{ backgroundColor: swatch }}
-              />
-            ))}
+            {collection.swatches.map((color) => {
+              const colorValue =
+                typeof color === "string" ? color : color.value || color.image;
+              const colorLabel =
+                typeof color === "string" ? "Filter color" : color.name;
+
+              return (
+                <button
+                  key={colorValue}
+                  type="button"
+                  aria-label={colorLabel}
+                  className="relative h-7 w-7 overflow-hidden rounded-md border border-neutral-200 bg-neutral-100 shadow-sm"
+                  style={
+                    colorValue?.startsWith("http")
+                      ? {
+                          backgroundImage: `url(${colorValue})`,
+                          backgroundPosition: "center",
+                          backgroundSize: "cover",
+                        }
+                      : { background: colorValue }
+                  }
+                />
+              );
+            })}
           </div>
+        </div>
+
+        <div className="mt-7">
+          <p className="text-sm font-bold text-neutral-900">Products</p>
+          <p className="mt-2 text-sm font-semibold text-zinc-500">
+            {collection.products.length}
+          </p>
         </div>
 
         <div className="mt-7">
@@ -106,7 +130,8 @@ function FilterSidebar({ collection }) {
 }
 
 function ProductCard({ product, service }) {
-  const detailHref = `/our-services/${service.slug}/designs/${product.slug}`;
+  const productSlug = product.slug || product.id || product.title;
+  const detailHref = `/our-services/${service.slug}/designs/${productSlug}`;
 
   return (
     <article className="group h-full overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
@@ -148,9 +173,11 @@ function ProductCard({ product, service }) {
         <p className="mt-2 text-[12px] font-medium leading-4 text-zinc-600">
           {product.text}
         </p>
-        <p className="mt-1 text-lg font-bold text-neutral-900">
-          {product.price}
-        </p>
+        {product.price && (
+          <p className="mt-1 text-lg font-bold text-neutral-900">
+            {product.price}
+          </p>
+        )}
         <Link
           href={detailHref}
           className="mt-5 flex h-11 items-center justify-center gap-3 rounded-md border border-brand-gold text-[11px] font-bold uppercase tracking-wide text-brand-gold transition-colors hover:bg-brand-gold hover:text-white"
@@ -160,61 +187,6 @@ function ProductCard({ product, service }) {
         </Link>
       </div>
     </article>
-  );
-}
-
-function CustomDesignCTA({ collection }) {
-  return (
-    <div
-      id="custom-design-cta"
-      className="grid gap-5 rounded-lg bg-[#071014] px-6 py-6 text-white shadow-sm md:grid-cols-[auto_1fr_auto] md:items-center"
-    >
-      <ServiceDesignIcon
-        name="counter"
-        className="hidden h-16 w-16 text-brand-gold md:block"
-      />
-      <div>
-        <h2 className="font-serif text-2xl font-semibold leading-tight">
-          {collection.ctaTitle}
-        </h2>
-        <p className="mt-2 max-w-xl text-sm font-medium leading-6 text-zinc-300">
-          {collection.ctaText}
-        </p>
-      </div>
-      <Link
-        href="/consultation"
-        className="inline-flex h-12 items-center justify-center gap-4 rounded-md bg-brand-gold px-8 text-[11px] font-extrabold uppercase tracking-wide text-white transition-colors hover:bg-[#9A0101]"
-      >
-        Book A Consultation
-        <ServiceDesignIcon name="arrow" className="h-4 w-4" />
-      </Link>
-    </div>
-  );
-}
-
-function BenefitStrip({ benefits }) {
-  return (
-    <div className="grid overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm sm:grid-cols-2 lg:grid-cols-5">
-      {benefits.map((benefit) => (
-        <div
-          key={benefit.title}
-          className="grid grid-cols-[44px_1fr] items-center gap-3 border-b border-neutral-200 px-5 py-5 last:border-b-0 sm:border-r lg:border-b-0"
-        >
-          <ServiceDesignIcon
-            name={benefit.icon}
-            className="h-10 w-10 text-brand-gold"
-          />
-          <div>
-            <h3 className="text-sm font-extrabold text-neutral-900">
-              {benefit.title}
-            </h3>
-            <p className="mt-1 text-xs font-medium text-zinc-500">
-              {benefit.text}
-            </p>
-          </div>
-        </div>
-      ))}
-    </div>
   );
 }
 
@@ -247,21 +219,13 @@ export default function ServiceDesignsBrowser({ service, collection }) {
           <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
             {collection.products.map((product) => (
               <ProductCard
-                key={product.title}
+                key={product.id || product.slug || product.title}
                 product={product}
                 service={service}
               />
             ))}
           </div>
-
-          <div className="mt-8">
-            <CustomDesignCTA collection={collection} />
-          </div>
         </div>
-      </div>
-
-      <div className="mx-auto mt-8 ">
-        <BenefitStrip benefits={collection.benefits} />
       </div>
     </section>
   );

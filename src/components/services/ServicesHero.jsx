@@ -35,7 +35,7 @@ export default function ServicesHero() {
         <div className="flex items-center gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8">
           <Link
             href="/"
-            className="text-zinc-350 hover:text-white transition-colors duration-200"
+            className="text-white/85 transition-colors hover:text-white"
           >
             Home
           </Link>
