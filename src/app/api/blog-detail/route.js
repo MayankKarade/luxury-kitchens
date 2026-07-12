@@ -1,4 +1,4 @@
-import { API_EXTERNAL_ENDPOINTS } from "@/config";
+import { API_ENDPOINTS } from "@/config";
 
 export const dynamic = "force-dynamic";
 
@@ -14,7 +14,7 @@ export async function GET(request) {
   }
 
   try {
-    const url = new URL(API_EXTERNAL_ENDPOINTS.Blog.blogDetail);
+    const url = new URL(API_ENDPOINTS.Blog.blogDetail);
     url.searchParams.set("slug", slug);
 
     const response = await fetch(url, { cache: "no-store" });
