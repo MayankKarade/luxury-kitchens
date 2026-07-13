@@ -30,23 +30,28 @@ function formatDate(value) {
 }
 
 function getBlogDetailData(responseData) {
-  const data = responseData.data;
+  const data = responseData?.data;
 
-  if (Array.isArray(data.blogs)) return data.blogs[0];
-  if (data.blogs) return data.blogs;
+  if (Array.isArray(data?.blog)) return data.blog[0];
+  if (Array.isArray(data?.blogs)) return data.blogs[0];
+  if (data?.blog) return data.blog;
+  if (data?.blogs) return data.blogs;
 
   return data;
 }
 
 function getBlogCategories(responseData) {
-  return responseData.data.category;
+  const data = responseData?.data;
+
+  return data?.category || data?.blog_category || [];
 }
 
 function mapBlogDetail(blog, categories, slug) {
-  const matchedCategory = categories.find(
+  const categoryList = Array.isArray(categories) ? categories : [];
+  const matchedCategory = categoryList.find(
     (category) => category.id === blog.blog_id,
   );
-  const category = blog.category_name || matchedCategory?.blogcat_name;
+  const category = blog.category_name || matchedCategory?.blogcat_name || "Blog";
   const description = stripHtml(
     blog.blog_desc ||
       blog.blog_description ||
@@ -79,7 +84,7 @@ function mapBlogDetail(blog, categories, slug) {
         image,
       },
     ],
-    categories: categories.map((categoryItem) => ({
+    categories: categoryList.map((categoryItem) => ({
       id: categoryItem.id,
       title: categoryItem.blogcat_name,
       slug: categoryItem.slug,
@@ -96,9 +101,14 @@ function mapBlogDetail(blog, categories, slug) {
 export default function BlogDetailPage({ article }) {
   const params = useParams();
   const slug = params?.slug;
-  const [blogArticle, setBlogArticle] = useState(article || null);
+  const [fetchedArticle, setFetchedArticle] = useState(null);
+  const blogArticle = article || fetchedArticle;
 
   useEffect(() => {
+    if (article) {
+      return;
+    }
+
     if (!slug) {
       return;
     }
@@ -107,19 +117,20 @@ export default function BlogDetailPage({ article }) {
       try {
         const response = await axios.get(`${API_ENDPOINTS.Blog.blogDetail}`, {
           params: {
-            slug: slug,
+            slug,
+            blog_slug: slug,
           },
         });
         const blog = getBlogDetailData(response.data);
         const categories = getBlogCategories(response.data);
-        setBlogArticle(mapBlogDetail(blog, categories, slug));
+        setFetchedArticle(mapBlogDetail(blog, categories, slug));
       } catch (error) {
         console.log(error.response);
       }
     };
 
     blogdetails();
-  }, [slug]);
+  }, [article, slug]);
 
   if (!blogArticle) {
     return (

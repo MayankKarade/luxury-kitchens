@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Star, ShieldCheck, PenTool, Timer } from "lucide-react";
-import heroImg from "../../assets/images/luxury_kitchen_hero_1780070314375.png";
+import heroImg from "../../assets/Home/caliwoodHomeHero.png";
 import { useConsultation } from "@/context/ConsultationContext";
 import Image from "next/image";
 import { IoGlobeOutline } from "react-icons/io5";
@@ -64,12 +64,12 @@ export default function Hero() {
           fill
           sizes="100vw"
           alt="Luxury Modular Kitchen and Custom Interior Backdrop"
-          className="w-full h-full object-cover object-center filter brightness-[1.5] contrast-[1.05]"
+          className="w-full h-full object-cover object-center filter "
           referrerPolicy="no-referrer"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/70 via-brand-dark/46 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/50 via-transparent to-brand-dark/28" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/55 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/35" />
         <div className="absolute top-1/2 left-2/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-brand-gold/5 blur-[180px] pointer-events-none rounded-full" />
       </div>
 

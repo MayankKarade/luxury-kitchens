@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react";
 import { useConsultation } from "@/context/ConsultationContext";
 import Link from "next/link";
 import Image from "next/image";
+import HeroImg from "../../assets/Home/caliwoodAboutHero.png";
 
 export default function AboutHero() {
   const { openModal } = useConsultation();
@@ -18,14 +19,14 @@ export default function AboutHero() {
       {/* Background Immersive Photo with precise luxury masking */}
       <div className="absolute inset-0 z-0 w-full h-full">
         <Image
-          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1920&h=1080"
+          src={HeroImg}
           alt="Premium Luxury Dark Kitchen Design"
           fill
-          className="w-full h-full object-cover object-right lg:object-center filter brightness-[1.5] contrast-[1.05]"
+          className="w-full h-full object-cover object-right lg:object-center"
           referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/70 via-brand-dark/46 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/50 via-transparent to-brand-dark/28" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/55 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/35" />
         <div className="absolute top-1/2 left-2/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-brand-gold/5 blur-[180px] pointer-events-none rounded-full" />
       </div>
 
@@ -34,12 +35,14 @@ export default function AboutHero() {
         <div className="flex items-center gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8">
           <Link
             href="/"
-            className="text-zinc-350 hover:text-white transition-colors duration-200"
+            className="text-zinc-350 text-white font-semibold transition-colors duration-200"
           >
             Home
           </Link>
           <span className="text-brand-gold font-normal px-0.5">&gt;</span>
-          <span className="text-brand-gold font-medium">About Us</span>
+          <span className="text-brand-gold font-semibold hover:font-bold">
+            About Us
+          </span>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">

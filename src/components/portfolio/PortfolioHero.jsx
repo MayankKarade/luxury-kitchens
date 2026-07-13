@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Home, Sliders, Sofa, Building2, RefreshCw } from "lucide-react";
 import Link from "next/link";
-import heroImg from "../../assets/images/luxury_kitchen_hero_1780070314375.png";
+import heroImg from "../../assets/Home/caliwoodPortfolioHero.png";
 import Image from "next/image";
 
 export default function PortfolioHero() {
@@ -81,12 +81,12 @@ export default function PortfolioHero() {
           fill
           sizes="100vw"
           alt="Luxury Modular Kitchen and Custom Interior Backdrop"
-          className="w-full h-full object-cover object-center filter brightness-[1.5] contrast-[1.05]"
+          className="w-full h-full object-cover object-center"
           referrerPolicy="no-referrer"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/70 via-brand-dark/46 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/50 via-transparent to-brand-dark/28" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/55 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/35" />
         <div className="absolute top-1/2 left-2/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-brand-gold/5 blur-[180px] pointer-events-none rounded-full" />
       </div>
 
@@ -97,15 +97,17 @@ export default function PortfolioHero() {
           initial="hidden"
           animate="visible"
         >
-          <div className="flex items-center gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-2">
+          <div className="flex items-center gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8">
             <Link
               href="/"
-              className="text-zinc-350 text-white transition-colors duration-200"
+              className="text-zinc-350 text-white font-semibold transition-colors duration-200"
             >
               Home
             </Link>
             <span className="text-brand-gold font-normal px-0.5">&gt;</span>
-            <span className="text-brand-gold font-medium">Portfolio</span>
+            <span className="text-brand-gold font-semibold hover:font-bold">
+              Portfolio
+            </span>
           </div>
           {/* Gold label – original */}
           <motion.span

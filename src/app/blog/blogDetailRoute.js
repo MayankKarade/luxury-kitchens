@@ -43,7 +43,10 @@ function getCategoryName(blog) {
 export async function getApiBlogDetail(slug) {
   try {
     const response = await axios.get(`${API_ENDPOINTS.Blog.blogDetail}`, {
-      params: { slug: slug },
+      params: {
+        slug,
+        blog_slug: slug,
+      },
     });
     const blog = getBlogDetailData(response.data);
 

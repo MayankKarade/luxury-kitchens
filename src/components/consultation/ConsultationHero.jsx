@@ -34,10 +34,10 @@ export default function ConsultationHero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center brightness-[1.08] contrast-[1.04]"
+          className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/68 via-brand-dark/42 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/52 via-transparent to-brand-dark/22" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/55 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/35" />
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[490px]  flex-col justify-center px-4 pb-10 sm:px-10 md:px-16">
@@ -49,16 +49,18 @@ export default function ConsultationHero() {
         >
           <motion.div
             variants={fadeInUp}
-            className="mb-8 flex items-center gap-2 text-xs font-semibold"
+            className="flex items-center gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8"
           >
             <Link
               href="/"
-              className="text-white/85 transition-colors hover:text-white"
+              className="text-zinc-350 text-white font-semibold transition-colors duration-200"
             >
               Home
             </Link>
-            <span className="text-brand-gold">&gt;</span>
-            <span className="text-brand-gold">Consultation</span>
+            <span className="text-brand-gold font-normal px-0.5">&gt;</span>
+            <span className="text-brand-gold font-semibold hover:font-bold">
+              Consultation
+            </span>
           </motion.div>
 
           <motion.span

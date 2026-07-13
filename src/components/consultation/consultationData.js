@@ -1,4 +1,4 @@
-import heroImg from "../../assets/images/luxury_kitchen_hero_1780070314375.png";
+import heroImg from "../../assets/Home/caliwoodHomeHero.png";
 import loungeImg from "../../assets/images/interior_living_room_1780070361503.png";
 
 export { heroImg, loungeImg };

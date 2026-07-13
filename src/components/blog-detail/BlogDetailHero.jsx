@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import fallbackHeroImg from "../../assets/Home/caliwoodBlogHero.png";
 import { BlogDetailIcon } from "./BlogDetailIcons";
 
 function getAuthorInitials(author = "") {
@@ -20,42 +21,42 @@ export default function BlogDetailHero({ article }) {
   return (
     <section className="relative overflow-hidden bg-brand-dark pt-28 text-white sm:pt-36">
       <div className="absolute inset-0">
-        {article.heroImage ? (
-          <Image
-            src={article.heroImage}
-            alt={article.title}
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center brightness-[1.12] contrast-[1.04]"
-          />
-        ) : (
-          <div className="h-full w-full bg-brand-dark" />
-        )}
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/72 via-brand-dark/48 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/48 via-transparent to-brand-dark/24" />
+        <Image
+          src={fallbackHeroImg}
+          alt={article.title}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/55 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/35" />
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[540px]  flex-col justify-center px-4 pb-12 sm:px-10 md:px-16">
         <div className="max-w-[620px]">
-          <div className="mb-8 flex flex-wrap items-center gap-2 text-xs font-semibold">
+          <div className="flex flex-wrap items-center gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8">
             <Link
               href="/"
-              className="text-white/85 transition-colors hover:text-white"
+              className="text-zinc-350 text-white font-semibold transition-colors duration-200"
             >
               Home
             </Link>
-            <span className="text-brand-gold">&gt;</span>
+            <span className="text-brand-gold font-normal px-0.5">&gt;</span>
             <Link
               href="/blog"
-              className="text-white/85 transition-colors hover:text-white"
+              className="text-zinc-350 text-white font-semibold transition-colors duration-200"
             >
               Blog
             </Link>
-            <span className="text-brand-gold">&gt;</span>
-            <span className="text-brand-gold">{article.categoryTitle}</span>
-            <span className="hidden text-brand-gold sm:inline">&gt;</span>
-            <span className="hidden max-w-[280px] truncate text-brand-gold sm:inline">
+            <span className="text-brand-gold font-normal px-0.5">&gt;</span>
+            <span className="text-brand-gold font-semibold hover:font-bold">
+              {article.categoryTitle}
+            </span>
+            <span className="hidden text-brand-gold font-normal px-0.5 sm:inline">
+              &gt;
+            </span>
+            <span className="hidden max-w-[280px] truncate text-brand-gold font-semibold hover:font-bold sm:inline">
               {article.title}
             </span>
           </div>

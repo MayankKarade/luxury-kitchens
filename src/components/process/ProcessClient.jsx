@@ -22,7 +22,7 @@ import {
 } from "lucide-react";
 
 import { useConsultation } from "@/context/ConsultationContext";
-import heroImg from "../../assets/images/luxury_kitchen_hero_1780070314375.png";
+import heroImg from "../../assets/Home/caliwoodProcessHero.png";
 import ctaImg from "../../assets/images/interior_living_room_1780070361503.png";
 
 const processSteps = [
@@ -152,10 +152,10 @@ function ProcessHero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center brightness-[1.1] contrast-[1.04]"
+          className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/72 via-brand-dark/48 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/48 via-transparent to-brand-dark/24" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/55 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/35" />
       </div>
 
       <button
@@ -174,16 +174,18 @@ function ProcessHero() {
         >
           <motion.div
             variants={fadeInUp}
-            className="mb-8 flex items-center gap-2 text-xs font-semibold"
+            className="flex items-center gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8"
           >
             <Link
               href="/"
-              className="text-white/85 transition-colors hover:text-white"
+              className="text-zinc-350 text-white font-semibold transition-colors duration-200"
             >
               Home
             </Link>
-            <span className="text-brand-gold">&gt;</span>
-            <span className="text-brand-gold">Our Process</span>
+            <span className="text-brand-gold font-normal px-0.5">&gt;</span>
+            <span className="text-brand-gold font-semibold hover:font-bold">
+              Our Process
+            </span>
           </motion.div>
 
           <motion.span

@@ -1,4 +1,4 @@
-import kitchenHero from "../../assets/images/luxury_kitchen_hero_1780070314375.png";
+import kitchenHero from "../../assets/Home/caliwoodHomeHero.png";
 import livingRoom from "../../assets/images/interior_living_room_1780070361503.png";
 import wardrobe from "../../assets/images/luxury_wardrobe_card_1780070338933.png";
 import office from "../../assets/images/executive_office_card_1780070403397.png";
