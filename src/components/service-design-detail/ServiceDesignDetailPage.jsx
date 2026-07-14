@@ -38,26 +38,31 @@ function mergeApiProduct(staticProduct, apiProduct) {
       galleryImages.length > 0 ? galleryImages : staticProduct.galleryImages,
     video: apiProduct.video || staticProduct.video,
     overview: apiProduct.overview || staticProduct.overview,
+    featuresContent: apiProduct.features,
+    materialContent: apiProduct.material,
+    specificationContent: apiProduct.specification,
+    includedContent: apiProduct.include,
+    premiumMaterialContent: apiProduct.premium_material,
     facts: [
       {
         icon: "service",
         label: "Style",
-        value: apiProduct.style_id || staticProduct.facts?.[0]?.value,
+        value: apiProduct.style,
       },
       {
         icon: "counter",
         label: "Finish",
-        value: apiProduct.finish || staticProduct.facts?.[1]?.value,
+        value: apiProduct.finish,
       },
       {
         icon: "layout",
         label: "Configuration",
-        value: apiProduct.configuration || staticProduct.facts?.[2]?.value,
+        value: apiProduct.configuration,
       },
       {
         icon: "spark",
         label: "Ideal For",
-        value: apiProduct.ideal_for || staticProduct.facts?.[3]?.value,
+        value: apiProduct.ideal_for,
       },
     ].filter((fact) => fact.value),
     materials:
@@ -83,19 +88,26 @@ function mergeApiProduct(staticProduct, apiProduct) {
             {
               icon: "shield",
               title: "Features",
-              text: apiProduct.features || staticProduct.quickFeatures?.[0]?.text,
+              text:
+                apiProduct.features || staticProduct.quickFeatures?.[0]?.text,
             },
             {
               icon: "grid",
               title: "Included",
-              text: apiProduct.include || staticProduct.quickFeatures?.[1]?.text,
+              text:
+                apiProduct.include || staticProduct.quickFeatures?.[1]?.text,
             },
           ].filter((feature) => feature.text)
         : staticProduct.quickFeatures,
   };
 }
 
-export default function ServiceDesignDetailPage({ service, product, designSlug }) {
+export default function ServiceDesignDetailPage({
+  service,
+  product,
+  designSlug,
+}) {
+  const [activeTab, setActiveTab] = useState("overview");
   const [detailState, setDetailState] = useState({
     product: null,
     slug: null,
@@ -170,8 +182,8 @@ export default function ServiceDesignDetailPage({ service, product, designSlug }
           aria-hidden="true"
         />
         <DesignDetailHeader service={service} product={detailState.product} />
-        <DesignDetailTabs />
-        <DesignOverview product={detailState.product} />
+        <DesignDetailTabs activeTab={activeTab} onTabChange={setActiveTab} />
+        <DesignOverview product={detailState.product} activeTab={activeTab} />
         <DesignBenefitStrip />
       </div>
     </div>

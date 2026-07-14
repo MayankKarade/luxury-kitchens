@@ -12,6 +12,11 @@ function getApiCollection(staticCollection, apiData) {
   const styles = Array.isArray(apiData?.style) ? apiData.style : [];
   const designs = Array.isArray(apiData?.design) ? apiData.design : [];
   const colors = Array.isArray(apiData?.color) ? apiData.color : [];
+  const totalDesignCount = designs.reduce((total, design) => {
+    const designCount = Number(design.design_count);
+
+    return Number.isFinite(designCount) ? total + designCount : total;
+  }, 0);
 
   return {
     ...staticCollection,
@@ -23,26 +28,40 @@ function getApiCollection(staticCollection, apiData) {
       designs.length > 0
         ? [
             {
+              id: null,
               label: staticCollection.categories[0]?.label || "All Designs",
-              count: String(products.length).padStart(2, "0"),
+              count: String(totalDesignCount).padStart(2, "0"),
+              design_count: totalDesignCount,
               active: true,
             },
             ...designs.map((design) => ({
+              id: design.id,
               label: design.dname,
               count: String(
+                design.design_count ??
+                  products.filter((product) => product.design_id === design.id)
+                    .length,
+              ).padStart(2, "0"),
+              design_count:
+                design.design_count ??
                 products.filter((product) => product.design_id === design.id)
                   .length,
-              ).padStart(2, "0"),
             })),
           ]
         : staticCollection.categories,
     filters:
       styles.length > 0
-        ? styles.map((style) => style.sname).filter(Boolean)
+        ? styles
+            .map((style) => ({
+              id: style.id,
+              label: style.sname,
+            }))
+            .filter((style) => style.label)
         : staticCollection.filters,
     swatches:
       colors.length > 0
         ? colors.map((color) => ({
+            id: color.id,
             name: color.name,
             value: color.image,
           }))
@@ -57,6 +76,9 @@ function getApiCollection(staticCollection, apiData) {
             price: product.price,
             image: product.image,
             badge: product.rating ? `${product.rating} Rating` : undefined,
+            design_id: product.design_id,
+            style_id: product.style_id,
+            color_id: product.color_id,
           }))
         : staticCollection.products,
   };

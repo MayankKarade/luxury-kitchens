@@ -12,7 +12,10 @@ export default function BlogTableOfContents({ items }) {
 
       <ol className="grid gap-x-12 gap-y-3 md:grid-cols-2">
         {items.map((item, index) => (
-          <li key={item} className="flex items-start gap-4 text-sm font-semibold text-zinc-700">
+          <li
+            key={`${item}-${index}`}
+            className="flex items-start gap-4 text-sm font-semibold text-zinc-700"
+          >
             <span className="min-w-7 text-brand-gold">
               {String(index + 1).padStart(2, "0")}.
             </span>

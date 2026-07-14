@@ -40,7 +40,7 @@ function CategoryCard({ categories }) {
             className="flex items-center justify-between gap-4 text-sm font-semibold text-zinc-700"
           >
             <span>{category.title}</span>
-            {category.count ? (
+            {category.count !== undefined && category.count !== null ? (
               <span className="rounded-full bg-neutral-100 px-2.5 py-1 text-xs font-extrabold text-zinc-500">
                 {category.count}
               </span>

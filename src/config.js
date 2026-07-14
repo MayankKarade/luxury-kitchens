@@ -8,6 +8,7 @@ export const API_ENDPOINTS = {
   Product: {
     product: `${API_BASE_URL}/product`,
     productDetail: `${API_BASE_URL}/product_detail`,
+    productFilter: `${API_BASE_URL}/filter`,
   },
   Blog: {
     category: `${API_BASE_URL}/blog_category`,

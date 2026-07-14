@@ -12,6 +12,7 @@ import {
 import { FaXTwitter } from "react-icons/fa6";
 import Image from "next/image";
 import Link from "next/link";
+import FloatingSocialWidget from "./FloatingSocialWidget";
 
 const quickLinks = [
   { name: "About Us", href: "/about" },
@@ -41,10 +42,6 @@ const locationLinks = [
 
 export default function Footer() {
   const { openModal } = useConsultation();
-
-  const handleWhatsappClick = () => {
-    window.open("https://wa.me/11234567890", "_blank");
-  };
 
   return (
     <footer className="bg-brand-dark border-t border-white/5 px-4 sm:px-10 md:px-16 pt-16 pb-8 relative text-neutral-400 text-sm overflow-hidden select-none">
@@ -233,21 +230,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* WhatsApp Floating circular chat button */}
-      <button
-        onClick={handleWhatsappClick}
-        className="fixed bottom-6 right-6 z-50 bg-[#25d366] hover:bg-[#1ebd52] text-white w-14 h-14 rounded-full shadow-[0_16px_32px_rgba(37,211,102,0.3)] hover:shadow-[0_20px_40px_rgba(37,211,102,0.45)] transition-all duration-300 hover:scale-108 active:scale-95 flex items-center justify-center group cursor-pointer"
-        aria-label="Contact Netsaarthi on WhatsApp"
-        title="Contact on WhatsApp"
-      >
-        <svg
-          viewBox="0 0 24 24"
-          className="w-8 h-8 fill-current text-white"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M12.012 2C6.485 2 2 6.484 2 12.011c0 1.908.533 3.761 1.543 5.378L2.015 22l4.774-1.253a9.945 9.945 0 005.223 1.488c5.526 0 10.012-4.485 10.012-10.011a9.946 9.946 0 00-2.932-7.078A9.95 9.95 0 0012.012 2zm5.727 13.916c-.244.686-1.238 1.258-1.745 1.348-.475.084-1.077.105-1.737-.107a10.06 10.06 0 01-3.692-2.316 11.036 11.036 0 01-2.483-3.52c-.347-.59-.556-1.272-.556-1.956.002-1.393.722-2.115 1.034-2.42.274-.268.618-.328.857-.328.24 0 .479.002.688.012.22.01.455-.08.718.555.263.636.9 2.203.978 2.364.078.16.13.348.02.569-.11.22-.24.36-.379.522-.14.163-.294.34-.419.497-.13.163-.263.34-.11.604a8.675 8.675 0 001.597 1.986 7.697 7.697 0 002.308 1.424c.264.13.42.11.574-.07.155-.183.676-.788.857-1.057.179-.269.359-.224.604-.134.246.09 1.557.734 1.826.87a.916.916 0 01.378.411c.092.416-.062 1.524-.306 2.21z" />
-        </svg>
-      </button>
+      <FloatingSocialWidget />
     </footer>
   );
 }

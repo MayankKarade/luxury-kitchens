@@ -1,34 +1,43 @@
+"use client";
+
 const tabs = [
-  { label: "Overview", href: "#overview", active: true },
-  { label: "Features", href: "#features" },
-  { label: "Materials", href: "#materials" },
-  { label: "Specifications", href: "#specifications" },
-  { label: "What's Included", href: "#included" },
-  { label: "FAQs", href: "#faqs" },
+  { id: "overview", label: "Overview" },
+  { id: "features", label: "Features" },
+  { id: "materials", label: "Materials" },
+  { id: "specifications", label: "Specifications" },
+  { id: "included", label: "What's Included" },
+  { id: "faqs", label: "FAQs" },
 ];
 
-export default function DesignDetailTabs() {
+export default function DesignDetailTabs({ activeTab, onTabChange }) {
   return (
     <div className="border-y border-neutral-200 bg-brand-white px-4 text-brand-dark sm:px-10 md:px-16">
       <div className="mx-auto  overflow-x-auto no-scrollbar">
-        <nav className="flex min-w-max items-center gap-10">
+        <div
+          className="flex min-w-max items-center gap-10"
+          role="tablist"
+          aria-label="Design detail sections"
+        >
           {tabs.map((tab) => (
-            <a
+            <button
               key={tab.label}
-              href={tab.href}
-              className={`relative py-5 text-xs font-extrabold uppercase tracking-wide transition-colors ${
-                tab.active
+              type="button"
+              role="tab"
+              aria-selected={activeTab === tab.id}
+              onClick={() => onTabChange(tab.id)}
+              className={`relative py-5 text-xs font-extrabold uppercase tracking-wide transition-colors cursor-pointer ${
+                activeTab === tab.id
                   ? "text-brand-gold"
                   : "text-zinc-700 hover:text-brand-gold"
               }`}
             >
               {tab.label}
-              {tab.active && (
+              {activeTab === tab.id && (
                 <span className="absolute bottom-0 left-0 h-[2px] w-full bg-brand-gold" />
               )}
-            </a>
+            </button>
           ))}
-        </nav>
+        </div>
       </div>
     </div>
   );

@@ -93,14 +93,66 @@ function MaterialCard({ material }) {
         </h4>
         <HtmlContent
           value={material.text}
-          className="mt-1 text-sm font-medium leading-5 text-zinc-600 [&_p]:mb-1 [&_p:last-child]:mb-0"
+          className="mt-0 text-sm font-medium leading-5 text-zinc-600 "
         />
       </div>
     </div>
   );
 }
 
-export default function DesignOverview({ product }) {
+function getActiveTabContent(product, activeTab) {
+  if (activeTab === "features") {
+    return {
+      title: "Features",
+      value: product.featuresContent,
+      fallback: "Feature details are not available right now.",
+    };
+  }
+
+  if (activeTab === "materials") {
+    return {
+      title: "Materials",
+      value: [product.materialContent, product.premiumMaterialContent]
+        .filter(Boolean)
+        .join(""),
+      fallback: "Material details are not available right now.",
+    };
+  }
+
+  if (activeTab === "specifications") {
+    return {
+      title: "Specifications",
+      value: product.specificationContent,
+      fallback: "Specification details are not available right now.",
+    };
+  }
+
+  if (activeTab === "included") {
+    return {
+      title: "What's Included",
+      value: product.includedContent,
+      fallback: "Included item details are not available right now.",
+    };
+  }
+
+  if (activeTab === "faqs") {
+    return {
+      title: "FAQs",
+      value: "",
+      fallback: "FAQs are not available for this design right now.",
+    };
+  }
+
+  return {
+    title: "Overview",
+    value: product.overview,
+    fallback: "Overview details are not available right now.",
+  };
+}
+
+export default function DesignOverview({ product, activeTab = "overview" }) {
+  const activeContent = getActiveTabContent(product, activeTab);
+
   return (
     <section
       id="overview"
@@ -110,22 +162,28 @@ export default function DesignOverview({ product }) {
         <div className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
           <div>
             <h2 className="font-serif text-3xl font-semibold text-neutral-900">
-              Overview
+              {activeContent.title}
             </h2>
-            <HtmlContent
-              value={product.overview}
-              className="mt-4 max-w-2xl text-[15px] font-medium leading-8 text-zinc-700 [&_p]:mb-3 [&_p:last-child]:mb-0"
-            />
+            {activeContent.value ? (
+              <HtmlContent
+                value={activeContent.value}
+                className="mt-4 max-w-2xl text-[15px] font-medium leading-8 text-zinc-700 [&_p]:mb-3 [&_p:last-child]:mb-0"
+              />
+            ) : (
+              <p className="mt-4 max-w-2xl text-[15px] font-medium leading-8 text-zinc-700">
+                {activeContent.fallback}
+              </p>
+            )}
 
             <div className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
               {product.facts.map((fact) => (
                 <div
                   key={fact.label}
-                  className="grid grid-cols-[38px_1fr] gap-4"
+                  className="grid grid-cols-[38px_1fr] sm:grid-cols-1 gap-4 sm:gap-2.5"
                 >
                   <DetailIcon
                     name={fact.icon}
-                    className="mb-3 h-8 w-8 text-brand-gold"
+                    className="mb-3 sm:mb-0 h-8 w-8 text-brand-gold"
                   />
                   <div>
                     <h3 className="text-sm font-extrabold text-neutral-900">
