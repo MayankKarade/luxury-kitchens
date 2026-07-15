@@ -85,7 +85,7 @@ export default function Hero() {
             >
               <motion.span
                 variants={fadeInUp}
-                className="text-brand-gold font-display text-xs font-semibold tracking-[0.3em] uppercase block mb-1"
+                className="bg-brand-gold text-white rounded-full px-3 py-0.5 font-sans text-xs font-bold tracking-[0.25em] uppercase block w-fit"
               >
                 CRAFTING TIMELESS SPACES
               </motion.span>

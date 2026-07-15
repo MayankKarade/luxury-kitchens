@@ -2,7 +2,11 @@ import BlogArticleContent from "./BlogArticleContent";
 import BlogSidebar from "./BlogSidebar";
 import BlogTableOfContents from "./BlogTableOfContents";
 
-export default function BlogDetailMain({ article }) {
+export default function BlogDetailMain({
+  article,
+  isDetailLoading,
+  onCategorySelect,
+}) {
   return (
     <main className="bg-brand-white px-4 py-9 text-brand-dark sm:px-10 md:px-16">
       <div className="mx-auto grid  gap-9 lg:grid-cols-[minmax(0,1fr)_360px]">
@@ -10,7 +14,11 @@ export default function BlogDetailMain({ article }) {
           <BlogTableOfContents items={article.tableOfContents} />
           <BlogArticleContent article={article} />
         </div>
-        <BlogSidebar article={article} />
+        <BlogSidebar
+          article={article}
+          isDetailLoading={isDetailLoading}
+          onCategorySelect={onCategorySelect}
+        />
       </div>
     </main>
   );

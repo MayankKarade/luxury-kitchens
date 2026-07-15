@@ -31,7 +31,7 @@ export default function PortfolioClient() {
 
   return (
     <div className="w-full  flex  justify-center items-center">
-      <div className="w-full max-w-[1500px]">
+      <div className="w-full max-w-[1800px]">
         {/* SECTION 1: HERO & CATEGORIES */}
         <PortfolioHero />
 

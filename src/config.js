@@ -14,6 +14,7 @@ export const API_ENDPOINTS = {
     category: `${API_BASE_URL}/blog_category`,
     blogsList: `${API_BASE_URL}/blogs`,
     blogDetail: `${API_BASE_URL}/blog-detail`,
+    singleDetail: `${API_BASE_URL}/single-blog-data`,
   },
   Gallery: {
     gallery: `${API_BASE_URL}/gallery`,

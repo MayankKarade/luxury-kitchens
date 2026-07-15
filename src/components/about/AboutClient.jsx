@@ -10,7 +10,7 @@ import Team from "./Team";
 const AboutClient = () => {
   return (
     <div className="w-full  flex  justify-center items-center">
-      <div id="about-page-root" className="w-full max-w-[1500px]">
+      <div id="about-page-root" className="w-full max-w-[1800px]">
         <AboutHero />
         <OurStory />
         <AboutStats />

@@ -8,8 +8,7 @@ export async function getApiBlogDetail(slug) {
   try {
     const response = await axios.get(`${API_ENDPOINTS.Blog.blogDetail}`, {
       params: {
-        slug,
-        blog_slug: slug,
+        slug: slug,
       },
     });
     return mapBlogDetailResponse(response.data, slug);

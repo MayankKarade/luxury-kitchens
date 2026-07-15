@@ -25,7 +25,7 @@ export default function OurServicesClient() {
 
   return (
     <div className="w-full  flex  justify-center items-center">
-      <div id="services-page-root" className="w-full max-w-[1500px] ">
+      <div id="services-page-root" className="w-full max-w-[1800px] ">
         <ServicesHero />
 
         <WhatWeOffer services={services} />

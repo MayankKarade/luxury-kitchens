@@ -97,22 +97,22 @@ export default function PortfolioHero() {
           initial="hidden"
           animate="visible"
         >
-          <div className="flex items-center gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8">
+          <div className="w-fit px-3 py-0.5 rounded-full flex items-center bg-brand-gold/40 gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8">
             <Link
               href="/"
-              className="text-zinc-350 text-white font-semibold transition-colors duration-200"
+              className="text-white font-medium hover:font-bold transition-all duration-150"
             >
               Home
             </Link>
-            <span className="text-brand-gold font-normal px-0.5">&gt;</span>
-            <span className="text-brand-gold font-semibold hover:font-bold">
+            <span className="text-white font-normal px-0.5">&gt;</span>
+            <span className="text-white font-medium hover:font-bold transition-all duration-150">
               Portfolio
             </span>
           </div>
           {/* Gold label – original */}
           <motion.span
             variants={fadeInUp}
-            className="text-xs sm:text-[13px] text-brand-gold tracking-[0.3em] font-sans font-black uppercase inline-block"
+            className="bg-brand-gold text-white rounded-full px-3 py-0.5 font-sans text-xs font-bold tracking-[0.25em] uppercase block w-fit"
           >
             OUR PORTFOLIO
           </motion.span>

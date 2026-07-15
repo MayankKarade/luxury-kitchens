@@ -6,7 +6,7 @@ export default function ContactClient() {
   return (
     // <div className="min-h-screen bg-brand-white">
     <div className="w-full  flex  justify-center items-center">
-      <div className="w-full max-w-[1500px]">
+      <div className="w-full max-w-[1800px]">
         <ContactHero />
         <ContactMain />
         <OfficeLocations />

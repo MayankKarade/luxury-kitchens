@@ -73,7 +73,7 @@ export default function ServiceDetailClient({ service, slug }) {
 
   return (
     <div className="w-full  flex  justify-center items-center">
-      <div className="w-full max-w-[1500px]">
+      <div className="w-full max-w-[1800px]">
         <ServiceDetailHero service={mergedService} />
         <ServiceWhyChoose service={mergedService} />
         <ServiceStylesSlider service={mergedService} />

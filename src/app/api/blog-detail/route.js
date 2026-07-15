@@ -16,7 +16,6 @@ export async function GET(request) {
   try {
     const url = new URL(API_ENDPOINTS.Blog.blogDetail);
     url.searchParams.set("slug", slug);
-    url.searchParams.set("blog_slug", slug);
 
     const response = await fetch(url, { cache: "no-store" });
     const data = await response.json();

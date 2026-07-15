@@ -176,7 +176,7 @@ export default function ServiceDesignDetailPage({
   return (
     // <div className="min-h-screen bg-brand-white">
     <div className="w-full  flex  justify-center items-center">
-      <div className="w-full max-w-[1500px]">
+      <div className="w-full max-w-[1800px]">
         <div
           className="h-[92px] bg-brand-dark sm:h-[112px]"
           aria-hidden="true"

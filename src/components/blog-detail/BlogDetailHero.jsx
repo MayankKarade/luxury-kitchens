@@ -34,34 +34,33 @@ export default function BlogDetailHero({ article }) {
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[540px]  flex-col justify-center px-4 pb-12 sm:px-10 md:px-16">
+        <div className="w-fit px-3 py-0.5 rounded-full flex items-center bg-brand-gold/40 gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8">
+          <Link
+            href="/"
+            className="text-white font-medium hover:font-bold transition-all duration-150"
+          >
+            Home
+          </Link>
+          <span className="text-white font-normal px-0.5">&gt;</span>
+          <Link
+            href="/blog"
+            className="text-white font-medium hover:font-bold transition-all duration-150"
+          >
+            Blog
+          </Link>
+          <span className="text-white font-normal px-0.5">&gt;</span>
+          <span className="text-white font-medium hover:font-bold transition-all duration-150">
+            {article.categoryTitle}
+          </span>
+          <span className="hidden text-white font-normal px-0.5 sm:inline">
+            &gt;
+          </span>
+          <span className="hidden max-w-[280px] truncate text-white font-medium hover:font-bold transition-all duration-150 sm:inline">
+            {article.title}
+          </span>
+        </div>
         <div className="max-w-[620px]">
-          <div className="flex flex-wrap items-center gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8">
-            <Link
-              href="/"
-              className="text-zinc-350 text-white font-semibold transition-colors duration-200"
-            >
-              Home
-            </Link>
-            <span className="text-brand-gold font-normal px-0.5">&gt;</span>
-            <Link
-              href="/blog"
-              className="text-zinc-350 text-white font-semibold transition-colors duration-200"
-            >
-              Blog
-            </Link>
-            <span className="text-brand-gold font-normal px-0.5">&gt;</span>
-            <span className="text-brand-gold font-semibold hover:font-bold">
-              {article.categoryTitle}
-            </span>
-            <span className="hidden text-brand-gold font-normal px-0.5 sm:inline">
-              &gt;
-            </span>
-            <span className="hidden max-w-[280px] truncate text-brand-gold font-semibold hover:font-bold sm:inline">
-              {article.title}
-            </span>
-          </div>
-
-          <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-brand-gold">
+          <span className="bg-brand-gold text-white rounded-full px-3 py-0.5 font-sans text-xs font-bold tracking-[0.25em] uppercase block w-fit">
             {article.category}
           </span>
           <h1 className="mt-4 font-serif text-4xl font-medium leading-[1.1] text-white sm:text-5xl lg:text-[60px]">

@@ -32,15 +32,15 @@ export default function AboutHero() {
 
       <div className=" mx-auto px-4 sm:px-10 md:px-16 relative z-10 w-full ">
         {/* Breadcrumb row matching exactly "Home > About Us" in image */}
-        <div className="flex items-center gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8">
+        <div className="w-fit px-3 py-0.5 rounded-full flex items-center bg-brand-gold/40 gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8">
           <Link
             href="/"
-            className="text-zinc-350 text-white font-semibold transition-colors duration-200"
+            className=" text-white font-medium hover:font-bold transition-all duration-150"
           >
             Home
           </Link>
-          <span className="text-brand-gold font-normal px-0.5">&gt;</span>
-          <span className="text-brand-gold font-semibold hover:font-bold">
+          <span className="text-white font-normal px-0.5">&gt;</span>
+          <span className="text-white font-medium hover:font-bold transition-all duration-150">
             About Us
           </span>
         </div>
@@ -53,7 +53,7 @@ export default function AboutHero() {
             className="lg:col-span-12 flex flex-col items-start gap-4"
           >
             {/* ABOVE US pre-title */}
-            <span className="text-brand-gold font-sans text-xs font-bold tracking-[0.25em] uppercase block">
+            <span className="bg-brand-gold text-white rounded-full px-3 py-0.5 font-sans text-xs font-bold tracking-[0.25em] uppercase block w-fit">
               ABOUT US
             </span>
 

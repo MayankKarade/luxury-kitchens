@@ -27,8 +27,14 @@ const serviceLinks = [
   { name: "Modular Kitchens", href: "/our-services/designs/modular-kitchens" },
   { name: "Luxury Wardrobes", href: "/our-services/designs/luxury-wardrobes" },
   { name: "Interior Design", href: "/our-services/designs/interior-design" },
-  { name: "Renovation Services", href: "/our-services/designs/renovation-services" },
-  { name: "Commercial Interiors", href: "/our-services/designs/commercial-interiors" },
+  {
+    name: "Renovation Services",
+    href: "/our-services/designs/renovation-services",
+  },
+  {
+    name: "Commercial Interiors",
+    href: "/our-services/designs/commercial-interiors",
+  },
   { name: "Custom Furniture", href: "/our-services/designs/custom-furniture" },
 ];
 
@@ -48,7 +54,7 @@ export default function Footer() {
       {/* Subtly glowing luxury ambiance light backing */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] rounded-full bg-brand-gold/5 blur-[150px] pointer-events-none"></div>
 
-      <div className="max-w-[1500px] mx-auto  relative z-10">
+      <div className="max-w-[1800px] mx-auto  relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-12 gap-10 lg:gap-0 pb-10 border-b border-white/5">
           {/* Column 1: Logo and Professional Bio */}
           <div className="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-3 flex flex-col gap-6 lg:border-r lg:border-white/10 lg:pr-8">

@@ -63,7 +63,7 @@ export default function Navbar() {
           : "bg-black/25 backdrop-blur-[2px]"
       }`}
     >
-      <div className="max-w-[1500px] mx-auto px-4 sm:px-10 lg:px-16 pt-3 lg:pt-5 flex justify-between items-center">
+      <div className="max-w-[1800px] mx-auto px-4 sm:px-10 lg:px-16 pt-3 lg:pt-5 flex justify-between items-center">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center group shrink-0">
           <Image

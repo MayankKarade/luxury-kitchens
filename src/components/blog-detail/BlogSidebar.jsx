@@ -27,7 +27,7 @@ function SearchBox() {
   );
 }
 
-function CategoryCard({ categories }) {
+function CategoryCard({ categories, isDetailLoading, onCategorySelect }) {
   return (
     <div className="rounded-lg border border-neutral-200 bg-white p-6 shadow-sm">
       <h2 className="font-serif text-2xl font-semibold text-neutral-900">
@@ -35,9 +35,12 @@ function CategoryCard({ categories }) {
       </h2>
       <div className="mt-5 space-y-4">
         {categories.map((category) => (
-          <div
-            key={category.id}
-            className="flex items-center justify-between gap-4 text-sm font-semibold text-zinc-700"
+          <button
+            key={category.id || category.slug || category.title}
+            type="button"
+            disabled={isDetailLoading || !category.slug}
+            onClick={() => onCategorySelect?.(category)}
+            className="flex w-full items-center justify-between gap-4 text-left text-sm font-semibold text-zinc-700 transition-colors hover:text-brand-gold disabled:cursor-not-allowed disabled:opacity-60"
           >
             <span>{category.title}</span>
             {category.count !== undefined && category.count !== null ? (
@@ -45,7 +48,7 @@ function CategoryCard({ categories }) {
                 {category.count}
               </span>
             ) : null}
-          </div>
+          </button>
         ))}
       </div>
     </div>
@@ -107,11 +110,19 @@ function SidebarCTA({ cta }) {
   );
 }
 
-export default function BlogSidebar({ article }) {
+export default function BlogSidebar({
+  article,
+  isDetailLoading,
+  onCategorySelect,
+}) {
   return (
     <aside className="space-y-5 lg:sticky lg:top-28 lg:self-start">
       <SearchBox />
-      <CategoryCard categories={article.categories} />
+      <CategoryCard
+        categories={article.categories}
+        isDetailLoading={isDetailLoading}
+        onCategorySelect={onCategorySelect}
+      />
       <RecentPosts posts={article.recentPosts} />
       <SidebarCTA cta={article.sidebarCta} />
     </aside>

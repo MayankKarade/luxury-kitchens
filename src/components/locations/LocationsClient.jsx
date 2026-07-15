@@ -137,7 +137,7 @@ const stagger = {
 
 function LocationsHero() {
   return (
-    <section className="relative  min-h-screen overflow-hidden bg-brand-dark pt-28 sm:pt-36">
+    <section className="relative flex min-h-screen w-full flex-col justify-center overflow-hidden bg-brand-dark pt-28 pb-14 sm:pt-40 2xl:min-h-[50rem]">
       <div className="absolute inset-0">
         <Image
           src={heroImg}
@@ -158,7 +158,7 @@ function LocationsHero() {
         <Menu className="h-6 w-6" />
       </button> */}
 
-      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-7rem)]  flex-col justify-center px-4 pb-6 sm:px-10 md:px-16 lg:pb-8">
+      <div className="relative z-10 mx-auto flex w-full flex-col justify-center px-4 sm:px-10 md:px-16">
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -167,23 +167,23 @@ function LocationsHero() {
         >
           <motion.div
             variants={fadeInUp}
-            className="flex items-center gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8"
+            className="w-fit px-3 py-0.5 rounded-full flex items-center bg-brand-gold/40 gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8"
           >
             <Link
               href="/"
-              className="text-zinc-350 text-white font-semibold transition-colors duration-200"
+              className="text-white font-medium hover:font-bold transition-all duration-150"
             >
               Home
             </Link>
-            <span className="text-brand-gold font-normal px-0.5">&gt;</span>
-            <span className="text-brand-gold font-semibold hover:font-bold">
+            <span className="text-white font-normal px-0.5">&gt;</span>
+            <span className="text-white font-medium hover:font-bold transition-all duration-150">
               Locations
             </span>
           </motion.div>
 
           <motion.span
             variants={fadeInUp}
-            className="text-xs font-extrabold uppercase tracking-[0.22em] text-brand-gold"
+            className="bg-brand-gold text-white rounded-full px-3 py-0.5 font-sans text-xs font-bold tracking-[0.25em] uppercase block w-fit"
           >
             OUR GLOBAL PRESENCE
           </motion.span>
@@ -420,7 +420,7 @@ function ServiceHighlights() {
 export default function LocationsClient() {
   return (
     <div className="w-full  flex  justify-center items-center">
-      <div className="w-full max-w-[1500px]">
+      <div className="w-full max-w-[1800px]">
         <LocationsHero />
         <LocationCards />
         <GlobalCommitment />

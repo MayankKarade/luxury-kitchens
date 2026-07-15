@@ -28,27 +28,27 @@ export default function ServiceDetailHero({ service }) {
 
       <div className="relative z-10 mx-auto  px-4 pb-8 sm:px-10 md:px-16">
         <div className="flex min-h-[500px] flex-col justify-center">
-          <div className="flex items-center gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8">
+          <div className="w-fit px-3 py-0.5 rounded-full flex items-center bg-brand-gold/40 gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8">
             <Link
               href="/"
-              className="text-zinc-350 text-white font-semibold transition-colors duration-200"
+              className="text-white font-medium hover:font-bold transition-all duration-150"
             >
               Home
             </Link>
-            <span className="text-brand-gold font-normal px-0.5">&gt;</span>
+            <span className="text-white font-normal px-0.5">&gt;</span>
             <Link
               href="/our-services"
-              className="text-zinc-350 text-white font-semibold transition-colors duration-200"
+              className="text-white font-medium hover:font-bold transition-all duration-150"
             >
               Services
             </Link>
-            <span className="text-brand-gold font-normal px-0.5">&gt;</span>
-            <span className="text-brand-gold font-semibold hover:font-bold">
+            <span className="text-white font-normal px-0.5">&gt;</span>
+            <span className="text-white font-medium hover:font-bold transition-all duration-150">
               {service.title}
             </span>
           </div>
 
-          <span className="text-xs font-extrabold uppercase tracking-[0.22em] text-brand-gold">
+          <span className="bg-brand-gold text-white rounded-full px-3 py-0.5 font-sans text-xs font-bold tracking-[0.25em] uppercase block w-fit">
             {service.label}
           </span>
           <h1 className="mt-3 max-w-[450px] font-serif text-4xl font-medium leading-[1.1] sm:text-5xl lg:text-[54px]">
