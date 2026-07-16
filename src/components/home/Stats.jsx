@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { Award, Network, Globe, Star, Clock } from "lucide-react";
+import Image from "next/image";
 import { motion } from "motion/react";
 
 function AnimatedNumber({ value, duration = 1500 }) {
@@ -51,44 +51,36 @@ function AnimatedNumber({ value, duration = 1500 }) {
 export default function Stats() {
   const statsList = [
     {
-      iconElement: (
-        <Award className="w-11 h-11 text-brand-gold" strokeWidth={1.5} />
-      ),
+      image: "/home/states/Verified.png",
+      imageScale: 1.2,
       target: 15,
       suffix: "+",
       label: "Years Experience",
     },
     {
-      iconElement: (
-        <Network className="w-11 h-11 text-brand-gold" strokeWidth={1.5} />
-      ),
+      image: "/home/states/factory.png",
+      imageScale: 1.07,
       target: 1200,
       suffix: "+",
       label: "Projects Completed",
     },
     {
-      iconElement: (
-        <Globe className="w-11 h-11 text-brand-gold" strokeWidth={1.5} />
-      ),
+      image: "/home/states/location.png",
+      imageScale: 1.09,
       target: 5,
       suffix: "",
       label: "Countries Served",
     },
     {
-      iconElement: (
-        <Star
-          className="w-11 h-11 text-brand-gold fill-brand-gold/10"
-          strokeWidth={1.5}
-        />
-      ),
+      image: "/home/states/sales.png",
+      imageScale: 1,
       target: 98,
       suffix: "%",
       label: "Client Satisfaction",
     },
     {
-      iconElement: (
-        <Clock className="w-11 h-11 text-brand-gold" strokeWidth={1.5} />
-      ),
+      image: "/home/states/end-to-end.png",
+      imageScale: 1.17,
       target: 24,
       suffix: "/7",
       label: "Dedicated Support",
@@ -113,8 +105,15 @@ export default function Stats() {
                   : ""
               }`}
             >
-              <div className="flex-shrink-0 flex items-center justify-center transform transition-transform duration-300 hover:scale-105">
-                {stat.iconElement}
+              <div className="flex h-14 w-14 flex-shrink-0 transform items-center justify-center overflow-visible transition-transform duration-300 hover:scale-105">
+                <Image
+                  src={stat.image}
+                  alt={`${stat.label} icon`}
+                  width={56}
+                  height={56}
+                  className="h-14 w-14 object-contain"
+                  style={{ transform: `scale(${stat.imageScale})` }}
+                />
               </div>
 
               <div className="flex flex-col gap-1 sm:gap-0.5">

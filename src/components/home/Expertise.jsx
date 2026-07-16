@@ -43,7 +43,8 @@ const fallbackServices = [
     id: "luxury-wardrobes",
     slug: "luxury-wardrobes",
     title: "Luxury Wardrobes",
-    description: "Smart storage solutions that blend elegance with functionality.",
+    description:
+      "Smart storage solutions that blend elegance with functionality.",
     image: wardrobeImg,
     iconElement: (
       <Sliders className="h-5 w-5 text-brand-gold" strokeWidth={1.8} />
@@ -62,7 +63,8 @@ const fallbackServices = [
     id: "renovation-services",
     slug: "renovation-services",
     title: "Renovations",
-    description: "Transform your existing spaces with our renovation expertise.",
+    description:
+      "Transform your existing spaces with our renovation expertise.",
     image: renovationImg,
     iconElement: (
       <RefreshCw className="h-5 w-5 text-brand-gold" strokeWidth={1.8} />
@@ -225,10 +227,11 @@ export default function Expertise() {
             <span className="font-sans text-[12.5px] font-bold uppercase tracking-[0.2em] text-brand-gold">
               OUR EXPERTISE
             </span>
-            <h2 className="font-serif text-3xl font-semibold leading-[1.15] tracking-tight text-[#111827] sm:text-4xl lg:text-[46px]">
-              Premium Solutions <br />
+            <h2 className="font-serif text-3xl font-semibold leading-[1.15] tracking-tight text-[#111827] sm:text-4xl md:text-[40px]">
+              Complete Interior Solutions
+              <br />
               <span className="font-semibold text-[#111827]">
-                For Every Space
+                Crafted Around You
               </span>
             </h2>
           </motion.div>
@@ -238,9 +241,9 @@ export default function Expertise() {
             className="flex flex-col items-start gap-5 lg:col-span-5"
           >
             <p className="max-w-md font-sans text-base leading-relaxed text-zinc-500">
-              From concept to completion, we deliver bespoke interior solutions
-              that reflect your style and elevate your living and working
-              spaces.
+              From bespoke kitchens and wardrobes to corporate furniture and
+              custom interiors, we design, manufacture and install solutions
+              created for your space, style and everyday needs.
             </p>
             <MotionLink
               href="/our-services"

@@ -97,28 +97,64 @@ function ArticleCard({ article, index }) {
   );
 }
 
-export default function LatestArticles() {
+function getBlogList(responseData) {
+  return (
+    responseData?.data?.blogs ||
+    responseData?.data?.blog ||
+    responseData?.blogs ||
+    responseData?.blog ||
+    []
+  );
+}
+
+export default function LatestArticles({
+  activeCategorySlug,
+  activeCategoryTitle,
+  onClearCategory,
+}) {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    let isCurrentRequest = true;
+
     const fetchBlogs = async () => {
+      setIsLoading(true);
+
       try {
-        const response = await axios.get(API_ENDPOINTS.Blog.blogsList);
+        const response = activeCategorySlug
+          ? await axios.get(API_ENDPOINTS.Blog.cateBlog, {
+              params: {
+                slug: activeCategorySlug,
+              },
+            })
+          : await axios.get(API_ENDPOINTS.Blog.blogsList);
 
-        const apiBlogs = response.data?.data?.blogs;
+        if (!isCurrentRequest) {
+          return;
+        }
 
+        const apiBlogs = getBlogList(response.data);
         setArticles(Array.isArray(apiBlogs) ? apiBlogs : []);
       } catch (error) {
         console.log("Blogs API Error:", error);
-        setArticles([]);
+
+        if (isCurrentRequest) {
+          setArticles([]);
+        }
       } finally {
-        setIsLoading(false);
+        if (isCurrentRequest) {
+          setIsLoading(false);
+        }
       }
     };
 
     fetchBlogs();
-  }, []);
+
+    return () => {
+      isCurrentRequest = false;
+    };
+  }, [activeCategorySlug]);
 
   return (
     <section className="bg-brand-white px-4 pb-10 pt-8 text-brand-dark sm:px-10 sm:pt-10 md:px-16 lg:pt-36">
@@ -126,21 +162,34 @@ export default function LatestArticles() {
         <div className="mb-8 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <span className="text-xs font-extrabold uppercase tracking-[0.16em] text-brand-gold">
-              LATEST INSIGHTS
+              {activeCategoryTitle || "LATEST INSIGHTS"}
             </span>
 
             <h2 className="mt-4 font-serif text-3xl font-medium sm:text-[42px]">
-              Latest Articles &amp; Ideas
+              {activeCategoryTitle
+                ? `${activeCategoryTitle} Articles`
+                : "Latest Articles & Ideas"}
             </h2>
           </div>
 
-          <Link
-            href="/blog"
-            className="group inline-flex w-fit items-center gap-4 rounded-md border border-brand-gold px-6 py-3 text-xs font-bold tracking-wide text-brand-gold transition-colors hover:bg-brand-gold hover:text-white"
-          >
-            VIEW ALL ARTICLES
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Link>
+          {activeCategorySlug ? (
+            <button
+              type="button"
+              onClick={onClearCategory}
+              className="group inline-flex w-fit items-center gap-4 rounded-md border border-brand-gold px-6 py-3 text-xs font-bold tracking-wide text-brand-gold transition-colors hover:bg-brand-gold hover:text-white"
+            >
+              VIEW ALL ARTICLES
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </button>
+          ) : (
+            <Link
+              href="/blog"
+              className="group inline-flex w-fit items-center gap-4 rounded-md border border-brand-gold px-6 py-3 text-xs font-bold tracking-wide text-brand-gold transition-colors hover:bg-brand-gold hover:text-white"
+            >
+              VIEW ALL ARTICLES
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          )}
         </div>
 
         {isLoading ? (
@@ -149,7 +198,9 @@ export default function LatestArticles() {
           </div>
         ) : articles.length === 0 ? (
           <div className="flex min-h-40 items-center justify-center text-sm font-semibold text-neutral-500">
-            No blog articles available.
+            {activeCategoryTitle
+              ? `No blog articles available for ${activeCategoryTitle}.`
+              : "No blog articles available."}
           </div>
         ) : (
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">

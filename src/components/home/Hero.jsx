@@ -2,20 +2,35 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Star, ShieldCheck, PenTool, Timer } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import heroImg from "../../assets/Home/caliwoodHomeHero.png";
 import { useConsultation } from "@/context/ConsultationContext";
 import Image from "next/image";
-import { IoGlobeOutline } from "react-icons/io5";
 
 export default function Hero() {
   const { openModal } = useConsultation();
 
   const features = [
-    { Icon: ShieldCheck, title: "Premium Quality", desc: "Materials" },
-    { Icon: PenTool, title: "Custom Designs", desc: "Tailored for You" },
-    { Icon: IoGlobeOutline, title: "International", desc: "Service" },
-    { Icon: Timer, title: "On-Time", desc: "Delivery" },
+    {
+      image: "/hero/shieldCheck.png",
+      title: "Premium Quality",
+      desc: "Durable Materials",
+    },
+    {
+      image: "/hero/penTool.png",
+      title: "Custom Designs",
+      desc: "Tailored for You",
+    },
+    {
+      image: "/hero/CogSetting.png",
+      title: "International",
+      desc: "Service",
+    },
+    {
+      image: "/hero/Wrench.png",
+      title: "On-Time",
+      desc: "Delivery",
+    },
   ];
 
   const clientAvatars = [
@@ -94,18 +109,18 @@ export default function Hero() {
                 variants={fadeInUp}
                 className="font-serif text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-white leading-[1.08] tracking-tight"
               >
-                Luxury Kitchens.
+                Bespoke Furniture.
                 <br />
-                Timeless Living.
+                Timeless Spaces.
               </motion.h1>
 
               <motion.p
                 variants={fadeInUp}
                 className="text-gray-300 font-sans text-sm sm:text-base md:text-lg max-w-xl leading-relaxed mt-2"
               >
-                We design and build premium modular kitchens and luxury
-                interiors that combine elegance, functionality and exceptional
-                quality.
+                We design, manufacture and install premium kitchens, wardrobes
+                and custom interiors that combine refined style, everyday
+                functionality and lasting quality.
               </motion.p>
 
               {/* Buttons with hover animations */}
@@ -153,20 +168,23 @@ export default function Hero() {
                   ))}
                 </div>
                 <div className="flex flex-col gap-0.5">
-                  <span className="text-xs font-bold text-white tracking-[0.1em] uppercase">
+                  {/* <span className="text-xs font-bold text-white tracking-[0.1em] uppercase">
                     500+ Happy Clients
+                  </span> */}
+                  <span className="text-xs font-bold text-white tracking-wide capitalize ">
+                    Trusted For Residential & Commercial Interiors
                   </span>
                   <div className="flex items-center gap-1.5">
-                    <div className="flex items-center text-brand-gold">
+                    {/* <div className="flex items-center text-brand-gold">
                       {[...Array(5)].map((_, i) => (
                         <Star
                           key={i}
                           className="w-3.5 h-3.5 fill-current text-brand-gold"
                         />
                       ))}
-                    </div>
+                    </div> */}
                     <span className="text-xs text-gray-300 font-sans font-semibold">
-                      4.9
+                      Factory-crafted • Professionally installed
                     </span>
                   </div>
                 </div>
@@ -193,8 +211,14 @@ export default function Hero() {
                     className="flex flex-col items-center lg:items-start justify-center gap-4 py-2"
                     whileHover={{ y: -3, transition: { duration: 0.2 } }}
                   >
-                    <div className="w-12 h-12 rounded-full border border-brand-gold/40 flex items-center justify-center text-brand-gold shrink-0">
-                      <feat.Icon className="w-7 h-7 text-brand-gold" />
+                    <div className="w-14 h-14 rounded-full border border-brand-gold/40 flex items-center justify-center shrink-0 bg-black/20">
+                      <Image
+                        src={feat.image}
+                        alt={`${feat.title} icon`}
+                        width={42}
+                        height={42}
+                        className="h-10 w-10 object-contain"
+                      />
                     </div>
                     <div className="flex flex-col items-center md:items-start">
                       <h4 className="text-white font-semibold text-xs sm:text-sm tracking-wide font-sans">

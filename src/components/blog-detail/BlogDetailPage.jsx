@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import axios from "axios";
 
 import { API_ENDPOINTS } from "@/config";
@@ -11,9 +11,9 @@ import BlogDetailMain from "./BlogDetailMain";
 
 export default function BlogDetailPage({ article }) {
   const params = useParams();
+  const router = useRouter();
   const slug = params?.slug;
   const [fetchedArticle, setFetchedArticle] = useState(null);
-  const [isDetailLoading, setIsDetailLoading] = useState(false);
   const blogArticle = fetchedArticle || article;
 
   const updateArticleFromResponse = useCallback(
@@ -61,21 +61,12 @@ export default function BlogDetailPage({ article }) {
       return;
     }
 
-    setIsDetailLoading(true);
+    const searchParams = new URLSearchParams({
+      category: category.slug,
+      title: category.title || category.slug,
+    });
 
-    try {
-      const response = await axios.get(API_ENDPOINTS.Blog.singleDetail, {
-        params: {
-          slug: category.slug,
-        },
-      });
-
-      updateArticleFromResponse(response.data, category.slug);
-    } catch (error) {
-      console.log(error.response);
-    } finally {
-      setIsDetailLoading(false);
-    }
+    router.push(`/blog?${searchParams.toString()}`);
   };
 
   if (!blogArticle) {
@@ -94,7 +85,7 @@ export default function BlogDetailPage({ article }) {
         <BlogDetailHero article={blogArticle} />
         <BlogDetailMain
           article={blogArticle}
-          isDetailLoading={isDetailLoading}
+          isDetailLoading={false}
           onCategorySelect={handleCategorySelect}
         />
       </div>

@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import BlogClient from "@/components/blog/BlogClient";
 
 export const metadata = {
@@ -7,5 +9,15 @@ export const metadata = {
 };
 
 export default function BlogPage() {
-  return <BlogClient />;
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center bg-brand-white text-sm font-semibold text-neutral-500">
+          Loading blog...
+        </div>
+      }
+    >
+      <BlogClient />
+    </Suspense>
+  );
 }

@@ -38,6 +38,8 @@ function mapCategory(category, index) {
     category.total_blogs;
 
   return {
+    id: category.id || category.slug || category.blogcat_name || index,
+    slug: category.slug,
     iconName: category.icon || iconNames[index % iconNames.length],
     title:
       category.blogcat_name ||
@@ -48,7 +50,7 @@ function mapCategory(category, index) {
   };
 }
 
-export default function BlogHero() {
+export default function BlogHero({ activeCategorySlug, onCategorySelect }) {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -143,28 +145,42 @@ export default function BlogHero() {
             animate="visible"
             className="mx-auto grid  grid-cols-1  gap-4.5 sm:grid-cols-2 lg:grid-cols-5 justify-between"
           >
-            {categories.map(({ iconName, title, count }) => {
+            {categories.map((category) => {
+              const { id, iconName, title, count, slug } = category;
               const CategoryIcon = getBlogCategoryIcon(iconName, title);
+              const isActive = activeCategorySlug === slug;
 
               return (
-                <motion.article
-                  key={title}
+                <motion.button
+                  key={id}
+                  type="button"
+                  onClick={() => onCategorySelect?.(category)}
                   variants={fadeInUp}
-                  className="flex min-h-[108px] items-center gap-3 rounded-xl border border-white/12 bg-[#010129] px-5 py-5 text-left shadow-xl sm:min-h-[150px] sm:flex-col sm:items-center sm:justify-center sm:gap-0  sm:text-center lg:shadow-2xl"
+                  className={`flex min-h-[108px] items-center gap-3 rounded-xl border px-5 py-5 text-left shadow-xl transition-all duration-300 sm:min-h-[150px] sm:flex-col sm:items-center sm:justify-center sm:gap-0 sm:text-center lg:shadow-2xl ${
+                    isActive
+                      ? "border-brand-gold bg-brand-gold text-white"
+                      : "border-white/12 bg-[#010129] hover:border-brand-gold/70"
+                  }`}
                 >
                   <CategoryIcon
-                    className="h-10 w-10 shrink-0 text-brand-gold sm:mb-3 sm:h-11 sm:w-11  lg:h-12 lg:w-12"
+                    className={`h-10 w-10 shrink-0 sm:mb-3 sm:h-11 sm:w-11 lg:h-12 lg:w-12 ${
+                      isActive ? "text-white" : "text-brand-gold"
+                    }`}
                     strokeWidth={1.6}
                   />
                   <div className="min-w-0">
-                    <h2 className="font-serif text-lg font-semibold leading-snug text-white sm:max-w-[170px] sm:text-lg">
+                    <span className="block font-serif text-lg font-semibold leading-snug text-white sm:max-w-[170px] sm:text-lg">
                       {title}
-                    </h2>
-                    <p className="mt-2 text-sm font-bold text-brand-gold sm:mt-4">
+                    </span>
+                    <p
+                      className={`mt-2 text-sm font-bold sm:mt-4 ${
+                        isActive ? "text-white" : "text-brand-gold"
+                      }`}
+                    >
                       {count}
                     </p>
                   </div>
-                </motion.article>
+                </motion.button>
               );
             })}
           </motion.div>
