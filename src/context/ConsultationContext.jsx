@@ -197,7 +197,7 @@ export function ConsultationProvider({ children }) {
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        placeholder="+1 (123) 456-7890"
+                        placeholder="+233501523779"
                         className={`bg-brand-white/5 border ${
                           errors.phone ? "border-red-500" : "border-white/10"
                         } focus:border-brand-gold/80 rounded px-4.5 py-3 text-sm text-white placeholder-gray-500 focus:outline-none transition-all w-full`}

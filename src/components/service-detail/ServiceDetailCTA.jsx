@@ -17,7 +17,7 @@ const actions = [
     icon: "service",
     title: "WhatsApp Chat",
     text: "Chat with our experts",
-    href: "https://wa.me/11234567890",
+    href: "https://wa.me/233501523779",
   },
   {
     icon: "quality",

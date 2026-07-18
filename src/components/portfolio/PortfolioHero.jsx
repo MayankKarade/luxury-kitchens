@@ -18,7 +18,7 @@ export default function PortfolioHero() {
     },
     {
       id: "kitchens",
-      label: "Luxury Kitchens",
+      label: "Custom Kitchens",
       count: "38 Projects",
       icon: Sliders,
     },
@@ -123,7 +123,7 @@ export default function PortfolioHero() {
             className="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium text-white leading-[1.08] tracking-tight"
           >
             Designs That <br />
-            Define Excellence.
+            Define Spaces.
           </motion.h1>
 
           {/* Description – original */}
@@ -131,8 +131,9 @@ export default function PortfolioHero() {
             variants={fadeInUp}
             className="text-base sm:text-lg text-zinc-400 tracking-wide font-sans font-medium max-w-xl leading-relaxed"
           >
-            Explore our handcrafted projects that blend functionality with
-            luxury and reflect our commitment to quality and timeless design.
+            Explore selected projects that reflect our expertise in bespoke
+            furniture, functional interiors and premium craftsmanship for homes,
+            offices and commercial spaces.
           </motion.p>
         </motion.div>
       </div>

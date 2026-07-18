@@ -2,46 +2,39 @@
 
 import React from "react";
 import { motion } from "motion/react";
-import {
-  PenTool,
-  Gem,
-  Clock,
-  UserCheck,
-  Lightbulb,
-  ShieldCheck,
-} from "lucide-react";
+import Image from "next/image";
 
 export default function WhyChooseUs() {
   const whyChooseUs = [
     {
       title: "Bespoke Designs",
-      desc: "Tailored solutions that match your style and personality.",
-      Icon: PenTool,
+      desc: "Tailored solutions created around your space, lifestyle and design preferences.",
+      icon: "/about/about-design.png",
     },
     {
-      title: "Premium Quality",
-      desc: "We use the finest materials and deliver exceptional craftsmanship.",
-      Icon: Gem,
+      title: "Premium Materials",
+      desc: "We use high-quality materials selected for durability, function and refined finishes.",
+      icon: "/about/about-diamond.png",
     },
     {
-      title: "Timely Delivery",
-      desc: "We value your time and ensure on-time project completion.",
-      Icon: Clock,
+      title: "Precision Manufacturing",
+      desc: "Advanced machinery and skilled workmanship ensure consistency, accuracy and clean finishing.",
+      icon: "/about/about-maufacturing.png",
     },
     {
-      title: "Customer First",
-      desc: "Your satisfaction is our priority, always at every step.",
-      Icon: UserCheck,
+      title: "Expert Installation",
+      desc: "Our installation team delivers every project with care, precision and professional attention.",
+      icon: "/about/about-expert.png",
     },
     {
-      title: "Innovative Solutions",
-      desc: "We blend creativity with functionality to create exceptional spaces.",
-      Icon: Lightbulb,
+      title: "Customer-Centred Service",
+      desc: "We listen closely, communicate clearly and work to achieve the result you envision.",
+      icon: "/about/about-service.png",
     },
     {
-      title: "End-to-End Service",
-      desc: "From concept to handover, we manage everything seamlessly.",
-      Icon: ShieldCheck,
+      title: "End-to-End Delivery",
+      desc: "From consultation and 3D planning to handover and support, we manage the full process.",
+      icon: "/about/about-delivery.png",
     },
   ];
 
@@ -80,9 +73,16 @@ export default function WhyChooseUs() {
               transition={{ duration: 0.6, delay: idx * 0.05 }}
               className="bg-[#0b0c11]/80 backdrop-blur-md border border-zinc-800 rounded-2xl p-4 flex flex-col items-center text-center h-full shadow-[0_20px_50px_rgba(0,0,0,0.35)] hover:border-brand-gold/40 hover:shadow-[0_25px_60px_rgba(0,0,0,0.55)] transition-all duration-300 hover:-translate-y-1 group"
             >
-              {/* Gold Graphic vector icon centered with custom line strokes */}
-              <div className="text-brand-gold mb-6 transform transition-transform duration-300 group-hover:scale-110">
-                <card.Icon className="w-11 h-11 stroke-[1.25]" />
+              {/* Gold icon asset centered in a stable box */}
+              <div className="mb-6 flex h-14 w-14 items-center justify-center transform transition-transform duration-300 group-hover:scale-110">
+                <Image
+                  src={card.icon}
+                  alt=""
+                  width={56}
+                  height={56}
+                  className="h-14 w-14 object-contain"
+                  sizes="56px"
+                />
               </div>
 
               {/* Card headers and responsive details description */}

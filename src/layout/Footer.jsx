@@ -6,10 +6,8 @@ import { useConsultation } from "@/context/ConsultationContext";
 import {
   FaFacebookF,
   FaInstagram,
-  FaLinkedinIn,
-  FaYoutube,
+  FaTiktok,
 } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
 import Image from "next/image";
 import Link from "next/link";
 import FloatingSocialWidget from "./FloatingSocialWidget";
@@ -77,29 +75,19 @@ export default function Footer() {
             <div className="flex items-center gap-2 mt-2">
               {[
                 {
-                  href: "https://facebook.com",
+                  href: "https://www.facebook.com/Calikitchensgh",
                   aria: "Facebook",
                   Icon: FaFacebookF,
                 },
                 {
-                  href: "https://instagram.com",
+                  href: "https://www.instagram.com/calikitchensgh/",
                   aria: "Instagram",
                   Icon: FaInstagram,
                 },
                 {
-                  href: "https://twitter.com",
-                  aria: "Twitter / X",
-                  Icon: FaXTwitter,
-                },
-                {
-                  href: "https://linkedin.com",
-                  aria: "LinkedIn",
-                  Icon: FaLinkedinIn,
-                },
-                {
-                  href: "https://youtube.com",
-                  aria: "YouTube",
-                  Icon: FaYoutube,
+                  href: "https://www.tiktok.com/@calikitchensgh",
+                  aria: "TikTok",
+                  Icon: FaTiktok,
                 },
               ].map((social, idx) => (
                 <a
@@ -182,20 +170,20 @@ export default function Footer() {
             <div className="flex flex-col gap-4 font-sans text-[13.5px] text-zinc-400">
               {/* Phone item */}
               <a
-                href="tel:+11234567890"
+                href="tel:+233501523779"
                 className="flex items-center gap-3 hover:text-white transition-all group"
               >
                 <Phone className="w-[19px] h-[19px] text-brand-gold shrink-0" />
-                <span>+1 (123) 456-7890</span>
+                <span>+233501523779</span>
               </a>
 
               {/* Email item */}
               <a
-                href="mailto:info@netsaarthi.com"
+                href="mailto:info@caliwoodgh.com"
                 className="flex items-center gap-3 hover:text-white transition-all group"
               >
                 <Mail className="w-[19px] h-[19px] text-brand-gold shrink-0" />
-                <span className="break-all">info@netsaarthi.com</span>
+                <span className="break-all">info@caliwoodgh.com</span>
               </a>
 
               {/* Clock/Hours item */}
@@ -219,7 +207,7 @@ export default function Footer() {
         {/* Bottom Legal bar */}
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-sans tracking-wide text-zinc-500">
           <p>&copy; 2025 Netsaarthi. All Rights Reserved.</p>
-          <div className="flex items-center gap-8">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8">
             <Link
               href="/privacy-policy"
               className="hover:text-brand-gold transition-colors duration-200"
@@ -231,6 +219,12 @@ export default function Footer() {
               className="hover:text-brand-gold transition-colors duration-200"
             >
               Terms & Conditions
+            </Link>
+            <Link
+              href="/return-and-refund"
+              className="hover:text-brand-gold transition-colors duration-200"
+            >
+              Return & Refund
             </Link>
           </div>
         </div>

@@ -13,34 +13,58 @@ export default function Testimonials() {
 
   const reviews = [
     {
-      text: "Netsaarthi transformed our kitchen into a masterpiece. The design, quality and professionalism exceeded our expectations. Highly recommended!",
-      author: "Sarah Johnson",
+      text: "Cali Wood transformed our ideas into a beautifully finished kitchen that works perfectly for our home. The team was professional and attentive from design to installation.",
+      author: "Ama Mensah",
       role: "Homeowner",
-      location: "Homeowner, New York, USA",
+      location: "Homeowner, Accra",
       avatar:
         "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=120&h=120",
     },
     {
-      text: "Our new modular luxury wardrobes and contemporary room partitions is an absolute masterwork. The execution met all visual goals beautifully.",
-      author: "Michael Chang",
-      role: "Architect",
-      location: "Architect, Boston, USA",
+      text: "Our new wardrobes fit the room perfectly and provide far more storage than we expected. The finishing is clean, modern and exceptionally well executed.",
+      author: "Kwame Asare",
+      role: "Homeowner",
+      location: "Homeowner, East Legon",
       avatar:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=120&h=120",
     },
     {
-      text: "Outstanding premium craftsmanship from start to finish. The elegant layout, built-in sensor strip lighting, and quality woodwork fit perfectly.",
-      author: "Althea Boateng",
-      role: "Estate Owner",
-      location: "Estate Owner, Chicago, USA",
+      text: "The team delivered functional office furniture that reflects the professional image of our company. Communication was clear and the installation was handled efficiently.",
+      author: "Nana Osei",
+      role: "Operations Manager",
+      location: "Operations Manager, Accra",
       avatar:
         "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=120&h=120",
     },
     {
-      text: "Exceptional modern kitchen designs with flawless execution. Their responsive team guided us from 3D renders to final handover with absolute luxury.",
-      author: "David Miller",
+      text: "The design team understood exactly what we wanted and improved our original concept. The completed walk-in closet is elegant, practical and beautifully organized.",
+      author: "Akosua Owusu",
       role: "Property Owner",
-      location: "Homeowner, London, UK",
+      location: "Homeowner, Tema",
+      avatar:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120&h=120",
+    },
+    {
+      text: "Cali Wood created a reception desk and storage system that completely improved our workspace. The craftsmanship and attention to detail were impressive.",
+      author: "Daniel Boateng",
+      role: "Business Owner",
+      location: "Business Owner, Adenta",
+      avatar:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120&h=120",
+    },
+    {
+      text: "Our custom media wall has become the focal point of our living room. It combines attractive design, concealed storage and excellent finishing.",
+      author: "Esi Addo",
+      role: "Homeowner",
+      location: "Homeowner, Cantonments",
+      avatar:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120&h=120",
+    },
+    {
+      text: "From site measurement to final installation, the project was managed professionally. The furniture was delivered to specification and suited our commercial space perfectly.",
+      author: "Michael Tetteh",
+      role: "Business Owner",
+      location: "Project Manager, Accra",
       avatar:
         "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120&h=120",
     },
@@ -84,7 +108,7 @@ export default function Testimonials() {
               </span>{" "}
               <br />
               <span className="font-semibold text-white">
-                Businesses Worldwide
+                Businesses Across Ghana
               </span>
             </h2>
 

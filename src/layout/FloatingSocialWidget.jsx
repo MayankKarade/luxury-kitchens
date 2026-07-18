@@ -9,14 +9,14 @@ const contactConfig = {
   whatsapp: {
     number:
       process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.replace(/[^\d]/g, "") ||
-      "11234567890",
+      "233501523779",
     message: "Hello, I want to know more!",
   },
   phone: {
-    number: process.env.NEXT_PUBLIC_PHONE_NUMBER || "+11234567890",
+    number: process.env.NEXT_PUBLIC_PHONE_NUMBER || "+233501523779",
   },
   email: {
-    address: process.env.NEXT_PUBLIC_EMAIL_ADDRESS || "info@netsaarthi.com",
+    address: process.env.NEXT_PUBLIC_EMAIL_ADDRESS || "info@caliwoodgh.com",
     subject: "Free Consultation Request",
     body: "Hello, I want to book a free consultation.",
   },

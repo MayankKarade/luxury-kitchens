@@ -32,7 +32,7 @@ export default function WhatsAppCta() {
 
         <div className="flex items-center px-6 pb-7 sm:px-8 lg:pb-0">
           <a
-            href="https://wa.me/11234567890"
+            href="https://wa.me/233501523779"
             target="_blank"
             rel="noreferrer"
             className="group inline-flex h-13 w-full items-center justify-center gap-4 rounded-md bg-brand-gold text-[11px] font-extrabold tracking-wide text-white transition-colors hover:bg-[#9A0101]"

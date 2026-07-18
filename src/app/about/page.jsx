@@ -1,9 +1,9 @@
 import AboutClient from "@/components/about/AboutClient";
 
 export const metadata = {
-  title: "About Us - Netsaarthi | Luxury Kitchens & Interiors",
+  title: "About Us - Cali Wood | Furniture Manufacturing & Interiors",
   description:
-    "Learn about Netsaarthi's journey, our seamless design-to-delivery process, hand-selected team of luxury architects, and our global presence.",
+    "Learn about Cali Wood Limited, a Ghana-based furniture and interior production firm specializing in bespoke cabinetry, woodwork, and factory-finished interior solutions.",
 };
 
 export default function AboutPage() {

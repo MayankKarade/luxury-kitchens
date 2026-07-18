@@ -59,15 +59,16 @@ export default function ServicesHero() {
 
             {/* Main high-contrast elegant serif heading matching photo exactly */}
             <h1 className="font-serif text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-white leading-[1.08] tracking-tight">
-              Premium Interior <br />
-              Solutions Tailored <br />
-              For You
+              Premium Furniture <br />
+              Solutions Crafted <br />
+              For Every Space
             </h1>
 
             {/* Premium description paragraph */}
             <p className="text-zinc-300 font-sans text-base sm:text-lg max-w-[540px] leading-relaxed mt-4">
-              From concept to completion, we create timeless spaces that blend
-              luxury, functionality and your personal style.
+              From bespoke kitchens and wardrobes to corporate furniture, we
+              design, manufacture and install durable solutions tailored to your
+              space.
             </p>
 
             {/* Golden action button matches image perfectly with golden bg and white bold text */}

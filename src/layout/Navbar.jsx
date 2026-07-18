@@ -63,17 +63,17 @@ export default function Navbar() {
           : "bg-black/25 backdrop-blur-[2px]"
       }`}
     >
-      <div className="max-w-[1800px] mx-auto px-4 sm:px-10 lg:px-16 pt-3 lg:pt-5 flex justify-between items-center">
+      <div className="max-w-[1800px] mx-auto px-4 sm:px-10 lg:px-16 pt-3 pb-2 lg:pt-5 lg:pb-0 flex justify-between items-center">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center group shrink-0">
           <Image
-            src="/logo/CaliWood.jpeg"
+            src="/logo/caliwoodnavLogo.png"
             alt="CaliWood"
             width={150}
             height={100}
             loading="eager"
             priority
-            className="h-14 w-auto object-contain"
+            className="h-11 w-auto object-contain sm:h-14"
           />
         </Link>
 
@@ -81,19 +81,19 @@ export default function Navbar() {
         <div className="hidden xl:flex flex-col items-end gap-3.5">
           <div className="flex items-center gap-5 text-[11px] text-gray-300 font-sans tracking-wider">
             <a
-              href="#"
+              href="tel:+233501523779"
               className="flex items-center gap-2 hover:text-brand-gold transition-colors"
             >
               <Phone className="w-3.5 h-3.5 text-brand-gold" />
-              <span>USA +1 (123) 456-7890</span>
+              <span>+233501523779</span>
             </a>
             <span className="text-white/20">|</span>
             <a
-              href="#"
+              href="mailto:info@caliwoodgh.com"
               className="flex items-center gap-2 hover:text-brand-gold transition-colors"
             >
               <Mail className="w-3.5 h-3.5 text-brand-gold" />
-              <span>info@netsaarthi.com</span>
+              <span>info@caliwoodgh.com</span>
             </a>
             <span className="text-white/20">|</span>
             <div className="flex items-center gap-2">
@@ -200,8 +200,8 @@ export default function Navbar() {
               <span>BOOK APPOINTMENT</span>
             </button>
             <div className="flex flex-col gap-2.5 text-xs text-gray-400 font-sans mt-4">
-              <p>USA: +1 (123) 456-7890</p>
-              <p>Email: info@netsaarthi.com</p>
+              <p>Phone: +233501523779</p>
+              <p>Email: info@caliwoodgh.com</p>
             </div>
           </div>
         </div>

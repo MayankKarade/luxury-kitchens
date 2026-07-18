@@ -5,9 +5,7 @@ import { ArrowRight } from "lucide-react";
 import {
   FaFacebookF,
   FaInstagram,
-  FaLinkedinIn,
-  FaPinterestP,
-  FaYoutube,
+  FaTiktok,
 } from "react-icons/fa";
 
 import { useConsultation } from "@/context/ConsultationContext";
@@ -270,19 +268,31 @@ export default function ContactMain() {
             </p>
             <div className="mt-4 flex items-center gap-3">
               {[
-                FaFacebookF,
-                FaInstagram,
-                FaPinterestP,
-                FaLinkedinIn,
-                FaYoutube,
-              ].map((Icon, index) => (
+                {
+                  href: "https://www.facebook.com/Calikitchensgh",
+                  aria: "Facebook",
+                  Icon: FaFacebookF,
+                },
+                {
+                  href: "https://www.instagram.com/calikitchensgh/",
+                  aria: "Instagram",
+                  Icon: FaInstagram,
+                },
+                {
+                  href: "https://www.tiktok.com/@calikitchensgh",
+                  aria: "TikTok",
+                  Icon: FaTiktok,
+                },
+              ].map((social) => (
                 <a
-                  key={index}
-                  href="#"
-                  aria-label="Social link"
+                  key={social.aria}
+                  href={social.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={social.aria}
                   className="flex h-10 w-10 items-center justify-center rounded-full bg-[#010129] text-white transition-colors hover:bg-brand-gold hover:text-white"
                 >
-                  <Icon className="h-4 w-4" />
+                  <social.Icon className="h-4 w-4" />
                 </a>
               ))}
             </div>

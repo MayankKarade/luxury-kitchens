@@ -170,8 +170,9 @@ export default function Portfolio() {
               variants={fadeInUp}
               className="text-[#9ca3af] font-sans text-sm sm:text-base leading-relaxed mb-10 max-w-[340px]"
             >
-              Explore our handpicked projects that showcase creativity,
-              craftsmanship and attention to detail.
+              Explore selected projects that showcase bespoke design, precision
+              craftsmanship and thoughtful solutions created for modern homes
+              and workplaces.
             </motion.p>
             <motion.a
               variants={fadeInUp}

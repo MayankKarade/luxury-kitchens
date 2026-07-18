@@ -33,6 +33,10 @@ const locations = [
       "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=900&q=80",
     description:
       "Premium kitchen & interior solutions across all major cities in the United States.",
+    address:
+      "218 N. Lee Street, Suite # 200 Alexandria, VA 22314-2631 United States",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=218%20N.%20Lee%20Street%2C%20Suite%20%23%20200%20Alexandria%2C%20VA%2022314-2631%20United%20States",
   },
   {
     id: "canada",
@@ -69,6 +73,10 @@ const locations = [
       "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?auto=format&fit=crop&w=900&q=80",
     description:
       "Transforming spaces in Ghana with innovation and premium quality.",
+    address:
+      "Off No. TMA 0411, Adjacent Adenta Police Station, Adenta - Accra, Ghana",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Off%20No.%20TMA%200411%2C%20Adjacent%20Adenta%20Police%20Station%2C%20Adenta%20-%20Accra%2C%20Ghana",
   },
 ];
 
@@ -270,7 +278,7 @@ function LocationCards() {
               id={location.id}
               key={location.id}
               variants={fadeInUp}
-              className="group relative min-h-[385px] overflow-hidden rounded-xl border border-black/10 bg-black shadow-xl"
+              className="group relative min-h-[430px] overflow-hidden rounded-xl border border-black/10 bg-black shadow-xl"
             >
               <Image
                 src={location.image}
@@ -294,13 +302,31 @@ function LocationCards() {
                 <p className="min-h-[72px] text-sm leading-6 text-zinc-100">
                   {location.description}
                 </p>
-                <Link
-                  href={`#${location.id}`}
-                  className="mt-4 inline-flex items-center gap-3 text-sm font-bold text-brand-gold transition-colors hover:text-[#9A0101]"
-                >
-                  Explore {location.name}
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
+                {location.address ? (
+                  <p className="mt-3 flex min-h-[48px] items-start gap-2 text-[12px] font-medium leading-5 text-zinc-200">
+                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-gold" />
+                    <span>{location.address}</span>
+                  </p>
+                ) : null}
+                {location.mapUrl ? (
+                  <a
+                    href={location.mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex items-center gap-3 text-sm font-bold text-brand-gold transition-colors hover:text-[#9A0101]"
+                  >
+                    Explore {location.name}
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </a>
+                ) : (
+                  <Link
+                    href={`#${location.id}`}
+                    className="mt-4 inline-flex items-center gap-3 text-sm font-bold text-brand-gold transition-colors hover:text-[#9A0101]"
+                  >
+                    Explore {location.name}
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                )}
               </div>
             </motion.article>
           ))}

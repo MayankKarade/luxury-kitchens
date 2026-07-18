@@ -59,16 +59,17 @@ export default function AboutHero() {
 
             {/* Main high-contrast elegant serif heading matching photo exactly */}
             <h1 className="font-serif text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-white leading-[1.08] tracking-tight">
-              Designing Spaces.
+              Crafting Furniture.
               <br />
-              Creating Experiences.
+              Transforming Spaces.
             </h1>
 
             {/* Premium description paragraph */}
             <p className="text-zinc-300 font-sans text-base sm:text-lg max-w-[540px] leading-relaxed mt-4">
-              We are a global team of designers, craftsmen and innovators
-              passionate about creating luxury kitchens and interiors that
-              reflect your lifestyle and elevate everyday living.
+              Cali Wood Limited combines bespoke design, precision manufacturing
+              and expert installation to create durable kitchens, wardrobes and
+              custom furniture for residential, corporate and commercial spaces
+              across Ghana.
             </p>
 
             {/* Golden action button matches image perfectly with golden bg and white bold text */}

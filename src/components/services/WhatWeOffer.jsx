@@ -20,12 +20,13 @@ export default function WhatWeOffer({ services }) {
             WHAT WE OFFER
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] font-normal text-neutral-900 tracking-tight">
-            Our Premium Services
+            Bespoke Furniture & Interior Solutions
           </h2>
           <div className="w-12 h-[2px] bg-brand-gold mt-4 mb-5"></div>
           <p className="text-neutral-500 font-sans text-[15px] sm:text-base max-w-2xl leading-relaxed">
-            We offer end-to-end interior solutions with exceptional quality,
-            innovative design and flawless execution.
+            From custom kitchens and wardrobes to corporate interiors and
+            made-to-measure furniture, we deliver complete design, manufacturing
+            and installation solutions crafted for lasting quality
           </p>
         </div>
 

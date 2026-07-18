@@ -25,23 +25,23 @@ export const contactMethods = [
   {
     icon: "phone",
     title: "Phone",
-    primary: "+1 (123) 456-7890",
+    primary: "+233501523779",
     secondary: "Mon - Sat: 09:00 AM - 06:00 PM",
-    href: "tel:+11234567890",
+    href: "tel:+233501523779",
   },
   {
     icon: "mail",
     title: "Email",
-    primary: "info@netsaarthi.com",
+    primary: "info@caliwoodgh.com",
     secondary: "We'll reply within 24 hours",
-    href: "mailto:info@netsaarthi.com",
+    href: "mailto:info@caliwoodgh.com",
   },
   {
     icon: "whatsapp",
     title: "WhatsApp",
     primary: "Chat with us on WhatsApp",
     secondary: "Quick support for your queries",
-    href: "https://wa.me/11234567890",
+    href: "https://wa.me/233501523779",
   },
   {
     icon: "calendar",

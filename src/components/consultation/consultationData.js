@@ -42,7 +42,7 @@ export const connectOptions = [
     title: "WhatsApp Chat",
     text: "Chat instantly with our team on WhatsApp for quick help.",
     action: "CHAT NOW",
-    href: "https://wa.me/11234567890",
+    href: "https://wa.me/233501523779",
   },
   {
     icon: "phone",

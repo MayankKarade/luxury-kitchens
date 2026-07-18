@@ -92,7 +92,7 @@ export default function DesignInfoPanel({ product }) {
           Have questions? Chat with our experts
         </p>
         <a
-          href="https://wa.me/11234567890"
+          href="https://wa.me/233501523779"
           target="_blank"
           rel="noreferrer"
           className="inline-flex h-11 items-center justify-center gap-3 rounded-md border border-neutral-200 bg-white px-6 text-[11px] font-bold uppercase tracking-wide text-neutral-900 transition-colors hover:border-[#25d366] hover:text-[#25d366]"
