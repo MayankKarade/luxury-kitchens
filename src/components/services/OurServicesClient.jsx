@@ -15,8 +15,10 @@ export default function OurServicesClient() {
         const response = await axios.get(
           `${API_ENDPOINTS.Services.servicesList}`,
         );
-        if (response.data) {
-          setServices(response?.data?.data?.service);
+        const apiServices = response?.data?.data?.service;
+
+        if (Array.isArray(apiServices)) {
+          setServices(apiServices);
         }
       } catch (error) {}
     };

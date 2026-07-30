@@ -76,7 +76,8 @@ export default function ServiceStylesSlider({ service }) {
                       {style.text}
                     </p>
                     <Link
-                      href={`/our-services/${style.slug || service.slug}`}
+                      href={`/our-services/${style.slug || service.slug}/designs`}
+                      prefetch={false}
                       className="mt-4 inline-flex items-center gap-3 text-[11px] font-extrabold tracking-wide text-brand-gold transition-colors hover:text-[#9A0101]"
                     >
                       EXPLORE DESIGNS

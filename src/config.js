@@ -2,12 +2,12 @@ export const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 export const API_ENDPOINTS = {
   Services: {
-    servicesList: `${API_BASE_URL}/service`,
-    serviceDetail: `${API_BASE_URL}/service-detail`,
+    servicesList: "/api/service",
+    serviceDetail: "/api/service-detail",
   },
   Product: {
-    product: `${API_BASE_URL}/product`,
-    productDetail: `${API_BASE_URL}/product_detail`,
+    product: "/api/product",
+    productDetail: "/api/product-detail",
     productFilter: `${API_BASE_URL}/filter`,
   },
   Blog: {

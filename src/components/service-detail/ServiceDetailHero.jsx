@@ -86,6 +86,7 @@ export default function ServiceDetailHero({ service }) {
             </button>
             <Link
               href={`/our-services/${service.slug}/designs`}
+              prefetch={false}
               className="inline-flex h-12 items-center justify-center gap-5 rounded-md border border-brand-gold/70 bg-brand-dark/20 px-7 text-[11px] font-bold tracking-wide text-white transition-colors hover:bg-brand-gold hover:text-white"
             >
               {service.designButtonText}

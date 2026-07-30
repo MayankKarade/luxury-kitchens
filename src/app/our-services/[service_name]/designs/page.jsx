@@ -1,5 +1,3 @@
-import { notFound } from "next/navigation";
-
 import ServiceDesignsPage from "@/components/service-designs/ServiceDesignsPage";
 import {
   getServiceDetail,
@@ -12,11 +10,6 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { service_name } = await params;
-
-  if (!serviceSlugs.includes(service_name)) {
-    return {};
-  }
-
   const service = getServiceDetail(service_name);
 
   return {
@@ -27,11 +20,6 @@ export async function generateMetadata({ params }) {
 
 export default async function ServiceDesignsRoute({ params }) {
   const { service_name } = await params;
-
-  if (!serviceSlugs.includes(service_name)) {
-    notFound();
-  }
-
   const service = getServiceDetail(service_name);
 
   return <ServiceDesignsPage service={service} />;

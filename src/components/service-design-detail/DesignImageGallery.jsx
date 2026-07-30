@@ -10,6 +10,16 @@ import { DetailIcon } from "./ServiceDesignDetailIcons";
 
 export default function DesignImageGallery({ product }) {
   const slides = product.galleryImages;
+  const mobileThumbnailLimit = 3;
+  const desktopThumbnailLimit = 6;
+  const mobileMoreImageCount = Math.max(
+    slides.length - mobileThumbnailLimit,
+    0,
+  );
+  const desktopMoreImageCount = Math.max(
+    slides.length - desktopThumbnailLimit,
+    0,
+  );
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const plugins = useMemo(
@@ -54,8 +64,8 @@ export default function DesignImageGallery({ product }) {
 
   return (
     <div>
-      <div className="relative overflow-hidden rounded-lg border border-neutral-200 bg-neutral-100 shadow-sm">
-        <div ref={emblaRef} className="overflow-hidden">
+      <div className="relative overflow-visible rounded-lg border border-neutral-200 bg-neutral-100 shadow-sm">
+        <div ref={emblaRef} className="overflow-hidden rounded-lg">
           <div className="flex touch-pan-y">
             {slides.map((image, index) => (
               <div
@@ -92,30 +102,31 @@ export default function DesignImageGallery({ product }) {
           type="button"
           onClick={scrollPrev}
           aria-label="Previous design image"
-          className="absolute left-5 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white text-brand-dark shadow-lg transition-colors hover:bg-brand-gold hover:text-white"
+          className="absolute -left-[10px] top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white text-brand-dark shadow-lg transition-colors hover:bg-brand-gold hover:text-white sm:left-5 sm:h-11 sm:w-11"
         >
-          <DetailIcon name="chevron-left" className="h-6 w-6" />
+          <DetailIcon name="chevron-left" className="h-4 w-4 sm:h-6 sm:w-6" />
         </button>
         <button
           type="button"
           onClick={scrollNext}
           aria-label="Next design image"
-          className="absolute right-5 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white text-brand-dark shadow-lg transition-colors hover:bg-brand-gold hover:text-white"
+          className="absolute -right-[10px] top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white text-brand-dark shadow-lg transition-colors hover:bg-brand-gold hover:text-white sm:right-5 sm:h-11 sm:w-11"
         >
-          <DetailIcon name="chevron-right" className="h-6 w-6" />
+          <DetailIcon name="chevron-right" className="h-4 w-4 sm:h-6 sm:w-6" />
         </button>
       </div>
 
-      <div className="mt-2 grid grid-cols-3 gap-1 sm:grid-cols-6">
-        {slides.slice(0, 6).map((image, index) => {
-          const isLast = index === 5;
+      <div className="mt-2 grid grid-cols-3 gap-1 sm:hidden">
+        {slides.slice(0, mobileThumbnailLimit).map((image, index) => {
+          const isLast = index === mobileThumbnailLimit - 1;
+          const hasMoreImages = isLast && slides.length > mobileThumbnailLimit;
 
           return (
             <button
-              key={`${product.title}-thumb-${index}`}
+              key={`${product.title}-mobile-thumb-${index}`}
               type="button"
               onClick={() => {
-                if (isLast) {
+                if (hasMoreImages) {
                   setLightboxOpen(true);
                   return;
                 }
@@ -135,10 +146,59 @@ export default function DesignImageGallery({ product }) {
                 sizes="160px"
                 className="object-cover"
               />
-              {isLast && (
+              {hasMoreImages && (
                 <span className="absolute inset-0 flex flex-col items-center justify-center bg-black/55 text-white">
-                  <span className="text-xl font-extrabold">+18</span>
-                  <span className="text-[11px] font-semibold">More Images</span>
+                  <span className="text-xl font-extrabold">
+                    +{mobileMoreImageCount}
+                  </span>
+                  <span className="text-[11px] font-semibold">
+                    More {mobileMoreImageCount === 1 ? "Image" : "Images"}
+                  </span>
+                </span>
+              )}
+            </button>
+          );
+        })}
+      </div>
+
+      <div className="mt-2 hidden grid-cols-6 gap-1 sm:grid">
+        {slides.slice(0, desktopThumbnailLimit).map((image, index) => {
+          const isLast = index === desktopThumbnailLimit - 1;
+          const hasMoreImages = isLast && slides.length > desktopThumbnailLimit;
+
+          return (
+            <button
+              key={`${product.title}-desktop-thumb-${index}`}
+              type="button"
+              onClick={() => {
+                if (hasMoreImages) {
+                  setLightboxOpen(true);
+                  return;
+                }
+
+                scrollTo(index);
+              }}
+              className={`relative aspect-[16/13] overflow-hidden rounded-md border-2 transition-colors ${
+                selectedIndex === index
+                  ? "border-brand-gold"
+                  : "border-neutral-200 hover:border-brand-gold/60"
+              }`}
+            >
+              <Image
+                src={image}
+                alt={`${product.title} thumbnail ${index + 1}`}
+                fill
+                sizes="160px"
+                className="object-cover"
+              />
+              {hasMoreImages && (
+                <span className="absolute inset-0 flex flex-col items-center justify-center bg-black/55 text-white">
+                  <span className="text-xl font-extrabold">
+                    +{desktopMoreImageCount}
+                  </span>
+                  <span className="text-[11px] font-semibold">
+                    More {desktopMoreImageCount === 1 ? "Image" : "Images"}
+                  </span>
                 </span>
               )}
             </button>
@@ -152,9 +212,9 @@ export default function DesignImageGallery({ product }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[80] flex flex-col items-center justify-center bg-black/95 p-4 text-white backdrop-blur-md sm:p-8"
+            className="fixed inset-0 z-[80] flex flex-col items-center justify-start overflow-y-auto bg-black/95 p-4 pt-28 text-white backdrop-blur-md sm:p-8 sm:pt-32"
           >
-            <div className="absolute inset-x-6 top-6 z-10 flex items-center justify-between gap-4 sm:inset-x-12">
+            <div className="relative z-10 flex w-full max-w-5xl items-center justify-between gap-4">
               <div className="min-w-0">
                 <span className="block text-[10px] font-black uppercase tracking-[0.25em] text-brand-gold">
                   {product.serviceLabel}
@@ -173,7 +233,7 @@ export default function DesignImageGallery({ product }) {
               </button>
             </div>
 
-            <div className="relative mt-8 aspect-[16/10] w-full max-w-5xl overflow-hidden rounded-xl border border-white/5 shadow-2xl sm:aspect-[16/9]">
+            <div className="relative mt-6 aspect-[16/10] w-full max-w-5xl overflow-hidden rounded-xl border border-white/5 shadow-2xl sm:aspect-[16/9]">
               <Image
                 src={slides[selectedIndex]}
                 alt={`${product.title} expanded view ${selectedIndex + 1}`}

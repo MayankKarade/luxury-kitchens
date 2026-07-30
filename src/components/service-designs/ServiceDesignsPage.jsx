@@ -20,10 +20,9 @@ function getApiCollection(staticCollection, apiData) {
 
   return {
     ...staticCollection,
-    resultCount:
-      products.length > 0
-        ? `${products.length} ${products.length === 1 ? "Result" : "Results"}`
-        : staticCollection.resultCount,
+    resultCount: `${products.length} ${
+      products.length === 1 ? "Result" : "Results"
+    }`,
     categories:
       designs.length > 0
         ? [
@@ -48,7 +47,15 @@ function getApiCollection(staticCollection, apiData) {
                   .length,
             })),
           ]
-        : staticCollection.categories,
+        : [
+            {
+              id: null,
+              label: staticCollection.categories[0]?.label || "All Designs",
+              count: String(products.length).padStart(2, "0"),
+              design_count: products.length,
+              active: true,
+            },
+          ],
     filters:
       styles.length > 0
         ? styles
@@ -57,7 +64,7 @@ function getApiCollection(staticCollection, apiData) {
               label: style.sname,
             }))
             .filter((style) => style.label)
-        : staticCollection.filters,
+        : [],
     swatches:
       colors.length > 0
         ? colors.map((color) => ({
@@ -65,22 +72,19 @@ function getApiCollection(staticCollection, apiData) {
             name: color.name,
             value: color.image,
           }))
-        : staticCollection.swatches,
-    products:
-      products.length > 0
-        ? products.map((product) => ({
-            id: product.id,
-            slug: product.slug || String(product.id),
-            title: product.heading || product.slug,
-            text: product.description,
-            price: product.price,
-            image: product.image,
-            badge: product.rating ? `${product.rating} Rating` : undefined,
-            design_id: product.design_id,
-            style_id: product.style_id,
-            color_id: product.color_id,
-          }))
-        : staticCollection.products,
+        : [],
+    products: products.map((product) => ({
+      id: product.id,
+      slug: product.slug || String(product.id),
+      title: product.heading || product.slug,
+      text: product.description,
+      price: product.price,
+      image: product.image,
+      badge: product.rating ? `${product.rating} Rating` : undefined,
+      design_id: product.design_id,
+      style_id: product.style_id,
+      color_id: product.color_id,
+    })),
   };
 }
 

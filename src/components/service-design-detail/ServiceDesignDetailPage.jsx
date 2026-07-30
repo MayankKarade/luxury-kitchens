@@ -102,6 +102,13 @@ function mergeApiProduct(staticProduct, apiProduct) {
   };
 }
 
+function productMatchesSlug(product, expectedSlug) {
+  return (
+    product?.slug === expectedSlug ||
+    (product?.id !== undefined && String(product.id) === expectedSlug)
+  );
+}
+
 export default function ServiceDesignDetailPage({
   service,
   product,
@@ -109,7 +116,7 @@ export default function ServiceDesignDetailPage({
 }) {
   const [activeTab, setActiveTab] = useState("overview");
   const [detailState, setDetailState] = useState({
-    product: null,
+    product,
     slug: null,
     status: "loading",
   });
@@ -128,7 +135,7 @@ export default function ServiceDesignDetailPage({
 
         const apiProduct = response.data?.data?.product?.[0];
 
-        if (apiProduct) {
+        if (productMatchesSlug(apiProduct, designSlug)) {
           setDetailState({
             product: mergeApiProduct(product, apiProduct),
             slug: designSlug,
@@ -138,13 +145,13 @@ export default function ServiceDesignDetailPage({
         }
 
         setDetailState({
-          product: null,
+          product,
           slug: designSlug,
           status: "error",
         });
       } catch (error) {
         setDetailState({
-          product: null,
+          product,
           slug: designSlug,
           status: "error",
         });

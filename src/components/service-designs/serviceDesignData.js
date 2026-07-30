@@ -206,10 +206,16 @@ export function getServiceDesignCollection(service) {
   };
 }
 
+export function findServiceDesignProduct(service, designSlug) {
+  const collection = getServiceDesignCollection(service);
+
+  return collection.products.find((item) => item.slug === designSlug) || null;
+}
+
 export function getServiceDesignProduct(service, designSlug) {
   const collection = getServiceDesignCollection(service);
   const product =
-    collection.products.find((item) => item.slug === designSlug) ||
+    findServiceDesignProduct(service, designSlug) ||
     collection.products[1] ||
     collection.products[0];
   const galleryImages = [

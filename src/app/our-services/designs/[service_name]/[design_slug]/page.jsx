@@ -1,12 +1,15 @@
 import ServiceDesignDetailPage from "@/components/service-design-detail/ServiceDesignDetailPage";
 import {
   getServiceDesignCollection,
-  getServiceDesignProduct,
 } from "@/components/service-designs/serviceDesignData";
 import {
   getServiceDetail,
   serviceSlugs,
 } from "@/components/service-detail/serviceDetailData";
+import { getExactServiceDesignProduct } from "@/lib/serviceDesignRoute";
+import { notFound } from "next/navigation";
+
+export const dynamic = "force-dynamic";
 
 export async function generateStaticParams() {
   return serviceSlugs.flatMap((service_name) => {
@@ -23,7 +26,15 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { service_name, design_slug } = await params;
   const service = getServiceDetail(service_name);
-  const product = getServiceDesignProduct(service, design_slug);
+  const product = await getExactServiceDesignProduct(
+    service,
+    service_name,
+    design_slug,
+  );
+
+  if (!product) {
+    notFound();
+  }
 
   return {
     title: `${product.title} - ${service.title} | Netsaarthi`,
@@ -34,7 +45,15 @@ export async function generateMetadata({ params }) {
 export default async function ServiceDesignDetailRoute({ params }) {
   const { service_name, design_slug } = await params;
   const service = getServiceDetail(service_name);
-  const product = getServiceDesignProduct(service, design_slug);
+  const product = await getExactServiceDesignProduct(
+    service,
+    service_name,
+    design_slug,
+  );
+
+  if (!product) {
+    notFound();
+  }
 
   return (
     <ServiceDesignDetailPage

@@ -21,6 +21,11 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const { openModal } = useConsultation();
   const pathname = usePathname(); // Get current route
+  const desktopMetaTextClass = scrolled ? "text-white" : "text-gray-300";
+  const desktopSeparatorClass = scrolled ? "text-white/45" : "text-white/20";
+  const desktopNavTextClass = scrolled
+    ? "text-white hover:text-brand-gold"
+    : "text-gray-300 hover:text-brand-gold";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,7 +84,9 @@ export default function Navbar() {
 
         {/* Desktop view */}
         <div className="hidden xl:flex flex-col items-end gap-3.5">
-          <div className="flex items-center gap-5 text-[11px] text-gray-300 font-sans tracking-wider">
+          <div
+            className={`flex items-center gap-5 text-[11px] ${desktopMetaTextClass} font-sans tracking-wider`}
+          >
             <a
               href="tel:+233501523779"
               className="flex items-center gap-2 hover:text-brand-gold transition-colors"
@@ -87,7 +94,7 @@ export default function Navbar() {
               <Phone className="w-3.5 h-3.5 text-brand-gold" />
               <span>+233501523779</span>
             </a>
-            <span className="text-white/20">|</span>
+            <span className={desktopSeparatorClass}>|</span>
             <a
               href="mailto:info@caliwoodgh.com"
               className="flex items-center gap-2 hover:text-brand-gold transition-colors"
@@ -95,7 +102,7 @@ export default function Navbar() {
               <Mail className="w-3.5 h-3.5 text-brand-gold" />
               <span>info@caliwoodgh.com</span>
             </a>
-            <span className="text-white/20">|</span>
+            <span className={desktopSeparatorClass}>|</span>
             <div className="flex items-center gap-2">
               <Clock className="w-3.5 h-3.5 text-brand-gold" />
               <span>Mon - Sat: 09.00 AM - 06.00 PM</span>
@@ -110,7 +117,7 @@ export default function Navbar() {
                   className={`text-[12px] font-medium tracking-tight transition-all duration-300 flex items-center gap-1 py-1 relative group ${
                     isActive(link.href)
                       ? "text-brand-gold"
-                      : "text-gray-300 hover:text-brand-gold"
+                      : desktopNavTextClass
                   }`}
                 >
                   <span>{link.name}</span>

@@ -6,10 +6,10 @@
   --font-sans: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
   --font-display: "Space Grotesk", sans-serif;
 
-  --color-brand-gold: #9A0101;
-  --color-gb-hover: #9A0101;
-  --color-brand-light: #FFFFFF;
-  --color-brand-white: #FFFFFF;
+  --color-brand-gold: #9a0101;
+  --color-gb-hover: #9a0101;
+  --color-brand-light: #ffffff;
+  --color-brand-white: #ffffff;
   --color-brand-dark: #010129;
 }
 
@@ -33,7 +33,7 @@ body {
 }
 
 .gold-gradient-text {
-  background: linear-gradient(135deg, #FFFFFF 0%, #9A0101 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #9a0101 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

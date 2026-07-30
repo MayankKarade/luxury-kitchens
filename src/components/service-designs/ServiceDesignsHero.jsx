@@ -41,6 +41,7 @@ export default function ServiceDesignsHero({ service, collection }) {
             <span className="text-white font-normal px-0.5">&gt;</span>
             <Link
               href={`/our-services/${service.slug}`}
+              prefetch={false}
               className="text-white font-medium hover:font-bold transition-all duration-150"
             >
               {service.title}

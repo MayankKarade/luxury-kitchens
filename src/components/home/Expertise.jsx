@@ -247,6 +247,7 @@ export default function Expertise() {
             </p>
             <MotionLink
               href="/our-services"
+              prefetch={false}
               className="inline-flex items-center gap-1 font-sans text-[13px] font-bold uppercase tracking-wider text-brand-gold transition-colors hover:text-[#9A0101]"
               whileHover={{ x: 5 }}
               transition={{ type: "spring", stiffness: 400 }}
@@ -332,6 +333,7 @@ export default function Expertise() {
                         >
                           <Link
                             href={`/our-services/${service.slug}`}
+                            prefetch={false}
                             className="inline-flex items-center gap-1 font-sans text-[11px] font-extrabold tracking-widest text-brand-gold transition-colors hover:text-[#9A0101]"
                           >
                             <span>EXPLORE</span>

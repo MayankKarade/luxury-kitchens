@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { ArrowRight, Calendar, Clock3 } from "lucide-react";
 
@@ -9,7 +9,6 @@ import {
   countries,
   loungeImg,
   projectTypes,
-  serviceOptions,
   whyItems,
 } from "./consultationData";
 import axios from "axios";
@@ -29,6 +28,17 @@ function Field({ label, children }) {
 
 const inputClass =
   "h-12 w-full rounded-md border border-neutral-200 bg-white px-4 text-sm text-zinc-800 outline-none transition-colors placeholder:text-zinc-400 focus:border-brand-gold";
+
+function getServices(responseData) {
+  const services =
+    responseData?.data?.service ||
+    responseData?.data?.services ||
+    responseData?.service ||
+    responseData?.services ||
+    [];
+
+  return Array.isArray(services) ? services : [];
+}
 
 function DateTimePickerField({ label, name, type, Icon }) {
   const inputRef = useRef(null);
@@ -81,6 +91,27 @@ export default function ConsultationFormSection() {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
+  const [services, setServices] = useState([]);
+  const [isServicesLoading, setIsServicesLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const response = await axios.get(API_ENDPOINTS.Services.servicesList);
+        const apiServices = getServices(response.data).filter(
+          (service) => service?.title,
+        );
+
+        setServices(apiServices);
+      } catch (error) {
+        setServices([]);
+      } finally {
+        setIsServicesLoading(false);
+      }
+    };
+
+    fetchServices();
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -181,13 +212,23 @@ export default function ConsultationFormSection() {
                 required
                 name="service"
                 defaultValue=""
+                disabled={isServicesLoading || services.length === 0}
                 className={`${inputClass} text-zinc-500`}
               >
                 <option value="" disabled>
-                  Select a service
+                  {isServicesLoading
+                    ? "Loading services..."
+                    : services.length === 0
+                      ? "No services available"
+                      : "Select a service"}
                 </option>
-                {serviceOptions.map((service) => (
-                  <option key={service}>{service}</option>
+                {services.map((service) => (
+                  <option
+                    key={service.id || service.slug || service.title}
+                    value={service.title}
+                  >
+                    {service.title}
+                  </option>
                 ))}
               </select>
             </Field>

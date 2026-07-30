@@ -1,4 +1,4 @@
-import ServiceDetailClient from "@/components/service-detail/ServiceDetailClient";
+import ServiceDesignsPage from "@/components/service-designs/ServiceDesignsPage";
 import {
   getServiceDetail,
   serviceSlugs,
@@ -13,14 +13,14 @@ export async function generateMetadata({ params }) {
   const service = getServiceDetail(service_name);
 
   return {
-    title: `${service.title} - Netsaarthi | Luxury Kitchens & Interiors`,
-    description: service.description,
+    title: `${service.title} Designs - Netsaarthi`,
+    description: `Explore ${service.title.toLowerCase()} design collections, styles, and premium options by Netsaarthi.`,
   };
 }
 
-export default async function ServiceDetailPage({ params }) {
+export default async function ServiceDesignsRoute({ params }) {
   const { service_name } = await params;
   const service = getServiceDetail(service_name);
 
-  return <ServiceDetailClient service={service} />;
+  return <ServiceDesignsPage service={service} />;
 }

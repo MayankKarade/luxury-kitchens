@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -100,6 +103,78 @@ function MaterialCard({ material }) {
   );
 }
 
+function getFaqs(product) {
+  return [
+    {
+      question: `Can the ${product.title} be customized for my space?`,
+      answer:
+        "Yes. Layout, storage, finish, color, countertop, hardware, and accessories can be adjusted after measuring your actual site dimensions.",
+    },
+    {
+      question: "How long does design and installation usually take?",
+      answer:
+        "Timelines depend on the final scope, material selection, and site readiness. After consultation, the team can share a practical schedule for design, production, and installation.",
+    },
+    {
+      question: "Can I choose different materials or finishes?",
+      answer:
+        "Yes. You can select from available laminates, acrylics, veneers, glass, hardware, and premium surface options based on the look and durability you want.",
+    },
+    {
+      question: "Is the listed price final?",
+      answer:
+        "The displayed price is indicative. Final pricing depends on size, material grade, accessories, site conditions, and custom requirements.",
+    },
+    {
+      question: "Do you help with measurements and planning?",
+      answer:
+        "Yes. The process can include consultation, site measurement, layout planning, 3D visualization, production, and installation support.",
+    },
+  ];
+}
+
+function FaqAccordion({ product }) {
+  const [openIndex, setOpenIndex] = useState(0);
+  const faqs = getFaqs(product).slice(0, 5);
+
+  return (
+    <div className="mt-6 max-w-4xl space-y-3">
+      {faqs.map((faq, index) => {
+        const isOpen = openIndex === index;
+
+        return (
+          <div
+            key={faq.question}
+            className="overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm"
+          >
+            <button
+              type="button"
+              onClick={() => setOpenIndex(isOpen ? null : index)}
+              aria-expanded={isOpen}
+              className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left sm:px-5"
+            >
+              <span className="text-sm font-extrabold leading-5 text-neutral-900 sm:text-[15px]">
+                {faq.question}
+              </span>
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-gold text-lg font-bold leading-none text-white">
+                {isOpen ? "-" : "+"}
+              </span>
+            </button>
+
+            {isOpen && (
+              <div className="border-t border-neutral-200 px-4 pb-5 pt-4 sm:px-5">
+                <p className="text-sm font-medium leading-6 text-zinc-600">
+                  {faq.answer}
+                </p>
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 function getActiveTabContent(product, activeTab) {
   if (activeTab === "features") {
     return {
@@ -152,6 +227,22 @@ function getActiveTabContent(product, activeTab) {
 
 export default function DesignOverview({ product, activeTab = "overview" }) {
   const activeContent = getActiveTabContent(product, activeTab);
+
+  if (activeTab === "faqs") {
+    return (
+      <section
+        id="overview"
+        className="bg-brand-white px-4 py-8 text-brand-dark sm:px-10 md:px-16"
+      >
+        <div className="mx-auto">
+          <h2 className="font-serif text-3xl font-semibold text-neutral-900">
+            FAQs
+          </h2>
+          <FaqAccordion product={product} />
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section

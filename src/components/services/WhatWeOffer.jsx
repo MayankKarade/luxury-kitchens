@@ -7,6 +7,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { ServiceDetailIcon } from "../service-detail/ServiceDetailIcons";
 
+function slugify(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function getServiceSlug(service) {
+  return (
+    service?.slug ||
+    slugify(service?.service_name || service?.title || service?.name) ||
+    String(service?.id || "")
+  );
+}
+
 export default function WhatWeOffer({ services }) {
   return (
     <section
@@ -32,9 +47,12 @@ export default function WhatWeOffer({ services }) {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services?.map((service, idx) => (
+          {services?.map((service, idx) => {
+            const serviceSlug = getServiceSlug(service);
+
+            return (
             <motion.div
-              key={service.id}
+              key={service.id || serviceSlug}
               initial={{ opacity: 0, y: 35 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -88,7 +106,8 @@ export default function WhatWeOffer({ services }) {
                   {service.description}
                 </p>
                 <Link
-                  href={`/our-services/${service.slug}`}
+                  href={`/our-services/${serviceSlug}`}
+                  prefetch={false}
                   className="text-brand-gold hover:text-[#9A0101] font-sans text-xs font-bold tracking-[0.2em] flex items-center gap-2 mt-auto group transition-colors cursor-pointer select-none"
                 >
                   <span>EXPLORE DESIGNS</span>
@@ -96,7 +115,8 @@ export default function WhatWeOffer({ services }) {
                 </Link>
               </div>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

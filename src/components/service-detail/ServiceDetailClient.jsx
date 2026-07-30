@@ -15,7 +15,7 @@ function getMergedService(baseService, apiDetail, apiCategories) {
   }
 
   const title = apiDetail.title || apiDetail.service_name || baseService.title;
-  const apiStyles = apiCategories.map((category) => ({
+  const apiStyles = (Array.isArray(apiCategories) ? apiCategories : []).map((category) => ({
     title: category.title,
     text: category.description,
     image: category.image,
@@ -59,8 +59,8 @@ export default function ServiceDetailClient({ service, slug }) {
             },
           },
         );
-        const detail = response.data.data.detail[0];
-        const category = response.data.data.category;
+        const detail = response.data?.data?.detail?.[0];
+        const category = response.data?.data?.category;
 
         setMergedService(getMergedService(baseService, detail, category));
       } catch (error) {

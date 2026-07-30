@@ -24,6 +24,7 @@ export default function DesignDetailHeader({ service, product }) {
           <span className="text-brand-gold">&gt;</span>
           <Link
             href={`/our-services/${service.slug}/designs`}
+            prefetch={false}
             className="text-zinc-600 transition-colors hover:text-brand-gold"
           >
             {service.title}

@@ -42,7 +42,7 @@ function resolveProductImage(image) {
   return `${productImageBaseUrl}${image}`;
 }
 
-function normalizeProducts(responseData, fallbackProducts) {
+function normalizeProducts(responseData) {
   const products =
     (Array.isArray(responseData?.data) ? responseData.data : null) ||
     responseData?.data?.product ||
@@ -52,7 +52,7 @@ function normalizeProducts(responseData, fallbackProducts) {
     [];
 
   if (!Array.isArray(products)) {
-    return fallbackProducts;
+    return [];
   }
 
   return products.map((product) => ({
@@ -61,7 +61,7 @@ function normalizeProducts(responseData, fallbackProducts) {
     title: product.heading || product.title || product.slug,
     text: product.description || product.text,
     price: product.price,
-    image: resolveProductImage(product.image) || fallbackProducts[0]?.image,
+    image: resolveProductImage(product.image),
     badge: product.rating ? `${product.rating} Rating` : product.badge,
     design_id: product.design_id,
     style_id: product.style_id,
@@ -348,16 +348,23 @@ function ProductCard({ product, service }) {
   return (
     <article className="group h-full overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
       <div className="relative aspect-[16/10.5] overflow-hidden">
-        <Image
-          src={product.image}
-          alt={product.title}
-          fill
-          sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
-          className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-        />
+        {product.image ? (
+          <Image
+            src={product.image}
+            alt={product.title}
+            fill
+            sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
+            className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+          />
+        ) : (
+          <div className="flex h-full items-center justify-center bg-neutral-100 px-4 text-center text-xs font-bold uppercase tracking-wide text-zinc-400">
+            No image available
+          </div>
+        )}
         <div className="absolute inset-0 bg-black/5" />
         <Link
           href={detailHref}
+          prefetch={false}
           aria-label={`View details for ${product.title}`}
           className="absolute inset-0 z-10"
         />
@@ -378,6 +385,7 @@ function ProductCard({ product, service }) {
       <div className="p-4">
         <Link
           href={detailHref}
+          prefetch={false}
           className="block font-serif text-[17px] font-semibold leading-tight text-neutral-900 transition-colors hover:text-brand-gold"
         >
           {product.title}
@@ -392,6 +400,7 @@ function ProductCard({ product, service }) {
         )}
         <Link
           href={detailHref}
+          prefetch={false}
           className="mt-5 flex h-11 items-center justify-center gap-3 rounded-md border border-brand-gold text-[11px] font-bold uppercase tracking-wide text-brand-gold transition-colors hover:bg-brand-gold hover:text-white"
         >
           View Details
@@ -458,7 +467,7 @@ export default function ServiceDesignsBrowser({ service, collection }) {
         },
       );
 
-      setProducts(normalizeProducts(response.data, collection.products));
+      setProducts(normalizeProducts(response.data));
     } catch (error) {
       console.log(error.response);
     } finally {
@@ -563,7 +572,7 @@ export default function ServiceDesignsBrowser({ service, collection }) {
           {filteredProducts.length === 0 && (
             <div className="rounded-lg border border-dashed border-neutral-200 bg-white px-6 py-10 text-center">
               <p className="text-sm font-bold uppercase tracking-wide text-zinc-500">
-                No designs found for selected filters.
+                No products available right now.
               </p>
             </div>
           )}
