@@ -106,8 +106,8 @@ export default function WhatWeOffer({ services }) {
                     {service.title}
                   </h3>
                   <p className="text-neutral-500 font-sans text-[14px] sm:text-[14.5px] leading-relaxed mb-6 flex-grow">
-                    {service.description?.length > 90
-                      ? `${service.description.slice(0, 86).trimEnd()} ...`
+                    {service.description?.length > 80
+                      ? `${service.description.slice(0, 77).trimEnd()}...`
                       : service.description}
                   </p>
                   <Link

@@ -29,6 +29,23 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
+## Deploy on Hostinger
+
+Keep the existing Node.js version and npm package manager in the hosting settings.
+Deploy both `package.json` and `package-lock.json`, without uploading local
+`node_modules` or `.next` directories.
+
+- Install command: `npm ci --include=dev --include=optional`
+- Build command: `npm run build`
+- Start command: `npm run start`
+- Set `NEXT_PUBLIC_API_BASE_URL` to `https://admin.caliwoodgh.com/api` before building.
+
+The production build uses Next.js's supported `--webpack` option to avoid the
+Turbopack PostCSS worker panic encountered on the hosting build image. Development
+continues to use `next dev`. Linux GNU and musl native packages in the lockfile are
+optional platform dependencies; keep them so npm can install the appropriate
+binary on the host. Clear the hosting build cache before retrying the deployment.
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.

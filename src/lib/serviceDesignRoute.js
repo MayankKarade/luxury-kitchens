@@ -75,10 +75,18 @@ function applyApiProduct(product, apiProduct, requestedSlug) {
 }
 
 export async function getExactServiceDesignProduct(service, serviceSlug, designSlug) {
-  const staticProduct = findServiceDesignProduct(service, designSlug);
+  const apiDetailProduct = await findApiProduct(
+    PRODUCT_DETAIL_ENDPOINTS,
+    designSlug,
+    designSlug,
+  );
 
-  if (staticProduct) {
-    return getServiceDesignProduct(service, designSlug);
+  if (apiDetailProduct) {
+    return applyApiProduct(
+      getServiceDesignProduct(service, designSlug),
+      apiDetailProduct,
+      designSlug,
+    );
   }
 
   const apiListProduct = await findApiProduct(
@@ -87,16 +95,17 @@ export async function getExactServiceDesignProduct(service, serviceSlug, designS
     designSlug,
   );
 
-  if (!apiListProduct) {
-    return null;
+  if (apiListProduct) {
+    return applyApiProduct(
+      getServiceDesignProduct(service, designSlug),
+      apiListProduct,
+      designSlug,
+    );
   }
 
-  const apiDetailProduct =
-    (await findApiProduct(PRODUCT_DETAIL_ENDPOINTS, designSlug, designSlug)) ||
-    apiListProduct;
-  const fallbackProduct = getServiceDesignProduct(service, designSlug);
-
-  return applyApiProduct(fallbackProduct, apiDetailProduct, designSlug);
+  return findServiceDesignProduct(service, designSlug)
+    ? getServiceDesignProduct(service, designSlug)
+    : null;
 }
 
 export async function getServiceDesignProductForRoute(
@@ -104,8 +113,5 @@ export async function getServiceDesignProductForRoute(
   serviceSlug,
   designSlug,
 ) {
-  return (
-    (await getExactServiceDesignProduct(service, serviceSlug, designSlug)) ||
-    getServiceDesignProduct(service, designSlug)
-  );
+  return getExactServiceDesignProduct(service, serviceSlug, designSlug);
 }

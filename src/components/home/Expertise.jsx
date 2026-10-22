@@ -322,8 +322,8 @@ export default function Expertise() {
                           {service.title}
                         </h3>
                         <p className="min-h-[52px] font-sans text-xs leading-relaxed text-zinc-500 sm:text-[13px]">
-                          {service.description.length > 50
-                            ? `${service.description.slice(0, 47).trimEnd()} ...`
+                          {service.description?.length > 50
+                            ? `${service.description.slice(0, 47).trimEnd()}...`
                             : service.description}
                         </p>
                       </div>

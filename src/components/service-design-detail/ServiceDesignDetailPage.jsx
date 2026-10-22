@@ -134,7 +134,10 @@ export default function ServiceDesignDetailPage({
           },
         );
 
-        const apiProduct = response.data?.data?.product?.[0];
+        const products = response.data?.data?.product;
+        const apiProduct = Array.isArray(products)
+          ? products.find((item) => productMatchesSlug(item, designSlug))
+          : products;
 
         if (productMatchesSlug(apiProduct, designSlug)) {
           setDetailState({
