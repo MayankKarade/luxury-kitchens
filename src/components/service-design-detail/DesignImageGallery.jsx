@@ -1,10 +1,9 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
 
 import { DetailIcon } from "./ServiceDesignDetailIcons";
 
@@ -22,21 +21,27 @@ export default function DesignImageGallery({ product }) {
   );
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
-  const plugins = useMemo(
-    () => [
-      Autoplay({
-        delay: 4200,
-        stopOnFocusIn: false,
-        stopOnInteraction: false,
-        stopOnMouseEnter: true,
-      }),
-    ],
-    [],
-  );
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    { align: "start", loop: true, duration: 30 },
-    plugins,
-  );
+  const dialogRef = useRef(null);
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "start",
+    loop: true,
+    duration: 30,
+  });
+
+  useEffect(() => {
+    if (!lightboxOpen) return undefined;
+
+    const dialog = dialogRef.current;
+    const previousOverflow = document.body.style.overflow;
+
+    dialog.showModal();
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      dialog.close();
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [lightboxOpen]);
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
@@ -206,15 +211,20 @@ export default function DesignImageGallery({ product }) {
         })}
       </div>
 
-      <AnimatePresence>
+      <dialog
+        ref={dialogRef}
+        aria-label={`${product.title} image gallery`}
+        onCancel={() => setLightboxOpen(false)}
+        className="fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none border-0 bg-transparent p-0 backdrop:bg-black/95"
+      >
         {lightboxOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[80] flex flex-col items-center justify-start overflow-y-auto bg-black/95 p-4 pt-28 text-white backdrop-blur-md sm:p-8 sm:pt-32"
+            className="fixed inset-0 flex flex-col items-center justify-center bg-black/95 p-4 text-white backdrop-blur-md sm:p-8"
           >
-            <div className="relative z-10 flex w-full max-w-5xl items-center justify-between gap-4">
+            <div className="relative z-10 flex w-full max-w-5xl shrink-0 items-center justify-between gap-4">
               <div className="min-w-0">
                 <span className="block text-[10px] font-black uppercase tracking-[0.25em] text-brand-gold">
                   {product.serviceLabel}
@@ -233,7 +243,7 @@ export default function DesignImageGallery({ product }) {
               </button>
             </div>
 
-            <div className="relative mt-6 aspect-[16/10] w-full max-w-5xl overflow-hidden rounded-xl border border-white/5 shadow-2xl sm:aspect-[16/9]">
+            <div className="relative mt-6 min-h-0 w-full max-w-5xl flex-1 overflow-hidden rounded-xl border border-white/5 shadow-2xl">
               <Image
                 src={slides[selectedIndex]}
                 alt={`${product.title} expanded view ${selectedIndex + 1}`}
@@ -241,9 +251,25 @@ export default function DesignImageGallery({ product }) {
                 sizes="90vw"
                 className="object-contain"
               />
+              <button
+                type="button"
+                onClick={scrollPrev}
+                aria-label="Previous expanded design image"
+                className="absolute left-2 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/65 text-white transition-colors hover:bg-brand-gold sm:left-5"
+              >
+                <DetailIcon name="chevron-left" className="h-6 w-6" />
+              </button>
+              <button
+                type="button"
+                onClick={scrollNext}
+                aria-label="Next expanded design image"
+                className="absolute right-2 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/65 text-white transition-colors hover:bg-brand-gold sm:right-5"
+              >
+                <DetailIcon name="chevron-right" className="h-6 w-6" />
+              </button>
             </div>
 
-            <div className="mt-6 flex max-w-full items-center gap-3 overflow-x-auto pb-1 no-scrollbar">
+            <div className="mt-6 flex max-w-full shrink-0 items-center gap-3 overflow-x-auto pb-1 no-scrollbar">
               {slides.map((image, index) => (
                 <button
                   key={`${product.title}-lightbox-thumb-${index}`}
@@ -271,7 +297,7 @@ export default function DesignImageGallery({ product }) {
             </div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </dialog>
     </div>
   );
 }

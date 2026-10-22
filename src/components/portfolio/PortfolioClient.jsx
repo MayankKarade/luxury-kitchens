@@ -9,6 +9,7 @@ import PortfolioHero from "./PortfolioHero";
 import FeaturedProjects from "./FeaturedProjects";
 import ProjectSpotlight from "./ProjectSpotlight";
 import BeforeAfterTransformations from "./BeforeAfterTransformations";
+import PortfolioFinalCTA from "./PortfolioFinalCTA";
 
 export default function PortfolioClient() {
   const [spotlightIdx, setSpotlightIdx] = useState(0);
@@ -50,6 +51,9 @@ export default function PortfolioClient() {
 
         {/* SECTION 4: BEFORE & AFTER SLIDER COMPILATIONS */}
         <BeforeAfterTransformations />
+
+        {/* SECTION 5: FINAL CTA */}
+        <PortfolioFinalCTA />
 
         {/* GLOBAL LIGHTBOX MODULE FOR PRESTIGE SHOWCASES */}
         <AnimatePresence>

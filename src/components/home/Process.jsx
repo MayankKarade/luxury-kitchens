@@ -16,38 +16,38 @@ export default function Process() {
   const steps = [
     {
       num: "01",
-      title: "Consultation",
-      desc: "We understand your needs, style and budget.",
+      title: "Consult",
+      desc: "Tell us about your needs, style and budget.",
       Icon: MessageSquare,
     },
     {
       num: "02",
-      title: "Design & Planning",
-      desc: "Our experts create custom designs and detailed plans.",
+      title: "Measure",
+      desc: "We visit your space and take the measurements needed for your project.",
       Icon: Compass,
     },
     {
       num: "03",
-      title: "Material Selection",
-      desc: "Choose from our premium range of materials.",
+      title: "Design & Quote",
+      desc: "You receive a proposed design together with a clear quotation.",
       Icon: Layers,
     },
     {
       num: "04",
-      title: "Manufacturing",
-      desc: "Precision manufacturing with advanced technology.",
+      title: "Approve",
+      desc: "Once you are happy with the design and quotation, you confirm your order.",
       Icon: Settings,
     },
     {
       num: "05",
-      title: "Installation",
-      desc: "Professional installation with attention to every detail.",
+      title: "Build",
+      desc: "We manufacture your furniture to the required size and specifications.",
       Icon: Wrench,
     },
     {
       num: "06",
-      title: "Handover",
-      desc: "On-time delivery and complete satisfaction guaranteed.",
+      title: "Install",
+      desc: "Our team professionally installs the furniture and hands over your finished space.",
       Icon: CheckCircle,
     },
   ];
@@ -70,8 +70,14 @@ export default function Process() {
             OUR PROCESS
           </span>
           <h2 className="font-serif text-3xl sm:text-[35px] leading-tight text-neutral-900 font-normal tracking-tight">
-            From Concept To Creation
+            From First Conversation
+            <br />
+            to Finished Space
           </h2>
+          <p className="mt-4 max-w-2xl font-sans text-sm leading-7 text-zinc-500 sm:text-base">
+            Every project is planned around your space. We take you through a
+            clear process from the initial discussion to final installation.
+          </p>
         </motion.div>
 
         {/* Mobile/Tablet View (< lg): Vertical Timeline for clean mobile responsiveness */}

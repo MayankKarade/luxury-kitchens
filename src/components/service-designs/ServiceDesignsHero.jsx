@@ -53,7 +53,7 @@ export default function ServiceDesignsHero({ service, collection }) {
               {service.label}
             </span>
           )}
-          <h1 className="mt-4 max-w-[510px] font-serif text-4xl font-medium leading-[1.08] sm:text-5xl lg:text-[58px]">
+          <h1 className="mt-4 max-w-[710px] font-serif text-4xl font-medium leading-[1.08] sm:text-5xl lg:text-[58px]">
             {collection.heroTitle}
           </h1>
           <div className="my-5 h-0.5 w-14 bg-brand-gold" />

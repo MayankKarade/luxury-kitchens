@@ -12,23 +12,23 @@ import officeAfter from "../../assets/images/executive_office_card_1780070403397
 
 const transformations = [
   {
-    title: "Kitchen Makeover",
-    location: "New Jersey, USA",
+    title: "Kitchen Transformation",
+    location: "[Project Location]",
     after: kitchenAfter,
   },
   {
-    title: "Living Room Transformation",
-    location: "Vancouver, Canada",
-    after: livingAfter,
-  },
-  {
-    title: "Bedroom Redesign",
-    location: "Manchester, UK",
+    title: "Wardrobe Transformation",
+    location: "[Project Location]",
     after: bedroomAfter,
   },
   {
-    title: "Office Space Upgrade",
-    location: "Dubai, UAE",
+    title: "TV Unit Transformation",
+    location: "[Project Location]",
+    after: livingAfter,
+  },
+  {
+    title: "Workspace Transformation",
+    location: "[Project Location]",
     after: officeAfter,
   },
 ];
@@ -129,10 +129,18 @@ export default function BeforeAfterTransformations() {
       <div className="mx-auto ">
         <div className="mb-7 flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-center">
           <div>
+            <span className="mb-3 block font-sans text-xs font-extrabold uppercase tracking-[0.25em] text-brand-gold">
+              TRANSFORMATIONS
+            </span>
             <h2 className="font-serif text-3xl font-normal tracking-tight sm:text-[34px]">
-              Before &amp; After Transformations
+              Before &amp; After
             </h2>
             <div className="mt-3 h-0.5 w-12 bg-brand-gold" />
+            <p className="mt-4 max-w-2xl font-sans text-[14px] leading-relaxed text-neutral-500 sm:text-[15px]">
+              See how made-to-size furniture, thoughtful planning and carefully
+              selected finishes can transform the look, functionality and use of
+              a space.
+            </p>
           </div>
           <button className="group flex items-center gap-4 rounded-md border border-brand-gold px-5 py-3 text-[10px] font-bold tracking-widest text-brand-gold transition-colors hover:bg-brand-gold hover:text-white">
             VIEW ALL TRANSFORMATIONS

@@ -10,12 +10,6 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "kitchen.netsaarthi.com",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
         hostname: "admin.caliwoodgh.com",
         port: "",
         pathname: "/**",

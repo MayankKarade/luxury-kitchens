@@ -14,8 +14,7 @@ export default function ServiceWhyChoose({ service }) {
           </h2>
           <div className="mt-4 h-0.5 w-10 bg-brand-gold" />
           <p className="mt-5 max-w-md text-sm font-medium leading-5 sm:leading-7 text-zinc-700">
-            Designed for modern living, our solutions are as functional as they
-            are beautiful.
+            {service.whyText || "Designed for modern living, our solutions are as functional as they are beautiful."}
           </p>
 
           <div className="mt-7 space-y-7">

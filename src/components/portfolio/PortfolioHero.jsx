@@ -11,33 +11,33 @@ export default function PortfolioHero() {
   // Original categories – unchanged
   const categories = [
     {
-      id: "residential",
-      label: "Residential Projects",
-      count: "42 Projects",
+      id: "kitchens",
+      label: "Kitchens",
+      count: "Bespoke layouts & finishes",
       icon: Home,
     },
     {
-      id: "kitchens",
-      label: "Custom Kitchens",
-      count: "38 Projects",
+      id: "wardrobes",
+      label: "Fitted Wardrobes",
+      count: "Made-to-size storage",
       icon: Sliders,
     },
     {
-      id: "interiors",
-      label: "Modern Interiors",
-      count: "35 Projects",
+      id: "tv_media",
+      label: "TV & Media Units",
+      count: "Custom-built solutions",
       icon: Sofa,
     },
     {
       id: "commercial",
-      label: "Commercial Spaces",
-      count: "28 Projects",
+      label: "Corporate Furniture",
+      count: "Furniture for workspaces",
       icon: Building2,
     },
     {
-      id: "before_after",
-      label: "Before & After",
-      count: "20 Projects",
+      id: "custom_interiors",
+      label: "Custom Interiors",
+      count: "Tailored furniture designs",
       icon: RefreshCw,
     },
   ];
@@ -122,8 +122,8 @@ export default function PortfolioHero() {
             variants={fadeInUp}
             className="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium text-white leading-[1.08] tracking-tight"
           >
-            Designs That <br />
-            Define Spaces.
+            Furniture Made <br />
+            for Real Spaces
           </motion.h1>
 
           {/* Description – original */}
@@ -131,9 +131,10 @@ export default function PortfolioHero() {
             variants={fadeInUp}
             className="text-base sm:text-lg text-zinc-400 tracking-wide font-sans font-medium max-w-xl leading-relaxed"
           >
-            Explore selected projects that reflect our expertise in bespoke
-            furniture, functional interiors and premium craftsmanship for homes,
-            offices and commercial spaces.
+            Explore selected Cali Wood projects across kitchens, fitted
+            wardrobes, TV units, corporate furniture and custom interiors, each
+            designed, manufactured and installed around the client&apos;s space,
+            needs and preferences.
           </motion.p>
         </motion.div>
       </div>

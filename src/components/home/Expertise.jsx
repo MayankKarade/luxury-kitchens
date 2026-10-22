@@ -31,9 +31,9 @@ const fallbackServices = [
   {
     id: "modular-kitchens",
     slug: "modular-kitchens",
-    title: "Modular Kitchens",
+    title: "Bespoke Kitchens",
     description:
-      "Stylish, functional and customized kitchens designed for modern living.",
+      "Functional, beautifully finished kitchens designed around your space, lifestyle and preferences.",
     image: kitchenImg,
     iconElement: (
       <LayoutGrid className="h-5 w-5 text-brand-gold" strokeWidth={1.8} />
@@ -42,40 +42,40 @@ const fallbackServices = [
   {
     id: "luxury-wardrobes",
     slug: "luxury-wardrobes",
-    title: "Luxury Wardrobes",
+    title: "Fitted Wardrobes",
     description:
-      "Smart storage solutions that blend elegance with functionality.",
+      "Made-to-size wardrobes designed to combine organised storage, functionality and a refined finish.",
     image: wardrobeImg,
     iconElement: (
       <Sliders className="h-5 w-5 text-brand-gold" strokeWidth={1.8} />
     ),
   },
   {
-    id: "interior-design",
-    slug: "interior-design",
-    title: "Interior Design",
+    id: "tv-units",
+    slug: "custom-furniture",
+    title: "Custom TV Units",
     description:
-      "Complete interior solutions tailored to your taste and lifestyle.",
+      "Statement TV units designed and manufactured to fit your space, with practical storage and clean detailing.",
     image: interiorImg,
     iconElement: <Sofa className="h-5 w-5 text-brand-gold" strokeWidth={1.8} />,
   },
   {
-    id: "renovation-services",
-    slug: "renovation-services",
-    title: "Renovations",
+    id: "corporate-furniture",
+    slug: "commercial-interiors",
+    title: "Corporate Furniture",
     description:
-      "Transform your existing spaces with our renovation expertise.",
+      "Purpose-built furniture for offices and commercial environments, including reception counters and custom solutions.",
     image: renovationImg,
     iconElement: (
       <RefreshCw className="h-5 w-5 text-brand-gold" strokeWidth={1.8} />
     ),
   },
   {
-    id: "commercial-interiors",
-    slug: "commercial-interiors",
-    title: "Commercial Interiors",
+    id: "custom-interiors",
+    slug: "interior-design",
+    title: "Custom Interiors",
     description:
-      "Premium interior solutions for offices, retail and commercial spaces.",
+      "Custom-built furniture and interior solutions created to make better use of your space.",
     image: officeImg,
     iconElement: (
       <Building2 className="h-5 w-5 text-brand-gold" strokeWidth={1.8} />
@@ -214,7 +214,7 @@ export default function Expertise() {
     >
       <div className="mx-auto">
         <motion.div
-          className="grid grid-cols-1 items-end gap-8 pb-14 lg:grid-cols-12"
+          className="grid grid-cols-1 items-start gap-8 pb-14 lg:grid-cols-12"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -228,7 +228,7 @@ export default function Expertise() {
               OUR EXPERTISE
             </span>
             <h2 className="font-serif text-3xl font-semibold leading-[1.15] tracking-tight text-[#111827] sm:text-4xl md:text-[40px]">
-              Complete Interior Solutions
+              Complete Furniture Solutions
               <br />
               <span className="font-semibold text-[#111827]">
                 Crafted Around You
@@ -241,9 +241,9 @@ export default function Expertise() {
             className="flex flex-col items-start gap-5 lg:col-span-5"
           >
             <p className="max-w-md font-sans text-base leading-relaxed text-zinc-500">
-              From bespoke kitchens and wardrobes to corporate furniture and
-              custom interiors, we design, manufacture and install solutions
-              created for your space, style and everyday needs.
+              From kitchens and fitted wardrobes to TV units, corporate
+              furniture and custom interiors, every Cali Wood solution is
+              designed around your space and manufactured to your requirements.
             </p>
             <MotionLink
               href="/our-services"
@@ -316,17 +316,19 @@ export default function Expertise() {
                       </motion.div>
                     </div>
 
-                    <div className="flex flex-grow flex-col justify-between bg-brand-white p-5 pb-6 pt-8">
+                    <div className="flex flex-grow flex-col justify-between bg-brand-white px-3 pb-6 pt-8">
                       <div className="flex flex-col gap-2.5">
-                        <h3 className="font-serif text-[18px] font-bold leading-snug tracking-tight text-[#111827] md:text-[19px]">
+                        <h3 className="font-serif text-[18px] font-bold leading-snug tracking-tight text-[#111827] md:text-[18px]">
                           {service.title}
                         </h3>
                         <p className="min-h-[52px] font-sans text-xs leading-relaxed text-zinc-500 sm:text-[13px]">
-                          {service.description}
+                          {service.description.length > 50
+                            ? `${service.description.slice(0, 47).trimEnd()} ...`
+                            : service.description}
                         </p>
                       </div>
 
-                      <div className="mt-2 border-t border-zinc-100 pt-4">
+                      <div className="mt-2 border-t border-zinc-100 ">
                         <motion.div
                           whileHover={{ x: 4 }}
                           transition={{ type: "spring", stiffness: 400 }}
@@ -336,7 +338,17 @@ export default function Expertise() {
                             prefetch={false}
                             className="inline-flex items-center gap-1 font-sans text-[11px] font-extrabold tracking-widest text-brand-gold transition-colors hover:text-[#9A0101]"
                           >
-                            <span>EXPLORE</span>
+                            <span>
+                              {index === 0
+                                ? "EXPLORE KITCHENS"
+                                : index === 1
+                                  ? "EXPLORE WARDROBES"
+                                  : index === 2
+                                    ? "EXPLORE TV UNITS"
+                                    : index === 3
+                                      ? "EXPLORE SOLUTIONS"
+                                      : "DISCOVER MORE"}
+                            </span>
                             <span className="relative -top-0.5 ml-0.5 text-base leading-none transition-transform duration-300 group-hover:translate-x-1">
                               -&gt;
                             </span>

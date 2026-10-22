@@ -7,33 +7,33 @@ import Image from "next/image";
 export default function WhyChooseUs() {
   const whyChooseUs = [
     {
-      title: "Bespoke Designs",
-      desc: "Tailored solutions created around your space, lifestyle and design preferences.",
+      title: "Bespoke Design",
+      desc: "Every solution begins with your individual space, requirements and preferences.",
       icon: "/about/about-design.png",
     },
     {
-      title: "Premium Materials",
-      desc: "We use high-quality materials selected for durability, function and refined finishes.",
+      title: "Precision Manufacturing",
+      desc: "Furniture is manufactured to the measurements and specifications of your project.",
       icon: "/about/about-diamond.png",
     },
     {
-      title: "Precision Manufacturing",
-      desc: "Advanced machinery and skilled workmanship ensure consistency, accuracy and clean finishing.",
+      title: "Made-to-Size Solutions",
+      desc: "Rather than forcing standard furniture into your space, we design around the dimensions you have.",
       icon: "/about/about-maufacturing.png",
     },
     {
-      title: "Expert Installation",
-      desc: "Our installation team delivers every project with care, precision and professional attention.",
+      title: "Material & Finish Options",
+      desc: "Select materials, accessories, worktops and finishes that suit your project and preferences.",
       icon: "/about/about-expert.png",
     },
     {
-      title: "Customer-Centred Service",
-      desc: "We listen closely, communicate clearly and work to achieve the result you envision.",
+      title: "Expert Installation",
+      desc: "Professional fitting helps ensure that every element functions correctly and achieves the intended finish.",
       icon: "/about/about-service.png",
     },
     {
-      title: "End-to-End Delivery",
-      desc: "From consultation and 3D planning to handover and support, we manage the full process.",
+      title: "Complete Project Process",
+      desc: "We guide the project from initial consultation and measurement through design, manufacturing and final installation.",
       icon: "/about/about-delivery.png",
     },
   ];
@@ -58,7 +58,7 @@ export default function WhyChooseUs() {
             WHY CHOOSE US
           </span>
           <h2 className="font-serif text-3xl sm:text-[34px] font-normal leading-[1.12] text-brand-white tracking-tight">
-            Excellence In Every Detail
+            A Thoughtful Approach to Custom Furniture
           </h2>
         </div>
 

@@ -48,21 +48,22 @@ export default function Presence() {
             className="flex flex-col items-start text-left pt-14 pb-2 lg:py-16"
           >
             <span className="text-brand-gold font-sans text-xs font-bold tracking-[0.25em] uppercase block mb-3">
-              INTERNATIONAL PRESENCE
+              SPACES WE CREATE FOR
             </span>
             <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal leading-[1.2] text-brand-dark tracking-tight mb-3">
-              Serving Clients Worldwide
+              Designed for Homes, Workplaces and Commercial Spaces
             </h2>
             <div className="w-10 h-[2px] bg-brand-gold mb-4"></div>
             <p className="text-zinc-500 font-sans text-sm leading-relaxed max-w-xs mb-5">
-              We proudly deliver our premium interior solutions across multiple
-              countries with a commitment to quality and global standards.
+              Cali Wood creates custom furniture solutions for residential,
+              corporate and commercial spaces, with every project planned around
+              the space, function and specific needs of the client.
             </p>
             <button
               onClick={openModal}
               className="px-5 py-2.5 border mt-4 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white font-sans text-xs font-bold tracking-[0.18em] rounded-[1px] flex items-center justify-center gap-2 transition-all duration-300 bg-transparent group cursor-pointer uppercase whitespace-nowrap"
             >
-              <span>VIEW ALL LOCATIONS</span>
+              <span>BOOK A SITE VISIT</span>
               <ArrowRight className="w-3.5 h-3.5 text-current transition-transform duration-300 group-hover:translate-x-1" />
             </button>
           </motion.div>
@@ -78,7 +79,7 @@ export default function Presence() {
               <div className="relative aspect-[1693/929] w-full overflow-visible sm:min-h-[300px] lg:min-h-[340px]">
                 <Image
                   src={worldMap}
-                  alt="World map showing Netsaarthi service locations"
+                  alt="Map-style graphic showing Cali Wood space categories"
                   fill
                   sizes="(min-width: 1024px) 58vw, 100vw"
                   className="object-contain object-center opacity-70"

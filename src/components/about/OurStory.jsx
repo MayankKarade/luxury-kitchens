@@ -6,16 +6,16 @@ import { ArrowRight, Gem, Eye } from "lucide-react";
 import Image from "next/image";
 
 const aboutParagraphs = [
-  "Cali Wood Limited is a premier furniture and interior production firm specializing in the bespoke design, precision manufacturing, and expert installation of high-end cabinetry and woodwork solutions.",
-  "As a strategic expansion of Asanduff Construction Limited, Cali Wood was established to bridge the gap between artisanal craftsmanship and industrial-scale production. By leveraging state-of-the-art machinery and a deep understanding of the construction landscape, we provide durable, factory-finished furniture tailored for residential, corporate, and commercial environments across Ghana.",
-  "With our newly commissioned factory and flagship showroom, Cali Wood is transitioning into a full-capacity production powerhouse, setting new benchmarks for interior finishing in West Africa.",
+  "At Cali Wood, every project begins with the space and the people who will use it.",
+  "We design and manufacture made-to-size furniture for residential, corporate and commercial environments across Ghana, creating solutions that balance functionality, durability and refined design.",
+  "Whether it is a new kitchen, fitted wardrobe, statement TV unit, office furniture or a completely custom interior solution, each project is carefully planned around the client's requirements. From the initial consultation through manufacturing and installation, our team manages every stage to help turn an idea into a finished space.",
 ];
 
 const visionText =
-  "To be the most trusted name in furniture manufacturing across Ghana, recognized for pioneering innovation, uncompromising durability, and world-class professional service.";
+  "Every space is different, which is why Cali Wood takes a personalised approach to furniture design, planning each solution around your requirements.";
 
 const missionText =
-  "To transform spaces through high-quality cabinetry and furniture solutions. We combine advanced technology with expert craftsmanship to deliver aesthetic value and functional excellence, ensuring every client experiences the perfect blend of style and longevity.";
+  "To create furniture that is visually considered, practical for the way the space will be used, manufactured to size and professionally installed.";
 
 export default function OurStory() {
   const handleOurJourneyClick = () => {
@@ -31,7 +31,7 @@ export default function OurStory() {
       className="py-12 sm:py-16 lg:py-24 bg-[#fbfbfb] text-brand-dark relative select-none"
     >
       <div className=" mx-auto px-4 sm:px-10 md:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-[3.5fr_6.5fr] gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[3.4fr_5.6fr] gap-7 items-center">
           {/* Story text (left column) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -42,14 +42,14 @@ export default function OurStory() {
           >
             {/* Predefined gold subtitle */}
             <span className="text-brand-gold font-sans text-xs font-bold tracking-[0.25em] uppercase block">
-              OUR STORY
+              WHO WE ARE
             </span>
 
             {/* Main high-contrast serif title */}
             <h2 className="font-serif text-3xl sm:text-[34px] font-normal leading-[1.12] text-brand-dark tracking-tight">
-              Built For Precision.
+              Premium Furniture Solutions,
               <br />
-              Finished With Craft.
+              Crafted for Every Space
             </h2>
 
             {/* Elegant thin golden horizontal divider block */}
@@ -71,7 +71,7 @@ export default function OurStory() {
               onClick={handleOurJourneyClick}
               className="mt-6 px-7 py-3.5 border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white font-sans text-xs font-bold tracking-[0.22em] rounded-[1px] flex items-center justify-center gap-2 transition-all duration-300 bg-transparent cursor-pointer"
             >
-              <span>OUR JOURNEY</span>
+              <span>EXPLORE OUR SERVICES</span>
               <ArrowRight className="w-4 h-4 text-current transition-transform duration-300 group-hover:translate-x-1" />
             </button>
           </motion.div>

@@ -22,25 +22,19 @@ const quickLinks = [
 ];
 
 const serviceLinks = [
-  { name: "Modular Kitchens", href: "/our-services/designs/modular-kitchens" },
-  { name: "Luxury Wardrobes", href: "/our-services/designs/luxury-wardrobes" },
-  { name: "Interior Design", href: "/our-services/designs/interior-design" },
+  { name: "Kitchens", href: "/our-services/designs/modular-kitchens" },
+  { name: "Wardrobes", href: "/our-services/designs/luxury-wardrobes" },
+  { name: "TV Units", href: "/our-services/designs/custom-furniture" },
   {
-    name: "Renovation Services",
-    href: "/our-services/designs/renovation-services",
-  },
-  {
-    name: "Commercial Interiors",
+    name: "Corporate Furniture",
     href: "/our-services/designs/commercial-interiors",
   },
-  { name: "Custom Furniture", href: "/our-services/designs/custom-furniture" },
+  { name: "Custom Interiors", href: "/our-services/designs/interior-design" },
 ];
 
-const locationLinks = [
-  { name: "USA", href: "/locations#usa" },
-  { name: "Canada", href: "/locations#canada" },
-  { name: "UK", href: "/locations#uk" },
-  { name: "Europe", href: "/locations#europe" },
+const contactLinks = [
+  { name: "www.caliwoodgh.com", href: "https://www.caliwoodgh.com" },
+  { name: "@caliwoodgh", href: "https://www.instagram.com/calikitchensgh/" },
   { name: "Ghana", href: "/locations#ghana" },
 ];
 
@@ -67,8 +61,9 @@ export default function Footer() {
               />
             </Link>
             <p className="text-zinc-400 font-sans text-[13.5px] leading-relaxed max-w-xs sm:max-w-sm">
-              We create luxury kitchens and interiors that inspire. Delivering
-              excellence across USA, Canada, UK, Europe and Ghana.
+              Cali Wood Limited designs, manufactures and installs bespoke
+              kitchens, wardrobes and custom furniture for residential,
+              corporate and commercial spaces across Ghana.
             </p>
 
             {/* Circular Social Outline Buttons */}
@@ -142,19 +137,19 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Locations */}
+          {/* Column 4: Contact */}
           <div className="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-2 flex flex-col gap-5 lg:border-r lg:border-white/10 lg:pl-8 lg:pr-4">
             <h4 className="text-brand-gold font-sans text-[11px] font-bold tracking-[0.2em] uppercase leading-none">
-              LOCATIONS
+              CONTACT
             </h4>
             <ul className="flex flex-col gap-3 font-sans text-[13.5px] text-zinc-400">
-              {locationLinks.map((location) => (
-                <li key={location.href}>
+              {contactLinks.map((contact) => (
+                <li key={contact.href}>
                   <Link
-                    href={location.href}
+                    href={contact.href}
                     className="hover:text-white transition-colors duration-200"
                   >
-                    {location.name}
+                    {contact.name}
                   </Link>
                 </li>
               ))}
@@ -206,7 +201,7 @@ export default function Footer() {
 
         {/* Bottom Legal bar */}
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-sans tracking-wide text-zinc-500">
-          <p>&copy; 2025 Netsaarthi. All Rights Reserved.</p>
+          <p>&copy; 2026 Cali Wood Limited. All Rights Reserved.</p>
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8">
             <Link
               href="/privacy-policy"

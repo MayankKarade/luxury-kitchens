@@ -1,9 +1,9 @@
 import ProcessClient from "@/components/process/ProcessClient";
 
 export const metadata = {
-  title: "Our Process - Netsaarthi | From Concept To Completion",
+  title: "Our Process - Cali Wood | From First Chat To Finished Space",
   description:
-    "Discover Netsaarthi's transparent luxury kitchen and interior design process, from consultation and planning to installation and final delivery.",
+    "Explore Cali Wood's six-step process from consultation and site measurement through design, manufacturing and professional installation.",
 };
 
 export default function ProcessPage() {

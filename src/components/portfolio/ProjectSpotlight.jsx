@@ -15,7 +15,27 @@ import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { API_ENDPOINTS } from "@/config";
 
-const portfolioImageBaseUrl = "https://kitchen.netsaarthi.com/portfolioImage/";
+function getPortfolioImageUrl(image, baseImageUrl) {
+  const normalizedImage = image?.trim();
+
+  if (!normalizedImage) {
+    return "";
+  }
+
+  if (/^https?:\/\//i.test(normalizedImage) || normalizedImage.startsWith("/")) {
+    return normalizedImage;
+  }
+
+  if (!baseImageUrl) {
+    return normalizedImage;
+  }
+
+  try {
+    return new URL(normalizedImage, baseImageUrl).toString();
+  } catch {
+    return normalizedImage;
+  }
+}
 
 export default function ProjectSpotlight({
   selectedPortfolioSlug,
@@ -57,7 +77,7 @@ export default function ProjectSpotlight({
       ? portfolio.multi_image
           .split(",")
           .filter(Boolean)
-          .map((image) => `${portfolioImageBaseUrl}${image.trim()}`)
+          .map((image) => getPortfolioImageUrl(image, portfolio.image))
       : [];
 
     return [portfolio.image, ...multiImages].filter(Boolean);
@@ -76,11 +96,21 @@ export default function ProjectSpotlight({
   }, [activeSpotlightImages, portfolio, setLightboxProject]);
 
   const projectDetails = [
-    { Icon: MapPin, label: "Location", value: portfolio?.location },
-    { Icon: Ruler, label: "Area", value: portfolio?.area },
-    { Icon: Clock3, label: "Duration", value: portfolio?.duration },
-    { Icon: Layers3, label: "Scope", value: portfolio?.scope },
-  ].filter((detail) => detail.value);
+    { Icon: MapPin, label: "Location", value: portfolio?.location || "[Actual Project Location]" },
+    {
+      Icon: Ruler,
+      label: "Project Type",
+      value:
+        portfolio?.category_name ||
+        "[Kitchen / Fitted Wardrobe / TV Unit / Corporate Furniture / Custom Interior]",
+    },
+    {
+      Icon: Clock3,
+      label: "Key Features",
+      value: portfolio?.features || "[Actual Project Features]",
+    },
+    { Icon: Layers3, label: "Scope", value: "Design • Manufacture • Installation" },
+  ];
 
   return (
     <section
@@ -103,41 +133,36 @@ export default function ProjectSpotlight({
           transition={{ duration: 0.55 }}
           className="flex flex-col justify-center"
         >
+          <span className="mb-3 text-[11px] font-extrabold tracking-[0.16em] text-brand-gold">
+            PROJECT SPOTLIGHT
+          </span>
           <h2 className="font-serif text-3xl font-medium tracking-tight sm:text-[35px]">
-            Project Spotlight
+            Featured Project
           </h2>
           <div className="mb-4 mt-3 h-0.5 w-12 bg-brand-gold" />
 
-          <span className="mb-3 text-[11px] font-extrabold tracking-[0.16em] text-brand-gold">
-            {portfolio?.category_name || "FEATURED PROJECTS"}
-          </span>
-          <h3 className="mb-3 max-w-sm font-serif text-3xl font-semibold leading-[1.13] sm:text-[36px]">
-            {portfolio?.title || "Select a Featured Project"}
-          </h3>
-          <p className="mb-5 max-w-md text-[13px] leading-6 text-zinc-300 sm:text-sm">
-            {portfolio?.description ||
-              "Featured Projects section me kisi project card ke arrow par click karein. Uske baad project details, images aur scope yaha show honge."}
-          </p>
+          <div className="mb-5 max-w-md text-[13px] leading-6 text-zinc-300 sm:text-sm">
+            <p>
+              A closer look at one of Cali Wood&apos;s completed projects,
+              highlighting the design approach, functionality, materials and
+              craftsmanship behind the finished space.
+            </p>
+          </div>
 
-          {hasSelectedPortfolio && (
-            <div className="mb-6 max-w-lg border-y border-white/5">
-              {projectDetails.map(({ Icon, label, value }) => (
-                <div
-                  key={label}
-                  className="grid grid-cols-[24px_92px_1fr] items-center gap-2 border-b border-white/5 py-3 last:border-b-0"
-                >
-                  <Icon
-                    className="h-5 w-5 text-brand-gold"
-                    strokeWidth={1.8}
-                  />
-                  <span className="text-sm font-semibold text-zinc-100">
-                    {label}
-                  </span>
-                  <span className="text-sm text-zinc-300">{value}</span>
-                </div>
-              ))}
-            </div>
-          )}
+          <div className="mb-6 max-w-lg border-y border-white/5">
+            {projectDetails.map(({ Icon, label, value }) => (
+              <div
+                key={label}
+                className="grid grid-cols-[24px_104px_1fr] items-center gap-2 border-b border-white/5 py-3 last:border-b-0"
+              >
+                <Icon className="h-5 w-5 text-brand-gold" strokeWidth={1.8} />
+                <span className="text-sm font-semibold text-zinc-100">
+                  {label}
+                </span>
+                <span className="text-sm text-zinc-300">{value}</span>
+              </div>
+            ))}
+          </div>
 
           <button
             onClick={() => hasSelectedPortfolio && setLightboxOpen(true)}

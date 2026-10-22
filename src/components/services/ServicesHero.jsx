@@ -59,16 +59,16 @@ export default function ServicesHero() {
 
             {/* Main high-contrast elegant serif heading matching photo exactly */}
             <h1 className="font-serif text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-white leading-[1.08] tracking-tight">
-              Premium Furniture <br />
-              Solutions Crafted <br />
-              For Every Space
+              Premium Furniture Solutions, <br />
+              Crafted for Every Space
             </h1>
 
             {/* Premium description paragraph */}
-            <p className="text-zinc-300 font-sans text-base sm:text-lg max-w-[540px] leading-relaxed mt-4">
-              From bespoke kitchens and wardrobes to corporate furniture, we
-              design, manufacture and install durable solutions tailored to your
-              space.
+            <p className="text-zinc-300 font-sans text-base sm:text-lg max-w-[640px] leading-relaxed mt-4">
+              From bespoke kitchens and fitted wardrobes to TV units, corporate
+              furniture and custom interiors, Cali Wood designs, manufactures
+              and installs made-to-size solutions for residential, corporate and
+              commercial spaces across Ghana.
             </p>
 
             {/* Golden action button matches image perfectly with golden bg and white bold text */}

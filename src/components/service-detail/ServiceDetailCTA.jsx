@@ -55,7 +55,7 @@ export default function ServiceDetailCTA({ service }) {
           </p>
         </div>
         <div className="grid grid-cols-2 border-t border-neutral-200 sm:grid-cols-2 lg:grid-cols-4 lg:border-l lg:border-t-0">
-          {actions.map((action) => {
+          {(service.ctaActions || actions).map((action) => {
             const external = action.href.startsWith("http");
             const content = (
               <>

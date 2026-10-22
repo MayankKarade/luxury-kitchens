@@ -5,10 +5,10 @@ import { motion } from "motion/react";
 import {
   ArrowRight,
   Gem,
-  Clock,
+  Ruler,
   Award,
-  Lightbulb,
-  Headphones,
+  Factory,
+  Settings2,
 } from "lucide-react";
 import { useConsultation } from "../../context/ConsultationContext";
 
@@ -18,29 +18,29 @@ export default function ExcellenceDetail() {
   // Why choose us columns
   const valueColumns = [
     {
-      title: "Premium Quality",
-      desc: "We use the finest materials and deliver exceptional craftsmanship.",
+      title: "Bespoke Design",
+      desc: "Furniture thoughtfully planned around your space, style and practical requirements.",
       Icon: Gem,
     },
     {
-      title: "On-Time Delivery",
-      desc: "We value your time and ensure on-time project completion.",
-      Icon: Clock,
+      title: "Precision Manufacturing",
+      desc: "Made-to-size furniture built with attention to durability, function and fit.",
+      Icon: Factory,
     },
     {
-      title: "Customer First",
-      desc: "Your satisfaction is our priority, always at every step.",
+      title: "Custom Sizing",
+      desc: "Solutions can be adapted to suit the measurements and requirements of your space.",
+      Icon: Ruler,
+    },
+    {
+      title: "Expert Installation",
+      desc: "Professional fitting ensures everything works properly and looks right once installed.",
       Icon: Award,
     },
     {
-      title: "Innovative Designs",
-      desc: "Creative solutions that combine aesthetics with functionality.",
-      Icon: Lightbulb,
-    },
-    {
-      title: "Dedicated Support",
-      desc: "24/7 support to assist you throughout your journey.",
-      Icon: Headphones,
+      title: "Finish Options",
+      desc: "Choose from different accessories, materials and worktop options to personalise your project.",
+      Icon: Settings2,
     },
   ];
 
@@ -61,17 +61,19 @@ export default function ExcellenceDetail() {
           {/* Left Side Copy */}
           <div className=" flex flex-col items-start text-left">
             <span className="text-brand-gold font-sans text-xs font-bold tracking-[0.25em] uppercase block mb-3.5 select-none">
-              WHY CHOOSE US
+              WHY CALI WOOD
             </span>
 
             <h2 className="font-serif text-3xl sm:text-[34px] font-normal leading-[1.12] text-white tracking-tight">
-              Excellence In <br />
-              Every Detail
+              Built Around Your Space,
+              <br />
+              From Start to Finish
             </h2>
 
             <p className="text-zinc-400 mt-6 font-sans text-[14px] sm:text-[14.5px] leading-relaxed mb-8 max-w-sm">
-              We are committed to delivering spaces that reflect perfection,
-              innovation and unmatched craftsmanship.
+              Cali Wood combines bespoke design, precision manufacturing and
+              expert installation to create furniture tailored to your space,
+              requirements and preferences.
             </p>
 
             {/* Learn More trigger */}
@@ -86,7 +88,7 @@ export default function ExcellenceDetail() {
 
           {/* Right Side: Horizontal columns */}
           <div className=" w-full">
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-2 sm:gap-8 lg:gap-0 items-stretch">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-6 sm:gap-8 lg:gap-0 items-stretch">
               {valueColumns.map((val, idx) => (
                 <div
                   key={idx}
@@ -109,7 +111,7 @@ export default function ExcellenceDetail() {
 
                   {/* Divider for Tablet (2 columns) - only between col1 and col2 */}
                   {idx % 2 === 0 && idx !== valueColumns.length - 1 && (
-                    <div className="hidden sm:block md:hidden absolute right-0 top-0 bottom-0 w-px bg-zinc-700/50" />
+                    <div className="hidden sm:block md:hidden absolute right-[-16px] top-0 bottom-0 w-px bg-zinc-700/50" />
                   )}
 
                   {/* Divider for Desktop (5 columns) - between all except 5th item of each row */}

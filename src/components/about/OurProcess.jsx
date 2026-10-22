@@ -16,38 +16,38 @@ export default function OurProcess() {
   const steps = [
     {
       num: "01",
-      title: "Consultation",
-      desc: "We understand your needs, style and budget.",
+      title: "Consult",
+      desc: "Tell us what you need, the style you prefer and your intended budget.",
       Icon: MessageSquare,
     },
     {
       num: "02",
-      title: "Design & Planning",
-      desc: "Our experts create custom designs and detailed plans.",
+      title: "Measure",
+      desc: "We visit the site and measure the space accurately.",
       Icon: Compass,
     },
     {
       num: "03",
-      title: "Material Selection",
-      desc: "Choose from our premium range of materials.",
+      title: "Design & Quote",
+      desc: "We prepare the proposed design and provide a clear quotation based on the project requirements.",
       Icon: Layers,
     },
     {
       num: "04",
-      title: "Manufacturing",
-      desc: "Precision manufacturing with advanced technology.",
+      title: "Approve",
+      desc: "You review and confirm the design and order.",
       Icon: Settings,
     },
     {
       num: "05",
-      title: "Installation",
-      desc: "Professional installation with attention to every detail.",
+      title: "Build",
+      desc: "Your furniture is manufactured to the agreed measurements and specifications.",
       Icon: Wrench,
     },
     {
       num: "06",
-      title: "Handover",
-      desc: "On-time delivery and complete satisfaction guaranteed.",
+      title: "Install",
+      desc: "Our team installs the finished furniture and completes the project handover.",
       Icon: CheckCircle,
     },
   ];
@@ -67,10 +67,10 @@ export default function OurProcess() {
           className="mb-10 text-left"
         >
           <span className="text-brand-gold font-sans text-xs font-bold tracking-[0.25em] uppercase block mb-3">
-            OUR PROCESS
+            HOW WE WORK
           </span>
           <h2 className="font-serif text-3xl sm:text-[34px] font-normal leading-[1.12] text-brand-dark tracking-tight">
-            A Seamless Journey From Concept To Completion
+            From First Conversation To Finished Furniture
           </h2>
           <div className="w-12 h-[2px] bg-brand-gold  my-4"></div>
         </motion.div>

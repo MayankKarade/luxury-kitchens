@@ -3,11 +3,17 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
-import { clientReviews, fadeInUp, stagger } from "./testimonialData";
+import { clientReviews } from "./testimonialData";
 import { ReviewQuoteIcon, StarRating } from "./TestimonialIcons";
 
 export default function ClientReviews() {
+  const [showAllReviews, setShowAllReviews] = useState(false);
+  const visibleReviews = showAllReviews
+    ? clientReviews
+    : clientReviews.slice(0, 4);
+
   return (
     <section className="bg-brand-white px-4 py-12 text-brand-dark sm:px-10 sm:py-14 md:px-16">
       <div className="mx-auto ">
@@ -21,28 +27,39 @@ export default function ClientReviews() {
             </h2>
             <div className="mt-3 h-0.5 w-10 bg-brand-gold" />
           </div>
-          <button className="group inline-flex items-center gap-4 rounded-md border border-brand-gold px-5 py-3 text-[10px] font-bold tracking-widest text-brand-gold transition-colors hover:bg-brand-gold hover:text-white">
-            VIEW ALL REVIEWS
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          <button
+            type="button"
+            onClick={() => setShowAllReviews((current) => !current)}
+            className="group inline-flex items-center gap-4 rounded-md border border-brand-gold px-5 py-3 text-[10px] font-bold tracking-widest text-brand-gold transition-colors hover:bg-brand-gold hover:text-white"
+          >
+            {showAllReviews ? "SHOW FEWER REVIEWS" : "VIEW ALL REVIEWS"}
+            <ArrowRight
+              className={`h-4 w-4 transition-transform ${
+                showAllReviews
+                  ? "rotate-[-90deg]"
+                  : "group-hover:translate-x-1"
+              }`}
+            />
           </button>
         </div>
 
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4"
-        >
-          {clientReviews.map((review) => (
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
+          {visibleReviews.map((review, index) => (
             <motion.article
-              key={review.name}
-              variants={fadeInUp}
+              key={review.id || review.name}
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35, delay: Math.min(index, 7) * 0.03 }}
               className="flex min-h-[282px] flex-col justify-between rounded-lg border border-neutral-200 bg-white px-6 py-7 shadow-[0_14px_38px_rgba(0,0,0,0.04)]"
             >
               <div>
                 <div className="mb-5 flex items-start justify-between gap-4">
-                  <StarRating />
+                  <div>
+                    <span className="mb-2 block text-[10px] font-extrabold uppercase tracking-[0.18em] text-brand-gold">
+                      {review.title}
+                    </span>
+                    <StarRating />
+                  </div>
                   <ReviewQuoteIcon className="h-7 w-7 text-brand-gold" />
                 </div>
                 <p className="text-[13px] font-medium leading-7 text-zinc-700">
@@ -72,7 +89,7 @@ export default function ClientReviews() {
               </div>
             </motion.article>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

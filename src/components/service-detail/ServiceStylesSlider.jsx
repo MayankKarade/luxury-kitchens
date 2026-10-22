@@ -42,7 +42,7 @@ export default function ServiceStylesSlider({ service }) {
       <div className="mx-auto ">
         <div className="mb-8 text-center">
           <h2 className="font-serif text-3xl font-medium uppercase sm:text-[36px]">
-            {service.stylesTitle}
+            Explore Other Services
           </h2>
           <div className="mx-auto mt-3 flex w-14 items-center justify-center">
             <span className="h-px flex-1 bg-brand-gold" />
@@ -73,14 +73,16 @@ export default function ServiceStylesSlider({ service }) {
                       {style.title}
                     </h3>
                     <p className="mt-2 min-h-[48px] text-sm leading-6 text-zinc-600">
-                      {style.text}
+                      {style.text?.length > 80
+                        ? `${style.text.slice(0, 77).trimEnd()}...`
+                        : style.text}
                     </p>
                     <Link
-                      href={`/our-services/${style.slug || service.slug}/designs`}
+                      href={`/our-services/${style.slug || service.slug}`}
                       prefetch={false}
                       className="mt-4 inline-flex items-center gap-3 text-[11px] font-extrabold tracking-wide text-brand-gold transition-colors hover:text-[#9A0101]"
                     >
-                      EXPLORE DESIGNS
+                      EXPLORE SERVICE
                       <ArrowRight className="h-4 w-4" />
                     </Link>
                   </div>

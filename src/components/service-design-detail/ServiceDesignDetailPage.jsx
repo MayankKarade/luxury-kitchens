@@ -34,6 +34,7 @@ function mergeApiProduct(staticProduct, apiProduct) {
     price: apiProduct.price || staticProduct.price,
     rating: apiProduct.rating || staticProduct.rating,
     image: apiProduct.image || staticProduct.image,
+    dimensionImage: apiProduct.dimension_image || staticProduct.dimensionImage,
     galleryImages:
       galleryImages.length > 0 ? galleryImages : staticProduct.galleryImages,
     video: apiProduct.video || staticProduct.video,

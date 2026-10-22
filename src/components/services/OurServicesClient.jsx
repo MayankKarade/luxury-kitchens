@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import ServicesHero from "./ServicesHero";
 import WhatWeOffer from "./WhatWeOffer";
 import ExcellenceDetail from "./ExcellenceDetail";
+import PricingGuideSection from "./PricingGuideSection";
 import axios from "axios";
 import { API_ENDPOINTS } from "@/config";
 
@@ -29,10 +30,9 @@ export default function OurServicesClient() {
     <div className="w-full  flex  justify-center items-center">
       <div id="services-page-root" className="w-full max-w-[1800px] ">
         <ServicesHero />
-
         <WhatWeOffer services={services} />
-
         <ExcellenceDetail />
+        <PricingGuideSection />
       </div>
     </div>
   );

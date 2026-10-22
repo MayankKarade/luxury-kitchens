@@ -14,44 +14,44 @@ export default function Team() {
 
   const team = [
     {
-      name: "David Anderson",
-      role: "Founder & CEO",
+      name: "Consultation & Measurement",
+      role: "We understand your space, requirements and project goals.",
       photo:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&h=500",
-      linkedin: "https://linkedin.com",
-      email: "david@netsaarthi.com",
+      linkedin: "https://www.caliwoodgh.com",
+      email: "info@caliwoodgh.com",
     },
     {
-      name: "Sophia Martinez",
-      role: "Lead Interior Designer",
+      name: "Design & Quotation",
+      role: "We prepare a proposed furniture solution and clear quotation.",
       photo:
         "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400&h=500",
-      linkedin: "https://linkedin.com",
-      email: "sophia@netsaarthi.com",
+      linkedin: "https://www.caliwoodgh.com",
+      email: "info@caliwoodgh.com",
     },
     {
-      name: "James Wilson",
-      role: "Project Manager",
+      name: "Precision Manufacturing",
+      role: "Your furniture is manufactured to the agreed measurements.",
       photo:
         "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400&h=500",
-      linkedin: "https://linkedin.com",
-      email: "james@netsaarthi.com",
+      linkedin: "https://www.caliwoodgh.com",
+      email: "info@caliwoodgh.com",
     },
     {
-      name: "Emily Johnson",
-      role: "Design Consultant",
+      name: "Expert Installation",
+      role: "Our team fits and finishes the furniture professionally.",
       photo:
         "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400&h=500",
-      linkedin: "https://linkedin.com",
-      email: "emily@netsaarthi.com",
+      linkedin: "https://www.caliwoodgh.com",
+      email: "info@caliwoodgh.com",
     },
     {
-      name: "Michael Brown",
-      role: "3D Visualizer",
+      name: "Project Handover",
+      role: "Every stage works toward furniture that fits your requirements.",
       photo:
         "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400&h=500",
-      linkedin: "https://linkedin.com",
-      email: "michael@netsaarthi.com",
+      linkedin: "https://www.caliwoodgh.com",
+      email: "info@caliwoodgh.com",
     },
   ];
 
@@ -101,10 +101,10 @@ export default function Team() {
         <div className="flex flex-col md:flex-row justify-between items-start  gap-5 border-b border-zinc-200/60 pb-8 ">
           <div className="flex flex-col gap-3">
             <span className="text-brand-gold font-sans text-xs font-bold tracking-[0.25em] uppercase block">
-              OUR TEAM / DESIGNERS
+              THE CALI WOOD APPROACH
             </span>
             <h2 className="font-serif text-3xl sm:text-[34px] font-normal leading-[1.12] text-brand-dark tracking-tight">
-              Meet The Minds Behind The Magic
+              One Team. One Complete Process.
             </h2>
             {/* Elegant short gold line precisely under "Meet" header */}
             <div className="w-12 h-[2.5px] bg-brand-gold mt-3"></div>
@@ -114,7 +114,7 @@ export default function Team() {
             onClick={openModal}
             className="px-6  py-3.5 border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white font-sans text-xs font-bold tracking-[0.18em] rounded-[1px] flex items-center justify-center gap-2.5 transition-all duration-300 bg-transparent group cursor-pointer shrink-0 uppercase text-nowrap"
           >
-            <span>VIEW ALL TEAM</span>
+            <span>START YOUR PROJECT</span>
             <ArrowRight className="w-4 h-4 text-current transition-transform duration-300 group-hover:translate-x-1" />
           </button>
         </div>

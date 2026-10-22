@@ -70,6 +70,7 @@ function applyApiProduct(product, apiProduct, requestedSlug) {
     price: apiProduct.price || product.price,
     rating: apiProduct.rating || product.rating,
     image: apiProduct.image || product.image,
+    dimensionImage: apiProduct.dimension_image || product.dimensionImage,
   };
 }
 
@@ -96,4 +97,15 @@ export async function getExactServiceDesignProduct(service, serviceSlug, designS
   const fallbackProduct = getServiceDesignProduct(service, designSlug);
 
   return applyApiProduct(fallbackProduct, apiDetailProduct, designSlug);
+}
+
+export async function getServiceDesignProductForRoute(
+  service,
+  serviceSlug,
+  designSlug,
+) {
+  return (
+    (await getExactServiceDesignProduct(service, serviceSlug, designSlug)) ||
+    getServiceDesignProduct(service, designSlug)
+  );
 }

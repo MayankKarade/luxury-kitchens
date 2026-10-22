@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
+import { Menu, X } from "lucide-react";
 
 import { API_BASE_URL, API_ENDPOINTS } from "@/config";
 import { ServiceDesignIcon } from "./ServiceDesignIcons";
@@ -186,6 +187,8 @@ function FilterSidebar({
   priceBounds,
   onPriceRangeChange,
   productCount,
+  className = "",
+  onClose,
 }) {
   const rangeSize = priceBounds.max - priceBounds.min || 1;
   const selectedMinPercent =
@@ -194,10 +197,24 @@ function FilterSidebar({
     ((priceRange.max - priceBounds.min) / rangeSize) * 100;
 
   return (
-    <aside className="h-fit rounded-lg border border-neutral-200 bg-white p-4 shadow-sm lg:sticky lg:top-28">
-      <h2 className="text-sm font-extrabold uppercase tracking-wide text-neutral-900">
-        Browse Designs
-      </h2>
+    <aside
+      className={`h-fit rounded-lg border border-neutral-200 bg-white p-4 shadow-sm lg:sticky lg:top-28 ${className}`}
+    >
+      <div className="flex items-center justify-between gap-3">
+        <h2 className="text-sm font-extrabold uppercase tracking-wide text-neutral-900">
+          Browse Designs
+        </h2>
+        {onClose && (
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close filters"
+            className="flex h-9 w-9 items-center justify-center rounded-md border border-neutral-200 text-neutral-800 transition-colors hover:border-brand-gold hover:text-brand-gold lg:hidden"
+          >
+            <X className="h-5 w-5" aria-hidden="true" />
+          </button>
+        )}
+      </div>
       <div className="mt-4 border-b border-neutral-200 pb-5">
         <CategoryList
           categories={collection.categories}
@@ -336,6 +353,16 @@ function FilterSidebar({
         >
           {isFiltering ? "Filtering..." : "Reset Filters"}
         </button>
+
+        {onClose && (
+          <button
+            type="button"
+            onClick={onClose}
+            className="mt-3 flex h-11 w-full items-center justify-center rounded-md bg-brand-gold text-[11px] font-extrabold uppercase tracking-wide text-white transition-colors hover:bg-[#9A0101] lg:hidden"
+          >
+            Show Results
+          </button>
+        )}
       </div>
     </aside>
   );
@@ -391,7 +418,9 @@ function ProductCard({ product, service }) {
           {product.title}
         </Link>
         <p className="mt-2 text-[12px] font-medium leading-4 text-zinc-600">
-          {product.text}
+          {product.text?.length > 70
+            ? `${product.text.slice(0, 67).trimEnd()}...`
+            : product.text}
         </p>
         {product.price && (
           <p className="mt-1 text-lg font-bold text-neutral-900">
@@ -411,7 +440,7 @@ function ProductCard({ product, service }) {
   );
 }
 
-export default function ServiceDesignsBrowser({ service, collection }) {
+function ServiceDesignsBrowserContent({ service, collection }) {
   const initialProducts = useMemo(
     () => normalizeExistingProducts(collection.products),
     [collection.products],
@@ -428,16 +457,26 @@ export default function ServiceDesignsBrowser({ service, collection }) {
   const [products, setProducts] = useState(() => initialProducts);
   const [priceRange, setPriceRange] = useState(() => priceBounds);
   const [isFiltering, setIsFiltering] = useState(false);
+  const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false);
 
   useEffect(() => {
-    setSelectedFilters({
-      designIds: [],
-      styleIds: [],
-      colorIds: [],
-    });
-    setProducts(initialProducts);
-    setPriceRange(priceBounds);
-  }, [collection, initialProducts, priceBounds]);
+    if (!isMobileFiltersOpen) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setIsMobileFiltersOpen(false);
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isMobileFiltersOpen]);
 
   const filteredProducts = useMemo(
     () =>
@@ -522,42 +561,80 @@ export default function ServiceDesignsBrowser({ service, collection }) {
     });
   };
 
+  const filterSidebarProps = {
+    collection,
+    selectedFilters,
+    isFiltering,
+    onToggleDesign: handleToggleDesign,
+    onToggleStyle: handleToggleStyle,
+    onToggleColor: handleToggleColor,
+    onResetFilters: handleResetFilters,
+    priceRange,
+    priceBounds,
+    onPriceRangeChange: setPriceRange,
+    productCount: filteredProducts.length,
+  };
+
   return (
     <section className="bg-brand-white px-4 py-9 text-brand-dark sm:px-10 md:px-16">
       <div className="mx-auto grid  gap-6 lg:grid-cols-[235px_minmax(0,1fr)]">
-        <FilterSidebar
-          collection={collection}
-          selectedFilters={selectedFilters}
-          isFiltering={isFiltering}
-          onToggleDesign={handleToggleDesign}
-          onToggleStyle={handleToggleStyle}
-          onToggleColor={handleToggleColor}
-          onResetFilters={handleResetFilters}
-          priceRange={priceRange}
-          priceBounds={priceBounds}
-          onPriceRangeChange={setPriceRange}
-          productCount={filteredProducts.length}
-        />
+        <FilterSidebar {...filterSidebarProps} className="hidden lg:block" />
+
+        {isMobileFiltersOpen && (
+          <div
+            className="fixed inset-x-0 bottom-0 top-[92px] z-50 lg:hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Design filters"
+          >
+            <button
+              type="button"
+              className="absolute inset-0 bg-black/45"
+              aria-label="Close filters"
+              onClick={() => setIsMobileFiltersOpen(false)}
+            />
+            <div className="relative h-full w-[min(86vw,360px)] overflow-y-auto bg-white shadow-2xl">
+              <FilterSidebar
+                {...filterSidebarProps}
+                className="min-h-full rounded-none border-0 shadow-none"
+                onClose={() => setIsMobileFiltersOpen(false)}
+              />
+            </div>
+          </div>
+        )}
 
         <div className="min-w-0">
           <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <h1 className="font-serif text-3xl font-semibold leading-tight text-neutral-900 sm:text-[36px]">
-              {collection.listTitle}{" "}
-              <span className="font-sans text-base font-bold text-zinc-500">
-                ({filteredProducts.length}{" "}
-                {filteredProducts.length === 1 ? "Result" : "Results"})
-              </span>
-            </h1>
-            <select
-              defaultValue="popularity"
-              className="h-11 rounded-md border border-neutral-200 bg-white px-4 text-sm font-semibold text-zinc-600 outline-none transition-colors focus:border-brand-gold"
-              aria-label="Sort designs"
-            >
-              <option value="popularity">Sort By: Popularity</option>
-              <option value="latest">Sort By: Latest</option>
-              <option value="price-low">Price: Low To High</option>
-              <option value="price-high">Price: High To Low</option>
-            </select>
+            <div>
+              <h1 className="font-serif text-3xl font-semibold leading-tight text-neutral-900 sm:text-[36px]">
+                {collection.listTitle}{" "}
+                <span className="font-sans text-base font-bold text-zinc-500">
+                  ({filteredProducts.length}{" "}
+                  {filteredProducts.length === 1 ? "Result" : "Results"})
+                </span>
+              </h1>
+            </div>
+            <div className="flex items-center gap-3">
+              <button
+                type="button"
+                onClick={() => setIsMobileFiltersOpen(true)}
+                className="flex h-11 items-center justify-center gap-2 rounded-md border border-brand-gold px-4 text-[11px] font-extrabold uppercase tracking-wide text-brand-gold transition-colors hover:bg-brand-gold hover:text-white lg:hidden"
+                aria-label="Open filters"
+              >
+                <Menu className="h-4 w-4" aria-hidden="true" />
+                Filters
+              </button>
+              <select
+                defaultValue="popularity"
+                className="h-11 min-w-0 rounded-md border border-neutral-200 bg-white px-4 text-sm font-semibold text-zinc-600 outline-none transition-colors focus:border-brand-gold"
+                aria-label="Sort designs"
+              >
+                <option value="popularity">Sort By: Popularity</option>
+                <option value="latest">Sort By: Latest</option>
+                <option value="price-low">Price: Low To High</option>
+                <option value="price-high">Price: High To Low</option>
+              </select>
+            </div>
           </div>
 
           <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
@@ -579,5 +656,21 @@ export default function ServiceDesignsBrowser({ service, collection }) {
         </div>
       </div>
     </section>
+  );
+}
+
+export default function ServiceDesignsBrowser({ service, collection }) {
+  const collectionKey = [
+    service.slug,
+    collection.listTitle,
+    ...collection.products.map((product) => product.slug || product.id),
+  ].join(":");
+
+  return (
+    <ServiceDesignsBrowserContent
+      key={collectionKey}
+      service={service}
+      collection={collection}
+    />
   );
 }

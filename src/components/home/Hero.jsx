@@ -13,23 +13,23 @@ export default function Hero() {
   const features = [
     {
       image: "/hero/shieldCheck.png",
-      title: "Premium Quality",
-      desc: "Durable Materials",
+      title: "Bespoke Design",
+      desc: "Planned around your space",
     },
     {
       image: "/hero/penTool.png",
-      title: "Custom Designs",
-      desc: "Tailored for You",
+      title: "Made to Size",
+      desc: "Built to your measurements",
     },
     {
       image: "/hero/CogSetting.png",
-      title: "International",
-      desc: "Service",
+      title: "Durable Materials",
+      desc: "Selected for your project",
     },
     {
       image: "/hero/Wrench.png",
-      title: "On-Time",
-      desc: "Delivery",
+      title: "Expert Installation",
+      desc: "Professionally fitted",
     },
   ];
 
@@ -102,7 +102,7 @@ export default function Hero() {
                 variants={fadeInUp}
                 className="bg-brand-gold text-white rounded-full px-3 py-0.5 font-sans text-xs font-bold tracking-[0.25em] uppercase block w-fit"
               >
-                CRAFTING TIMELESS SPACES
+                DESIGNED. BUILT. INSTALLED.
               </motion.span>
 
               <motion.h1
@@ -111,16 +111,18 @@ export default function Hero() {
               >
                 Bespoke Furniture.
                 <br />
-                Timeless Spaces.
+                Crafted for Your Space.
               </motion.h1>
 
               <motion.p
                 variants={fadeInUp}
                 className="text-gray-300 font-sans text-sm sm:text-base md:text-lg max-w-xl leading-relaxed mt-2"
               >
-                We design, manufacture and install premium kitchens, wardrobes
-                and custom interiors that combine refined style, everyday
-                functionality and lasting quality.
+                Cali Wood creates durable, made-to-size kitchens, wardrobes and
+                custom furniture designed around your space, style and everyday
+                needs. From design and manufacturing to professional
+                installation, we manage every stage to deliver a beautifully
+                finished space.
               </motion.p>
 
               {/* Buttons with hover animations */}
@@ -172,7 +174,7 @@ export default function Hero() {
                     500+ Happy Clients
                   </span> */}
                   <span className="text-xs font-bold text-white tracking-wide capitalize ">
-                    Trusted For Residential & Commercial Interiors
+                    Furniture designed around your space
                   </span>
                   <div className="flex items-center gap-1.5">
                     {/* <div className="flex items-center text-brand-gold">
@@ -184,7 +186,7 @@ export default function Hero() {
                       ))}
                     </div> */}
                     <span className="text-xs text-gray-300 font-sans font-semibold">
-                      Factory-crafted • Professionally installed
+                      Precision-built to size • Professionally installed
                     </span>
                   </div>
                 </div>

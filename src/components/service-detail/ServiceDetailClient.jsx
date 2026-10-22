@@ -7,7 +7,7 @@ import ServiceStylesSlider from "./ServiceStylesSlider";
 import ServiceWhyChoose from "./ServiceWhyChoose";
 import axios from "axios";
 import { API_ENDPOINTS } from "@/config";
-import { getServiceDetail } from "./serviceDetailData";
+import { getServiceDetail, getServiceStylesTitle } from "./serviceDetailData";
 
 function getMergedService(baseService, apiDetail, apiCategories) {
   if (!apiDetail) {
@@ -32,6 +32,7 @@ function getMergedService(baseService, apiDetail, apiCategories) {
     heroImage: apiDetail.image || baseService.heroImage,
     showcaseImage: apiDetail.image || baseService.showcaseImage,
     whyTitle: `Why Choose Our ${title}?`,
+    stylesTitle: getServiceStylesTitle(title),
     styles: apiStyles.length > 0 ? apiStyles : baseService.styles,
   };
 }

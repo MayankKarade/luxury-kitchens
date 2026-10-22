@@ -8,15 +8,11 @@ import {
   Award,
   BadgeCheck,
   Calendar,
-  CheckCircle,
-  Clock3,
   Headphones,
-  LifeBuoy,
   Menu,
   PenTool,
   Ruler,
   ShieldCheck,
-  Truck,
   UsersRound,
   Wrench,
 } from "lucide-react";
@@ -30,53 +26,53 @@ const processSteps = [
     number: "01",
     title: "Consultation",
     description:
-      "We begin by understanding your needs, style, budget and lifestyle. Our experts guide you with ideas and solutions tailored just for you.",
+      "Tell us about your needs, preferred style and budget so we can understand what you want to create.",
     Icon: Headphones,
     image:
       "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1100&q=80",
   },
   {
     number: "02",
-    title: "Design Planning",
+    title: "Site Measurement",
     description:
-      "Our designers create customized layouts and 3D concepts that combine functionality with aesthetics to visualize your dream space.",
-    Icon: PenTool,
+      "We visit your space and take the measurements needed to plan your furniture accurately.",
+    Icon: Ruler,
     image:
       "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1100&q=80",
   },
   {
     number: "03",
-    title: "Material Selection",
+    title: "Design & Quote",
     description:
-      "Choose from our premium range of high-quality materials, finishes, fixtures and accessories handpicked for durability and elegance.",
-    Icon: Ruler,
+      "We prepare a design around your requirements and provide a clear quotation for the proposed project.",
+    Icon: PenTool,
     image:
       "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1100&q=80",
   },
   {
     number: "04",
-    title: "Manufacturing",
+    title: "Design Approval",
     description:
-      "Precision manufacturing using advanced technology and skilled craftsmanship ensures flawless production and superior quality.",
-    Icon: Wrench,
+      "You review the design and quotation, confirm the details and approve your order before production begins.",
+    Icon: ShieldCheck,
     image:
       "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1100&q=80",
   },
   {
     number: "05",
-    title: "Installation",
+    title: "Manufacturing",
     description:
-      "Our professional team handles the complete installation with utmost care, ensuring every detail is perfectly executed.",
-    Icon: BadgeCheck,
+      "Your furniture is precision-built to the agreed measurements, specifications and requirements.",
+    Icon: Wrench,
     image:
       "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1100&q=80",
   },
   {
     number: "06",
-    title: "Final Delivery",
+    title: "Installation",
     description:
-      "We complete a detailed quality check and hand over your space on time, ready for you to enjoy a beautiful and functional environment.",
-    Icon: Truck,
+      "Our team professionally installs your furniture and hands over the completed space ready for use.",
+    Icon: BadgeCheck,
     image:
       "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1100&q=80",
   },
@@ -85,41 +81,41 @@ const processSteps = [
 const valueCards = [
   {
     Icon: ShieldCheck,
-    title: "Transparent Communication",
-    text: "We keep you informed at every step of the journey.",
+    title: "Bespoke Planning",
+    text: "Every project begins with your space, style, needs and budget in mind.",
+  },
+  {
+    Icon: Ruler,
+    title: "Accurate Measurement",
+    text: "Site measurements help ensure the furniture is planned and built to the right size.",
   },
   {
     Icon: Award,
-    title: "Quality Assurance",
-    text: "Every detail is checked to ensure uncompromised quality.",
-  },
-  {
-    Icon: Clock3,
-    title: "On-Time Delivery",
-    text: "We value your time and promise deadlines.",
+    title: "Clear Quotation",
+    text: "You receive a design and quotation before confirming and approving your project.",
   },
   {
     Icon: UsersRound,
-    title: "Client Satisfaction",
-    text: "Your happiness is our ultimate goal.",
+    title: "Expert Installation",
+    text: "Professional fitting ensures the finished furniture works properly and looks right in your space.",
   },
 ];
 
 const ctaBenefits = [
   {
     Icon: Headphones,
-    title: "Free Consultation",
-    text: "Talk to our experts",
+    title: "Consultation",
+    text: "Discuss your needs, style and budget.",
+  },
+  {
+    Icon: Ruler,
+    title: "Site Measurement",
+    text: "We measure your space before planning.",
   },
   {
     Icon: PenTool,
-    title: "Personalized Solutions",
-    text: "Tailored for your needs",
-  },
-  {
-    Icon: LifeBuoy,
-    title: "Expert Guidance",
-    text: "From start to finish",
+    title: "Design & Quote",
+    text: "Receive a tailored design and clear quotation.",
   },
 ];
 
@@ -198,9 +194,9 @@ function ProcessHero() {
             variants={fadeInUp}
             className="mt-4 font-serif text-4xl font-medium leading-[1.1] text-white sm:text-5xl lg:text-[58px]"
           >
-            From Concept
+            From First Chat
             <br />
-            To Completion
+            To Finished Space
           </motion.h1>
           <motion.div
             variants={fadeInUp}
@@ -210,15 +206,16 @@ function ProcessHero() {
             variants={fadeInUp}
             className="max-w-md text-sm font-medium leading-7 text-zinc-200 sm:text-base"
           >
-            A seamless and transparent process designed to bring your dream
-            space to life with precision, quality and perfection.
+            A clear six-step process that takes your project from the initial
+            consultation and site measurement through design, manufacturing and
+            professional installation.
           </motion.p>
           <motion.button
             variants={fadeInUp}
             onClick={openModal}
             className="mt-7 inline-flex items-center gap-6 rounded-[4px] bg-brand-gold px-7 py-4 text-xs font-extrabold tracking-wide text-white shadow-[0_10px_24px_rgba(154,1,1,.18)] transition-colors hover:bg-[#9A0101]"
           >
-            BOOK A CONSULTATION
+            BOOK A SITE VISIT
             <ArrowRight className="h-4 w-4" />
           </motion.button>
         </motion.div>
@@ -305,9 +302,9 @@ function ProcessValues() {
             WHY OUR PROCESS
           </span>
           <h2 className="mt-4 font-serif text-3xl font-medium leading-[1.18] sm:text-[36px]">
-            Built On Transparency.
+            Clear Steps.
             <br />
-            Delivered With Excellence.
+            Built Around Your Space.
           </h2>
         </div>
 
@@ -347,15 +344,17 @@ function ProcessCta() {
       <div className="relative z-10 mx-auto grid  grid-cols-1 gap-8 lg:grid-cols-[0.9fr_1.15fr_0.75fr] lg:items-center">
         <div>
           <span className="text-xs font-extrabold uppercase tracking-[0.16em] text-brand-gold">
-            LET&apos;S BRING YOUR VISION TO LIFE
+            START YOUR PROJECT
           </span>
           <h2 className="mt-4 font-serif text-3xl font-medium leading-[1.17] sm:text-[38px]">
-            Ready To Start Your
+            Ready To Create
             <br />
-            Dream Project?
+            Your Space?
           </h2>
-          <p className="mt-4 text-sm text-zinc-200">
-            Book a free consultation with our experts today.
+          <p className="mt-4 text-sm leading-6 text-zinc-200">
+            Tell us what you need and let Cali Wood guide your project from
+            consultation and measurement through manufacturing and final
+            installation.
           </p>
         </div>
 
@@ -376,7 +375,7 @@ function ProcessCta() {
           onClick={openModal}
           className="inline-flex items-center justify-center gap-8 rounded-md bg-brand-gold px-8 py-4 text-xs font-extrabold tracking-wide text-white transition-colors hover:bg-[#9A0101]"
         >
-          BOOK A CONSULTATION
+          BOOK A SITE VISIT
           <Calendar className="h-4 w-4" />
         </button>
       </div>

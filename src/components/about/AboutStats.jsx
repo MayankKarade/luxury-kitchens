@@ -9,7 +9,7 @@ function AnimatedCounter({ value, duration = 1800 }) {
   const elementRef = useRef(null);
   const hasAnimated = useRef(false);
 
-  // Extract number and suffix gracefully (e.g. "1200+" -> 1200 & "+")
+  // Extract number and suffix gracefully for animated display values.
   let targetNumber = 0;
   let suffix = "";
 
@@ -81,28 +81,28 @@ export default function AboutStats() {
   const stats = [
     {
       Icon: Award,
-      num: "15+",
-      label: "Years Experience",
+      num: "1",
+      label: "Bespoke Design",
     },
     {
       Icon: Layers,
-      num: "1200+",
-      label: "Projects Completed",
+      num: "2",
+      label: "Made to Size",
     },
     {
       Icon: Globe,
-      num: "5",
-      label: "Countries Served",
+      num: "3",
+      label: "Quality Options",
     },
     {
       Icon: Star,
-      num: "98%",
-      label: "Client Satisfaction",
+      num: "4",
+      label: "Expert Installation",
     },
     {
       Icon: Clock,
-      num: "24/7",
-      label: "Dedicated Support",
+      num: "5",
+      label: "Complete Process",
     },
   ];
 

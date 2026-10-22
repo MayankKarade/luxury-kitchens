@@ -54,22 +54,24 @@ export default function AboutHero() {
           >
             {/* ABOVE US pre-title */}
             <span className="bg-brand-gold text-white rounded-full px-3 py-0.5 font-sans text-xs font-bold tracking-[0.25em] uppercase block w-fit">
-              ABOUT US
+              ABOUT CALI WOOD
             </span>
 
             {/* Main high-contrast elegant serif heading matching photo exactly */}
             <h1 className="font-serif text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-white leading-[1.08] tracking-tight">
-              Crafting Furniture.
+              Furniture Designed Around
               <br />
-              Transforming Spaces.
+              the Way You Live & Work
             </h1>
 
             {/* Premium description paragraph */}
-            <p className="text-zinc-300 font-sans text-base sm:text-lg max-w-[540px] leading-relaxed mt-4">
-              Cali Wood Limited combines bespoke design, precision manufacturing
-              and expert installation to create durable kitchens, wardrobes and
-              custom furniture for residential, corporate and commercial spaces
-              across Ghana.
+            <p className="text-zinc-300 font-sans text-base sm:text-lg max-w-[640px] leading-relaxed mt-4">
+              Cali Wood Limited creates bespoke furniture solutions designed
+              around your space, style and needs. From kitchens and fitted
+              wardrobes to TV units, corporate furniture and custom interiors,
+              we combine thoughtful design, precision manufacturing and expert
+              installation to create furniture made to fit beautifully and
+              function effortlessly.
             </p>
 
             {/* Golden action button matches image perfectly with golden bg and white bold text */}

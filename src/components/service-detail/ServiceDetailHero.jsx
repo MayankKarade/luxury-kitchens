@@ -72,6 +72,11 @@ export default function ServiceDetailHero({ service }) {
                 <span className="block text-[11px] text-center font-bold leading-4 text-white">
                   {feature.title}
                 </span>
+                {feature.text && (
+                  <span className="block text-[11px] text-center font-bold leading-4 text-white">
+                    {feature.text}
+                  </span>
+                )}
               </div>
             ))}
           </div>
@@ -81,7 +86,7 @@ export default function ServiceDetailHero({ service }) {
               onClick={openModal}
               className="inline-flex h-12 items-center justify-center gap-5 rounded-md bg-brand-gold px-7 text-[11px] font-extrabold tracking-wide text-white transition-colors hover:bg-[#9A0101]"
             >
-              BOOK CONSULTATION
+              {service.primaryButtonText || "BOOK CONSULTATION"}
               <Calendar className="h-4 w-4" />
             </button>
             <Link

@@ -6,8 +6,7 @@ import {
   getServiceDetail,
   serviceSlugs,
 } from "@/components/service-detail/serviceDetailData";
-import { getExactServiceDesignProduct } from "@/lib/serviceDesignRoute";
-import { notFound } from "next/navigation";
+import { getServiceDesignProductForRoute } from "@/lib/serviceDesignRoute";
 
 export const dynamic = "force-dynamic";
 
@@ -26,15 +25,11 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { service_name, design_slug } = await params;
   const service = getServiceDetail(service_name);
-  const product = await getExactServiceDesignProduct(
+  const product = await getServiceDesignProductForRoute(
     service,
     service_name,
     design_slug,
   );
-
-  if (!product) {
-    notFound();
-  }
 
   return {
     title: `${product.title} - ${service.title} | Netsaarthi`,
@@ -45,15 +40,11 @@ export async function generateMetadata({ params }) {
 export default async function ServiceDesignDetailRoute({ params }) {
   const { service_name, design_slug } = await params;
   const service = getServiceDetail(service_name);
-  const product = await getExactServiceDesignProduct(
+  const product = await getServiceDesignProductForRoute(
     service,
     service_name,
     design_slug,
   );
-
-  if (!product) {
-    notFound();
-  }
 
   return (
     <ServiceDesignDetailPage

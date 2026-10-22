@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
@@ -18,38 +18,32 @@ export default function Portfolio() {
   const allProjects = [
     {
       id: 1,
-      title: "Modern Elegance Kitchen",
-      location: "California, USA",
+      title: "Kitchen Furniture",
       img: project1,
     },
     {
       id: 2,
-      title: "Luxury Minimalist Kitchen",
-      location: "Toronto, Canada",
+      title: "Fitted Furniture",
       img: project2,
     },
     {
       id: 3,
-      title: "Contemporary Interior",
-      location: "London, UK",
+      title: "Custom Interiors",
       img: project3,
     },
     {
       id: 4,
-      title: "Executive Office Interior",
-      location: "Accra, Ghana",
+      title: "Corporate Furniture",
       img: project4,
     },
     {
       id: 5,
-      title: "Regency Dining Hall",
-      location: "Paris, France",
+      title: "Storage Solutions",
       img: project3,
     },
     {
       id: 6,
-      title: "The Penthouse Suite",
-      location: "Tokyo, Japan",
+      title: "Custom TV Units",
       img: project2,
     },
   ];
@@ -164,19 +158,20 @@ export default function Portfolio() {
               variants={fadeInUp}
               className="font-serif text-3xl sm:text-4xl lg:text-[42px] leading-[1.15] text-white font-medium tracking-tight mb-6"
             >
-              Featured Projects
+              Furniture Made for Real Spaces
             </motion.h2>
             <motion.p
               variants={fadeInUp}
               className="text-[#9ca3af] font-sans text-sm sm:text-base leading-relaxed mb-10 max-w-[340px]"
             >
-              Explore selected projects that showcase bespoke design, precision
-              craftsmanship and thoughtful solutions created for modern homes
-              and workplaces.
+              Every project begins with understanding the space and what the
+              client needs. From kitchens and wardrobes to TV units and custom
+              furniture, each solution is designed and manufactured to fit its
+              environment.
             </motion.p>
             <motion.a
               variants={fadeInUp}
-              href="#contact"
+              href="/portfolio"
               className="px-3 w-full sm:w-fit sm:px-7 py-3.5 bg-brand-gold hover:bg-[#9A0101] text-white font-sans text-xs font-bold tracking-[0.16em] uppercase rounded-[2px] transition-all duration-350 shadow-md flex items-center justify-center gap-2 group-hover:scale-[1.02]"
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
@@ -222,7 +217,7 @@ export default function Portfolio() {
                     {visible[0].title}
                   </h3>
                   <span className="text-[13px] text-zinc-400">
-                    {visible[0].location}
+                    Designed and manufactured around the space
                   </span>
                 </div>
               </motion.div>
@@ -257,7 +252,7 @@ export default function Portfolio() {
                       {visible[1].title}
                     </h3>
                     <span className="text-xs text-zinc-400">
-                      {visible[1].location}
+                      Made to size
                     </span>
                   </div>
                 </motion.div>
@@ -290,7 +285,7 @@ export default function Portfolio() {
                       {visible[2].title}
                     </h3>
                     <span className="text-xs text-zinc-400">
-                      {visible[2].location}
+                      Professionally finished
                     </span>
                   </div>
                 </motion.div>
@@ -344,7 +339,7 @@ export default function Portfolio() {
                       {visible[3].title}
                     </h3>
                     <span className="text-[13px] text-zinc-400">
-                      {visible[3].location}
+                      Built for real use
                     </span>
                   </div>
                 </motion.div>
@@ -378,7 +373,7 @@ export default function Portfolio() {
                           {project.title}
                         </h3>
                         <span className="text-xs text-zinc-400">
-                          {project.location}
+                          Cali Wood furniture solution
                         </span>
                       </div>
                     </div>
