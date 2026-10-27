@@ -1,9 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, X } from "lucide-react";
 
 import { GalleryIcon } from "./GalleryIcons";
 
@@ -22,10 +21,31 @@ export default function ImageGallery({ galleryImages }) {
   const hasMoreImages = images.length > 6;
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const dialogRef = useRef(null);
+
+  useEffect(() => {
+    if (!lightboxOpen) return;
+
+    const dialog = dialogRef.current;
+    const previousOverflow = document.body.style.overflow;
+
+    dialog.showModal();
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      dialog.close();
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [lightboxOpen]);
 
   const openLightbox = (index = 0) => {
     setSelectedIndex(index);
     setLightboxOpen(true);
+  };
+
+  const changeImage = (direction) => {
+    if (images.length < 2) return;
+    setSelectedIndex((index) => (index + direction + images.length) % images.length);
   };
 
   return (
@@ -90,17 +110,28 @@ export default function ImageGallery({ galleryImages }) {
         </div>
       </div>
 
-      <AnimatePresence>
-        {lightboxOpen && images.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[80] flex flex-col items-center justify-center bg-black/95 p-4 text-white backdrop-blur-md sm:p-8"
+      <dialog
+        ref={dialogRef}
+        aria-labelledby="gallery-lightbox-title"
+        onKeyDown={(event) => {
+          if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+            event.preventDefault();
+            changeImage(event.key === "ArrowLeft" ? -1 : 1);
+          }
+        }}
+        onCancel={(event) => {
+          event.preventDefault();
+          setLightboxOpen(false);
+        }}
+        className="fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none border-0 bg-black/95 p-0 text-white backdrop:bg-black/95"
+      >
+        {images.length > 0 && (
+          <div
+            className="flex h-full flex-col items-center p-4 backdrop-blur-md sm:p-8"
           >
-            <div className="absolute inset-x-6 top-6 z-10 flex items-center justify-between gap-4 sm:inset-x-12">
+            <div className="flex w-full shrink-0 items-center justify-between gap-4">
               <div className="min-w-0">
-                <span className="block text-[10px] font-black uppercase tracking-[0.25em] text-brand-gold">
+                <span id="gallery-lightbox-title" className="block text-[10px] font-black uppercase tracking-[0.25em] text-brand-gold">
                   Images Gallery
                 </span>
                 <span className="mt-1 block truncate font-serif text-sm font-bold text-zinc-100 sm:text-base">
@@ -117,7 +148,7 @@ export default function ImageGallery({ galleryImages }) {
               </button>
             </div>
 
-            <div className="relative mt-8 aspect-[16/10] w-full max-w-5xl overflow-hidden rounded-xl border border-white/5 shadow-2xl sm:aspect-[16/9]">
+            <div className="relative mt-4 min-h-0 w-full max-w-5xl flex-1 overflow-hidden rounded-xl border border-white/5 shadow-2xl">
               <Image
                 src={images[selectedIndex].image}
                 alt={`Gallery expanded view ${selectedIndex + 1}`}
@@ -125,9 +156,29 @@ export default function ImageGallery({ galleryImages }) {
                 sizes="90vw"
                 className="object-contain"
               />
+              {images.length > 1 && (
+                <>
+                  <button
+                    type="button"
+                    onClick={() => changeImage(-1)}
+                    aria-label="Previous image"
+                    className="absolute left-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/60 text-white shadow-lg backdrop-blur-sm transition-colors hover:bg-brand-gold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:left-4 sm:h-12 sm:w-12"
+                  >
+                    <ArrowLeft aria-hidden="true" className="h-5 w-5" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => changeImage(1)}
+                    aria-label="Next image"
+                    className="absolute right-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/60 text-white shadow-lg backdrop-blur-sm transition-colors hover:bg-brand-gold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:right-4 sm:h-12 sm:w-12"
+                  >
+                    <ArrowRight aria-hidden="true" className="h-5 w-5" />
+                  </button>
+                </>
+              )}
             </div>
 
-            <div className="mt-6 flex max-w-full items-center gap-3 overflow-x-auto pb-1 no-scrollbar">
+            <div className="mt-4 flex max-w-full shrink-0 items-center gap-3 overflow-x-auto pb-1 no-scrollbar">
               {images.map((item, index) => (
                 <button
                   key={`gallery-lightbox-thumb-${item.id || item.image || index}`}
@@ -150,9 +201,9 @@ export default function ImageGallery({ galleryImages }) {
                 </button>
               ))}
             </div>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
+      </dialog>
     </section>
   );
 }
