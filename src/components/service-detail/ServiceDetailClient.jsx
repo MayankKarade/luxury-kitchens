@@ -2,6 +2,7 @@
 import { useEffect, useMemo, useState } from "react";
 import ServiceDetailCTA from "./ServiceDetailCTA";
 import ServiceDetailHero from "./ServiceDetailHero";
+import ServiceDesignPreview from "./ServiceDesignPreview";
 import ServiceMaterials from "./ServiceMaterials";
 import ServiceStylesSlider from "./ServiceStylesSlider";
 import ServiceWhyChoose from "./ServiceWhyChoose";
@@ -77,6 +78,7 @@ export default function ServiceDetailClient({ service, slug }) {
       <div className="w-full max-w-[1800px]">
         <ServiceDetailHero service={mergedService} />
         <ServiceWhyChoose service={mergedService} />
+        <ServiceDesignPreview service={mergedService} />
         <ServiceStylesSlider service={mergedService} />
         <ServiceMaterials service={mergedService} />
         <ServiceDetailCTA service={mergedService} />
