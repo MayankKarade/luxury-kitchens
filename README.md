@@ -42,7 +42,8 @@ Deploy both `package.json` and `package-lock.json`, without uploading local
 
 The production build uses Next.js's supported `--webpack` option to avoid the
 Turbopack PostCSS worker panic encountered on the hosting build image. Development
-continues to use `next dev`. Linux GNU and musl native packages in the lockfile are
+also uses Webpack to avoid the local route discovery failures seen with Turbopack.
+Linux GNU and musl native packages in the lockfile are
 optional platform dependencies; keep them so npm can install the appropriate
 binary on the host. Clear the hosting build cache before retrying the deployment.
 

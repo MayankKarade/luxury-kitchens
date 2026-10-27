@@ -45,32 +45,7 @@ export default function DesignInfoPanel({ product }) {
         </p>
       </div>
 
-      <div className="mt-3 border-y border-neutral-200 py-5">
-        <div className="space-y-2">
-          {product.quickFeatures.map((feature) => (
-            <div
-              key={feature.title}
-              className="grid grid-cols-[38px_1fr] gap-4"
-            >
-              <DetailIcon
-                name={feature.icon}
-                className="h-8 w-8 text-brand-gold"
-              />
-              <div>
-                <h3 className="text-sm font-bold text-neutral-900">
-                  {feature.title}
-                </h3>
-                <HtmlContent
-                  value={feature.text}
-                  className="mt-0 text-sm font-medium leading-5 text-zinc-600 [&_p]:mb-1 [&_p:last-child]:mb-0"
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="mt-3 grid gap-3 sm:grid-cols-2">
+      <div className="mt-5 grid gap-3 border-t border-neutral-200 pt-5 sm:grid-cols-2">
         <Link
           href="/consultation"
           className="inline-flex h-12 items-center justify-center gap-4 rounded-md bg-brand-gold px-5 text-[11px] font-bold uppercase tracking-wide text-white transition-colors hover:bg-[#9A0101]"

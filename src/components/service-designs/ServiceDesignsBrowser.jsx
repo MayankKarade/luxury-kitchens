@@ -114,8 +114,9 @@ function formatPrice(value) {
   return `$${Number(value || 0).toLocaleString("en-US")}`;
 }
 
-function buildFilterFormData(selectedFilters) {
+function buildFilterFormData(selectedFilters, serviceSlug) {
   const formData = new FormData();
+  formData.append("slug", serviceSlug);
 
   const appendValues = (key, values) => {
     if (values.length === 0) {
@@ -498,7 +499,7 @@ function ServiceDesignsBrowserContent({ service, collection }) {
     try {
       const response = await axios.post(
         API_ENDPOINTS.Product.productFilter,
-        buildFilterFormData(nextFilters),
+        buildFilterFormData(nextFilters, service.slug),
         {
           headers: {
             "Content-Type": "multipart/form-data",

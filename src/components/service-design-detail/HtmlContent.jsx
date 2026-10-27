@@ -1,3 +1,5 @@
+import styles from "./HtmlContent.module.css";
+
 function sanitizeHtml(value) {
   if (!value) return "";
 
@@ -9,10 +11,10 @@ function sanitizeHtml(value) {
     .replace(/javascript:/gi, "");
 }
 
-export function HtmlContent({ value, className = "" }) {
+export function HtmlContent({ value, className = "", variant = "default" }) {
   return (
     <div
-      className={className}
+      className={`${styles.content} ${variant === "checklist" ? styles.checklist : ""} ${className}`}
       dangerouslySetInnerHTML={{ __html: sanitizeHtml(value) }}
     />
   );

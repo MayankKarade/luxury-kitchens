@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import DesignImageGallery from "./DesignImageGallery";
 import DesignInfoPanel from "./DesignInfoPanel";
+import DesignHighlights from "./DesignHighlights";
 
 export default function DesignDetailHeader({ service, product }) {
   return (
@@ -33,10 +34,11 @@ export default function DesignDetailHeader({ service, product }) {
           <span className="text-brand-gold">{product.title}</span>
         </div>
 
-        <div className="grid gap-7 lg:grid-cols-[1.35fr_0.95fr]">
+        <div className="grid items-start gap-7 lg:grid-cols-[1.35fr_0.95fr]">
           <DesignImageGallery product={product} />
           <DesignInfoPanel product={product} />
         </div>
+        <DesignHighlights features={product.quickFeatures} />
       </div>
     </section>
   );
