@@ -2,34 +2,28 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-
-import kitchenAfter from "../../assets/images/luxury_kitchen_hero_1780070314375.png";
-import livingAfter from "../../assets/images/interior_living_room_1780070361503.png";
-import bedroomAfter from "../../assets/images/luxury_wardrobe_card_1780070338933.png";
-import officeAfter from "../../assets/images/executive_office_card_1780070403397.png";
 
 const transformations = [
   {
-    title: "Kitchen Transformation",
-    location: "[Project Location]",
-    after: kitchenAfter,
+    title: "Kitchen with Island",
+    before: "/before-after/before-0.png",
+    after: "/before-after/portfolio-0.png",
   },
   {
-    title: "Wardrobe Transformation",
-    location: "[Project Location]",
-    after: bedroomAfter,
+    title: "Arched Kitchen",
+    before: "/before-after/before-1.png",
+    after: "/before-after/protfolio-1.png",
   },
   {
-    title: "TV Unit Transformation",
-    location: "[Project Location]",
-    after: livingAfter,
+    title: "Dark Finish Kitchen",
+    before: "/before-after/before-2.png",
+    after: "/before-after/portfolio-2.png",
   },
   {
-    title: "Workspace Transformation",
-    location: "[Project Location]",
-    after: officeAfter,
+    title: "Skylight Kitchen",
+    before: "/before-after/before-3.png",
+    after: "/before-after/portfoilo-3.png",
   },
 ];
 
@@ -44,7 +38,7 @@ function TransformationCard({ project, index }) {
       transition={{ duration: 0.4, delay: index * 0.06 }}
       className="overflow-hidden rounded-lg border border-neutral-200 bg-[#010129] shadow-sm"
     >
-      <div className="relative aspect-[16/8.2] overflow-hidden">
+      <div className="relative aspect-[4/3] overflow-hidden">
         <Image
           src={project.after}
           alt={`${project.title} after`}
@@ -54,28 +48,23 @@ function TransformationCard({ project, index }) {
         />
 
         <div
-          className="absolute inset-y-0 left-0 overflow-hidden"
-          style={{ width: `${position}%` }}
+          className="absolute inset-0"
+          style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
         >
-          <div
-            className="relative h-full"
-            style={{ width: `${10000 / position}%` }}
-          >
             <Image
-              src={project.after}
+              src={project.before}
               alt={`${project.title} before`}
               fill
               sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-              className="object-cover grayscale brightness-[.48] contrast-75 saturate-50"
+              className="object-cover"
             />
-          </div>
         </div>
 
         <div
           className="pointer-events-none absolute inset-y-0 z-10 w-px bg-white"
           style={{ left: `${position}%` }}
         >
-          <div className="absolute left-1/2 top-1/2 flex h-7 w-7 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-black bg-white text-white shadow-lg">
+          <div className="absolute left-1/2 top-1/2 flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white bg-brand-dark text-white shadow-lg">
             <svg
               viewBox="0 0 24 24"
               aria-hidden="true"
@@ -96,25 +85,24 @@ function TransformationCard({ project, index }) {
 
         <input
           type="range"
-          min="8"
-          max="92"
+          min="0"
+          max="100"
           value={position}
           onChange={(event) => setPosition(Number(event.target.value))}
           aria-label={`Compare before and after for ${project.title}`}
           className="absolute inset-0 z-20 h-full w-full cursor-ew-resize opacity-0"
         />
 
-        <span className="pointer-events-none absolute left-3 bottom-3 z-10 text-[10px] font-bold tracking-wide text-white drop-shadow">
+        <span className="pointer-events-none absolute left-3 bottom-3 z-10 rounded bg-black/60 px-2 py-1 text-[10px] font-bold tracking-wide text-white">
           BEFORE
         </span>
-        <span className="pointer-events-none absolute bottom-3 right-3 z-10 text-[10px] font-bold tracking-wide text-white drop-shadow">
+        <span className="pointer-events-none absolute bottom-3 right-3 z-10 rounded bg-black/60 px-2 py-1 text-[10px] font-bold tracking-wide text-white">
           AFTER
         </span>
       </div>
 
       <div className="px-4 py-3 text-white">
         <h3 className="font-sans text-[13px] font-bold">{project.title}</h3>
-        <p className="mt-1 text-[11px] text-zinc-300">{project.location}</p>
       </div>
     </motion.article>
   );
@@ -142,10 +130,6 @@ export default function BeforeAfterTransformations() {
               a space.
             </p>
           </div>
-          <button className="group flex items-center gap-4 rounded-md border border-brand-gold px-5 py-3 text-[10px] font-bold tracking-widest text-brand-gold transition-colors hover:bg-brand-gold hover:text-white">
-            VIEW ALL TRANSFORMATIONS
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </button>
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
