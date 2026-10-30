@@ -4,35 +4,7 @@ import React from "react";
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { useConsultation } from "@/context/ConsultationContext";
-import Image from "next/image";
-import worldMap from "../../assets/images/worldMap.png";
-
-const locations = [
-  { name: "Canada", top: "24%", left: "30%" },
-  { name: "USA", top: "45%", left: "27%" },
-  { name: "UK", top: "33%", left: "54%" },
-  { name: "Europe", top: "42%", left: "68%" },
-  { name: "Ghana", top: "66%", left: "56%" },
-];
-
-const MapPinIcon = () => (
-  <span className="relative flex h-5 w-5 shrink-0 items-center justify-center sm:h-6 sm:w-6">
-    <span className="absolute inline-flex h-6 w-6 rounded-full bg-brand-gold/25 animate-ping" />
-    <svg
-      viewBox="0 0 24 24"
-      className="relative z-10 h-full w-full drop-shadow-[0_4px_10px_rgba(0,0,0,0.24)]"
-      fill="currentColor"
-      aria-hidden="true"
-    >
-      <path
-        d="M12 2.25c-3.78 0-6.85 3.07-6.85 6.85 0 5.14 6.85 12.65 6.85 12.65s6.85-7.51 6.85-12.65c0-3.78-3.07-6.85-6.85-6.85Z"
-        fill="#9A0101"
-      />
-      <circle cx="12" cy="9.1" r="3.1" fill="#fff8eb" />
-      <circle cx="12" cy="9.1" r="1.45" fill="#9A0101" />
-    </svg>
-  </span>
-);
+import ServiceLocationsMap from "../locations/ServiceLocationsMap";
 export default function Presence() {
   const { openModal } = useConsultation();
 
@@ -76,43 +48,7 @@ export default function Presence() {
             className="w-full pb-12 pt-2 lg:py-12"
           >
             <div className="relative mx-auto w-full max-w-[820px] overflow-visible">
-              <div className="relative aspect-[1693/929] w-full overflow-visible sm:min-h-[300px] lg:min-h-[340px]">
-                <Image
-                  src={worldMap}
-                  alt="Map-style graphic showing Cali Wood space categories"
-                  fill
-                  sizes="(min-width: 1024px) 58vw, 100vw"
-                  className="object-contain object-center opacity-70"
-                />
-
-                <div className="pointer-events-none absolute left-[25%] top-[43%] hidden h-[24%] w-[38%] rounded-[50%] border-t border-dashed border-brand-gold/55 lg:block" />
-                <div className="pointer-events-none absolute left-[57%] top-[41%] hidden h-[21%] w-[24%] rounded-[50%] border-t border-dashed border-brand-gold/45 lg:block" />
-
-                {locations.map((location) => (
-                  <div
-                    key={location.name}
-                    className="absolute z-10 flex -translate-x-1/2 -translate-y-full items-center gap-1.5 sm:gap-2"
-                    style={{ left: location.left, top: location.top }}
-                  >
-                    <MapPinIcon />
-                    <span className="hidden rounded-md bg-white/95 px-2.5 py-1 text-[11px] font-bold text-neutral-800 shadow-[0_8px_22px_rgba(0,0,0,0.14)] ring-1 ring-black/5 sm:inline-flex lg:text-xs">
-                      {location.name}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-4 grid grid-cols-2 gap-2 sm:hidden">
-                {locations.map((location) => (
-                  <div
-                    key={location.name}
-                    className="flex items-center gap-2 rounded-md border border-brand-gold/20 bg-white px-3 py-2 text-xs font-bold text-neutral-800 shadow-sm"
-                  >
-                    <span className="h-2 w-2 rounded-full bg-brand-gold" />
-                    {location.name}
-                  </div>
-                ))}
-              </div>
+              <ServiceLocationsMap />
             </div>
           </motion.div>
         </div>

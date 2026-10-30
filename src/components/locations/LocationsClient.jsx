@@ -22,7 +22,7 @@ import {
 import { useConsultation } from "@/context/ConsultationContext";
 import heroImg from "../../assets/Home/caliwoodLocationHero.png";
 import supportImg from "../../assets/images/interior_living_room_1780070361503.png";
-import worldMap from "../../assets/images/worldMap.png";
+import ServiceLocationsMap from "./ServiceLocationsMap";
 
 const locations = [
   {
@@ -66,11 +66,6 @@ const reasons = [
   "On-time delivery and project execution",
   "Premium materials and modern designs",
   "Dedicated local project support",
-];
-
-const mapPins = [
-  { label: "USA", flag: "🇺🇸", left: "24%", top: "55%" },
-  { label: "Ghana", flag: "🇬🇭", left: "62%", top: "72%" },
 ];
 
 const serviceHighlights = [
@@ -163,7 +158,7 @@ function LocationsHero() {
             variants={fadeInUp}
             className="bg-brand-gold text-white rounded-full px-3 py-0.5 font-sans text-xs font-bold tracking-[0.25em] uppercase block w-fit"
           >
-            OUR GLOBAL PRESENCE
+            SERVING GHANA &amp; THE USA
           </motion.span>
           <motion.h1
             variants={fadeInUp}
@@ -464,8 +459,8 @@ function GlobalCommitment() {
             WHY CHOOSE NETSAARTHI
           </span>
           <h2 className="mt-3 font-serif text-3xl font-medium leading-[1.16] sm:text-[36px]">
-            A Global Brand,
-            <br />A Local Commitment
+            Serving Ghana &amp; the USA,
+            <br />With Local Care
           </h2>
 
           <ul className="mt-6 flex flex-col gap-4">
@@ -496,26 +491,9 @@ function GlobalCommitment() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="relative min-h-[330px]"
+          className="relative w-full"
         >
-          <Image
-            src={worldMap}
-            alt="World map showing Netsaarthi service locations"
-            fill
-            sizes="(min-width: 1024px) 58vw, 100vw"
-            className="object-contain opacity-70"
-          />
-          <div className="pointer-events-none absolute left-[24%] top-[47%] hidden h-28 w-[42%] rounded-[50%] border-t border-dashed border-brand-gold/60 lg:block" />
-          {mapPins.map((pin) => (
-            <div
-              key={pin.label}
-              className="absolute flex items-center gap-2 rounded-md bg-white px-3 py-2 text-xs font-bold text-neutral-900 shadow-xl"
-              style={{ left: pin.left, top: pin.top }}
-            >
-              <span className="text-xl leading-none">{pin.flag}</span>
-              {pin.label}
-            </div>
-          ))}
+          <ServiceLocationsMap />
         </motion.div>
       </div>
     </section>

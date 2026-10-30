@@ -28,7 +28,7 @@ export default function ConsultationOptions() {
           {connectOptions.map((option) => (
             <article
               key={option.title}
-              className="rounded-lg border border-neutral-200 bg-white px-6 py-8 text-center shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
+              className="rounded-lg border border-neutral-200 bg-white px-6 py-6 text-center shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
               <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-brand-gold/14 text-brand-gold">
                 <ConsultationIcon name={option.icon} className="h-12 w-12" />
@@ -36,14 +36,14 @@ export default function ConsultationOptions() {
               <h3 className="mt-5 font-serif text-xl font-semibold text-neutral-900">
                 {option.title}
               </h3>
-              <p className="mx-auto mt-4 min-h-[48px] max-w-[210px] text-sm font-medium leading-6 text-zinc-600">
+              <p className="mx-auto mt-2 min-h-[48px] max-w-[210px] text-[13px] font-medium leading-5 text-zinc-600">
                 {option.text}
               </p>
               <a
                 href={option.href}
                 target={option.href.startsWith("http") ? "_blank" : undefined}
                 rel={option.href.startsWith("http") ? "noreferrer" : undefined}
-                className="group mt-6 inline-flex h-12 w-full items-center justify-center gap-5 rounded-md bg-brand-gold text-[11px] font-extrabold tracking-wide text-white transition-colors hover:bg-[#9A0101]"
+                className="group mt-4 inline-flex h-12 w-full items-center justify-center gap-5 rounded-md bg-brand-gold text-[11px] font-extrabold tracking-wide text-white transition-colors hover:bg-[#9A0101]"
               >
                 {option.action}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

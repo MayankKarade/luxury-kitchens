@@ -1,11 +1,12 @@
+import { getPageMetadata } from "@/lib/seo";
+import StructuredData from "@/components/seo/StructuredData";
 import ConsultationClient from "@/components/consultation/ConsultationClient";
 
-export const metadata = {
-  title: "Book Consultation - Netsaarthi | Luxury Kitchens & Interiors",
-  description:
-    "Book a consultation with Netsaarthi experts for luxury kitchens, interiors, wardrobes and renovation projects.",
-};
+export const metadata = getPageMetadata('/consultation');
 
 export default function ConsultationPage() {
-  return <ConsultationClient />;
+  return <>
+    <StructuredData metadata={metadata} />
+    <ConsultationClient />
+  </>;
 }

@@ -1,11 +1,12 @@
+import { getPageMetadata } from "@/lib/seo";
+import StructuredData from "@/components/seo/StructuredData";
 import TestimonialsClient from "@/components/testimonials/TestimonialsClient";
 
-export const metadata = {
-  title: "Testimonials - Netsaarthi | Luxury Kitchens & Interiors",
-  description:
-    "Read client reviews, video testimonials and success stories from Netsaarthi luxury kitchen and interior projects.",
-};
+export const metadata = getPageMetadata('/testimonials');
 
 export default function TestimonialsPage() {
-  return <TestimonialsClient />;
+  return <>
+    <StructuredData metadata={metadata} />
+    <TestimonialsClient />
+  </>;
 }

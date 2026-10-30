@@ -45,27 +45,50 @@ export default function ProjectSpotlight({
   spotlightIdx,
   setSpotlightIdx,
 }) {
-  const [portfolio, setPortfolio] = useState(null);
+  const [detailState, setDetailState] = useState(null);
+  const currentDetail =
+    detailState?.slug === selectedPortfolioSlug &&
+    detailState?.request === selectedPortfolioRequest
+      ? detailState
+      : null;
+  const portfolio = currentDetail?.portfolio || null;
+  const isLoading = Boolean(selectedPortfolioSlug) && !currentDetail;
 
   useEffect(() => {
     if (!selectedPortfolioSlug) {
       return;
     }
 
+    const controller = new AbortController();
     const portfolioDetail = async () => {
       try {
         const response = await axios.get(`${API_ENDPOINTS.Portfolio.details}`, {
           params: {
             slug: selectedPortfolioSlug,
           },
+          signal: controller.signal,
         });
-        setPortfolio(response.data.data.portfolio[0]);
+        if (controller.signal.aborted) return;
+        const projects = response.data?.data?.portfolio;
+        setDetailState({
+          slug: selectedPortfolioSlug,
+          request: selectedPortfolioRequest,
+          portfolio: response.data?.status === 1 && Array.isArray(projects)
+            ? projects[0] || null
+            : null,
+        });
         setSpotlightIdx(0);
-      } catch (error) {
-        console.log(error.response);
+      } catch {
+        if (controller.signal.aborted) return;
+        setDetailState({
+          slug: selectedPortfolioSlug,
+          request: selectedPortfolioRequest,
+          portfolio: null,
+        });
       }
     };
     portfolioDetail();
+    return () => controller.abort();
   }, [selectedPortfolioSlug, selectedPortfolioRequest, setSpotlightIdx]);
 
   const activeSpotlightImages = useMemo(() => {
@@ -85,7 +108,7 @@ export default function ProjectSpotlight({
 
   const activeSpotlightIndex =
     spotlightIdx < activeSpotlightImages.length ? spotlightIdx : 0;
-  const hasSelectedPortfolio = Boolean(portfolio);
+  const hasSelectedPortfolio = activeSpotlightImages.length > 0;
 
   useEffect(() => {
     setLightboxProject({
@@ -96,26 +119,25 @@ export default function ProjectSpotlight({
   }, [activeSpotlightImages, portfolio, setLightboxProject]);
 
   const projectDetails = [
-    { Icon: MapPin, label: "Location", value: portfolio?.location || "[Actual Project Location]" },
+    { Icon: MapPin, label: "Location", value: portfolio?.location },
     {
-      Icon: Ruler,
+      Icon: Layers3,
       label: "Project Type",
-      value:
-        portfolio?.category_name ||
-        "[Kitchen / Fitted Wardrobe / TV Unit / Corporate Furniture / Custom Interior]",
+      value: portfolio?.category_name,
     },
+    { Icon: Ruler, label: "Area", value: portfolio?.area },
     {
       Icon: Clock3,
-      label: "Key Features",
-      value: portfolio?.features || "[Actual Project Features]",
+      label: "Duration",
+      value: portfolio?.duration,
     },
-    { Icon: Layers3, label: "Scope", value: "Design • Manufacture • Installation" },
-  ];
+    { Icon: Layers3, label: "Scope", value: portfolio?.scope },
+  ].filter(({ value }) => value !== null && value !== undefined && String(value).trim() !== "");
 
   return (
     <section
       id="project-spotlight"
-      className="relative overflow-hidden bg-[#010129] px-4 py-12 text-white sm:px-10 sm:py-16 md:px-16"
+      className="relative scroll-mt-24 overflow-hidden bg-[#010129] px-4 py-12 text-white sm:scroll-mt-28 sm:px-10 sm:py-16 md:px-16"
     >
       <div
         className="pointer-events-none absolute inset-0 opacity-35"
@@ -137,19 +159,17 @@ export default function ProjectSpotlight({
             PROJECT SPOTLIGHT
           </span>
           <h2 className="font-serif text-3xl font-medium tracking-tight sm:text-[35px]">
-            Featured Project
+            {portfolio?.title || (isLoading ? "Loading project..." : selectedPortfolioSlug ? "Project details unavailable" : "Select a project")}
           </h2>
           <div className="mb-4 mt-3 h-0.5 w-12 bg-brand-gold" />
 
-          <div className="mb-5 max-w-md text-[13px] leading-6 text-zinc-300 sm:text-sm">
-            <p>
-              A closer look at one of Cali Wood&apos;s completed projects,
-              highlighting the design approach, functionality, materials and
-              craftsmanship behind the finished space.
+          {portfolio?.description && (
+            <p className="mb-5 max-w-md whitespace-pre-line text-[13px] leading-6 text-zinc-300 sm:text-sm">
+              {portfolio.description}
             </p>
-          </div>
+          )}
 
-          <div className="mb-6 max-w-lg border-y border-white/5">
+          {projectDetails.length > 0 && <div className="mb-6 max-w-lg border-y border-white/5">
             {projectDetails.map(({ Icon, label, value }) => (
               <div
                 key={label}
@@ -162,7 +182,7 @@ export default function ProjectSpotlight({
                 <span className="text-sm text-zinc-300">{value}</span>
               </div>
             ))}
-          </div>
+          </div>}
 
           <button
             onClick={() => hasSelectedPortfolio && setLightboxOpen(true)}
@@ -173,7 +193,7 @@ export default function ProjectSpotlight({
                 : "cursor-not-allowed border border-white/10 bg-white/10 text-zinc-300 shadow-none"
             }`}
           >
-            {hasSelectedPortfolio ? "VIEW PROJECT DETAILS" : "SELECT PROJECT"}
+            {hasSelectedPortfolio ? "VIEW PROJECT DETAILS" : isLoading ? "LOADING PROJECT..." : "SELECT PROJECT"}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </button>
         </motion.div>
@@ -310,11 +330,16 @@ export default function ProjectSpotlight({
                   <ArrowRight className="h-5 w-5" />
                 </span>
                 <h4 className="font-serif text-2xl font-semibold text-white">
-                  Choose a project to preview
+                  {isLoading ? "Loading project..." : portfolio ? "No project photos available" : selectedPortfolioSlug ? "Project details unavailable" : "Choose a project to preview"}
                 </h4>
                 <p className="mt-3 text-sm leading-6 text-zinc-300">
-                  Featured Projects me project card ke arrow par click karein.
-                  Selected project ki images aur details yaha load hongi.
+                  {isLoading
+                    ? "Fetching the selected project's details and photos."
+                    : selectedPortfolioSlug && !portfolio
+                      ? "Unable to load this project's details. Select the project again to retry."
+                      : portfolio
+                        ? "Photos have not been added for this project."
+                        : "Select a card in Featured Projects to view its details and photos."}
                 </p>
               </div>
             </div>

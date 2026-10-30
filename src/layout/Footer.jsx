@@ -22,14 +22,14 @@ const quickLinks = [
 ];
 
 const serviceLinks = [
-  { name: "Kitchens", href: "/our-services/designs/modular-kitchens" },
-  { name: "Wardrobes", href: "/our-services/designs/luxury-wardrobes" },
-  { name: "TV Units", href: "/our-services/designs/custom-furniture" },
+  { name: "Kitchens", href: "/our-services/kitchens" },
+  { name: "Wardrobes", href: "/our-services/fitted-wardrobes" },
+  { name: "TV Units", href: "/our-services/tv-units" },
   {
     name: "Corporate Furniture",
-    href: "/our-services/designs/commercial-interiors",
+    href: "/our-services/corporate-furniture",
   },
-  { name: "Custom Interiors", href: "/our-services/designs/interior-design" },
+  { name: "Bathroom Vanities", href: "/our-services/bathroom-vanities" },
 ];
 
 const contactLinks = [

@@ -1,10 +1,8 @@
+import { getPageMetadata } from "@/lib/seo";
+import StructuredData from "@/components/seo/StructuredData";
 import LegalPolicyClient from "@/components/legal/LegalPolicyClient";
 
-export const metadata = {
-  title: "Privacy Policy | Netsaarthi",
-  description:
-    "Read how Netsaarthi handles consultation enquiries, contact details, and project information.",
-};
+export const metadata = getPageMetadata('/privacy-policy');
 
 const fallbackPolicy = {
   eyebrow: "Privacy Policy",
@@ -13,5 +11,8 @@ const fallbackPolicy = {
 };
 
 export default function PrivacyPolicyPage() {
-  return <LegalPolicyClient type="privacy" fallbackPolicy={fallbackPolicy} />;
+  return <>
+    <StructuredData metadata={metadata} />
+    <LegalPolicyClient type="privacy" fallbackPolicy={fallbackPolicy} />
+  </>;
 }

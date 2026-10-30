@@ -1,5 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [{
+      source: "/:path*",
+      has: [{ type: "host", value: "www.caliwoodgh.com" }],
+      destination: "https://caliwoodgh.com/:path*",
+      permanent: true,
+    }];
+  },
   images: {
     remotePatterns: [
       {

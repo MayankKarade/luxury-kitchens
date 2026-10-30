@@ -55,36 +55,15 @@ export const contactMethods = [
 export const officeLocations = [
   {
     name: "USA (Head Office)",
-    city: "New York, USA",
-    address: "123 Luxury Avenue, Suite 1000 New York, NY 10001, USA",
+    city: "Alexandria, USA",
+    address: "218 N. Lee Street, Suite # 200 Alexandria, VA 22314-2631 United States",
     image:
-      "https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    name: "Canada",
-    city: "Toronto, Canada",
-    address: "456 Design Street, Suite 200 Toronto, ON M5V 2T6, Canada",
-    image:
-      "https://images.unsplash.com/photo-1517935706615-2717063c2225?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    name: "UK",
-    city: "London, UK",
-    address: "789 Interior Way, Office 5 London, SW1A 1AA, UK",
-    image:
-      "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    name: "Europe",
-    city: "Frankfurt, Germany",
-    address: "Kaiserstrabe 12, 60311 Frankfurt am Main, Germany",
-    image:
-      "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=900&q=80",
   },
   {
     name: "Ghana",
     city: "Accra, Ghana",
-    address: "23 Independence Avenue Accra, Greater Accra, Ghana",
+    address: "Off No. TMA 0411, Adjacent Adenta Police Station, Adenta - Accra, Ghana",
     image:
       "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?auto=format&fit=crop&w=900&q=80",
   },

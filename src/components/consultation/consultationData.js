@@ -53,7 +53,7 @@ export const connectOptions = [
   },
 ];
 
-export const countries = ["USA", "Canada", "UK", "Europe", "Ghana"];
+export const countries = ["USA", "Ghana"];
 
 export const serviceOptions = [
   "Modular Kitchen",

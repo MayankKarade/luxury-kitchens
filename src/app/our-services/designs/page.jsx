@@ -1,26 +1,13 @@
-import ServiceDesignsPage from "@/components/service-designs/ServiceDesignsPage";
-import {
-  getServiceDetail,
-  serviceSlugs,
-} from "@/components/service-detail/serviceDetailData";
+import { getServiceForRoute } from "@/lib/serviceRoute";
+import { permanentRedirect } from "next/navigation";
 
-const featuredServiceSlug = "luxury-wardrobes";
+const featuredServiceSlug = "fitted-wardrobes";
 
-export async function generateMetadata() {
-  const service = getServiceDetail(featuredServiceSlug);
-
-  return {
-    title: `Designs - Netsaarthi | Luxury Kitchens & Interiors`,
-    description: `Explore ${service.title.toLowerCase()} design collections, styles, and premium options by Netsaarthi.`,
-  };
-}
+export const dynamic = "force-dynamic";
 
 export default async function ServiceDesignsRoute({ searchParams }) {
   const { service: requestedService } = await searchParams;
-  const serviceSlug = serviceSlugs.includes(requestedService)
-    ? requestedService
-    : featuredServiceSlug;
-  const service = getServiceDetail(serviceSlug);
+  const service = await getServiceForRoute(requestedService ?? featuredServiceSlug);
 
-  return <ServiceDesignsPage service={service} />;
+  permanentRedirect(`/our-services/${service.slug}/designs`);
 }

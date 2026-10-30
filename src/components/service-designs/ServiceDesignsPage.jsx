@@ -88,18 +88,19 @@ function getApiCollection(staticCollection, apiData) {
   };
 }
 
-export default function ServiceDesignsPage({ service }) {
+export default function ServiceDesignsPage({ service, initialData = null }) {
   const staticCollection = useMemo(
     () => getServiceDesignCollection(service),
     [service],
   );
-  const [apiState, setApiState] = useState({
-    collection: null,
-    slug: null,
-    status: "loading",
-  });
+  const [apiState, setApiState] = useState(() => initialData ? {
+    collection: getApiCollection(staticCollection, initialData),
+    slug: service.slug,
+    status: "success",
+  } : { collection: null, slug: null, status: "loading" });
 
   useEffect(() => {
+    if (initialData) return;
     const fetchServiceProducts = async () => {
       try {
         const response = await axios.get(`${API_ENDPOINTS.Product.product}`, {
@@ -132,7 +133,7 @@ export default function ServiceDesignsPage({ service }) {
       }
     };
     fetchServiceProducts();
-  }, [service.slug, staticCollection]);
+  }, [service.slug, staticCollection, initialData]);
 
   if (apiState.slug !== service.slug || apiState.status === "loading") {
     return (

@@ -1,10 +1,8 @@
+import { getPageMetadata } from "@/lib/seo";
+import StructuredData from "@/components/seo/StructuredData";
 import LegalPolicyClient from "@/components/legal/LegalPolicyClient";
 
-export const metadata = {
-  title: "Terms & Conditions | Netsaarthi",
-  description:
-    "Review the website and consultation terms for Netsaarthi luxury kitchens and interiors.",
-};
+export const metadata = getPageMetadata('/terms-and-conditions');
 
 const fallbackPolicy = {
   eyebrow: "Terms & Conditions",
@@ -13,5 +11,8 @@ const fallbackPolicy = {
 };
 
 export default function TermsAndConditionsPage() {
-  return <LegalPolicyClient type="terms" fallbackPolicy={fallbackPolicy} />;
+  return <>
+    <StructuredData metadata={metadata} />
+    <LegalPolicyClient type="terms" fallbackPolicy={fallbackPolicy} />
+  </>;
 }

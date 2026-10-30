@@ -1,10 +1,8 @@
+import { getPageMetadata } from "@/lib/seo";
+import StructuredData from "@/components/seo/StructuredData";
 import LegalPolicyClient from "@/components/legal/LegalPolicyClient";
 
-export const metadata = {
-  title: "Return & Refund Policy | Netsaarthi",
-  description:
-    "Review the return and refund policy for Netsaarthi luxury kitchens and interiors.",
-};
+export const metadata = getPageMetadata('/return-and-refund');
 
 const fallbackPolicy = {
   eyebrow: "Return & Refund",
@@ -13,5 +11,8 @@ const fallbackPolicy = {
 };
 
 export default function ReturnAndRefundPage() {
-  return <LegalPolicyClient type="return" fallbackPolicy={fallbackPolicy} />;
+  return <>
+    <StructuredData metadata={metadata} />
+    <LegalPolicyClient type="return" fallbackPolicy={fallbackPolicy} />
+  </>;
 }

@@ -1,7 +1,4 @@
-import {
-  findServiceDesignProduct,
-  getServiceDesignProduct,
-} from "@/components/service-designs/serviceDesignData";
+import { getServiceDesignProduct } from "@/components/service-designs/serviceDesignData";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 const PRODUCT_LIST_ENDPOINTS = ["product"];
@@ -66,7 +63,7 @@ function applyApiProduct(product, apiProduct, requestedSlug) {
     slug: apiProduct.slug || String(apiProduct.id || requestedSlug),
     title: apiProduct.heading || product.title,
     text: apiProduct.description || product.text,
-    detailText: apiProduct.description || product.detailText,
+    detailText: apiProduct.description || "",
     price: apiProduct.price || product.price,
     rating: apiProduct.rating || product.rating,
     image: apiProduct.image || product.image,
@@ -75,6 +72,13 @@ function applyApiProduct(product, apiProduct, requestedSlug) {
 }
 
 export async function getExactServiceDesignProduct(service, serviceSlug, designSlug) {
+  const apiListProduct = await findApiProduct(
+    PRODUCT_LIST_ENDPOINTS,
+    serviceSlug,
+    designSlug,
+  );
+  if (!apiListProduct) return null;
+
   const apiDetailProduct = await findApiProduct(
     PRODUCT_DETAIL_ENDPOINTS,
     designSlug,
@@ -89,12 +93,6 @@ export async function getExactServiceDesignProduct(service, serviceSlug, designS
     );
   }
 
-  const apiListProduct = await findApiProduct(
-    PRODUCT_LIST_ENDPOINTS,
-    serviceSlug,
-    designSlug,
-  );
-
   if (apiListProduct) {
     return applyApiProduct(
       getServiceDesignProduct(service, designSlug),
@@ -103,9 +101,7 @@ export async function getExactServiceDesignProduct(service, serviceSlug, designS
     );
   }
 
-  return findServiceDesignProduct(service, designSlug)
-    ? getServiceDesignProduct(service, designSlug)
-    : null;
+  return null;
 }
 
 export async function getServiceDesignProductForRoute(
