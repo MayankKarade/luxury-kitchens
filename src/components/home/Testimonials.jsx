@@ -34,7 +34,7 @@ export default function Testimonials() {
       role: "Operations Manager",
       location: "Operations Manager, Accra",
       avatar:
-        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=120&h=120",
+        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=120&h=120",
     },
     {
       text: "The design team understood exactly what we wanted and improved our original concept. The completed walk-in closet is elegant, practical and beautifully organized.",
@@ -42,7 +42,7 @@ export default function Testimonials() {
       role: "Property Owner",
       location: "Homeowner, Tema",
       avatar:
-        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120&h=120",
+        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=120&h=120",
     },
     {
       text: "Cali Wood created a reception desk and storage system that completely improved our workspace. The craftsmanship and attention to detail were impressive.",
@@ -58,7 +58,7 @@ export default function Testimonials() {
       role: "Homeowner",
       location: "Homeowner, Cantonments",
       avatar:
-        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120&h=120",
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120&h=120",
     },
     {
       text: "From site measurement to final installation, the project was managed professionally. The furniture was delivered to specification and suited our commercial space perfectly.",
@@ -66,7 +66,7 @@ export default function Testimonials() {
       role: "Business Owner",
       location: "Project Manager, Accra",
       avatar:
-        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120&h=120",
+        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=120&h=120",
     },
   ];
 
@@ -173,6 +173,7 @@ export default function Testimonials() {
                             <Image
                               src={reviews[activeTestimonial].avatar}
                               alt={reviews[activeTestimonial].author}
+                              sizes="48px"
                               fill
                               className="object-cover"
                               referrerPolicy="no-referrer"
@@ -291,7 +292,7 @@ export default function Testimonials() {
               </div>
 
               <p className="text-[14.5px] sm:text-[18px] text-white/85 font-sans leading-relaxed">
-                Let's bring your dream space to life. Schedule a free
+                Let&apos;s bring your dream space to life. Schedule a free
                 consultation with our experts today.
               </p>
             </div>

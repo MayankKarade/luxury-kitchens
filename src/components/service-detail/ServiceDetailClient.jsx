@@ -26,13 +26,13 @@ function getMergedService(baseService, apiDetail, apiCategories) {
   return {
     ...baseService,
     title,
-    label: title.toUpperCase(),
+    label: baseService.slug === "custom-interiors" ? baseService.label : title.toUpperCase(),
     headline: title,
     description: apiDetail.description || baseService.description,
     image: apiDetail.image || baseService.image,
     heroImage: apiDetail.image || baseService.heroImage,
     showcaseImage: apiDetail.image || baseService.showcaseImage,
-    whyTitle: `Why Choose Our ${title}?`,
+    whyTitle: baseService.slug === "custom-interiors" ? baseService.whyTitle : `Why Choose Our ${title}?`,
     stylesTitle: getServiceStylesTitle(title),
     styles: apiStyles.length > 0 ? apiStyles : baseService.styles,
   };

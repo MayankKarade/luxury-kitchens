@@ -369,6 +369,59 @@ const bathroomVanityContent = {
   ],
 };
 
+const customInteriorsContent = {
+  title: "Custom Furniture & Interiors",
+  label: "CUSTOM FURNITURE",
+  headline: "Custom Furniture & Interiors",
+  description: "Made-to-size furniture and interior solutions designed around your space, functional requirements and preferred style for residential, corporate and commercial environments.",
+  primaryButtonText: "BOOK A SITE VISIT",
+  designButtonText: "VIEW CUSTOM DESIGNS",
+  featureCards: [
+    { icon: "user", title: "Made to Size", text: "Built around your available space." },
+    { icon: "cube", title: "Bespoke Design", text: "Planned around your requirements." },
+    { icon: "grid", title: "Custom Solutions", text: "Designed for different spaces and uses." },
+    { icon: "layout", title: "Expert Installation", text: "Professionally fitted and finished." },
+  ],
+  trustCards: [
+    { icon: "shield", title: "Designed for Your Space", text: "Custom furniture planned around the dimensions, layout and use of your space." },
+    { icon: "quality", title: "Made to Size", text: "Furniture manufactured according to your project measurements and requirements." },
+    { icon: "clock", title: "Bespoke Solutions", text: "Designs can be adapted around your style, space and functional needs." },
+    { icon: "service", title: "Complete Service", text: "From consultation and measurement to manufacturing and professional installation." },
+  ],
+  whyTitle: "Why Choose Our Custom Furniture?",
+  whyText: "Cali Wood custom furniture and interior solutions combine bespoke planning, made-to-size manufacturing and professional installation for residential, corporate and commercial spaces.",
+  benefits: [
+    { icon: "percent", title: "Bespoke Design", text: "Each solution is planned around your space, style and requirements." },
+    { icon: "spark", title: "Precision Manufacturing", text: "Furniture is built to size with attention to durability, function and fit." },
+    { icon: "grid", title: "Custom Sizes", text: "Dimensions and designs can be adapted to suit individual project requirements." },
+    { icon: "layout", title: "Expert Installation", text: "Professionally installed to create a clean and complete finished space." },
+  ],
+  stats: [
+    { value: "Custom", label: "Design Solutions" },
+    { value: "Tailored", label: "Furniture" },
+    { value: "Flexible", label: "Custom Designs" },
+    { value: "Complete", label: "Project Service" },
+  ],
+  designPreviewTitle: "Our Custom Furniture Styles",
+  materialsTitle: "Materials & Finishes",
+  materialsText: "Materials, finishes and design details can be selected around your space, preferences and individual project requirements.",
+  materials: [
+    { icon: "layers", title: "Custom Furniture", text: "Made-to-size furniture created around your space and needs." },
+    { icon: "counter", title: "Reception Counters", text: "Custom-built solutions designed for professional and commercial spaces." },
+    { icon: "wrench", title: "Custom Interiors", text: "Tailored furniture solutions for residential, corporate and commercial environments." },
+    { icon: "panel", title: "Custom Sizes", text: "Dimensions adapted according to the requirements of your project." },
+    { icon: "glass", title: "Professional Installation", text: "Installed as part of Cali Wood’s complete project service." },
+  ],
+  ctaTitle: "Let’s Create Your Custom Space",
+  ctaText: "Tell us about your space and what you need, and take the next step towards a custom furniture solution designed around your requirements.",
+  ctaActions: [
+    { icon: "calendar", title: "Book a Site Visit", text: "Arrange a visit to discuss and measure your space.", href: "/consultation" },
+    { icon: "service", title: "WhatsApp Chat", text: "Tell us about your furniture requirements.", href: "https://wa.me/233501523779" },
+    { icon: "quality", title: "Request Quote", text: "Get a quote based on your project.", href: "/consultation" },
+    { icon: "user", title: "Call Us", text: "Speak directly with the Cali Wood team.", href: "tel:+233501523779" },
+  ],
+};
+
 export const serviceDetails = {
   "modular-kitchens": {
     ...baseDetail,
@@ -501,6 +554,10 @@ function titleFromSlug(slug) {
 }
 
 export function getServiceDetail(slug) {
+  if (slug === "custom-interiors") {
+    return { ...serviceDetails["custom-furniture"], ...customInteriorsContent, slug };
+  }
+
   if (slug === "bathroom-vanities") {
     return { ...serviceDetails["custom-furniture"], ...bathroomVanityContent, slug };
   }

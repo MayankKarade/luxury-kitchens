@@ -24,7 +24,7 @@ export default function ServiceDesignPreview({ service }) {
             id="service-design-preview-title"
             className="mt-3 font-serif text-3xl font-medium leading-tight sm:text-[38px]"
           >
-            Explore Our {collectionName || `${service.title} Designs`}
+            {service.designPreviewTitle || `Explore Our ${collectionName || `${service.title} Designs`}`}
           </h2>
           <p className="mx-auto mt-3 max-w-lg text-sm leading-6 text-zinc-600">
             Find a look you love. Explore styles, finishes and layouts to make
