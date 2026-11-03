@@ -28,12 +28,12 @@ export default function ConsultationOptions() {
           {connectOptions.map((option) => (
             <article
               key={option.title}
-              className="rounded-lg border border-neutral-200 bg-white px-6 py-6 text-center shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
+              className="rounded-lg border border-neutral-200 bg-brand-blush/60 px-6 py-6 text-center shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
               <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-brand-gold/14 text-brand-gold">
                 <ConsultationIcon name={option.icon} className="h-12 w-12" />
               </div>
-              <h3 className="mt-5 font-serif text-xl font-semibold text-neutral-900">
+              <h3 className="mt-5 font-serif text-xl font-semibold text-brand-dark">
                 {option.title}
               </h3>
               <p className="mx-auto mt-2 min-h-[48px] max-w-[210px] text-[13px] font-medium leading-5 text-zinc-600">

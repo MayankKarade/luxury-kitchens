@@ -2,13 +2,13 @@ import { ServiceDetailIcon } from "./ServiceDetailIcons";
 
 export default function ServiceMaterials({ service }) {
   return (
-    <section className="bg-brand-white px-4 py-6 text-white sm:px-10 md:px-16">
-      <div className="mx-auto grid  overflow-hidden rounded-lg bg-[#071014] shadow-sm lg:grid-cols-[0.85fr_1.65fr]">
-        <div className="border-b border-white/10 px-6 py-7 lg:border-b-0 lg:border-r">
+    <section className="bg-brand-white px-4 py-6 text-brand-dark sm:px-10 md:px-16">
+      <div className="mx-auto grid  overflow-hidden rounded-lg bg-brand-blush/60 shadow-sm lg:grid-cols-[0.85fr_1.65fr]">
+        <div className="border-b border-brand-gold/10 px-6 py-7 lg:border-b-0 lg:border-r">
           <h2 className="font-serif text-2xl font-medium uppercase">
             {service.materialsTitle || "Materials We Use"}
           </h2>
-          <p className="mt-3 max-w-sm text-sm leading-6 text-zinc-300">
+          <p className="mt-3 max-w-sm text-sm leading-6 text-zinc-700">
             {service.materialsText || "We use only the finest materials and hardware to ensure durability, beauty and long-lasting performance."}
           </p>
         </div>
@@ -16,17 +16,17 @@ export default function ServiceMaterials({ service }) {
           {service.materials.map((material) => (
             <div
               key={material.title}
-              className="flex flex-col items-center justify-center border-b border-white/10 px-4 py-7 text-center last:border-r-0 sm:border-r lg:border-b-0"
+              className="flex flex-col items-center justify-center border-b border-brand-gold/10 px-4 py-7 text-center last:border-r-0 sm:border-r lg:border-b-0"
             >
               <ServiceDetailIcon
                 name={material.icon}
                 className="mb-4 h-10 w-10 text-brand-gold"
               />
-              <h3 className="text-xs font-bold leading-5 text-white">
+              <h3 className="text-xs font-bold leading-5 text-brand-dark">
                 {material.title}
               </h3>
               {material.text && (
-                <p className="text-xs leading-5 text-white">{material.text}</p>
+                <p className="text-xs leading-5 text-brand-dark">{material.text}</p>
               )}
             </div>
           ))}

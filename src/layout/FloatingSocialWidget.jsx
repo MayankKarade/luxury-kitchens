@@ -64,10 +64,10 @@ function IconClose() {
 
 const buttonBaseStyle = {
   alignItems: "center",
-  border: "1px solid rgba(255,255,255,0.18)",
+  border: "1px solid rgba(154,1,1,0.15)",
   borderRadius: "50%",
-  boxShadow: "0 18px 34px rgba(1,1,41,0.28)",
-  color: "#fff",
+  boxShadow: "0 18px 34px rgba(70,40,25,0.12)",
+  color: BRAND_GOLD,
   cursor: "pointer",
   display: "flex",
   height: "52px",
@@ -137,7 +137,7 @@ export default function FloatingSocialWidget() {
         .floating-social-toggle {
           position: relative;
           flex-shrink: 0;
-          background: linear-gradient(135deg, ${BRAND_DARK} 0%, #111144 54%, ${BRAND_GOLD} 100%);
+          background: linear-gradient(135deg, #ffffff 0%, #fffaf7 54%, #F5E7DE 100%);
           transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
@@ -176,11 +176,11 @@ export default function FloatingSocialWidget() {
           right: 0;
           bottom: calc(100% + 10px);
           transform: translateY(6px);
-          background: rgba(1, 1, 41, 0.92);
+          background: #fffaf7;
           border: 1px solid rgba(154,1,1,0.35);
           border-radius: 8px;
           box-shadow: 0 10px 26px rgba(1,1,41,0.28);
-          color: #fff;
+          color: ${BRAND_DARK};
           font-size: 12px;
           font-weight: 700;
           letter-spacing: 0.08em;
@@ -198,7 +198,7 @@ export default function FloatingSocialWidget() {
           right: 20px;
           top: 100%;
           border: 5px solid transparent;
-          border-top-color: rgba(1, 1, 41, 0.92);
+          border-top-color: #fffaf7;
         }
 
         .floating-social-tooltip.is-visible {
@@ -232,7 +232,7 @@ export default function FloatingSocialWidget() {
       >
         <a
           className={`floating-social-btn ${isOpen ? "is-visible" : ""}`}
-          style={{ ...buttonBaseStyle, background: BRAND_GOLD }}
+          style={{ ...buttonBaseStyle, background: BRAND_GOLD, color: "#fff" }}
           href={`https://wa.me/${contactConfig.whatsapp.number}?text=${encodeURIComponent(contactConfig.whatsapp.message)}`}
           target="_blank"
           rel="noopener noreferrer"
@@ -243,7 +243,7 @@ export default function FloatingSocialWidget() {
 
         <a
           className={`floating-social-btn ${isOpen ? "is-visible" : ""}`}
-          style={{ ...buttonBaseStyle, background: BRAND_DARK }}
+          style={{ ...buttonBaseStyle, background: "#fff" }}
           href={`mailto:${contactConfig.email.address}?subject=${encodeURIComponent(contactConfig.email.subject)}&body=${encodeURIComponent(contactConfig.email.body)}`}
           aria-label="Send us an email"
         >
@@ -252,7 +252,7 @@ export default function FloatingSocialWidget() {
 
         <a
           className={`floating-social-btn ${isOpen ? "is-visible" : ""}`}
-          style={{ ...buttonBaseStyle, background: "#111144" }}
+          style={{ ...buttonBaseStyle, background: "#fff" }}
           href={`tel:${contactConfig.phone.number}`}
           aria-label={`Call us at ${contactConfig.phone.number}`}
         >

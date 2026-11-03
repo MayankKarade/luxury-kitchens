@@ -45,7 +45,7 @@ function ArticleCard({ article, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.18 }}
       transition={{ duration: 0.45, delay: index * 0.04 }}
-      className="group overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-[0_8px_24px_rgba(15,17,23,.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+      className="group overflow-hidden rounded-xl border border-zinc-200 bg-brand-blush/60 shadow-[0_8px_24px_rgba(15,17,23,.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
     >
       <div className="relative h-56 overflow-hidden">
         {image ? (
@@ -66,7 +66,7 @@ function ArticleCard({ article, index }) {
           {category}
         </span>
 
-        <h3 className="mt-3 font-serif text-2xl font-semibold leading-[1.15] text-neutral-900">
+        <h3 className="mt-3 font-serif text-2xl font-semibold leading-[1.15] text-brand-dark">
           {title}
         </h3>
 

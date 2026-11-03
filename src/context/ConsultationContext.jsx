@@ -112,15 +112,15 @@ export function ConsultationProvider({ children }) {
 
       {/* LUXURY SLIDE-IN DIALOG / MODAL (BOOK CONSULTATION) */}
       {modalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fade-in transition-all">
-          <div className="relative w-full max-w-2xl bg-[#010129] border border-white/10 rounded-2xl overflow-hidden shadow-2xl transition-all max-h-[90vh] flex flex-col text-white">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-brand-dark/35 backdrop-blur-md animate-fade-in transition-all">
+          <div className="relative w-full max-w-2xl bg-brand-light border border-brand-gold/15 rounded-2xl overflow-hidden shadow-2xl transition-all max-h-[90vh] flex flex-col text-brand-dark">
             {/* Header trim */}
             <div className="h-2 w-full bg-gradient-to-r from-brand-gold to-[#9A0101]"></div>
 
             {/* Close Toggle */}
             <button
               onClick={() => setModalOpen(false)}
-              className="absolute top-5 right-5 p-2 rounded-full hover:bg-brand-white/5 text-gray-400 hover:text-white transition-colors focus:outline-none z-10"
+              className="absolute top-5 right-5 p-2 rounded-full hover:bg-white/80 text-zinc-600 hover:text-brand-gold transition-colors focus:outline-none z-10"
               aria-label="Close dialogue"
             >
               <X className="w-5.5 h-5.5" />
@@ -133,8 +133,8 @@ export function ConsultationProvider({ children }) {
                   onSubmit={handleFormSubmit}
                   className="flex flex-col gap-6"
                 >
-                  <div className="flex flex-col gap-1.5 border-b border-white/5 pb-4">
-                    <h2 className="font-serif text-2xl sm:text-3xl text-white font-semibold">
+                  <div className="flex flex-col gap-1.5 border-b border-brand-gold/10 pb-4">
+                    <h2 className="font-serif text-2xl sm:text-3xl text-brand-dark font-semibold">
                       Schedule a Private Session
                     </h2>
                     <p className="text-xs sm:text-sm text-brand-gold tracking-wider font-display uppercase font-semibold">
@@ -145,7 +145,7 @@ export function ConsultationProvider({ children }) {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     {/* Name Field */}
                     <div className="flex flex-col gap-2">
-                      <label className="text-xs text-gray-300 font-semibold uppercase tracking-wider font-display">
+                      <label className="text-xs text-zinc-700 font-semibold uppercase tracking-wider font-display">
                         Full Name <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -154,9 +154,9 @@ export function ConsultationProvider({ children }) {
                         value={formData.name}
                         onChange={handleInputChange}
                         placeholder="John Doe"
-                        className={`bg-brand-white/5 border ${
-                          errors.name ? "border-red-500" : "border-white/10"
-                        } focus:border-brand-gold/80 rounded px-4.5 py-3 text-sm text-white placeholder-gray-500 focus:outline-none transition-all w-full`}
+                        className={`bg-white/80 border ${
+                          errors.name ? "border-red-500" : "border-brand-gold/15"
+                        } focus:border-brand-gold/80 rounded px-4.5 py-3 text-sm text-brand-dark placeholder-gray-500 focus:outline-none transition-all w-full`}
                       />
                       {errors.name && (
                         <p className="text-xs text-red-500 mt-1">
@@ -167,7 +167,7 @@ export function ConsultationProvider({ children }) {
 
                     {/* Email Field */}
                     <div className="flex flex-col gap-2">
-                      <label className="text-xs text-gray-300 font-semibold uppercase tracking-wider font-display">
+                      <label className="text-xs text-zinc-700 font-semibold uppercase tracking-wider font-display">
                         Email Address <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -176,9 +176,9 @@ export function ConsultationProvider({ children }) {
                         value={formData.email}
                         onChange={handleInputChange}
                         placeholder="john@example.com"
-                        className={`bg-brand-white/5 border ${
-                          errors.email ? "border-red-500" : "border-white/10"
-                        } focus:border-brand-gold/80 rounded px-4.5 py-3 text-sm text-white placeholder-gray-500 focus:outline-none transition-all w-full`}
+                        className={`bg-white/80 border ${
+                          errors.email ? "border-red-500" : "border-brand-gold/15"
+                        } focus:border-brand-gold/80 rounded px-4.5 py-3 text-sm text-brand-dark placeholder-gray-500 focus:outline-none transition-all w-full`}
                       />
                       {errors.email && (
                         <p className="text-xs text-red-500 mt-1">
@@ -189,7 +189,7 @@ export function ConsultationProvider({ children }) {
 
                     {/* Phone Field */}
                     <div className="flex flex-col gap-2">
-                      <label className="text-xs text-gray-300 font-semibold uppercase tracking-wider font-display">
+                      <label className="text-xs text-zinc-700 font-semibold uppercase tracking-wider font-display">
                         Phone Number <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -198,9 +198,9 @@ export function ConsultationProvider({ children }) {
                         value={formData.phone}
                         onChange={handleInputChange}
                         placeholder="+233501523779"
-                        className={`bg-brand-white/5 border ${
-                          errors.phone ? "border-red-500" : "border-white/10"
-                        } focus:border-brand-gold/80 rounded px-4.5 py-3 text-sm text-white placeholder-gray-500 focus:outline-none transition-all w-full`}
+                        className={`bg-white/80 border ${
+                          errors.phone ? "border-red-500" : "border-brand-gold/15"
+                        } focus:border-brand-gold/80 rounded px-4.5 py-3 text-sm text-brand-dark placeholder-gray-500 focus:outline-none transition-all w-full`}
                       />
                       {errors.phone && (
                         <p className="text-xs text-red-500 mt-1">
@@ -211,7 +211,7 @@ export function ConsultationProvider({ children }) {
 
                     {/* Custom Service Dropdown */}
                     <div className="flex flex-col gap-2 relative">
-                      <label className="text-xs text-gray-300 font-semibold uppercase tracking-wider font-display">
+                      <label className="text-xs text-zinc-700 font-semibold uppercase tracking-wider font-display">
                         Target Service
                       </label>
                       <div
@@ -221,11 +221,11 @@ export function ConsultationProvider({ children }) {
                         }
                       >
                         <div
-                          className={`bg-brand-white/5 border ${
+                          className={`bg-white/80 border ${
                             errors.service
                               ? "border-red-500"
-                              : "border-white/10"
-                          } rounded px-4.5 py-3 text-sm text-white flex items-center justify-between transition-all`}
+                              : "border-brand-gold/15"
+                          } rounded px-4.5 py-3 text-sm text-brand-dark flex items-center justify-between transition-all`}
                         >
                           <span>{formData.service}</span>
                           <ChevronDown
@@ -235,11 +235,11 @@ export function ConsultationProvider({ children }) {
                           />
                         </div>
                         {serviceDropdownOpen && (
-                          <div className="absolute z-20 w-full mt-1 bg-[#1a1c22] border border-white/10 rounded-md shadow-lg max-h-48 overflow-auto">
+                          <div className="absolute z-20 w-full mt-1 bg-white border border-brand-gold/15 rounded-md shadow-lg max-h-48 overflow-auto">
                             {serviceOptions.map((option) => (
                               <div
                                 key={option}
-                                className="px-4.5 py-2.5 text-sm text-white hover:bg-brand-gold/20 cursor-pointer transition-colors"
+                                className="px-4.5 py-2.5 text-sm text-brand-dark hover:bg-brand-gold/20 cursor-pointer transition-colors"
                                 onClick={() =>
                                   handleDropdownSelect("service", option)
                                 }
@@ -259,7 +259,7 @@ export function ConsultationProvider({ children }) {
 
                     {/* Custom Location Dropdown */}
                     <div className="flex flex-col gap-2 relative">
-                      <label className="text-xs text-gray-300 font-semibold uppercase tracking-wider font-display">
+                      <label className="text-xs text-zinc-700 font-semibold uppercase tracking-wider font-display">
                         Your Location
                       </label>
                       <div
@@ -269,11 +269,11 @@ export function ConsultationProvider({ children }) {
                         }
                       >
                         <div
-                          className={`bg-brand-white/5 border ${
+                          className={`bg-white/80 border ${
                             errors.location
                               ? "border-red-500"
-                              : "border-white/10"
-                          } rounded px-4.5 py-3 text-sm text-white flex items-center justify-between transition-all`}
+                              : "border-brand-gold/15"
+                          } rounded px-4.5 py-3 text-sm text-brand-dark flex items-center justify-between transition-all`}
                         >
                           <span>{formData.location}</span>
                           <ChevronDown
@@ -283,11 +283,11 @@ export function ConsultationProvider({ children }) {
                           />
                         </div>
                         {locationDropdownOpen && (
-                          <div className="absolute z-20 w-full mt-1 bg-[#1a1c22] border border-white/10 rounded-md shadow-lg">
+                          <div className="absolute z-20 w-full mt-1 bg-white border border-brand-gold/15 rounded-md shadow-lg">
                             {locationOptions.map((option) => (
                               <div
                                 key={option}
-                                className="px-4.5 py-2.5 text-sm text-white hover:bg-brand-gold/20 cursor-pointer transition-colors"
+                                className="px-4.5 py-2.5 text-sm text-brand-dark hover:bg-brand-gold/20 cursor-pointer transition-colors"
                                 onClick={() =>
                                   handleDropdownSelect("location", option)
                                 }
@@ -307,7 +307,7 @@ export function ConsultationProvider({ children }) {
 
                     {/* Preferred Date */}
                     <div className="flex flex-col gap-2">
-                      <label className="text-xs text-gray-300 font-semibold uppercase tracking-wider font-display">
+                      <label className="text-xs text-zinc-700 font-semibold uppercase tracking-wider font-display">
                         Preferred Date
                       </label>
                       <input
@@ -315,14 +315,14 @@ export function ConsultationProvider({ children }) {
                         name="date"
                         value={formData.date}
                         onChange={handleInputChange}
-                        className="bg-brand-white/5 border border-white/10 focus:border-brand-gold/80 rounded px-4.5 py-3 text-sm text-white focus:outline-none transition-all w-full cursor-pointer"
+                        className="bg-white/80 border border-brand-gold/15 focus:border-brand-gold/80 rounded px-4.5 py-3 text-sm text-brand-dark focus:outline-none transition-all w-full cursor-pointer"
                       />
                     </div>
                   </div>
 
                   {/* Budget Selector */}
                   <div className="flex flex-col gap-2">
-                    <label className="text-xs text-gray-300 font-semibold uppercase tracking-wider font-display">
+                    <label className="text-xs text-zinc-700 font-semibold uppercase tracking-wider font-display">
                       Expected Project Investment
                     </label>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -340,7 +340,7 @@ export function ConsultationProvider({ children }) {
                           className={`py-2 px-3 border rounded text-xs tracking-wider font-medium font-display transition-all ${
                             formData.budget === tier
                               ? "bg-brand-gold/20 border-brand-gold text-brand-gold"
-                              : "bg-brand-white/5 border-white/10 text-gray-400 hover:border-white/20"
+                              : "bg-white/80 border-brand-gold/15 text-zinc-600 hover:border-white/20"
                           }`}
                         >
                           {tier}
@@ -351,7 +351,7 @@ export function ConsultationProvider({ children }) {
 
                   {/* Message Field (Optional) */}
                   <div className="flex flex-col gap-2">
-                    <label className="text-xs text-gray-300 font-semibold uppercase tracking-wider font-display">
+                    <label className="text-xs text-zinc-700 font-semibold uppercase tracking-wider font-display">
                       Special Design Goals & Requirements (Optional)
                     </label>
                     <textarea
@@ -360,16 +360,16 @@ export function ConsultationProvider({ children }) {
                       value={formData.message}
                       onChange={handleInputChange}
                       placeholder="Share details about your space design, preferred materials, and vision..."
-                      className="bg-brand-white/5 border border-white/10 focus:border-brand-gold/80 rounded px-4.5 py-3 text-sm text-white placeholder-gray-500 focus:outline-none transition-all w-full resize-none"
+                      className="bg-white/80 border border-brand-gold/15 focus:border-brand-gold/80 rounded px-4.5 py-3 text-sm text-brand-dark placeholder-gray-500 focus:outline-none transition-all w-full resize-none"
                     />
                   </div>
 
                   {/* Bottom Trigger Buttons */}
-                  <div className="pt-2 flex justify-end gap-4 border-t border-white/5">
+                  <div className="pt-2 flex justify-end gap-4 border-t border-brand-gold/10">
                     <button
                       type="button"
                       onClick={() => setModalOpen(false)}
-                      className="px-5 py-3.5 border border-white/10 hover:bg-brand-white/5 text-gray-300 font-display text-xs font-bold tracking-widest rounded-sm transition-all"
+                      className="px-5 py-3.5 border border-brand-gold/15 hover:bg-white/80 text-zinc-700 font-display text-xs font-bold tracking-widest rounded-sm transition-all"
                     >
                       CANCEL
                     </button>
@@ -393,38 +393,38 @@ export function ConsultationProvider({ children }) {
                     <span className="text-brand-gold font-display text-xs font-semibold tracking-widest uppercase">
                       Appointment Received
                     </span>
-                    <h3 className="font-serif text-3xl font-semibold text-white">
+                    <h3 className="font-serif text-3xl font-semibold text-brand-dark">
                       Thank You, {formData.name}!
                     </h3>
-                    <p className="text-sm text-gray-400 max-w-sm mx-auto leading-relaxed mt-1">
+                    <p className="text-sm text-zinc-600 max-w-sm mx-auto leading-relaxed mt-1">
                       Our elite interior service architects have registered your
                       request for{" "}
-                      <strong className="text-white">{formData.service}</strong>{" "}
+                      <strong className="text-brand-dark">{formData.service}</strong>{" "}
                       in{" "}
-                      <strong className="text-white">
+                      <strong className="text-brand-dark">
                         {formData.location}
                       </strong>
                       .
                     </p>
                   </div>
 
-                  <div className="p-5 rounded-lg bg-brand-white/5 border border-white/5 max-w-md w-full flex flex-col gap-3.5 text-left text-xs text-gray-300">
-                    <div className="flex justify-between items-center border-b border-white/5 pb-2.5">
-                      <span className="font-semibold text-white">
+                  <div className="p-5 rounded-lg bg-white/80 border border-brand-gold/10 max-w-md w-full flex flex-col gap-3.5 text-left text-xs text-zinc-700">
+                    <div className="flex justify-between items-center border-b border-brand-gold/10 pb-2.5">
+                      <span className="font-semibold text-brand-dark">
                         Representative Contact:
                       </span>
                       <span className="text-brand-gold">
                         Under 2 Hours (Business window)
                       </span>
                     </div>
-                    <div className="flex justify-between items-center border-b border-white/5 pb-2.5">
-                      <span className="font-semibold text-white">
+                    <div className="flex justify-between items-center border-b border-brand-gold/10 pb-2.5">
+                      <span className="font-semibold text-brand-dark">
                         Confirmed Date:
                       </span>
                       <span>{formData.date || "To be locked via Call"}</span>
                     </div>
                     <div className="flex justify-between items-center pb-1">
-                      <span className="font-semibold text-white">
+                      <span className="font-semibold text-brand-dark">
                         Budget Preference:
                       </span>
                       <span>{formData.budget}</span>
@@ -433,7 +433,7 @@ export function ConsultationProvider({ children }) {
 
                   <button
                     onClick={() => setModalOpen(false)}
-                    className="mt-4 px-8 py-3.5 bg-brand-white/5 hover:bg-brand-white/10 border border-white/10 hover:border-brand-gold text-white font-display text-xs font-bold tracking-widest rounded-sm transition-all duration-300 flex items-center gap-2"
+                    className="mt-4 px-8 py-3.5 bg-white/80 hover:bg-brand-white/10 border border-brand-gold/15 hover:border-brand-gold text-brand-dark font-display text-xs font-bold tracking-widest rounded-sm transition-all duration-300 flex items-center gap-2"
                   >
                     <span>CLOSE OVERLAY</span>
                     <ArrowRight className="w-4 h-4 text-brand-gold" />

@@ -18,7 +18,7 @@ const flagStyles = {
 function RegionBadge({ region }) {
   return (
     <span
-      className={`inline-flex h-5 min-w-8 items-center justify-center rounded-sm bg-gradient-to-r px-1.5 text-[9px] font-extrabold text-white ${flagStyles[region] || flagStyles.USA}`}
+      className={`inline-flex h-5 min-w-8 items-center justify-center rounded-sm bg-gradient-to-r px-1.5 text-[9px] font-extrabold text-brand-dark ${flagStyles[region] || flagStyles.USA}`}
     >
       {region}
     </span>
@@ -30,7 +30,7 @@ function MediaCard({ item, variant }) {
   const isVideo = variant === "video";
 
   return (
-    <article className="h-full overflow-hidden rounded-lg border border-neutral-200 bg-[#071014] shadow-sm">
+    <article className="h-full overflow-hidden rounded-lg border border-neutral-200 bg-brand-blush/60 shadow-sm">
       <div className="relative aspect-[16/8.8] overflow-hidden">
         {isVideo ? (
           <video
@@ -59,7 +59,7 @@ function MediaCard({ item, variant }) {
           <>
             <button
               aria-label={`Play ${item.title}`}
-              className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center text-white drop-shadow-xl transition-transform hover:scale-105"
+              className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center text-brand-dark drop-shadow-xl transition-transform hover:scale-105"
             >
               <GalleryIcon name="play" className="h-14 w-14" />
             </button>
@@ -70,11 +70,11 @@ function MediaCard({ item, variant }) {
         )}
       </div>
 
-      <div className="border-t border-white/10 px-4 py-4 text-white">
+      <div className="border-t border-brand-gold/10 px-4 py-4 text-brand-dark">
         <h3 className="text-[13px] font-extrabold leading-snug">
           {item.title}
         </h3>
-        <p className="mt-2 flex items-center gap-2 text-[11px] font-semibold text-zinc-300">
+        <p className="mt-2 flex items-center gap-2 text-[11px] font-semibold text-zinc-700">
           <RegionBadge region={item.region} />
           {item.location}
         </p>

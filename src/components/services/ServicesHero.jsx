@@ -14,7 +14,7 @@ export default function ServicesHero() {
   return (
     <section
       id="services-hero"
-      className="relative min-h-screen 2xl:min-h-[50rem] flex flex-col justify-center pt-28 sm:pt-40 pb-14  overflow-hidden bg-brand-dark"
+      className="relative min-h-screen 2xl:min-h-[50rem] flex flex-col justify-center pt-28 sm:pt-40 pb-14  overflow-hidden bg-brand-blush"
     >
       {/* Background Immersive Photo with precise luxury masking */}
       <div className="w-full h-full absolute inset-0 z-0">
@@ -25,22 +25,22 @@ export default function ServicesHero() {
           className="w-full h-full object-cover object-right lg:object-center"
           referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/55 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/35" />
+        <div className="absolute inset-0 theme-hero-wash" />
+        <div className="absolute inset-0 theme-hero-bottom" />
         <div className="absolute top-1/2 left-2/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-brand-gold/5 blur-[180px] pointer-events-none rounded-full" />
       </div>
 
       <div className=" mx-auto px-4 sm:px-10 md:px-16 relative z-10 w-full ">
         {/* Breadcrumb row matching exactly "Home > About Us" in image */}
-        <div className="w-fit px-3 py-0.5 rounded-full flex items-center bg-brand-gold/40 gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8">
+        <div className="w-fit px-3 py-0.5 rounded-full flex items-center bg-white/70 border border-brand-gold/10 gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8">
           <Link
             href="/"
-            className="text-white font-medium hover:font-bold transition-all duration-150"
+            className="text-brand-dark font-medium hover:font-bold transition-all duration-150"
           >
             Home
           </Link>
-          <span className="text-white font-normal px-0.5">&gt;</span>
-          <span className="text-white font-medium hover:font-bold transition-all duration-150">
+          <span className="text-brand-dark font-normal px-0.5">&gt;</span>
+          <span className="text-brand-dark font-medium hover:font-bold transition-all duration-150">
             Services
           </span>
         </div>
@@ -53,18 +53,18 @@ export default function ServicesHero() {
             className="lg:col-span-12 flex flex-col items-start gap-4"
           >
             {/* ABOVE US pre-title */}
-            <span className="bg-brand-gold text-white rounded-full px-3 py-0.5 font-sans text-xs font-bold tracking-[0.25em] uppercase block w-fit">
+            <span className="bg-brand-gold/7 text-brand-gold rounded-full px-3 py-0.5 font-sans text-xs font-bold tracking-[0.25em] uppercase block w-fit">
               OUR SERVICES
             </span>
 
             {/* Main high-contrast elegant serif heading matching photo exactly */}
-            <h1 className="font-serif text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-white leading-[1.08] tracking-tight">
+            <h1 className="font-serif text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-brand-dark leading-[1.08] tracking-tight">
               Premium Furniture Solutions, <br />
               Crafted for Every Space
             </h1>
 
             {/* Premium description paragraph */}
-            <p className="text-zinc-300 font-sans text-base sm:text-lg max-w-[640px] leading-relaxed mt-4">
+            <p className="text-zinc-700 font-sans text-base sm:text-lg max-w-[640px] leading-relaxed mt-4">
               From bespoke kitchens and fitted wardrobes to TV units, corporate
               furniture and custom interiors, Cali Wood designs, manufactures
               and installs made-to-size solutions for residential, corporate and

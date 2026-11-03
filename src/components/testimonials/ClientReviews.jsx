@@ -50,7 +50,7 @@ export default function ClientReviews() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.35, delay: Math.min(index, 7) * 0.03 }}
-              className="flex min-h-[282px] flex-col justify-between rounded-lg border border-neutral-200 bg-white px-6 py-7 shadow-[0_14px_38px_rgba(0,0,0,0.04)]"
+              className="flex min-h-[282px] flex-col justify-between rounded-lg border border-neutral-200 bg-brand-blush/60 px-6 py-7 shadow-[0_14px_38px_rgba(0,0,0,0.04)]"
             >
               <div>
                 <div className="mb-5 flex items-start justify-between gap-4">

@@ -10,7 +10,7 @@ import { officeImg, officeLocations } from "./contactData";
 
 function LocationCard({ location }) {
   return (
-    <article className="grid h-full grid-cols-[96px_1fr] overflow-hidden rounded-lg border border-neutral-200 bg-white text-brand-dark shadow-sm sm:grid-cols-[112px_1fr] xl:grid-cols-[150px_1fr]">
+    <article className="grid h-full grid-cols-[96px_1fr] overflow-hidden rounded-lg border border-neutral-200 bg-brand-blush/60 text-brand-dark shadow-sm sm:grid-cols-[112px_1fr] xl:grid-cols-[150px_1fr]">
       <div className="relative min-h-[200px] overflow-hidden bg-neutral-100">
         <Image
           src={location.image}
@@ -81,7 +81,7 @@ export default function OfficeLocations() {
             />
           </div>
 
-          <div className="relative min-h-[320px] overflow-hidden rounded-lg bg-[#080d11] p-8 text-white">
+          <div className="relative min-h-[320px] overflow-hidden rounded-lg bg-brand-blush/60 p-8 text-brand-dark">
             <Image
               src={officeImg}
               alt="Netsaarthi showroom reception"
@@ -89,16 +89,16 @@ export default function OfficeLocations() {
               sizes="(min-width: 1024px) 45vw, 100vw"
               className="object-cover opacity-45"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#080d11] via-[#080d11]/88 to-[#080d11]/40" />
+            <div className="absolute inset-0 theme-soft-wash" />
             <div className="relative z-10 max-w-md">
               <h3 className="font-serif text-3xl font-medium sm:text-[34px]">
                 Visit Our Head Office
               </h3>
-              <p className="mt-3 text-sm font-medium leading-6 text-zinc-300">
+              <p className="mt-3 text-sm font-medium leading-6 text-zinc-700">
                 We welcome you to visit our showroom and experience our designs
                 and materials in person.
               </p>
-              <ul className="mt-5 space-y-3 text-sm font-semibold text-zinc-200">
+              <ul className="mt-5 space-y-3 text-sm font-semibold text-zinc-700">
                 {[
                   "Experience our premium materials",
                   "Meet our expert designers",

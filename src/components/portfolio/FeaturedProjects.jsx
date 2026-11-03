@@ -85,7 +85,7 @@ export default function FeaturedProjects({ onPortfolioSpotlight }) {
   }, [filteredProjects.length, emblaApi]);
 
   return (
-    <section className="bg-brand-white py-12 sm:py-16 text-zinc-900 border-y border-neutral-100/80 overflow-hidden relative">
+    <section className="bg-brand-white py-12 sm:py-16 text-brand-dark border-y border-neutral-100/80 overflow-hidden relative">
       <div className=" mx-auto px-4 sm:px-10 md:px-16  z-10 relative">
         {/* Section Header with exact details from image */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10">
@@ -110,7 +110,7 @@ export default function FeaturedProjects({ onPortfolioSpotlight }) {
         {/* Carousel Slider row with absolute arrows */}
         <div className="relative px-2">
           {filteredProjects.length === 0 ? (
-            <div className="py-20 text-center text-zinc-400">
+            <div className="py-20 text-center text-zinc-600">
               No featured projects found.
             </div>
           ) : (
@@ -136,7 +136,7 @@ export default function FeaturedProjects({ onPortfolioSpotlight }) {
                           whileInView={{ opacity: 1, y: 0 }}
                           viewport={{ once: true }}
                           transition={{ duration: 0.4, delay: index * 0.05 }}
-                          className="flex flex-col h-[360px] bg-brand-white border border-neutral-200/50 rounded-xl overflow-hidden shadow-sm transition-all duration-500 hover:shadow-xl hover:border-brand-gold/30 group"
+                          className="flex flex-col h-[360px] bg-brand-blush/60 border border-neutral-200/50 rounded-xl overflow-hidden shadow-sm transition-all duration-500 hover:shadow-xl hover:border-brand-gold/30 group"
                         >
                           {/* Card Image Area with visual logic for dual Before/After if needed */}
                           {isBeforeAfter ? (
@@ -204,7 +204,7 @@ export default function FeaturedProjects({ onPortfolioSpotlight }) {
                           )}
 
                           {/* Card Text & Metadata Section conform layout exactly to design */}
-                          <div className="py-5 px-2 bg-brand-white flex flex-col justify-between border-t border-neutral-100/50 min-h-[140px]">
+                          <div className="py-5 px-2 bg-brand-blush/60 flex flex-col justify-between border-t border-neutral-100/50 min-h-[140px]">
                             <div>
                               {/* Upper miniature orange label */}
                               <span className="text-[10px] text-brand-gold font-sans font-extrabold tracking-widest uppercase block mb-1">
@@ -226,7 +226,7 @@ export default function FeaturedProjects({ onPortfolioSpotlight }) {
                                   handleProjectSpotlight(project.slug)
                                 }
                                 aria-label={`View ${project.title} in project spotlight`}
-                                className="w-7 h-7 rounded-full border border-neutral-200/80 flex items-center justify-center text-zinc-400 group-hover:bg-brand-gold group-hover:text-white group-hover:border-brand-gold transition-all duration-300 shrink-0"
+                                className="w-7 h-7 rounded-full border border-neutral-200/80 flex items-center justify-center text-zinc-600 group-hover:bg-brand-gold group-hover:text-white group-hover:border-brand-gold transition-all duration-300 shrink-0"
                               >
                                 <ArrowRight className="w-3.5 h-3.5" />
                               </button>
@@ -243,7 +243,7 @@ export default function FeaturedProjects({ onPortfolioSpotlight }) {
               <button
                 id="carousel-left-btn"
                 onClick={scrollPrev}
-                className="absolute top-1/2 -left-2 lg:-left-12 -translate-y-1/2 z-20 w-10 h-10 bg-zinc-950 hover:bg-brand-gold text-brand-white hover:text-white flex items-center justify-center rounded-full border border-zinc-800 transition-all hover:scale-105 cursor-pointer shadow-lg active:scale-95"
+                className="absolute top-1/2 -left-2 lg:-left-12 -translate-y-1/2 z-20 w-10 h-10 bg-white/90 hover:bg-brand-gold text-brand-gold hover:text-white flex items-center justify-center rounded-full border border-brand-gold/20 transition-all hover:scale-105 cursor-pointer shadow-lg active:scale-95"
                 title="Scroll Left"
               >
                 <ChevronLeft className="w-5 h-5 stroke-[2.5]" />
@@ -251,7 +251,7 @@ export default function FeaturedProjects({ onPortfolioSpotlight }) {
               <button
                 id="carousel-right-btn"
                 onClick={scrollNext}
-                className="absolute top-1/2 -right-2 sm:-right-12 -translate-y-1/2 z-20 w-10 h-10 bg-zinc-950 hover:bg-brand-gold text-brand-white hover:text-white flex items-center justify-center rounded-full border border-zinc-800 transition-all hover:scale-105 cursor-pointer shadow-lg active:scale-95"
+                className="absolute top-1/2 -right-2 sm:-right-12 -translate-y-1/2 z-20 w-10 h-10 bg-white/90 hover:bg-brand-gold text-brand-gold hover:text-white flex items-center justify-center rounded-full border border-brand-gold/20 transition-all hover:scale-105 cursor-pointer shadow-lg active:scale-95"
                 title="Scroll Right"
               >
                 <ChevronRight className="w-5 h-5 stroke-[2.5]" />

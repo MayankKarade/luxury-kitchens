@@ -215,21 +215,21 @@ export default function DesignImageGallery({ product }) {
         ref={dialogRef}
         aria-label={`${product.title} image gallery`}
         onCancel={() => setLightboxOpen(false)}
-        className="fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none border-0 bg-transparent p-0 backdrop:bg-black/95"
+        className="fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none border-0 bg-transparent p-0 backdrop:bg-brand-dark/45"
       >
         {lightboxOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 flex flex-col items-center justify-center bg-black/95 p-4 text-white backdrop-blur-md sm:p-8"
+            className="fixed inset-0 flex flex-col items-center justify-center bg-brand-light/98 p-4 text-brand-dark backdrop-blur-md sm:p-8"
           >
             <div className="relative z-10 flex w-full max-w-5xl shrink-0 items-center justify-between gap-4">
               <div className="min-w-0">
                 <span className="block text-[10px] font-black uppercase tracking-[0.25em] text-brand-gold">
                   {product.serviceLabel}
                 </span>
-                <span className="mt-1 block truncate font-serif text-sm font-bold text-zinc-100 sm:text-base">
+                <span className="mt-1 block truncate font-serif text-sm font-bold text-brand-dark sm:text-base">
                   {product.title} (Frame {selectedIndex + 1} of {slides.length})
                 </span>
               </div>
@@ -237,13 +237,13 @@ export default function DesignImageGallery({ product }) {
                 type="button"
                 onClick={() => setLightboxOpen(false)}
                 aria-label="Close design gallery"
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-all hover:scale-105 hover:bg-brand-gold hover:text-white"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-brand-gold/15 bg-white/85 transition-all hover:scale-105 hover:bg-brand-gold hover:text-white"
               >
                 <DetailIcon name="x" className="h-5 w-5" />
               </button>
             </div>
 
-            <div className="relative mt-6 min-h-0 w-full max-w-5xl flex-1 overflow-hidden rounded-xl border border-white/5 shadow-2xl">
+            <div className="relative mt-6 min-h-0 w-full max-w-5xl flex-1 overflow-hidden rounded-xl border border-brand-gold/10 shadow-2xl">
               <Image
                 src={slides[selectedIndex]}
                 alt={`${product.title} expanded view ${selectedIndex + 1}`}
@@ -255,7 +255,7 @@ export default function DesignImageGallery({ product }) {
                 type="button"
                 onClick={scrollPrev}
                 aria-label="Previous expanded design image"
-                className="absolute left-2 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/65 text-white transition-colors hover:bg-brand-gold sm:left-5"
+                className="absolute left-2 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-brand-dark transition-colors hover:bg-brand-gold hover:text-white sm:left-5"
               >
                 <DetailIcon name="chevron-left" className="h-6 w-6" />
               </button>
@@ -263,7 +263,7 @@ export default function DesignImageGallery({ product }) {
                 type="button"
                 onClick={scrollNext}
                 aria-label="Next expanded design image"
-                className="absolute right-2 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/65 text-white transition-colors hover:bg-brand-gold sm:right-5"
+                className="absolute right-2 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-brand-dark transition-colors hover:bg-brand-gold hover:text-white sm:right-5"
               >
                 <DetailIcon name="chevron-right" className="h-6 w-6" />
               </button>

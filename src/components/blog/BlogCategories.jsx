@@ -96,7 +96,7 @@ export default function BlogCategories({
                 className={`flex min-h-[108px] items-center gap-4 rounded-xl border px-5 py-5 text-left shadow-xl transition-all duration-300 sm:min-h-[150px] sm:flex-col sm:items-center sm:justify-center sm:gap-0 sm:py-6 sm:text-center lg:min-h-[190px] lg:shadow-2xl ${
                   isActive
                     ? "border-brand-gold bg-brand-gold"
-                    : "border-white/12 bg-[#010129] hover:border-brand-gold/70"
+                    : "border-brand-gold/10 bg-brand-blush/60 hover:border-brand-gold/70"
                 }`}
               >
                 <CategoryIcon
@@ -106,7 +106,7 @@ export default function BlogCategories({
                   strokeWidth={1.6}
                 />
                 <div className="min-w-0">
-                  <span className="block font-serif text-lg font-semibold leading-snug text-white sm:max-w-[170px] sm:text-xl">
+                  <span className={`block font-serif text-lg font-semibold leading-snug sm:max-w-[170px] sm:text-xl ${isActive ? "text-white" : "text-brand-dark"}`}>
                     {title}
                   </span>
                   <p

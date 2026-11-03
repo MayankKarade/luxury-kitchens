@@ -92,7 +92,7 @@ export default function ContactMain() {
       <div className="mx-auto grid grid-cols-1 gap-6 lg:grid-cols-[1.55fr_1fr]">
         <form
           onSubmit={handleSubmit}
-          className="rounded-lg border border-neutral-200 bg-white p-6 shadow-sm sm:p-8"
+          className="rounded-lg border border-neutral-200 bg-brand-blush/60 p-6 shadow-sm sm:p-8"
         >
           <h2 className="font-serif text-3xl font-medium leading-tight sm:text-[36px]">
             Send Us A Message
@@ -218,7 +218,7 @@ export default function ContactMain() {
           )}
         </form>
 
-        <aside className="rounded-lg border border-neutral-200 bg-white p-6 shadow-sm sm:p-8">
+        <aside className="rounded-lg border border-neutral-200 bg-brand-blush/60 p-6 shadow-sm sm:p-8">
           <h2 className="font-serif text-3xl font-medium leading-tight sm:text-[34px]">
             Get In Touch
           </h2>
@@ -241,7 +241,7 @@ export default function ContactMain() {
                 }}
                 className="flex gap-4 py-5 first:pt-0"
               >
-                <span className="flex h-13 w-13 shrink-0 items-center justify-center rounded-full bg-[#010129] text-white">
+                <span className="flex h-13 w-13 shrink-0 items-center justify-center rounded-full bg-brand-light text-brand-dark">
                   <ContactIcon name={method.icon} className="h-6 w-6" />
                 </span>
                 <span>
@@ -290,7 +290,7 @@ export default function ContactMain() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={social.aria}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[#010129] text-white transition-colors hover:bg-brand-gold hover:text-white"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-gold text-white transition-colors hover:bg-brand-gold hover:text-white"
                 >
                   <social.Icon className="h-4 w-4" />
                 </a>

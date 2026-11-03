@@ -110,7 +110,7 @@ const stagger = {
 
 function LocationsHero() {
   return (
-    <section className="relative flex min-h-screen w-full flex-col justify-center overflow-hidden bg-brand-dark pt-28 pb-14 sm:pt-40 2xl:min-h-[50rem]">
+    <section className="relative flex min-h-screen w-full flex-col justify-center overflow-hidden bg-brand-blush pt-28 pb-14 sm:pt-40 2xl:min-h-[50rem]">
       <div className="absolute inset-0">
         <Image
           src={heroImg}
@@ -120,8 +120,8 @@ function LocationsHero() {
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/55 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/35" />
+        <div className="absolute inset-0 theme-hero-wash" />
+        <div className="absolute inset-0 theme-hero-bottom" />
       </div>
 
       {/* <button
@@ -140,29 +140,29 @@ function LocationsHero() {
         >
           <motion.div
             variants={fadeInUp}
-            className="w-fit px-3 py-0.5 rounded-full flex items-center bg-brand-gold/40 gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8"
+            className="w-fit px-3 py-0.5 rounded-full flex items-center bg-white/70 border border-brand-gold/10 gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8"
           >
             <Link
               href="/"
-              className="text-white font-medium hover:font-bold transition-all duration-150"
+              className="text-brand-dark font-medium hover:font-bold transition-all duration-150"
             >
               Home
             </Link>
-            <span className="text-white font-normal px-0.5">&gt;</span>
-            <span className="text-white font-medium hover:font-bold transition-all duration-150">
+            <span className="text-brand-dark font-normal px-0.5">&gt;</span>
+            <span className="text-brand-dark font-medium hover:font-bold transition-all duration-150">
               Locations
             </span>
           </motion.div>
 
           <motion.span
             variants={fadeInUp}
-            className="bg-brand-gold text-white rounded-full px-3 py-0.5 font-sans text-xs font-bold tracking-[0.25em] uppercase block w-fit"
+            className="bg-brand-gold/7 text-brand-gold rounded-full px-3 py-0.5 font-sans text-xs font-bold tracking-[0.25em] uppercase block w-fit"
           >
             SERVING GHANA &amp; THE USA
           </motion.span>
           <motion.h1
             variants={fadeInUp}
-            className="mt-4 font-serif text-4xl font-medium leading-[1.1] text-white sm:text-5xl lg:text-[62px]"
+            className="mt-4 font-serif text-4xl font-medium leading-[1.1] text-brand-dark sm:text-5xl lg:text-[62px]"
           >
             Bringing Luxury
             <br />
@@ -174,7 +174,7 @@ function LocationsHero() {
           />
           <motion.p
             variants={fadeInUp}
-            className="max-w-lg text-sm font-medium leading-7 text-zinc-200 sm:text-base"
+            className="max-w-lg text-sm font-medium leading-7 text-zinc-700 sm:text-base"
           >
             We proudly deliver premium kitchen and interior solutions across
             multiple countries with unmatched quality, innovation and
@@ -186,23 +186,23 @@ function LocationsHero() {
           variants={stagger}
           initial="hidden"
           animate="visible"
-          className="mt-8 grid max-w-3xl grid-cols-2 overflow-hidden rounded-md bg-black/20 backdrop-blur-xs border border-white/10 sm:grid-cols-4"
+          className="mt-8 grid max-w-3xl grid-cols-2 overflow-hidden rounded-md bg-white/70 backdrop-blur-xs border border-brand-gold/10 sm:grid-cols-4"
         >
           {heroStats.map(({ Icon, value, label }) => (
             <motion.div
               key={label}
               variants={fadeInUp}
-              className="flex items-center gap-3 border-b border-r border-white/10 px-4 py-4 last:border-r-0 sm:border-b-0"
+              className="flex items-center gap-3 border-b border-r border-brand-gold/10 px-4 py-4 last:border-r-0 sm:border-b-0"
             >
               <Icon
                 className="h-8 w-8 shrink-0 text-brand-gold"
                 strokeWidth={1.8}
               />
               <div>
-                <div className="font-sans text-lg font-extrabold text-white">
+                <div className="font-sans text-lg font-extrabold text-brand-dark">
                   {value}
                 </div>
-                <div className="text-[10px] font-semibold text-zinc-200">
+                <div className="text-[10px] font-semibold text-zinc-600">
                   {label}
                 </div>
               </div>
@@ -323,7 +323,7 @@ function LocationCards() {
   };
 
   return (
-    <section className="bg-[#F8F7F3] px-[1rem] py-[3.5rem] text-brand-dark sm:px-[2.5rem] md:px-[4rem] lg:py-[4.5rem]">
+    <section className="bg-brand-light px-[1rem] py-[3.5rem] text-brand-dark sm:px-[2.5rem] md:px-[4rem] lg:py-[4.5rem]">
       <div className="mx-auto w-full max-w-[1600px]">
         {/* Section Heading */}
         <div className="mx-auto max-w-[680px] text-center">
@@ -376,7 +376,7 @@ function LocationCards() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
 
                   {/* Country Flag Badge */}
-                  <div className="absolute left-[1rem] top-[1rem] z-[20] flex h-[2.65rem] w-[3.8rem] items-center justify-center overflow-hidden rounded-[0.4rem] border-[2px] border-white bg-white shadow-[0_7px_20px_rgba(0,0,0,0.25)]">
+                  <div className="absolute left-[1rem] top-[1rem] z-[20] flex h-[2.65rem] w-[3.8rem] items-center justify-center overflow-hidden rounded-[0.4rem] border-[2px] border-brand-gold/10 bg-white shadow-[0_7px_20px_rgba(70,40,25,0.08)]">
                     <CountryFlag country={location.id} />
                   </div>
                 </div>
@@ -401,7 +401,7 @@ function LocationCards() {
                     </p>
 
                     {location.address ? (
-                      <div className="mt-[1.15rem] flex items-start gap-[0.7rem] rounded-[0.5rem] border-[1px] border-[#EEEAE2] bg-[#FAF9F6] px-[0.85rem] py-[0.8rem]">
+                      <div className="mt-[1.15rem] flex items-start gap-[0.7rem] rounded-[0.5rem] border-[1px] border-[#EEEAE2] bg-brand-light px-[0.85rem] py-[0.8rem]">
                         <MapPin className="mt-[0.15rem] h-[1rem] w-[1rem] shrink-0 text-brand-gold" />
 
                         <p className="text-[0.72rem] font-[500] leading-[1.25rem] text-[#5F5F5F]">
@@ -503,19 +503,19 @@ function GlobalCommitment() {
 function ServiceHighlights() {
   return (
     <section className="bg-brand-white px-4 pb-10 sm:px-10 md:px-16">
-      <div className="mx-auto grid  overflow-hidden rounded-xl border border-white/10 bg-[#010129] shadow-xl lg:grid-cols-[1fr_260px]">
+      <div className="mx-auto grid  overflow-hidden rounded-xl border border-brand-gold/10 bg-brand-blush/60 shadow-xl lg:grid-cols-[1fr_260px]">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {serviceHighlights.map(({ Icon, title, text }) => (
             <div
               key={title}
-              className="flex flex-col items-center justify-center border-b border-white/10 px-5 py-7 text-center last:border-r-0 sm:border-r lg:border-b-0"
+              className="flex flex-col items-center justify-center border-b border-brand-gold/10 px-5 py-7 text-center last:border-r-0 sm:border-r lg:border-b-0"
             >
               <Icon
                 className="mb-4 h-9 w-9 text-brand-gold"
                 strokeWidth={1.7}
               />
-              <h3 className="text-sm font-bold text-white">{title}</h3>
-              <p className="mt-2 text-xs text-zinc-300">{text}</p>
+              <h3 className="text-sm font-bold text-brand-dark">{title}</h3>
+              <p className="mt-2 text-xs text-zinc-700">{text}</p>
             </div>
           ))}
         </div>

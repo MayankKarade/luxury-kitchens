@@ -90,19 +90,19 @@ export default function PortfolioClient() {
               changeImage(event.key === "ArrowLeft" ? -1 : 1);
             }
           }}
-          className="fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none border-0 bg-black/95 p-0 text-white backdrop:bg-black/95"
+          className="fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none border-0 bg-brand-light/98 p-0 text-brand-dark backdrop:bg-brand-dark/45"
         >
           {hasLightboxImages && (
             <div
               className="flex h-full flex-col items-center p-4 backdrop-blur-md sm:p-8"
             >
               {/* Top Row Toolbar */}
-              <div className="flex w-full shrink-0 items-center justify-between gap-4 text-white">
+              <div className="flex w-full shrink-0 items-center justify-between gap-4 text-brand-dark">
                 <div className="flex min-w-0 flex-col">
                   <span className="text-[10px] text-brand-gold tracking-[0.25em] font-sans font-black uppercase">
                     {lightboxProject.tag}
                   </span>
-                  <span className="truncate font-serif font-bold text-sm sm:text-base tracking-tight text-zinc-100">
+                  <span className="truncate font-serif font-bold text-sm sm:text-base tracking-tight text-brand-dark">
                     {lightboxProject.title} (Frame {activeLightboxIndex + 1} of{" "}
                     {lightboxProject.images.length})
                   </span>
@@ -112,14 +112,14 @@ export default function PortfolioClient() {
                   type="button"
                   aria-label="Close project gallery"
                   onClick={() => setLightboxOpen(false)}
-                  className="w-10 h-10 shrink-0 rounded-full bg-brand-white/5 border border-white/10 hover:bg-brand-gold hover:text-white flex items-center justify-center hover:scale-105 transition-all cursor-pointer"
+                  className="w-10 h-10 shrink-0 rounded-full bg-white/85 border border-brand-gold/15 hover:bg-brand-gold hover:text-white flex items-center justify-center hover:scale-105 transition-all cursor-pointer"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
 
               {/* Central Main Media Workspace */}
-              <div className="relative mt-4 min-h-0 w-full max-w-5xl flex-1 overflow-hidden rounded-xl border border-white/5 shadow-2xl">
+              <div className="relative mt-4 min-h-0 w-full max-w-5xl flex-1 overflow-hidden rounded-xl border border-brand-gold/10 shadow-2xl">
                 <Image
                   src={lightboxProject.images[activeLightboxIndex]}
                   alt={`${lightboxProject.title} expanded view ${activeLightboxIndex + 1}`}
@@ -130,10 +130,10 @@ export default function PortfolioClient() {
                 />
                 {lightboxProject.images.length > 1 && (
                   <>
-                    <button type="button" onClick={() => changeImage(-1)} aria-label="Previous project image" className="absolute left-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/60 text-white transition-colors hover:bg-brand-gold sm:left-4">
+                    <button type="button" onClick={() => changeImage(-1)} aria-label="Previous project image" className="absolute left-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-brand-gold/20 bg-white/90 text-brand-dark transition-colors hover:bg-brand-gold hover:text-white sm:left-4">
                       <ArrowLeft aria-hidden="true" className="h-5 w-5" />
                     </button>
-                    <button type="button" onClick={() => changeImage(1)} aria-label="Next project image" className="absolute right-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/60 text-white transition-colors hover:bg-brand-gold sm:right-4">
+                    <button type="button" onClick={() => changeImage(1)} aria-label="Next project image" className="absolute right-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-brand-gold/20 bg-white/90 text-brand-dark transition-colors hover:bg-brand-gold hover:text-white sm:right-4">
                       <ArrowRight aria-hidden="true" className="h-5 w-5" />
                     </button>
                   </>

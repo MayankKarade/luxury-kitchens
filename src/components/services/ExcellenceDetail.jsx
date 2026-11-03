@@ -47,7 +47,7 @@ export default function ExcellenceDetail() {
   return (
     <section
       id="services-excellence-section"
-      className="py-12 sm:py-16 bg-[#010129] border-t border-neutral-800/20 relative overflow-hidden"
+      className="py-12 sm:py-16 bg-brand-blush border-t border-neutral-800/20 relative overflow-hidden"
     >
       {/* Decorative subtle golden layout lines/glow grids */}
       <div className="absolute inset-0 opacity-15 pointer-events-none select-none">
@@ -64,13 +64,13 @@ export default function ExcellenceDetail() {
               WHY CALI WOOD
             </span>
 
-            <h2 className="font-serif text-3xl sm:text-[34px] font-normal leading-[1.12] text-white tracking-tight">
+            <h2 className="font-serif text-3xl sm:text-[34px] font-normal leading-[1.12] text-brand-dark tracking-tight">
               Built Around Your Space,
               <br />
               From Start to Finish
             </h2>
 
-            <p className="text-zinc-400 mt-6 font-sans text-[14px] sm:text-[14.5px] leading-relaxed mb-8 max-w-sm">
+            <p className="text-zinc-600 mt-6 font-sans text-[14px] sm:text-[14.5px] leading-relaxed mb-8 max-w-sm">
               Cali Wood combines bespoke design, precision manufacturing and
               expert installation to create furniture tailored to your space,
               requirements and preferences.
@@ -100,12 +100,12 @@ export default function ExcellenceDetail() {
                   </div>
 
                   {/* Title */}
-                  <h4 className="text-white text-center font-sans text-[12.5px] font-bold tracking-wide mt-1 mb-2">
+                  <h4 className="text-brand-dark text-center font-sans text-[12.5px] font-bold tracking-wide mt-1 mb-2">
                     {val.title}
                   </h4>
 
                   {/* Description */}
-                  <p className="text-zinc-400 text-center font-sans px-2 text-xs sm:text-[12.5px] leading-relaxed">
+                  <p className="text-zinc-600 text-center font-sans px-2 text-xs sm:text-[12.5px] leading-relaxed">
                     {val.desc}
                   </p>
 

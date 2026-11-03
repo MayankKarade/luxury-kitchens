@@ -24,7 +24,7 @@ export default function ServiceWhyChoose({ service }) {
                   <ServiceDetailIcon name={benefit.icon} className="h-7 w-7" />
                 </span>
                 <div>
-                  <h3 className="text-sm font-extrabold text-neutral-900">
+                  <h3 className="text-sm font-extrabold text-brand-dark">
                     {benefit.title}
                   </h3>
                   <p className="mt-1 text-sm leading-5 sm:leading-6 text-zinc-600">
@@ -36,7 +36,7 @@ export default function ServiceWhyChoose({ service }) {
           </div>
         </div>
 
-        <div className="overflow-hidden rounded-xl border border-neutral-200 bg-[#071014] shadow-sm">
+        <div className="overflow-hidden rounded-xl border border-neutral-200 bg-brand-blush/60 shadow-sm">
           <div className="relative min-h-[340px] sm:min-h-[430px]">
             <Image
               src={service.showcaseImage}
@@ -46,13 +46,13 @@ export default function ServiceWhyChoose({ service }) {
               className="object-cover"
             />
           </div>
-          <div className="grid grid-cols-2 divide-x divide-white/10 bg-[#071014] text-center text-white sm:grid-cols-4">
+          <div className="grid grid-cols-2 divide-x divide-brand-gold/10 bg-brand-blush/60 text-center text-brand-dark sm:grid-cols-4">
             {service.stats.map((stat) => (
               <div key={stat.label} className="px-4 py-6">
                 <div className="text-2xl font-extrabold text-brand-gold sm:text-3xl">
                   {stat.value}
                 </div>
-                <div className="mt-2 text-xs font-medium text-zinc-300">
+                <div className="mt-2 text-xs font-medium text-zinc-700">
                   {stat.label}
                 </div>
               </div>

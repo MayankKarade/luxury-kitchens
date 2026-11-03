@@ -109,7 +109,7 @@ export default function AboutStats() {
   return (
     <section
       id="stats-counter-bar"
-      className="relative py-14 bg-[#010129] border-y border-white/5 overflow-hidden select-none"
+      className="relative py-14 bg-brand-blush border-y border-brand-gold/10 overflow-hidden select-none"
     >
       {/* Luxury subtle marble pattern overlays matches image */}
       <div className="absolute inset-0 opacity-15 pointer-events-none">
@@ -131,7 +131,7 @@ export default function AboutStats() {
             >
               {/* Premium Luxury vertical dividers exactly as shown in reference layout */}
               {idx > 0 && (
-                <div className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-full bg-neutral-800"></div>
+                <div className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-full bg-brand-gold/15"></div>
               )}
 
               {/* Minimal golden icon - no hard border container, pure premium outline */}
@@ -140,12 +140,12 @@ export default function AboutStats() {
               </div>
 
               {/* Bold numbers */}
-              <h3 className="font-sans text-2xl sm:text-3xl lg:text-[38px] font-bold text-white tracking-tight leading-none">
+              <h3 className="font-sans text-2xl sm:text-3xl lg:text-[38px] font-bold text-brand-dark tracking-tight leading-none">
                 <AnimatedCounter value={item.num} />
               </h3>
 
               {/* Captions below number */}
-              <span className="text-xs sm:text-[14px] text-zinc-400 font-sans font-normal mt-3.5 tracking-wide">
+              <span className="text-xs sm:text-[14px] text-zinc-600 font-sans font-normal mt-3.5 tracking-wide">
                 {item.label}
               </span>
             </div>

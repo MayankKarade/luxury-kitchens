@@ -50,7 +50,7 @@ function FlagIcon({ region }) {
 
 function VideoCard({ video }) {
   return (
-    <article className="h-full overflow-hidden rounded-lg border border-white/15 bg-[#071014] shadow-[0_18px_45px_rgba(0,0,0,0.34)]">
+    <article className="h-full overflow-hidden rounded-lg border border-brand-gold/10 bg-brand-blush/60 shadow-[0_18px_45px_rgba(70,40,25,0.08)]">
       <div className="relative aspect-[16/13.15] overflow-hidden">
         <Image
           src={video.image}
@@ -62,17 +62,17 @@ function VideoCard({ video }) {
         <div className="absolute inset-0 bg-black/12" />
         <button
           aria-label={`Play ${video.title}`}
-          className="absolute left-1/2 top-1/2 flex h-[58px] w-[58px] -translate-x-1/2 -translate-y-1/2 items-center justify-center text-white drop-shadow-xl transition-transform hover:scale-105"
+          className="absolute left-1/2 top-1/2 flex h-[58px] w-[58px] -translate-x-1/2 -translate-y-1/2 items-center justify-center text-brand-dark drop-shadow-xl transition-transform hover:scale-105"
         >
           <PlayCircleIcon className="h-[58px] w-[58px]" />
         </button>
       </div>
 
-      <div className="min-h-[98px] border-t border-white/10 px-4 py-4">
-        <h3 className="text-[14px] font-extrabold leading-tight text-white">
+      <div className="min-h-[98px] border-t border-brand-gold/10 px-4 py-4">
+        <h3 className="text-[14px] font-extrabold leading-tight text-brand-dark">
           {video.title}
         </h3>
-        <p className="mt-4 flex items-center gap-2 text-[12px] font-semibold text-zinc-200">
+        <p className="mt-4 flex items-center gap-2 text-[12px] font-semibold text-zinc-700">
           <FlagIcon region={video.region} />
           {video.location}
         </p>
@@ -87,12 +87,12 @@ function SectionIntro() {
       <span className="text-[12px] font-extrabold uppercase tracking-[0.22em] text-brand-gold">
         VIDEO TESTIMONIALS
       </span>
-      <h2 className="mt-5 font-serif text-[36px] font-semibold leading-[1.05] text-white sm:text-[40px] lg:text-[42px]">
+      <h2 className="mt-5 font-serif text-[36px] font-semibold leading-[1.05] text-brand-dark sm:text-[40px] lg:text-[42px]">
         Hear It From
         <br />
         Our Clients
       </h2>
-      <p className="mt-6 max-w-[315px] text-[13px] font-medium leading-7 text-zinc-300">
+      <p className="mt-6 max-w-[315px] text-[13px] font-medium leading-7 text-zinc-700">
         Our clients love to share their experience working with us and how we
         helped them create their dream spaces.
       </p>
@@ -128,7 +128,7 @@ export default function VideoTestimonials() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-[#05090c] px-4 py-10 text-white sm:px-10 md:px-16 lg:py-[56px]">
+    <section className="relative overflow-hidden bg-brand-blush px-4 py-10 text-brand-dark sm:px-10 md:px-16 lg:py-[56px]">
       <Image
         src={marbleBg}
         alt=""
@@ -136,7 +136,7 @@ export default function VideoTestimonials() {
         sizes="100vw"
         className="object-cover opacity-[0.13]"
       />
-      <div className="absolute inset-0 bg-[#05090c]/90" />
+      <div className="absolute inset-0 bg-white/90" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_28%,rgba(154,1,1,0.08),transparent_30%),radial-gradient(circle_at_86%_50%,rgba(255,255,255,0.035),transparent_26%)]" />
 
       <div className="relative z-10 mx-auto hidden max-w-[1610px] grid-cols-[330px_minmax(0,1fr)] gap-[64px] pr-[74px] lg:grid">
@@ -172,14 +172,14 @@ export default function VideoTestimonials() {
           <button
             onClick={showPrevious}
             aria-label="Previous video"
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-brand-gold/60 bg-[#071014]/90 text-brand-gold shadow-[0_12px_28px_rgba(0,0,0,0.38)] transition-colors hover:bg-brand-gold hover:text-white"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-brand-gold/60 bg-brand-gold text-brand-gold shadow-[0_12px_28px_rgba(70,40,25,0.08)] transition-colors hover:bg-brand-gold hover:text-white"
           >
             <ArrowLeft className="h-5 w-5" />
           </button>
           <button
             onClick={showNext}
             aria-label="Next video"
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-brand-gold/60 bg-[#071014]/90 text-brand-gold shadow-[0_12px_28px_rgba(0,0,0,0.38)] transition-colors hover:bg-brand-gold hover:text-white"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-brand-gold/60 bg-brand-gold text-brand-gold shadow-[0_12px_28px_rgba(70,40,25,0.08)] transition-colors hover:bg-brand-gold hover:text-white"
           >
             <ArrowRight className="h-5 w-5" />
           </button>

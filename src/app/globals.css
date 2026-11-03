@@ -8,7 +8,8 @@
 
   --color-brand-gold: #9a0101;
   --color-gb-hover: #9a0101;
-  --color-brand-light: #ffffff;
+  --color-brand-light: #fffaf7;
+  --color-brand-blush: #F5E7DE;
   --color-brand-white: #ffffff;
   --color-brand-dark: #010129;
 }
@@ -19,27 +20,59 @@ html {
 }
 
 body {
-  background-color: #010129;
-  color: #f3f4f6;
+  background-color: #fffaf7;
+  color: #010129;
   /* max-width: 1500px; */
   font-family: var(--font-sans);
 }
 
 /* Custom fade transitions and subtle glass cards */
 .glass-panel {
-  background: rgba(15, 17, 23, 0.7);
+  background: rgba(255, 255, 255, 0.70);
   backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(154, 1, 1, 0.10);
 }
 
 .gold-gradient-text {
-  background: linear-gradient(135deg, #ffffff 0%, #9a0101 100%);
+  background: linear-gradient(135deg, #010129 0%, #9a0101 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .no-scrollbar {
   scrollbar-width: none;
+}
+
+/* Shared photo treatment: the original layout stays intact on every hero. */
+.theme-hero-wash {
+  background: linear-gradient(90deg, rgba(245,231,222,.98) 0%, rgba(245,231,222,.94) 45%, rgba(245,231,222,.7) 72%, rgba(245,231,222,.4) 100%);
+}
+
+.theme-hero-wash::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(3px);
+  mask-image: linear-gradient(to right, black 0%, black 35%, transparent 75%);
+}
+
+.theme-hero-bottom {
+  background: linear-gradient(to top, rgba(245,231,222,.45), transparent 65%);
+}
+
+.theme-soft-wash {
+  background: linear-gradient(110deg, rgba(245,231,222,.97), rgba(255,250,247,.88));
+}
+
+/* Keep every item inside the shared hero breadcrumb pill on the eyebrow accent. */
+[class~="text-brand-gold/90"][class~="tracking-[0.12em]"] > * {
+  color: var(--color-brand-gold) !important;
+}
+
+@media (min-width: 1024px) {
+  .theme-hero-wash {
+    background: linear-gradient(90deg, #F5E7DE 0%, rgba(245,231,222,.98) 24%, rgba(245,231,222,.90) 40%, rgba(245,231,222,.55) 52%, rgba(245,231,222,.08) 68%, transparent 80%);
+  }
 }
 
 .luxury-native-picker {

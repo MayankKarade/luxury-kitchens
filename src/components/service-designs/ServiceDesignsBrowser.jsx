@@ -199,10 +199,10 @@ function FilterSidebar({
 
   return (
     <aside
-      className={`h-fit rounded-lg border border-neutral-200 bg-white p-4 shadow-sm lg:sticky lg:top-28 ${className}`}
+      className={`h-fit rounded-lg border border-neutral-200 bg-brand-blush/60 p-4 shadow-sm lg:sticky lg:top-28 ${className}`}
     >
       <div className="flex items-center justify-between gap-3">
-        <h2 className="text-sm font-extrabold uppercase tracking-wide text-neutral-900">
+        <h2 className="text-sm font-extrabold uppercase tracking-wide text-brand-dark">
           Browse Designs
         </h2>
         {onClose && (
@@ -225,12 +225,12 @@ function FilterSidebar({
       </div>
 
       <div className="pt-4">
-        <h3 className="text-sm font-extrabold uppercase tracking-wide text-neutral-900">
+        <h3 className="text-sm font-extrabold uppercase tracking-wide text-brand-dark">
           Filter By
         </h3>
 
         <div className="mt-4">
-          <p className="text-sm font-bold text-neutral-900">Style</p>
+          <p className="text-sm font-bold text-brand-dark">Style</p>
           <div className="mt-3 space-y-3">
             {collection.filters.map((filter) => {
               const filterId = String(getFilterId(filter));
@@ -255,7 +255,7 @@ function FilterSidebar({
         </div>
 
         <div className="mt-7">
-          <p className="text-sm font-bold text-neutral-900">Colors</p>
+          <p className="text-sm font-bold text-brand-dark">Colors</p>
           <div className="mt-3 flex flex-wrap gap-3">
             {collection.swatches.map((color) => {
               const colorId = String(getColorId(color));
@@ -290,14 +290,14 @@ function FilterSidebar({
         </div>
 
         <div className="mt-7">
-          <p className="text-sm font-bold text-neutral-900">Products</p>
+          <p className="text-sm font-bold text-brand-dark">Products</p>
           <p className="mt-2 text-sm font-semibold text-zinc-500">
             {productCount}
           </p>
         </div>
 
         <div className="mt-7">
-          <p className="text-sm font-bold text-neutral-900">Price Range</p>
+          <p className="text-sm font-bold text-brand-dark">Price Range</p>
           <div className="mt-5 px-1">
             <div className="relative h-5">
               <div className="absolute left-0 right-0 top-1/2 h-1 -translate-y-1/2 rounded-full bg-neutral-200" />
@@ -374,7 +374,7 @@ function ProductCard({ product, service }) {
   const detailHref = `/our-services/${service.slug}/designs/${productSlug}`;
 
   return (
-    <article className="group h-full overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
+    <article className="group h-full overflow-hidden rounded-lg border border-neutral-200 bg-brand-blush/60 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md">
       <div className="relative aspect-[16/10.5] overflow-hidden">
         {product.image ? (
           <Image
@@ -385,7 +385,7 @@ function ProductCard({ product, service }) {
             className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
           />
         ) : (
-          <div className="flex h-full items-center justify-center bg-neutral-100 px-4 text-center text-xs font-bold uppercase tracking-wide text-zinc-400">
+          <div className="flex h-full items-center justify-center bg-neutral-100 px-4 text-center text-xs font-bold uppercase tracking-wide text-zinc-600">
             No image available
           </div>
         )}
@@ -414,7 +414,7 @@ function ProductCard({ product, service }) {
         <Link
           href={detailHref}
           prefetch={false}
-          className="block font-serif text-[17px] font-semibold leading-tight text-neutral-900 transition-colors hover:text-brand-gold"
+          className="block font-serif text-[17px] font-semibold leading-tight text-brand-dark transition-colors hover:text-brand-gold"
         >
           {product.title}
         </Link>
@@ -424,7 +424,7 @@ function ProductCard({ product, service }) {
             : product.text}
         </p>
         {product.price && (
-          <p className="mt-1 text-lg font-bold text-neutral-900">
+          <p className="mt-1 text-lg font-bold text-brand-dark">
             {product.price}
           </p>
         )}
@@ -607,7 +607,7 @@ function ServiceDesignsBrowserContent({ service, collection }) {
         <div className="min-w-0">
           <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <h1 className="font-serif text-3xl font-semibold leading-tight text-neutral-900 sm:text-[36px]">
+              <h1 className="font-serif text-3xl font-semibold leading-tight text-brand-dark sm:text-[36px]">
                 {collection.listTitle}{" "}
                 <span className="font-sans text-base font-bold text-zinc-500">
                   ({filteredProducts.length}{" "}
@@ -648,7 +648,7 @@ function ServiceDesignsBrowserContent({ service, collection }) {
             ))}
           </div>
           {filteredProducts.length === 0 && (
-            <div className="rounded-lg border border-dashed border-neutral-200 bg-white px-6 py-10 text-center">
+            <div className="rounded-lg border border-dashed border-neutral-200 bg-brand-blush/60 px-6 py-10 text-center">
               <p className="text-sm font-bold uppercase tracking-wide text-zinc-500">
                 No products available right now.
               </p>

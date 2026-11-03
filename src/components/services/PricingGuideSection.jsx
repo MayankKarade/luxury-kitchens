@@ -33,14 +33,14 @@ const pricingPoints = [
 
 export default function PricingGuideSection() {
   return (
-    <section className="bg-[#f8f6f1] py-16 sm:py-20 lg:py-24">
+    <section className="bg-brand-light py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-[1500px] px-5 sm:px-8 lg:px-[28px] xl:px-[34px]">
         <div className="mx-auto mb-16 flex max-w-[760px] flex-col items-center text-center">
           <p className="mb-3 block font-sans text-xs font-extrabold uppercase tracking-[0.25em] text-brand-gold">
             PRICING GUIDE
           </p>
 
-          <h2 className="font-serif text-3xl font-normal tracking-tight text-neutral-900 sm:text-4xl lg:text-[42px]">
+          <h2 className="font-serif text-3xl font-normal tracking-tight text-brand-dark sm:text-4xl lg:text-[42px]">
             How Our Pricing Works
           </h2>
 
@@ -58,10 +58,10 @@ export default function PricingGuideSection() {
             return (
               <article
                 key={item.number}
-                className="group relative min-h-[270px] border border-[#deddd6] bg-[#fcfbf7] px-6 py-7 transition-all duration-300 hover:-translate-y-1 hover:border-brand-gold/45 hover:shadow-[0_12px_35px_rgba(1,1,41,0.08)] lg:py-8"
+                className="group relative min-h-[270px] border border-brand-gold/15 bg-white px-6 py-7 shadow-[0_6px_24px_rgba(70,40,25,0.06)] transition-all duration-300 hover:-translate-y-1 hover:border-brand-gold/45 hover:shadow-[0_12px_35px_rgba(1,1,41,0.08)] lg:py-8"
               >
                 <div className="flex items-start justify-between">
-                  <div className="flex h-13 w-13 items-center justify-center rounded-xl border border-brand-gold/25 bg-brand-dark text-brand-gold shadow-[0_10px_22px_rgba(1,1,41,0.10)] transition-all duration-300 group-hover:scale-105 group-hover:border-brand-gold/45 group-hover:bg-brand-gold group-hover:text-white">
+                  <div className="flex h-13 w-13 items-center justify-center rounded-xl border border-brand-gold/25 bg-brand-blush text-brand-gold shadow-[0_10px_22px_rgba(1,1,41,0.10)] transition-all duration-300 group-hover:scale-105 group-hover:border-brand-gold/45 group-hover:bg-brand-gold group-hover:text-white">
                     <ServiceDetailIcon
                       name={item.icon}
                       className="h-7 w-7 stroke-[1.65]"
@@ -74,11 +74,11 @@ export default function PricingGuideSection() {
                 </div>
 
                 <div className="mt-8">
-                  <h3 className="font-serif text-[24px] font-semibold leading-[1.15] text-[#263026]">
+                  <h3 className="font-serif text-[24px] font-semibold leading-[1.15] text-brand-dark">
                     {item.title}
                   </h3>
 
-                  <p className="mt-4 text-[13px] leading-[1.8] text-[#737770] sm:text-[14px]">
+                  <p className="mt-4 text-[13px] leading-[1.8] text-zinc-600 sm:text-[14px]">
                     {item.description}
                   </p>
                 </div>
@@ -89,13 +89,13 @@ export default function PricingGuideSection() {
           })}
         </div>
 
-        <div className="mt-6 flex flex-col gap-3 border border-[#deddd6] bg-[#f1f0e9] px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-7 lg:mt-8">
+        <div className="mt-6 flex flex-col gap-3 border border-brand-gold/15 bg-brand-blush px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-7 lg:mt-8">
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#596552]">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-gold">
               GOOD TO KNOW
             </p>
 
-            <p className="mt-1 text-[13px] leading-6 text-[#6e726b] sm:text-[14px]">
+            <p className="mt-1 text-[13px] leading-6 text-zinc-700 sm:text-[14px]">
               Final quotations are confirmed after we understand your space,
               materials and project requirements.
             </p>
@@ -103,7 +103,7 @@ export default function PricingGuideSection() {
 
           <a
             href="/contact"
-            className="inline-flex h-11 shrink-0 items-center justify-center border border-[#283428] bg-[#283428] px-6 text-[11px] font-semibold uppercase tracking-[0.14em] text-white transition-colors duration-300 hover:bg-transparent hover:text-[#283428]"
+            className="inline-flex h-11 shrink-0 items-center justify-center border border-brand-gold bg-brand-gold px-6 text-[11px] font-semibold uppercase tracking-[0.14em] text-white transition-colors duration-300 hover:bg-[#7f0101] hover:text-white"
           >
             Request a Quote
           </a>

@@ -135,7 +135,7 @@ export default function Portfolio() {
   return (
     <section
       id="portfolio"
-      className="bg-brand-dark px-4 sm:px-10 md:px-16 py-12 sm:py-16 lg:py-20 relative overflow-hidden select-none"
+      className="bg-brand-blush px-4 sm:px-10 md:px-16 py-12 sm:py-16 lg:py-20 relative overflow-hidden select-none"
     >
       <div className="absolute top-1/3 left-0 w-[500px] h-[500px] rounded-full bg-brand-white/[0.01] blur-[150px] pointer-events-none"></div>
       <div className=" mx-auto">
@@ -156,7 +156,7 @@ export default function Portfolio() {
             </motion.span>
             <motion.h2
               variants={fadeInUp}
-              className="font-serif text-3xl sm:text-4xl lg:text-[42px] leading-[1.15] text-white font-medium tracking-tight mb-6"
+              className="font-serif text-3xl sm:text-4xl lg:text-[42px] leading-[1.15] text-brand-dark font-medium tracking-tight mb-6"
             >
               Furniture Made for Real Spaces
             </motion.h2>
@@ -189,7 +189,7 @@ export default function Portfolio() {
             <div className="hidden md:grid grid-cols-12 gap-5 w-full md:h-[550px] items-stretch">
               {/* Card 1 */}
               <motion.div
-                className="col-span-4 flex flex-col h-full bg-[#010129] border border-white/5 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 hover:border-brand-gold/30 group"
+                className="col-span-4 flex flex-col h-full bg-brand-light border border-brand-gold/10 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 hover:border-brand-gold/30 group"
                 variants={cardVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -212,11 +212,11 @@ export default function Portfolio() {
                   </motion.div>
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/45 via-transparent to-transparent"></div>
                 </div>
-                <div className="p-6 bg-[#010129] flex flex-col gap-1 w-full border-t border-white/5">
-                  <h3 className="text-white text-lg font-serif font-bold group-hover:text-brand-gold transition-colors">
+                <div className="p-6 bg-brand-light flex flex-col gap-1 w-full border-t border-brand-gold/10">
+                  <h3 className="text-brand-dark text-lg font-serif font-bold group-hover:text-brand-gold transition-colors">
                     {visible[0].title}
                   </h3>
-                  <span className="text-[13px] text-zinc-400">
+                  <span className="text-[13px] text-zinc-600">
                     Designed and manufactured around the space
                   </span>
                 </div>
@@ -225,7 +225,7 @@ export default function Portfolio() {
               {/* Card 2 & 3 stacked */}
               <div className="col-span-4 flex flex-col gap-5 justify-between">
                 <motion.div
-                  className="flex flex-col h-full bg-[#010129] border border-white/5 rounded-2xl overflow-hidden shadow-xl group"
+                  className="flex flex-col h-full bg-brand-light border border-brand-gold/10 rounded-2xl overflow-hidden shadow-xl group"
                   variants={cardVariants}
                   initial="hidden"
                   whileInView="visible"
@@ -247,18 +247,18 @@ export default function Portfolio() {
                     </motion.div>
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/45 via-transparent to-transparent"></div>
                   </div>
-                  <div className="p-4 bg-[#010129] border-t border-white/5">
-                    <h3 className="text-white text-base font-serif font-bold group-hover:text-brand-gold transition-colors">
+                  <div className="p-4 bg-brand-light border-t border-brand-gold/10">
+                    <h3 className="text-brand-dark text-base font-serif font-bold group-hover:text-brand-gold transition-colors">
                       {visible[1].title}
                     </h3>
-                    <span className="text-xs text-zinc-400">
+                    <span className="text-xs text-zinc-600">
                       Made to size
                     </span>
                   </div>
                 </motion.div>
 
                 <motion.div
-                  className="flex flex-col h-full bg-[#010129] border border-white/5 rounded-2xl overflow-hidden shadow-xl group"
+                  className="flex flex-col h-full bg-brand-light border border-brand-gold/10 rounded-2xl overflow-hidden shadow-xl group"
                   variants={cardVariants}
                   initial="hidden"
                   whileInView="visible"
@@ -280,11 +280,11 @@ export default function Portfolio() {
                     </motion.div>
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/45 via-transparent to-transparent"></div>
                   </div>
-                  <div className="p-4 bg-[#010129] border-t border-white/5">
-                    <h3 className="text-white text-base font-serif font-bold group-hover:text-brand-gold transition-colors">
+                  <div className="p-4 bg-brand-light border-t border-brand-gold/10">
+                    <h3 className="text-brand-dark text-base font-serif font-bold group-hover:text-brand-gold transition-colors">
                       {visible[2].title}
                     </h3>
-                    <span className="text-xs text-zinc-400">
+                    <span className="text-xs text-zinc-600">
                       Professionally finished
                     </span>
                   </div>
@@ -296,7 +296,7 @@ export default function Portfolio() {
                 <div className="flex justify-end gap-3.5 pb-2">
                   <motion.button
                     onClick={prevSlide}
-                    className="w-10 h-10 rounded-full border border-brand-gold/30 hover:border-brand-gold text-white hover:text-brand-gold flex items-center justify-center transition-all duration-300 bg-[#010129] cursor-pointer"
+                    className="w-10 h-10 rounded-full border border-brand-gold/30 hover:border-brand-gold text-white hover:text-brand-gold flex items-center justify-center transition-all duration-300 bg-brand-gold cursor-pointer"
                     whileHover={{ scale: 1.1, borderColor: "#9A0101" }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -304,7 +304,7 @@ export default function Portfolio() {
                   </motion.button>
                   <motion.button
                     onClick={nextSlide}
-                    className="w-10 h-10 rounded-full border border-brand-gold/30 hover:border-brand-gold text-white hover:text-brand-gold flex items-center justify-center transition-all duration-300 bg-[#010129] cursor-pointer"
+                    className="w-10 h-10 rounded-full border border-brand-gold/30 hover:border-brand-gold text-white hover:text-brand-gold flex items-center justify-center transition-all duration-300 bg-brand-gold cursor-pointer"
                     whileHover={{ scale: 1.1, borderColor: "#9A0101" }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -312,7 +312,7 @@ export default function Portfolio() {
                   </motion.button>
                 </div>
                 <motion.div
-                  className="flex flex-col h-full bg-[#010129] border border-white/5 rounded-2xl overflow-hidden shadow-2xl group"
+                  className="flex flex-col h-full bg-brand-light border border-brand-gold/10 rounded-2xl overflow-hidden shadow-2xl group"
                   variants={cardVariants}
                   initial="hidden"
                   whileInView="visible"
@@ -334,11 +334,11 @@ export default function Portfolio() {
                     </motion.div>
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/45 via-transparent to-transparent"></div>
                   </div>
-                  <div className="p-6 bg-[#010129] border-t border-white/5">
-                    <h3 className="text-white text-lg font-serif font-bold group-hover:text-brand-gold transition-colors">
+                  <div className="p-6 bg-brand-light border-t border-brand-gold/10">
+                    <h3 className="text-brand-dark text-lg font-serif font-bold group-hover:text-brand-gold transition-colors">
                       {visible[3].title}
                     </h3>
-                    <span className="text-[13px] text-zinc-400">
+                    <span className="text-[13px] text-zinc-600">
                       Built for real use
                     </span>
                   </div>
@@ -358,7 +358,7 @@ export default function Portfolio() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: idx * 0.1 }}
                   >
-                    <div className="bg-[#010129] border border-white/5 rounded-2xl overflow-hidden shadow-xl">
+                    <div className="bg-brand-light border border-brand-gold/10 rounded-2xl overflow-hidden shadow-xl">
                       <div className="relative aspect-[4/3] w-full">
                         <Image
                           src={project.img}
@@ -368,11 +368,11 @@ export default function Portfolio() {
                           referrerPolicy="no-referrer"
                         />
                       </div>
-                      <div className="p-5 bg-[#010129] border-t border-white/5">
-                        <h3 className="text-white text-lg font-serif font-bold mb-1">
+                      <div className="p-5 bg-brand-light border-t border-brand-gold/10">
+                        <h3 className="text-brand-dark text-lg font-serif font-bold mb-1">
                           {project.title}
                         </h3>
-                        <span className="text-xs text-zinc-400">
+                        <span className="text-xs text-zinc-600">
                           Cali Wood furniture solution
                         </span>
                       </div>

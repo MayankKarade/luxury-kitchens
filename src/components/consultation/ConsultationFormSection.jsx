@@ -154,7 +154,7 @@ export default function ConsultationFormSection() {
       <div className="mx-auto grid  grid-cols-1 gap-7 lg:grid-cols-[1.15fr_0.9fr]">
         <form
           onSubmit={handleSubmit}
-          className="rounded-lg border border-neutral-200 bg-white p-6 shadow-sm sm:p-8"
+          className="rounded-lg border border-neutral-200 bg-brand-blush/60 p-6 shadow-sm sm:p-8"
         >
           <h2 className="font-serif text-3xl font-medium leading-tight sm:text-[36px]">
             Book A Consultation
@@ -307,7 +307,7 @@ export default function ConsultationFormSection() {
           )}
         </form>
 
-        <aside className="relative overflow-hidden rounded-lg bg-[#071014] p-6 text-white shadow-sm sm:p-8">
+        <aside className="relative overflow-hidden rounded-lg bg-brand-blush/60 p-6 text-brand-dark shadow-sm sm:p-8">
           <Image
             src={loungeImg}
             alt="Luxury consultation lounge"
@@ -315,12 +315,12 @@ export default function ConsultationFormSection() {
             sizes="(min-width: 1024px) 45vw, 100vw"
             className="object-cover opacity-38"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#071014] via-[#071014]/90 to-[#071014]/50" />
+          <div className="absolute inset-0 theme-soft-wash" />
           <div className="relative z-10">
             <h2 className="font-serif text-3xl font-medium text-brand-gold sm:text-[34px]">
               Why Book A Consultation?
             </h2>
-            <p className="mt-5 max-w-md text-sm font-medium leading-7 text-zinc-200">
+            <p className="mt-5 max-w-md text-sm font-medium leading-7 text-zinc-700">
               A personalized consultation helps us understand your needs and
               deliver a solution that fits your style, space, and budget
               perfectly.
@@ -334,10 +334,10 @@ export default function ConsultationFormSection() {
                     className="mt-1 h-9 w-9 shrink-0 text-brand-gold"
                   />
                   <div>
-                    <h3 className="text-sm font-extrabold text-white">
+                    <h3 className="text-sm font-extrabold text-brand-dark">
                       {item.title}
                     </h3>
-                    <p className="mt-1 text-sm leading-6 text-zinc-300">
+                    <p className="mt-1 text-sm leading-6 text-zinc-700">
                       {item.text}
                     </p>
                   </div>

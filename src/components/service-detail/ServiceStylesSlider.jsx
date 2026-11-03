@@ -58,7 +58,7 @@ export default function ServiceStylesSlider({ service }) {
                 key={`${style.title}-${index}`}
                 className="min-w-0 flex-[0_0_100%] pl-5 sm:flex-[0_0_50%] lg:flex-[0_0_25%]"
               >
-                <article className="h-full overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm">
+                <article className="h-full overflow-hidden rounded-lg border border-neutral-200 bg-brand-blush/60 shadow-sm">
                   <div className="relative aspect-[16/8.8] overflow-hidden">
                     <Image
                       src={style.image}
@@ -69,7 +69,7 @@ export default function ServiceStylesSlider({ service }) {
                     />
                   </div>
                   <div className="p-5">
-                    <h3 className="font-serif text-xl font-semibold text-neutral-900">
+                    <h3 className="font-serif text-xl font-semibold text-brand-dark">
                       {style.title}
                     </h3>
                     <p className="mt-2 min-h-[48px] text-sm leading-6 text-zinc-600">

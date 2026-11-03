@@ -70,7 +70,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen 2xl:min-h-[50rem] flex flex-col justify-between items-center pt-28 sm:pt-40 pb-14 overflow-hidden"
+      className="relative min-h-screen 2xl:min-h-[50rem] flex flex-col justify-between items-center bg-[#F5E7DE] pt-28 sm:pt-40 pb-14 overflow-hidden"
     >
       {/* Background wallpaper - static (no motion needed) */}
       <div className="absolute inset-0 z-0">
@@ -83,13 +83,19 @@ export default function Hero() {
           referrerPolicy="no-referrer"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/55 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/35" />
-        <div className="absolute top-1/2 left-2/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-brand-gold/5 blur-[180px] pointer-events-none rounded-full" />
+        <div
+          className="absolute inset-y-0 left-0 w-full backdrop-blur-[3px] lg:w-[72%]"
+          style={{
+            maskImage:
+              "linear-gradient(to right, black 0%, black 45%, transparent 100%)",
+          }}
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(245,231,222,0.98)_0%,rgba(245,231,222,0.94)_45%,rgba(245,231,222,0.7)_72%,rgba(245,231,222,0.4)_100%)] lg:bg-[linear-gradient(90deg,#F5E7DE_0%,rgba(245,231,222,0.98)_24%,rgba(245,231,222,0.90)_40%,rgba(245,231,222,0.55)_52%,rgba(245,231,222,0.08)_68%,transparent_80%)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#F5E7DE]/45 via-transparent to-transparent" />
       </div>
 
       <div className="flex flex-col lg:flex-row items-center justify-center px-4 sm:px-10 lg:px-16 w-full ">
-        <div className="w-full lg:w-[45%] mx-auto relative z-10 flex-grow flex flex-col justify-center">
+        <div className="w-full lg:w-[55%] mx-auto relative z-10 flex-grow flex flex-col justify-center">
           <div className="grid grid-cols-1 gap-8 items-center">
             {/* Left animated content */}
             <motion.div
@@ -100,14 +106,14 @@ export default function Hero() {
             >
               <motion.span
                 variants={fadeInUp}
-                className="bg-brand-gold text-white rounded-full px-3 py-0.5 font-sans text-xs font-bold tracking-[0.25em] uppercase block w-fit"
+                className="bg-brand-gold/7 text-brand-gold rounded-full px-3 py-0.5 font-sans text-xs font-bold tracking-[0.25em] uppercase block w-fit"
               >
                 DESIGNED. BUILT. INSTALLED.
               </motion.span>
 
               <motion.h1
                 variants={fadeInUp}
-                className="font-serif text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-white leading-[1.08] tracking-tight"
+                className="font-serif text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-brand-dark leading-[1.08] tracking-tight"
               >
                 Bespoke Furniture.
                 <br />
@@ -116,7 +122,7 @@ export default function Hero() {
 
               <motion.p
                 variants={fadeInUp}
-                className="text-gray-300 font-sans text-sm sm:text-base md:text-lg max-w-xl leading-relaxed mt-2"
+                className="text-zinc-700 font-sans text-sm sm:text-base md:text-lg max-w-xl leading-relaxed mt-2"
               >
                 Cali Wood creates durable, made-to-size kitchens, wardrobes and
                 custom furniture designed around your space, style and everyday
@@ -142,7 +148,7 @@ export default function Hero() {
 
                 <motion.a
                   href="#portfolio"
-                  className="px-5 py-3.5 border border-brand-gold hover:bg-brand-gold/10 text-white font-sans text-xs font-bold tracking-wide rounded-[1px] flex items-center justify-center gap-2 transition-all duration-300"
+                  className="px-5 py-3.5 border border-brand-gold hover:bg-brand-gold/10 text-brand-gold font-sans text-xs font-bold tracking-wide rounded-[1px] flex items-center justify-center gap-2 transition-all duration-300"
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -173,7 +179,7 @@ export default function Hero() {
                   {/* <span className="text-xs font-bold text-white tracking-[0.1em] uppercase">
                     500+ Happy Clients
                   </span> */}
-                  <span className="text-xs font-bold text-white tracking-wide capitalize ">
+                  <span className="text-xs font-bold text-brand-dark tracking-wide capitalize ">
                     Furniture designed around your space
                   </span>
                   <div className="flex items-center gap-1.5">
@@ -185,7 +191,7 @@ export default function Hero() {
                         />
                       ))}
                     </div> */}
-                    <span className="text-xs text-gray-300 font-sans font-semibold">
+                    <span className="text-xs text-zinc-600 font-sans font-semibold">
                       Precision-built to size • Professionally installed
                     </span>
                   </div>
@@ -199,21 +205,21 @@ export default function Hero() {
 
         {/* Floating panel – animated slide from right */}
         <motion.div
-          className="w-full lg:w-[55%] mx-auto relative z-10 mt-auto pt-6"
+          className="w-full lg:w-[45%] mx-auto lg:mr-8 relative z-10 mt-auto pt-6"
           variants={slideInRight}
           initial="hidden"
           animate="visible"
         >
           <div className="flex justify-end">
-            <div className="w-full lg:max-w-4xl bg-black/20 backdrop-blur-xs border border-white/10 rounded-xl p-6 sm:p-7 shadow-2xl relative overflow-hidden group">
-              <div className="grid grid-cols-2 gap-4 lg:flex lg:flex-row lg:justify-between lg:items-center md:gap-0 px-2 sm:px-4">
+            <div className="w-full lg:max-w-4xl bg-white/65 backdrop-blur-xs border border-white/70 rounded-xl p-5  shadow-2xl relative overflow-hidden group">
+              <div className="grid grid-cols-2 gap-5 lg:flex lg:flex-row lg:justify-between lg:items-center lg:gap-8 px-2 ">
                 {features.map((feat, index) => (
                   <motion.div
                     key={index}
                     className="flex flex-col items-center lg:items-start justify-center gap-4 py-2"
                     whileHover={{ y: -3, transition: { duration: 0.2 } }}
                   >
-                    <div className="w-14 h-14 rounded-full border border-brand-gold/40 flex items-center justify-center shrink-0 bg-black/20">
+                    <div className="w-14 h-14 rounded-full border border-brand-gold/40 flex items-center justify-center shrink-0 bg-white/70">
                       <Image
                         src={feat.image}
                         alt={`${feat.title} icon`}
@@ -223,10 +229,10 @@ export default function Hero() {
                       />
                     </div>
                     <div className="flex flex-col items-center md:items-start">
-                      <h4 className="text-white font-semibold text-xs sm:text-sm tracking-wide font-sans">
+                      <h4 className="text-brand-dark font-semibold text-xs sm:text-sm tracking-wide font-sans">
                         {feat.title}
                       </h4>
-                      <p className="text-[11px] sm:text-xs text-gray-400 mt-0.5 font-sans">
+                      <p className="text-[11px] text-center sm:text-start sm:text-xs text-zinc-600 mt-0.5 font-sans">
                         {feat.desc}
                       </p>
                     </div>

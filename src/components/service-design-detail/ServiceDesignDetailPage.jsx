@@ -189,7 +189,7 @@ export default function ServiceDesignDetailPage({
     <div className="w-full  flex  justify-center items-center">
       <div className="w-full max-w-[1800px]">
         <div
-          className="h-[92px] bg-brand-dark sm:h-[112px]"
+          className="h-[92px] bg-brand-light sm:h-[112px]"
           aria-hidden="true"
         />
         <DesignDetailHeader service={service} product={detailState.product} />

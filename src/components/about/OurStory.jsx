@@ -28,7 +28,7 @@ export default function OurStory() {
   return (
     <section
       id="our-story-section"
-      className="py-12 sm:py-16 lg:py-24 bg-[#fbfbfb] text-brand-dark relative select-none"
+      className="py-12 sm:py-16 lg:py-24 bg-brand-light text-brand-dark relative select-none"
     >
       <div className=" mx-auto px-4 sm:px-10 md:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-[3.4fr_5.6fr] gap-7 items-center">
@@ -102,7 +102,7 @@ export default function OurStory() {
               </div>
 
               {/* Overlapping Dark Mission & Vision Card */}
-              <div className="absolute right-0 top-0 w-[35%] min-w-[300px] min-h-[500px] bg-[#010129] rounded-2xl py-8 px-7 flex flex-col justify-center gap-6 text-[#f3f4f6] shadow-[0_25px_60px_rgba(0,0,0,0.45)] z-20">
+              <div className="absolute right-0 top-0 w-[35%] min-w-[300px] min-h-[500px] bg-white rounded-2xl py-8 px-7 flex flex-col justify-center gap-6 text-brand-dark shadow-[0_25px_60px_rgba(70,40,25,0.08)] z-20">
                 {/* Item 1: Vision */}
                 <div className="flex flex-col items-start gap-3">
                   <div className="text-brand-gold transform transition-transform duration-300 hover:scale-105">
@@ -112,13 +112,13 @@ export default function OurStory() {
                     <h3 className="font-serif text-xl font-normal text-brand-gold tracking-wide leading-tight">
                       Our Vision
                     </h3>
-                    <p className="text-zinc-300 font-sans text-[13px] leading-relaxed">
+                    <p className="text-zinc-700 font-sans text-[13px] leading-relaxed">
                       {visionText}
                     </p>
                   </div>
                 </div>
 
-                <div className="h-px w-full bg-white/10" />
+                <div className="h-px w-full bg-brand-blush/60" />
 
                 {/* Item 2: Mission */}
                 <div className="flex flex-col items-start gap-3">
@@ -129,7 +129,7 @@ export default function OurStory() {
                     <h3 className="font-serif text-xl font-normal text-brand-gold tracking-wide leading-tight">
                       Our Mission
                     </h3>
-                    <p className="text-zinc-300 font-sans text-[13px] leading-relaxed">
+                    <p className="text-zinc-700 font-sans text-[13px] leading-relaxed">
                       {missionText}
                     </p>
                   </div>
@@ -154,7 +154,7 @@ export default function OurStory() {
               </div>
 
               {/* Dark Box Content for Mobile */}
-              <div className="w-full bg-[#010129] border border-white/5 rounded-2xl p-8 sm:p-10 flex flex-col gap-8 text-[#f3f4f6] shadow-lg">
+              <div className="w-full bg-white border border-brand-gold/10 rounded-2xl p-8 sm:p-10 flex flex-col gap-8 text-brand-dark shadow-lg">
                 {/* Item 1: Vision */}
                 <div className="flex flex-col items-start gap-4">
                   <div className="text-brand-gold">
@@ -164,7 +164,7 @@ export default function OurStory() {
                     <h3 className="font-serif text-lg font-normal text-brand-gold tracking-wide leading-tight">
                       Our Vision
                     </h3>
-                    <p className="text-zinc-300 font-sans text-xs sm:text-sm leading-relaxed">
+                    <p className="text-zinc-700 font-sans text-xs sm:text-sm leading-relaxed">
                       {visionText}
                     </p>
                   </div>
@@ -182,7 +182,7 @@ export default function OurStory() {
                     <h3 className="font-serif text-lg font-normal text-brand-gold tracking-wide leading-tight">
                       Our Mission
                     </h3>
-                    <p className="text-zinc-300 font-sans text-xs sm:text-sm leading-relaxed">
+                    <p className="text-zinc-700 font-sans text-xs sm:text-sm leading-relaxed">
                       {missionText}
                     </p>
                   </div>

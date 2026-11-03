@@ -117,7 +117,7 @@ export default function Stats() {
               </div>
 
               <div className="flex flex-col gap-1 sm:gap-0.5">
-                <span className="font-sans text-2xl md:text-3xl font-extrabold text-[#111827] tracking-tight leading-none">
+                <span className="font-sans text-2xl md:text-3xl font-extrabold text-brand-dark tracking-tight leading-none">
                   <AnimatedNumber value={stat.target} />
                   {stat.suffix}
                 </span>

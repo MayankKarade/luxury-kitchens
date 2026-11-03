@@ -19,7 +19,7 @@ export default function BlogDetailHero({ article }) {
   const authorInitials = getAuthorInitials(article.author);
 
   return (
-    <section className="relative overflow-hidden bg-brand-dark pt-28 text-white sm:pt-36">
+    <section className="relative overflow-hidden bg-brand-blush pt-28 text-brand-dark sm:pt-36">
       <div className="absolute inset-0">
         <Image
           src={fallbackHeroImg}
@@ -29,69 +29,69 @@ export default function BlogDetailHero({ article }) {
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/55 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/35" />
+        <div className="absolute inset-0 theme-hero-wash" />
+        <div className="absolute inset-0 theme-hero-bottom" />
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[540px]  flex-col justify-center px-4 pb-12 sm:px-10 md:px-16">
-        <div className="w-fit px-3 py-0.5 rounded-full flex items-center bg-brand-gold/40 gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8">
+        <div className="w-fit px-3 py-0.5 rounded-full flex items-center bg-white/70 border border-brand-gold/10 gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8">
           <Link
             href="/"
-            className="text-white font-medium hover:font-bold transition-all duration-150"
+            className="text-brand-dark font-medium hover:font-bold transition-all duration-150"
           >
             Home
           </Link>
-          <span className="text-white font-normal px-0.5">&gt;</span>
+          <span className="text-brand-dark font-normal px-0.5">&gt;</span>
           <Link
             href="/blog"
-            className="text-white font-medium hover:font-bold transition-all duration-150"
+            className="text-brand-dark font-medium hover:font-bold transition-all duration-150"
           >
             Blog
           </Link>
-          <span className="text-white font-normal px-0.5">&gt;</span>
-          <span className="text-white font-medium hover:font-bold transition-all duration-150">
+          <span className="text-brand-dark font-normal px-0.5">&gt;</span>
+          <span className="text-brand-dark font-medium hover:font-bold transition-all duration-150">
             {article.categoryTitle}
           </span>
-          <span className="hidden text-white font-normal px-0.5 sm:inline">
+          <span className="hidden text-brand-dark font-normal px-0.5 sm:inline">
             &gt;
           </span>
-          <span className="hidden max-w-[280px] truncate text-white font-medium hover:font-bold transition-all duration-150 sm:inline">
+          <span className="hidden max-w-[280px] truncate text-brand-dark font-medium hover:font-bold transition-all duration-150 sm:inline">
             {article.title}
           </span>
         </div>
         <div className="max-w-[620px]">
-          <span className="bg-brand-gold text-white rounded-full px-3 py-0.5 font-sans text-xs font-bold tracking-[0.25em] uppercase block w-fit">
+          <span className="bg-brand-gold/7 text-brand-gold rounded-full px-3 py-0.5 font-sans text-xs font-bold tracking-[0.25em] uppercase block w-fit">
             {article.category}
           </span>
-          <h1 className="mt-4 font-serif text-4xl font-medium leading-[1.1] text-white sm:text-5xl lg:text-[60px]">
+          <h1 className="mt-4 font-serif text-4xl font-medium leading-[1.1] text-brand-dark sm:text-5xl lg:text-[60px]">
             {article.title}
           </h1>
           <div className="my-6 h-0.5 w-14 bg-brand-gold" />
-          <p className="max-w-lg text-sm font-medium leading-7 text-zinc-200 sm:text-base">
+          <p className="max-w-lg text-sm font-medium leading-7 text-zinc-700 sm:text-base">
             {article.description}
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-6 text-sm font-semibold text-zinc-200">
+          <div className="mt-8 flex flex-wrap items-center gap-6 text-sm font-semibold text-zinc-700">
             <div className="flex items-center gap-3">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/10 text-sm font-extrabold text-brand-gold">
+              <span className="flex h-12 w-12 items-center justify-center rounded-full border border-brand-gold/10 bg-brand-blush/60 text-sm font-extrabold text-brand-gold">
                 {authorInitials}
               </span>
               <span>
-                <span className="block text-white">By {article.author}</span>
-                <span className="block text-xs text-zinc-400">
+                <span className="block text-brand-dark">By {article.author}</span>
+                <span className="block text-xs text-zinc-600">
                   {article.authorRole}
                 </span>
               </span>
             </div>
-            <span className="hidden h-10 w-px bg-white/15 sm:block" />
+            <span className="hidden h-10 w-px bg-brand-blush/60 sm:block" />
             <div className="flex items-center gap-3">
               <BlogDetailIcon
                 name="calendar"
                 className="h-7 w-7 text-brand-gold"
               />
               <span>
-                <span className="block text-white">{article.date}</span>
-                <span className="block text-xs text-zinc-400">
+                <span className="block text-brand-dark">{article.date}</span>
+                <span className="block text-xs text-zinc-600">
                   {article.readTime}
                 </span>
               </span>

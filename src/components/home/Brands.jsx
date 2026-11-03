@@ -45,7 +45,7 @@ export default function Brands() {
       <div className="mx-auto max-w-[1140px]">
         <h2
           id="home-brands-heading"
-          className="text-center font-sans text-[11px] font-extrabold uppercase tracking-[0.25em] text-neutral-900 sm:text-[14px]"
+          className="text-center font-sans text-[11px] font-extrabold uppercase tracking-[0.25em] text-brand-dark sm:text-[14px]"
         >
           Premium Brands We Work With
         </h2>

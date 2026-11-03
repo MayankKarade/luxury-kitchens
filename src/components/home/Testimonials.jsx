@@ -81,7 +81,7 @@ export default function Testimonials() {
   return (
     <section
       id="blog"
-      className="bg-brand-dark relative overflow-hidden select-none"
+      className="bg-brand-blush relative overflow-hidden select-none"
     >
       {/* Subtle gold-ambient radial illumination backdrops */}
       {/* <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-brand-gold/5 blur-[160px] pointer-events-none"></div> */}
@@ -89,7 +89,7 @@ export default function Testimonials() {
 
       <div className=" mx-auto px-2 md:px-10 lg:px-0  relative z-10">
         {/* Rounded Slate Container with thin borders enclosing all three visual columns */}
-        <div className="  bg-brand-dark/85 shadow-[0_30px_60px_rgba(0,0,0,0.85)] relative overflow-hidden grid grid-cols-1 lg:grid-cols-[3.6fr_3.7fr_3.7fr] items-stretch gap-6">
+        <div className="  bg-white/85 shadow-[0_30px_60px_rgba(70,40,25,0.08)] relative overflow-hidden grid grid-cols-1 lg:grid-cols-[3.6fr_3.7fr_3.7fr] items-stretch gap-6">
           {/* Left Column matching exact structure & text layout */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -101,13 +101,13 @@ export default function Testimonials() {
             <span className="text-brand-gold font-sans text-[11px] font-bold tracking-[0.25em] uppercase block mb-3.5">
               WHAT OUR CLIENTS SAY
             </span>
-            <h2 className="font-serif text-2xl sm:text-[28px] font-normal text-white leading-[1.5] tracking-tight mb-8">
+            <h2 className="font-serif text-2xl sm:text-[28px] font-normal text-brand-dark leading-[1.5] tracking-tight mb-8">
               Trusted By <br />
-              <span className="font-semibold text-white">
+              <span className="font-semibold text-brand-dark">
                 Homeowners &
               </span>{" "}
               <br />
-              <span className="font-semibold text-white">
+              <span className="font-semibold text-brand-dark">
                 Businesses Across Ghana
               </span>
             </h2>
@@ -133,7 +133,7 @@ export default function Testimonials() {
                   ))}
                 </div>
               </div>
-              <p className="text-xs text-zinc-400 font-sans tracking-wide">
+              <p className="text-xs text-zinc-600 font-sans tracking-wide">
                 Based on 500+ reviews
               </p>
             </div>
@@ -147,7 +147,7 @@ export default function Testimonials() {
             transition={{ duration: 0.6, delay: 0.05 }}
             className=" py-8 sm:py-8 lg:py-14 px-1 sm:px-14 lg:px-0  flex flex-col justify-center relative z-10"
           >
-            <div className="border border-brand-gold/15 bg-brand-dark/35 rounded-2xl py-8 pl-6 pr-4 flex flex-col justify-between h-full shadow-[0_20px_50px_rgba(0,0,0,0.45)]  hover:border-brand-gold/30 transition-colors duration-300">
+            <div className="border border-brand-gold/15 bg-brand-blush/60 rounded-2xl py-8 pl-6 pr-4 flex flex-col justify-between h-full shadow-[0_20px_50px_rgba(70,40,25,0.08)]  hover:border-brand-gold/30 transition-colors duration-300">
               <div className="flex-grow flex flex-col justify-between">
                 <div>
                   {/* Gold Curly Double Quote */}
@@ -162,14 +162,14 @@ export default function Testimonials() {
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ duration: 0.25 }}
                     >
-                      <p className="text-zinc-300 font-sans text-[14px]  leading-relaxed mb-7">
+                      <p className="text-zinc-700 font-sans text-[14px]  leading-relaxed mb-7">
                         {reviews[activeTestimonial].text}
                       </p>
 
                       {/* Author group with custom gold frame avatar matching reference image */}
                       <div className="flex items-center gap-4">
                         <div className="relative shrink-0">
-                          <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-brand-gold/30 p-0.5 bg-brand-dark/80">
+                          <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-brand-gold/30 p-0.5 bg-white/80">
                             <Image
                               src={reviews[activeTestimonial].avatar}
                               alt={reviews[activeTestimonial].author}
@@ -181,10 +181,10 @@ export default function Testimonials() {
                           </div>
                         </div>
                         <div className="flex flex-col">
-                          <h4 className="text-white font-sans font-bold text-[14px] sm:text-[15px] tracking-wide leading-tight">
+                          <h4 className="text-brand-dark font-sans font-bold text-[14px] sm:text-[15px] tracking-wide leading-tight">
                             {reviews[activeTestimonial].author}
                           </h4>
-                          <p className="text-[11px] text-zinc-400 mt-1.5 font-sans leading-none">
+                          <p className="text-[11px] text-zinc-600 mt-1.5 font-sans leading-none">
                             {reviews[activeTestimonial].location}
                           </p>
                         </div>
@@ -301,7 +301,7 @@ export default function Testimonials() {
             <div className="relative z-10 mt-4 ">
               <button
                 onClick={openModal}
-                className="w-full py-4.5 px-6 bg-brand-dark/90 hover:bg-brand-dark text-white font-sans text-xs font-bold tracking-[0.2em] rounded-md flex items-center justify-between transition-all duration-300 focus:outline-none group cursor-pointer shadow-[0_12px_32px_rgba(12,13,18,0.25)]"
+                className="w-full py-4.5 px-6 bg-white hover:bg-brand-blush text-brand-gold font-sans text-xs font-bold tracking-[0.2em] rounded-md flex items-center justify-between transition-all duration-300 focus:outline-none group cursor-pointer shadow-[0_12px_32px_rgba(12,13,18,0.25)]"
               >
                 <span>BOOK NOW</span>
                 <span className="text-xl text-brand-gold font-light leading-none relative -top-0.5 group-hover:translate-x-1 duration-300">

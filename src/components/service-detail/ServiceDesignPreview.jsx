@@ -15,7 +15,7 @@ export default function ServiceDesignPreview({ service }) {
       aria-labelledby="service-design-preview-title"
       className="bg-brand-white px-4 py-8 text-brand-dark sm:px-10 md:px-16"
     >
-      <div className="overflow-hidden rounded-2xl border border-brand-gold/10 bg-[#faf7f4] px-4 py-8 sm:px-8 sm:py-10">
+      <div className="overflow-hidden rounded-2xl border border-brand-gold/10 bg-brand-blush/60 px-4 py-8 sm:px-8 sm:py-10">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-brand-gold sm:text-[11px]">
             A little inspiration for your space

@@ -9,7 +9,7 @@ export default function Newsletter() {
       id="newsletter"
       className="bg-brand-white px-4 pb-10 sm:px-10 md:px-16"
     >
-      <div className="relative mx-auto  overflow-hidden rounded-xl bg-brand-dark px-6 py-8 text-white shadow-xl sm:px-10">
+      <div className="relative mx-auto  overflow-hidden rounded-xl bg-brand-blush/60 px-6 py-8 text-brand-dark shadow-xl sm:px-10">
         <Image
           src={heroImg}
           alt="Newsletter background"
@@ -17,7 +17,7 @@ export default function Newsletter() {
           sizes="100vw"
           className="object-cover opacity-20"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/72 via-brand-dark/48 to-brand-dark/28" />
+        <div className="absolute inset-0 theme-soft-wash" />
 
         <div className="relative z-10 grid grid-cols-1 gap-7 lg:grid-cols-[0.75fr_1fr] lg:items-center">
           <div>
@@ -27,13 +27,13 @@ export default function Newsletter() {
             <h2 className="mt-3 font-serif text-3xl font-medium">
               Subscribe To Our Newsletter
             </h2>
-            <p className="mt-3 max-w-md text-sm leading-6 text-zinc-300">
+            <p className="mt-3 max-w-md text-sm leading-6 text-zinc-700">
               Get the latest design trends, expert tips, and exclusive updates
               delivered straight to your inbox.
             </p>
           </div>
 
-          <form className="flex flex-col overflow-hidden rounded-md border border-white/15 bg-brand-dark/25 sm:flex-row">
+          <form className="flex flex-col overflow-hidden rounded-md border border-brand-gold/10 bg-white/70 sm:flex-row">
             <label className="sr-only" htmlFor="newsletter-email">
               Email address
             </label>
@@ -43,7 +43,7 @@ export default function Newsletter() {
                 id="newsletter-email"
                 type="email"
                 placeholder="Enter your email address"
-                className="w-full bg-transparent text-sm text-white placeholder:text-zinc-500 focus:outline-none"
+                className="w-full bg-transparent text-sm text-brand-dark placeholder:text-zinc-500 focus:outline-none"
               />
             </div>
             <button

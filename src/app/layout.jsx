@@ -37,7 +37,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="bg-brand-dark text-[#f3f4f6] font-sans antialiased selection:bg-brand-gold selection:text-white">
+      <body className="bg-brand-light text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white">
         <StructuredData site />
         <ConsultationProvider>
           <div className="">

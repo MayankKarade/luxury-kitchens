@@ -137,7 +137,7 @@ export default function ProjectSpotlight({
   return (
     <section
       id="project-spotlight"
-      className="relative scroll-mt-24 overflow-hidden bg-[#010129] px-4 py-12 text-white sm:scroll-mt-28 sm:px-10 sm:py-16 md:px-16"
+      className="relative scroll-mt-24 overflow-hidden bg-brand-blush px-4 py-12 text-brand-dark sm:scroll-mt-28 sm:px-10 sm:py-16 md:px-16"
     >
       <div
         className="pointer-events-none absolute inset-0 opacity-35"
@@ -164,22 +164,22 @@ export default function ProjectSpotlight({
           <div className="mb-4 mt-3 h-0.5 w-12 bg-brand-gold" />
 
           {portfolio?.description && (
-            <p className="mb-5 max-w-md whitespace-pre-line text-[13px] leading-6 text-zinc-300 sm:text-sm">
+            <p className="mb-5 max-w-md whitespace-pre-line text-[13px] leading-6 text-zinc-700 sm:text-sm">
               {portfolio.description}
             </p>
           )}
 
-          {projectDetails.length > 0 && <div className="mb-6 max-w-lg border-y border-white/5">
+          {projectDetails.length > 0 && <div className="mb-6 max-w-lg border-y border-brand-gold/10">
             {projectDetails.map(({ Icon, label, value }) => (
               <div
                 key={label}
-                className="grid grid-cols-[24px_104px_1fr] items-center gap-2 border-b border-white/5 py-3 last:border-b-0"
+                className="grid grid-cols-[24px_104px_1fr] items-center gap-2 border-b border-brand-gold/10 py-3 last:border-b-0"
               >
                 <Icon className="h-5 w-5 text-brand-gold" strokeWidth={1.8} />
-                <span className="text-sm font-semibold text-zinc-100">
+                <span className="text-sm font-semibold text-zinc-700">
                   {label}
                 </span>
-                <span className="text-sm text-zinc-300">{value}</span>
+                <span className="text-sm text-zinc-700">{value}</span>
               </div>
             ))}
           </div>}
@@ -190,7 +190,7 @@ export default function ProjectSpotlight({
             className={`group flex w-fit items-center gap-5 rounded-[4px] px-6 py-3.5 text-[11px] font-extrabold tracking-wide text-white shadow-[0_10px_25px_rgba(154,1,1,.17)] transition-colors ${
               hasSelectedPortfolio
                 ? "bg-brand-gold hover:bg-[#9A0101]"
-                : "cursor-not-allowed border border-white/10 bg-white/10 text-zinc-300 shadow-none"
+                : "cursor-not-allowed border border-brand-gold/10 bg-white/70 text-zinc-600 shadow-none"
             }`}
           >
             {hasSelectedPortfolio ? "VIEW PROJECT DETAILS" : isLoading ? "LOADING PROJECT..." : "SELECT PROJECT"}
@@ -256,7 +256,7 @@ export default function ProjectSpotlight({
                       className={`relative min-h-28 overflow-hidden rounded-lg border transition-colors sm:min-h-0 ${
                         spotlightIdx === imageIndex
                           ? "border-brand-gold"
-                          : "border-white/10 hover:border-brand-gold/60"
+                          : "border-brand-gold/10 hover:border-brand-gold/60"
                       }`}
                     >
                       <Image
@@ -276,7 +276,7 @@ export default function ProjectSpotlight({
                       setSpotlightIdx(3);
                       setLightboxOpen(true);
                     }}
-                    className="group relative min-h-28 overflow-hidden rounded-lg border border-white/10 sm:min-h-0"
+                    className="group relative min-h-28 overflow-hidden rounded-lg border border-brand-gold/10 sm:min-h-0"
                   >
                     <Image
                       src={activeSpotlightImages[3]}
@@ -307,7 +307,7 @@ export default function ProjectSpotlight({
                         className={`relative min-h-28 overflow-hidden rounded-lg border transition-colors sm:min-h-0 ${
                           spotlightIdx === imageIndex
                             ? "border-brand-gold"
-                            : "border-white/10 hover:border-brand-gold/60"
+                            : "border-brand-gold/10 hover:border-brand-gold/60"
                         }`}
                       >
                         <Image
@@ -324,15 +324,15 @@ export default function ProjectSpotlight({
               </div>
             </>
           ) : (
-            <div className="col-span-full flex min-h-[430px] items-center justify-center rounded-xl border border-dashed border-white/15 bg-white/[0.03] px-6 text-center shadow-2xl">
+            <div className="col-span-full flex min-h-[430px] items-center justify-center rounded-xl border border-dashed border-brand-gold/10 bg-white px-6 text-center shadow-2xl">
               <div className="max-w-md">
                 <span className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full border border-brand-gold/40 bg-brand-gold/10 text-brand-gold">
                   <ArrowRight className="h-5 w-5" />
                 </span>
-                <h4 className="font-serif text-2xl font-semibold text-white">
+                <h4 className="font-serif text-2xl font-semibold text-brand-dark">
                   {isLoading ? "Loading project..." : portfolio ? "No project photos available" : selectedPortfolioSlug ? "Project details unavailable" : "Choose a project to preview"}
                 </h4>
-                <p className="mt-3 text-sm leading-6 text-zinc-300">
+                <p className="mt-3 text-sm leading-6 text-zinc-700">
                   {isLoading
                     ? "Fetching the selected project's details and photos."
                     : selectedPortfolioSlug && !portfolio

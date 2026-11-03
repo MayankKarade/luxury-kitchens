@@ -6,7 +6,7 @@ import { BlogDetailIcon } from "./BlogDetailIcons";
 function SearchBox() {
   return (
     <div>
-      <h2 className="font-serif text-2xl font-semibold text-neutral-900">
+      <h2 className="font-serif text-2xl font-semibold text-brand-dark">
         Search
       </h2>
       <div className="mt-4 flex overflow-hidden rounded-md border border-neutral-200 bg-white">
@@ -18,7 +18,7 @@ function SearchBox() {
         <button
           type="button"
           aria-label="Search articles"
-          className="flex h-12 w-13 items-center justify-center bg-neutral-900 text-white transition-colors hover:bg-brand-gold hover:text-white"
+          className="flex h-12 w-13 items-center justify-center bg-brand-gold text-white transition-colors hover:bg-brand-gold hover:text-white"
         >
           <BlogDetailIcon name="search" className="h-5 w-5" />
         </button>
@@ -29,8 +29,8 @@ function SearchBox() {
 
 function CategoryCard({ categories, isDetailLoading, onCategorySelect }) {
   return (
-    <div className="rounded-lg border border-neutral-200 bg-white p-6 shadow-sm">
-      <h2 className="font-serif text-2xl font-semibold text-neutral-900">
+    <div className="rounded-lg border border-neutral-200 bg-brand-blush/60 p-6 shadow-sm">
+      <h2 className="font-serif text-2xl font-semibold text-brand-dark">
         Categories
       </h2>
       <div className="mt-5 space-y-4">
@@ -57,8 +57,8 @@ function CategoryCard({ categories, isDetailLoading, onCategorySelect }) {
 
 function RecentPosts({ posts }) {
   return (
-    <div className="rounded-lg border border-neutral-200 bg-white p-6 shadow-sm">
-      <h2 className="font-serif text-2xl font-semibold text-neutral-900">
+    <div className="rounded-lg border border-neutral-200 bg-brand-blush/60 p-6 shadow-sm">
+      <h2 className="font-serif text-2xl font-semibold text-brand-dark">
         Recent Posts
       </h2>
       <div className="mt-5 space-y-5">
@@ -78,7 +78,7 @@ function RecentPosts({ posts }) {
               />
             </span>
             <span>
-              <span className="block text-sm font-extrabold leading-snug text-neutral-900 transition-colors group-hover:text-brand-gold">
+              <span className="block text-sm font-extrabold leading-snug text-brand-dark transition-colors group-hover:text-brand-gold">
                 {post.title}
               </span>
               <span className="mt-2 block text-xs font-semibold text-zinc-500">
@@ -94,9 +94,9 @@ function RecentPosts({ posts }) {
 
 function SidebarCTA({ cta }) {
   return (
-    <div className="rounded-lg bg-[#071014] p-6 text-white shadow-sm">
+    <div className="rounded-lg bg-brand-blush/60 p-6 text-brand-dark shadow-sm">
       <h2 className="font-serif text-2xl font-semibold">{cta.title}</h2>
-      <p className="mt-3 text-sm font-medium leading-6 text-zinc-300">
+      <p className="mt-3 text-sm font-medium leading-6 text-zinc-700">
         {cta.text}
       </p>
       <Link

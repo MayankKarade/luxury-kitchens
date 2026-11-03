@@ -140,7 +140,7 @@ function ProcessHero() {
   const { openModal } = useConsultation();
 
   return (
-    <section className="relative min-h-[590px] overflow-hidden bg-brand-dark pt-28 sm:pt-36 lg:min-h-[640px]">
+    <section className="relative min-h-[590px] overflow-hidden bg-brand-blush pt-28 sm:pt-36 lg:min-h-[640px]">
       <div className="absolute inset-0">
         <Image
           src={heroImg}
@@ -150,8 +150,8 @@ function ProcessHero() {
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/55 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/35" />
+        <div className="absolute inset-0 theme-hero-wash" />
+        <div className="absolute inset-0 theme-hero-bottom" />
       </div>
 
       <button
@@ -170,29 +170,29 @@ function ProcessHero() {
         >
           <motion.div
             variants={fadeInUp}
-            className="w-fit px-3 py-0.5 rounded-full flex items-center bg-brand-gold/40 gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8"
+            className="w-fit px-3 py-0.5 rounded-full flex items-center bg-white/70 border border-brand-gold/10 gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8"
           >
             <Link
               href="/"
-              className="text-white font-medium hover:font-bold transition-all duration-150"
+              className="text-brand-dark font-medium hover:font-bold transition-all duration-150"
             >
               Home
             </Link>
-            <span className="text-white font-normal px-0.5">&gt;</span>
-            <span className="text-white font-medium hover:font-bold transition-all duration-150">
+            <span className="text-brand-dark font-normal px-0.5">&gt;</span>
+            <span className="text-brand-dark font-medium hover:font-bold transition-all duration-150">
               Our Process
             </span>
           </motion.div>
 
           <motion.span
             variants={fadeInUp}
-            className="bg-brand-gold text-white rounded-full px-3 py-0.5 font-sans text-xs font-bold tracking-[0.25em] uppercase block w-fit"
+            className="bg-brand-gold/7 text-brand-gold rounded-full px-3 py-0.5 font-sans text-xs font-bold tracking-[0.25em] uppercase block w-fit"
           >
             OUR PROCESS
           </motion.span>
           <motion.h1
             variants={fadeInUp}
-            className="mt-4 font-serif text-4xl font-medium leading-[1.1] text-white sm:text-5xl lg:text-[58px]"
+            className="mt-4 font-serif text-4xl font-medium leading-[1.1] text-brand-dark sm:text-5xl lg:text-[58px]"
           >
             From First Chat
             <br />
@@ -204,7 +204,7 @@ function ProcessHero() {
           />
           <motion.p
             variants={fadeInUp}
-            className="max-w-md text-sm font-medium leading-7 text-zinc-200 sm:text-base"
+            className="max-w-md text-sm font-medium leading-7 text-zinc-700 sm:text-base"
           >
             A clear six-step process that takes your project from the initial
             consultation and site measurement through design, manufacturing and
@@ -248,21 +248,21 @@ function ProcessTimeline() {
                   <div className="absolute left-8 h-px w-8 bg-brand-gold/35" />
                 </div>
 
-                <div className="grid overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-[0_8px_24px_rgba(15,17,23,.05)] md:grid-cols-[1.2fr_1fr]">
+                <div className="grid overflow-hidden rounded-lg border border-zinc-200 bg-brand-blush/60 shadow-[0_8px_24px_rgba(15,17,23,.05)] md:grid-cols-[1.2fr_1fr]">
                   <div className="flex items-center gap-3 sm:gap-5 p-5 sm:p-7">
-                    <div className="hidden sm:flex w-14 h-14 sm:h-20 sm:w-20 shrink-0 items-center justify-center rounded-full bg-[#010129] text-brand-gold shadow-lg">
+                    <div className="hidden sm:flex w-14 h-14 sm:h-20 sm:w-20 shrink-0 items-center justify-center rounded-full bg-brand-light text-brand-gold shadow-lg">
                       <step.Icon className="h-9 w-9" strokeWidth={1.55} />
                     </div>
                     <div>
                       <div className="flex flex-row gap-3">
-                        <div className="flex sm:hidden w-11 h-11 sm:h-20 sm:w-20 shrink-0 items-center justify-center rounded-full bg-[#010129] text-brand-gold shadow-lg">
+                        <div className="flex sm:hidden w-11 h-11 sm:h-20 sm:w-20 shrink-0 items-center justify-center rounded-full bg-brand-light text-brand-gold shadow-lg">
                           <step.Icon className="h-4 w-4" strokeWidth={1.55} />
                         </div>
                         <div>
                           <span className="mb-1 block text-xs font-extrabold text-brand-gold md:hidden">
                             {step.number}
                           </span>
-                          <h2 className="font-serif text-lg sm:text-2xl font-semibold leading-tight text-neutral-900 sm:text-[28px]">
+                          <h2 className="font-serif text-lg sm:text-2xl font-semibold leading-tight text-brand-dark sm:text-[28px]">
                             {step.title}
                           </h2>
                         </div>
@@ -295,7 +295,7 @@ function ProcessTimeline() {
 
 function ProcessValues() {
   return (
-    <section className="bg-brand-dark px-4 py-12 text-white sm:px-10 md:px-16">
+    <section className="bg-brand-blush px-4 py-12 text-brand-dark sm:px-10 md:px-16">
       <div className="mx-auto grid  grid-cols-1 gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
         <div>
           <span className="text-xs font-extrabold uppercase tracking-[0.16em] text-brand-gold">
@@ -308,15 +308,15 @@ function ProcessValues() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-brand-gold/10 bg-brand-blush/60 sm:grid-cols-2 lg:grid-cols-4">
           {valueCards.map(({ Icon, title, text }) => (
-            <div key={title} className="bg-white/5 px-6 py-7 text-center">
+            <div key={title} className="bg-white px-6 py-7 text-center">
               <Icon
                 className="mx-auto mb-5 h-9 w-9 text-brand-gold"
                 strokeWidth={1.6}
               />
-              <h3 className="text-sm font-bold text-white">{title}</h3>
-              <p className="mt-3 text-xs leading-5 text-zinc-300">{text}</p>
+              <h3 className="text-sm font-bold text-brand-dark">{title}</h3>
+              <p className="mt-3 text-xs leading-5 text-zinc-700">{text}</p>
             </div>
           ))}
         </div>
@@ -329,7 +329,7 @@ function ProcessCta() {
   const { openModal } = useConsultation();
 
   return (
-    <section className="relative overflow-hidden bg-brand-dark px-4 py-10 text-white sm:px-10 md:px-16">
+    <section className="relative overflow-hidden bg-brand-blush px-4 py-10 text-brand-dark sm:px-10 md:px-16">
       <div className="absolute inset-0">
         <Image
           src={ctaImg}
@@ -338,7 +338,7 @@ function ProcessCta() {
           sizes="100vw"
           className="object-cover opacity-35"
         />
-        <div className="absolute inset-0 bg-black/65" />
+        <div className="absolute inset-0 theme-soft-wash" />
       </div>
 
       <div className="relative z-10 mx-auto grid  grid-cols-1 gap-8 lg:grid-cols-[0.9fr_1.15fr_0.75fr] lg:items-center">
@@ -351,7 +351,7 @@ function ProcessCta() {
             <br />
             Your Space?
           </h2>
-          <p className="mt-4 text-sm leading-6 text-zinc-200">
+          <p className="mt-4 text-sm leading-6 text-zinc-700">
             Tell us what you need and let Cali Wood guide your project from
             consultation and measurement through manufacturing and final
             installation.
@@ -365,8 +365,8 @@ function ProcessCta() {
                 className="mx-auto mb-3 h-8 w-8 text-brand-gold"
                 strokeWidth={1.7}
               />
-              <h3 className="text-xs font-bold text-white">{title}</h3>
-              <p className="mt-1 text-[11px] text-zinc-300">{text}</p>
+              <h3 className="text-xs font-bold text-brand-dark">{title}</h3>
+              <p className="mt-1 text-[11px] text-zinc-700">{text}</p>
             </div>
           ))}
         </div>

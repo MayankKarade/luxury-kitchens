@@ -10,7 +10,7 @@ import { DetailIcon } from "./ServiceDesignDetailIcons";
 function MaterialDetails({ material }) {
   return (
     <div>
-      <h4 className="text-sm font-extrabold text-neutral-900">
+      <h4 className="text-sm font-extrabold text-brand-dark">
         {material.title}
       </h4>
       <HtmlContent
@@ -82,7 +82,7 @@ function FaqAccordion({ product }) {
         return (
           <div
             key={faq.question}
-            className="overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm"
+            className="overflow-hidden rounded-lg border border-neutral-200 bg-brand-blush/60 shadow-sm"
           >
             <button
               type="button"
@@ -90,7 +90,7 @@ function FaqAccordion({ product }) {
               aria-expanded={isOpen}
               className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left sm:px-5"
             >
-              <span className="text-sm font-extrabold leading-5 text-neutral-900 sm:text-[15px]">
+              <span className="text-sm font-extrabold leading-5 text-brand-dark sm:text-[15px]">
                 {faq.question}
               </span>
               <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-gold text-lg font-bold leading-none text-white">
@@ -178,7 +178,7 @@ export default function DesignOverview({ product, activeTab = "overview" }) {
         className="bg-brand-white px-4 py-8 text-brand-dark sm:px-10 md:px-16"
       >
         <div className="mx-auto max-w-4xl">
-          <h2 className="text-center font-serif text-3xl font-semibold text-neutral-900">
+          <h2 className="text-center font-serif text-3xl font-semibold text-brand-dark">
             FAQs
           </h2>
           <FaqAccordion product={product} />
@@ -203,7 +203,7 @@ export default function DesignOverview({ product, activeTab = "overview" }) {
           >
             {showIntroContent && (
               <div>
-                <h2 className="font-serif text-3xl font-semibold text-neutral-900">
+                <h2 className="font-serif text-3xl font-semibold text-brand-dark">
                   {activeContent.title}
                 </h2>
                 {activeContent.value ? (
@@ -229,7 +229,7 @@ export default function DesignOverview({ product, activeTab = "overview" }) {
                           className="mb-3 h-8 w-8 text-brand-gold sm:mb-0"
                         />
                         <div>
-                          <h3 className="text-sm font-extrabold text-neutral-900">
+                          <h3 className="text-sm font-extrabold text-brand-dark">
                             {fact.label}
                           </h3>
                           <p className="mt-1 text-sm font-medium leading-5 text-zinc-600">
@@ -270,7 +270,7 @@ export default function DesignOverview({ product, activeTab = "overview" }) {
                       <button
                         type="button"
                         aria-label={`Play ${product.title} walkthrough`}
-                        className="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center text-white transition-transform hover:scale-105"
+                        className="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center text-brand-dark transition-transform hover:scale-105"
                       >
                         <DetailIcon name="play" className="h-20 w-20" />
                       </button>
@@ -292,7 +292,7 @@ export default function DesignOverview({ product, activeTab = "overview" }) {
                 id="materials"
                 className="space-y-6"
               >
-                <h2 className="font-serif text-2xl font-semibold text-neutral-900">
+                <h2 className="font-serif text-2xl font-semibold text-brand-dark">
                   Materials
                 </h2>
                 {materials.length > 0 ? (
@@ -312,10 +312,10 @@ export default function DesignOverview({ product, activeTab = "overview" }) {
             {showSpecificationsPanel && (
               <div
                 id="specifications"
-                className="grid gap-6 rounded-lg border border-neutral-200 bg-white p-7 shadow-sm lg:grid-cols-[minmax(0,0.7fr)_minmax(360px,1fr)]"
+                className="grid gap-6 rounded-lg border border-neutral-200 bg-brand-blush/60 p-7 shadow-sm lg:grid-cols-[minmax(0,0.7fr)_minmax(360px,1fr)]"
               >
                 <div>
-                  <h2 className="font-serif text-2xl font-semibold text-neutral-900">
+                  <h2 className="font-serif text-2xl font-semibold text-brand-dark">
                     Kitchen Dimensions
                   </h2>
                   <p className="mt-2 text-sm font-medium text-zinc-600">
@@ -333,7 +333,7 @@ export default function DesignOverview({ product, activeTab = "overview" }) {
                     </div>
                   )}
                   <div className="mt-5 flex flex-col gap-4 border-t border-neutral-200 pt-5 sm:flex-row sm:items-center sm:justify-center">
-                    <p className="text-sm font-extrabold text-neutral-900">
+                    <p className="text-sm font-extrabold text-brand-dark">
                       Get a custom layout designed for your space
                     </p>
                     <Link
@@ -347,7 +347,7 @@ export default function DesignOverview({ product, activeTab = "overview" }) {
                 </div>
 
                 <div className="rounded-lg bg-brand-light p-6">
-                  <h2 className="font-serif text-2xl font-semibold text-neutral-900">
+                  <h2 className="font-serif text-2xl font-semibold text-brand-dark">
                     Specifications
                   </h2>
                   {activeContent.value ? (
@@ -372,7 +372,7 @@ export default function DesignOverview({ product, activeTab = "overview" }) {
                           className="h-7 w-7 text-brand-gold"
                         />
                         <div>
-                          <h3 className="text-sm font-extrabold text-neutral-900">
+                          <h3 className="text-sm font-extrabold text-brand-dark">
                             {item.title}
                           </h3>
                           <p className="mt-1 text-sm font-medium leading-5 text-zinc-600">

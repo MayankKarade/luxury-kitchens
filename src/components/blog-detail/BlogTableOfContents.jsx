@@ -2,10 +2,10 @@ import { BlogDetailIcon } from "./BlogDetailIcons";
 
 export default function BlogTableOfContents({ items }) {
   return (
-    <div className="rounded-lg border border-neutral-200 bg-white p-6 shadow-sm">
+    <div className="rounded-lg border border-neutral-200 bg-brand-blush/60 p-6 shadow-sm">
       <div className="mb-5 flex items-center gap-3">
         <BlogDetailIcon name="toc" className="h-5 w-5 text-brand-gold" />
-        <h2 className="font-serif text-2xl font-semibold text-neutral-900">
+        <h2 className="font-serif text-2xl font-semibold text-brand-dark">
           Table of Contents
         </h2>
       </div>

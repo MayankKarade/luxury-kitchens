@@ -104,7 +104,7 @@ export default function OurProcess() {
                   {step.num} /
                 </span>
 
-                <h3 className="text-neutral-900 font-serif text-[18px] sm:text-[19px] font-bold tracking-tight mb-2 leading-snug">
+                <h3 className="text-brand-dark font-serif text-[18px] sm:text-[19px] font-bold tracking-tight mb-2 leading-snug">
                   {step.title}
                 </h3>
 
@@ -155,7 +155,7 @@ export default function OurProcess() {
                   {step.num}
                 </span>
 
-                <h3 className="text-neutral-900 font-serif text-[17px] font-bold tracking-tight mb-2.5 leading-snug">
+                <h3 className="text-brand-dark font-serif text-[17px] font-bold tracking-tight mb-2.5 leading-snug">
                   {step.title}
                 </h3>
 

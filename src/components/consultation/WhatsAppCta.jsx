@@ -4,13 +4,13 @@ import { ArrowRight } from "lucide-react";
 
 export default function WhatsAppCta() {
   return (
-    <section className="bg-brand-white px-4 pb-8 text-white sm:px-10 md:px-16">
-      <div className="mx-auto grid  overflow-hidden rounded-lg bg-[#071014] shadow-sm lg:grid-cols-[280px_1fr_280px]">
+    <section className="bg-brand-white px-4 pb-8 text-brand-dark sm:px-10 md:px-16">
+      <div className="mx-auto grid  overflow-hidden rounded-lg bg-brand-blush/60 shadow-sm lg:grid-cols-[280px_1fr_280px]">
         <div className="relative hidden min-h-[130px] overflow-hidden bg-black/30 lg:block">
           <div className="absolute left-16 top-8 h-24 w-14 rotate-[-16deg] rounded-[18px] border-4 border-zinc-900 bg-white shadow-2xl">
             <div className="mx-auto mt-2 h-1 w-5 rounded-full bg-zinc-300" />
             <div className="mt-5 flex justify-center">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#25d366] text-sm font-black text-white">
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#25d366] text-sm font-black text-brand-dark">
                 W
               </span>
             </div>
@@ -24,7 +24,7 @@ export default function WhatsAppCta() {
           <h2 className="font-serif text-2xl font-medium sm:text-[30px]">
             Quick Question? Chat On WhatsApp
           </h2>
-          <p className="mt-2 max-w-xl text-sm font-medium leading-6 text-zinc-300">
+          <p className="mt-2 max-w-xl text-sm font-medium leading-6 text-zinc-700">
             Connect with our team instantly on WhatsApp for quick answers and
             support.
           </p>

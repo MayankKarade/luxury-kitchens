@@ -34,7 +34,7 @@ export default function WhatWeOffer({ services }) {
           <span className="text-brand-gold font-sans text-xs font-extrabold tracking-[0.25em] uppercase block mb-3">
             WHAT WE OFFER
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] font-normal text-neutral-900 tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] font-normal text-brand-dark tracking-tight">
             Bespoke Furniture & Interior Solutions
           </h2>
           <div className="w-12 h-[2px] bg-brand-gold mt-4 mb-5"></div>
@@ -60,7 +60,7 @@ export default function WhatWeOffer({ services }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="bg-brand-white border border-neutral-100 rounded-sm overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col group"
+                className="bg-brand-blush/60 border border-neutral-100 rounded-sm overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col group"
               >
                 {/* Photo container */}
                 <div className="relative">
@@ -77,7 +77,7 @@ export default function WhatWeOffer({ services }) {
 
                   {/* Badge with icon image or fallback SVG */}
                   <motion.div
-                    className="absolute -bottom-6 left-5 w-13 h-13 bg-[#010129] border border-brand-gold/30 rounded-xl flex items-center justify-center shadow-lg z-40 group-hover:scale-[1.1] group-hover:rotate-6 transition-all duration-200"
+                    className="absolute -bottom-6 left-5 w-13 h-13 bg-brand-light border border-brand-gold/30 rounded-xl flex items-center justify-center shadow-lg z-40 group-hover:scale-[1.1] group-hover:rotate-6 transition-all duration-200"
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     {service.icon ? (
@@ -102,7 +102,7 @@ export default function WhatWeOffer({ services }) {
                   <span className="text-brand-gold/95 font-mono text-[13px] sm:text-sm font-bold tracking-widest block mb-1.5 select-none">
                     {idx + 1}
                   </span>
-                  <h3 className="font-serif text-[21px] sm:text-[23px] text-neutral-900 font-normal tracking-tight mb-3">
+                  <h3 className="font-serif text-[21px] sm:text-[23px] text-brand-dark font-normal tracking-tight mb-3">
                     {service.title}
                   </h3>
                   <p className="text-neutral-500 font-sans text-[14px] sm:text-[14.5px] leading-relaxed mb-6 flex-grow">

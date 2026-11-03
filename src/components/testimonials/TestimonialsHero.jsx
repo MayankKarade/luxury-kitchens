@@ -22,7 +22,7 @@ const statIcons = {
 
 export default function TestimonialsHero() {
   return (
-    <section className="relative overflow-hidden bg-brand-dark pt-28 sm:pt-36">
+    <section className="relative overflow-hidden bg-brand-blush pt-28 sm:pt-36">
       <div className="absolute inset-0">
         <Image
           src={heroImg}
@@ -32,8 +32,8 @@ export default function TestimonialsHero() {
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/55 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/35" />
+        <div className="absolute inset-0 theme-hero-wash" />
+        <div className="absolute inset-0 theme-hero-bottom" />
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[560px]  flex-col justify-between px-4 sm:px-10 md:px-16 pb-16">
@@ -45,29 +45,29 @@ export default function TestimonialsHero() {
         >
           <motion.div
             variants={fadeInUp}
-            className="w-fit px-3 py-0.5 rounded-full flex items-center bg-brand-gold/40 gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8"
+            className="w-fit px-3 py-0.5 rounded-full flex items-center bg-white/70 border border-brand-gold/10 gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8"
           >
             <Link
               href="/"
-              className="text-white font-medium hover:font-bold transition-all duration-150"
+              className="text-brand-dark font-medium hover:font-bold transition-all duration-150"
             >
               Home
             </Link>
-            <span className="text-white font-normal px-0.5">&gt;</span>
-            <span className="text-white font-medium hover:font-bold transition-all duration-150">
+            <span className="text-brand-dark font-normal px-0.5">&gt;</span>
+            <span className="text-brand-dark font-medium hover:font-bold transition-all duration-150">
               Testimonials
             </span>
           </motion.div>
 
           <motion.span
             variants={fadeInUp}
-            className="bg-brand-gold text-white rounded-full px-3 py-0.5 font-sans text-xs font-bold tracking-[0.25em] uppercase block w-fit"
+            className="bg-brand-gold/7 text-brand-gold rounded-full px-3 py-0.5 font-sans text-xs font-bold tracking-[0.25em] uppercase block w-fit"
           >
             TESTIMONIALS
           </motion.span>
           <motion.h1
             variants={fadeInUp}
-            className="mt-4 font-serif text-4xl font-medium leading-[1.08] text-white sm:text-5xl lg:text-[62px]"
+            className="mt-4 font-serif text-4xl font-medium leading-[1.08] text-brand-dark sm:text-5xl lg:text-[62px]"
           >
             Trusted By Clients.
             <br />
@@ -79,7 +79,7 @@ export default function TestimonialsHero() {
           />
           <motion.p
             variants={fadeInUp}
-            className="max-w-md text-sm font-medium leading-7 text-zinc-200 sm:text-base"
+            className="max-w-md text-sm font-medium leading-7 text-zinc-700 sm:text-base"
           >
             Real stories from real clients who have experienced the Netsaarthi
             difference.
@@ -90,7 +90,7 @@ export default function TestimonialsHero() {
           variants={stagger}
           initial="hidden"
           animate="visible"
-          className="grid w-full grid-cols-1 overflow-hidden border-t border-white/10 bg-brand-dark/25 backdrop-blur-xs sm:grid-cols-2 lg:grid-cols-4"
+          className="grid w-full grid-cols-1 overflow-hidden border-t border-brand-gold/10 bg-white/70 backdrop-blur-xs sm:grid-cols-2 lg:grid-cols-4"
         >
           {heroStats.map((stat) => {
             const Icon = statIcons[stat.icon];
@@ -98,14 +98,14 @@ export default function TestimonialsHero() {
               <motion.div
                 key={stat.label}
                 variants={fadeInUp}
-                className="flex items-center gap-4 border-b border-white/10 px-5 py-5 last:border-b-0 sm:border-r lg:border-b-0"
+                className="flex items-center gap-4 border-b border-brand-gold/10 px-5 py-5 last:border-b-0 sm:border-r lg:border-b-0"
               >
                 <Icon className="h-10 w-10 shrink-0 text-brand-gold" />
                 <div>
-                  <div className="font-sans text-2xl font-extrabold leading-none text-white">
+                  <div className="font-sans text-2xl font-extrabold leading-none text-brand-dark">
                     {stat.value}
                   </div>
-                  <div className="mt-1.5 text-[11px] font-semibold text-zinc-300">
+                  <div className="mt-1.5 text-[11px] font-semibold text-zinc-700">
                     {stat.label}
                   </div>
                 </div>

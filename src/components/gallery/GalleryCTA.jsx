@@ -67,14 +67,14 @@ export default function GalleryCTA() {
   const { openModal } = useConsultation();
 
   return (
-    <section className="bg-brand-white px-4 pb-8 pt-6 text-white sm:px-10 md:px-16">
-      <div className="mx-auto  overflow-hidden rounded-lg bg-[#071014] px-6 py-5 shadow-sm sm:px-8">
+    <section className="bg-brand-white px-4 pb-8 pt-6 text-brand-dark sm:px-10 md:px-16">
+      <div className="mx-auto  overflow-hidden rounded-lg bg-brand-blush px-6 py-5 shadow-sm sm:px-8">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <h2 className="font-serif text-xl sm:text-2xl font-medium ">
               Inspired By What You See?
             </h2>
-            <p className="mt-1 text-sm font-medium text-zinc-300">
+            <p className="mt-1 text-sm font-medium text-zinc-600">
               Let&apos;s bring your dream space to life.
             </p>
           </div>
@@ -87,7 +87,7 @@ export default function GalleryCTA() {
                   <span className="block text-[12px] font-extrabold">
                     {feature.title}
                   </span>
-                  <span className="mt-0.5 block text-[10px] font-medium text-zinc-300">
+                  <span className="mt-0.5 block text-[10px] font-medium text-zinc-600">
                     {feature.subtitle}
                   </span>
                 </span>

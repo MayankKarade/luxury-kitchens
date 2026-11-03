@@ -11,14 +11,14 @@ export default function DesignDetailHeader({ service, product }) {
         <div className="mb-7 flex flex-wrap items-center gap-2 text-xs font-semibold">
           <Link
             href="/"
-            className="text-zinc-600 transition-colors hover:text-brand-gold"
+            className="text-brand-gold transition-colors hover:text-brand-gold"
           >
             Home
           </Link>
           <span className="text-brand-gold">&gt;</span>
           <Link
             href="/our-services"
-            className="text-zinc-600 transition-colors hover:text-brand-gold"
+            className="text-brand-gold transition-colors hover:text-brand-gold"
           >
             Services
           </Link>
@@ -26,7 +26,7 @@ export default function DesignDetailHeader({ service, product }) {
           <Link
             href={`/our-services/${service.slug}/designs`}
             prefetch={false}
-            className="text-zinc-600 transition-colors hover:text-brand-gold"
+            className="text-brand-gold transition-colors hover:text-brand-gold"
           >
             {service.title}
           </Link>

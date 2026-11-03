@@ -1,7 +1,6 @@
 import { API_ENDPOINTS } from "@/config";
 
 const endpoints = {
-  privacy: API_ENDPOINTS.Policy?.privacy,
   terms: API_ENDPOINTS.Policy?.terms,
   return: API_ENDPOINTS.Policy?.return,
 };

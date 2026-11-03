@@ -42,7 +42,7 @@ function StoryImage({ story }) {
         className="pointer-events-none absolute inset-y-0 z-10 w-px bg-white"
         style={{ left: `${position}%` }}
       >
-        <div className="absolute left-1/2 top-1/2 flex h-7 w-7 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-black bg-white text-white shadow-lg">
+        <div className="absolute left-1/2 top-1/2 flex h-7 w-7 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-black bg-white text-brand-dark shadow-lg">
           <svg
             viewBox="0 0 24 24"
             aria-hidden="true"
@@ -71,10 +71,10 @@ function StoryImage({ story }) {
         className="absolute inset-0 z-20 h-full w-full cursor-ew-resize opacity-0"
       />
 
-      <span className="pointer-events-none absolute left-3 bottom-3 z-10 text-[10px] font-black tracking-wide text-white drop-shadow">
+      <span className="pointer-events-none absolute left-3 bottom-3 z-10 text-[10px] font-black tracking-wide text-brand-dark drop-shadow">
         BEFORE
       </span>
-      <span className="pointer-events-none absolute bottom-3 right-3 z-10 text-[10px] font-black tracking-wide text-white drop-shadow">
+      <span className="pointer-events-none absolute bottom-3 right-3 z-10 text-[10px] font-black tracking-wide text-brand-dark drop-shadow">
         AFTER
       </span>
       <span className="pointer-events-none absolute left-3 top-3 z-10 rounded bg-brand-gold px-2 py-1 text-[10px] font-extrabold text-white">
@@ -115,7 +115,7 @@ export default function SuccessStories() {
             <motion.article
               key={story.title}
               variants={fadeInUp}
-              className="overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-sm"
+              className="overflow-hidden rounded-lg border border-neutral-200 bg-brand-blush/60 shadow-sm"
             >
               <StoryImage story={story} />
               <div className="px-5 py-5">

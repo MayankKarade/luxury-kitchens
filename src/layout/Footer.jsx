@@ -42,14 +42,14 @@ export default function Footer() {
   const { openModal } = useConsultation();
 
   return (
-    <footer className="bg-brand-dark border-t border-white/5 px-4 sm:px-10 md:px-16 pt-16 pb-8 relative text-neutral-400 text-sm overflow-hidden select-none">
+    <footer className="bg-brand-blush border-t border-brand-gold/10 px-4 sm:px-10 md:px-16 pt-16 pb-8 relative text-zinc-600 text-sm overflow-hidden select-none">
       {/* Subtly glowing luxury ambiance light backing */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] rounded-full bg-brand-gold/5 blur-[150px] pointer-events-none"></div>
 
       <div className="max-w-[1800px] mx-auto  relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-12 gap-10 lg:gap-0 pb-10 border-b border-white/5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-12 gap-10 lg:gap-0 pb-10 border-b border-brand-gold/10">
           {/* Column 1: Logo and Professional Bio */}
-          <div className="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-3 flex flex-col gap-6 lg:border-r lg:border-white/10 lg:pr-8">
+          <div className="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-3 flex flex-col gap-6 lg:border-r lg:border-brand-gold/10 lg:pr-8">
             <Link href="/" className="flex items-center gap-3 group">
               <Image
                 src="/logo/CaliWood.jpeg"
@@ -60,7 +60,7 @@ export default function Footer() {
                 className="h-20 w-auto object-contain"
               />
             </Link>
-            <p className="text-zinc-400 font-sans text-[13.5px] leading-relaxed max-w-xs sm:max-w-sm">
+            <p className="text-zinc-600 font-sans text-[13.5px] leading-relaxed max-w-xs sm:max-w-sm">
               Cali Wood Limited designs, manufactures and installs bespoke
               kitchens, wardrobes and custom furniture for residential,
               corporate and commercial spaces across Ghana.
@@ -91,25 +91,25 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={social.aria}
-                  className="w-8.5 h-8.5 rounded-full border border-white/15 flex items-center justify-center hover:border-brand-gold hover:bg-brand-gold/5 transition-all duration-300 group cursor-pointer"
+                  className="w-8.5 h-8.5 rounded-full border border-brand-gold/10 flex items-center justify-center hover:border-brand-gold hover:bg-brand-gold/5 transition-all duration-300 group cursor-pointer"
                 >
-                  <social.Icon className="w-3.8 h-3.8 text-zinc-400 group-hover:text-brand-gold transition-colors" />
+                  <social.Icon className="w-3.8 h-3.8 text-zinc-600 group-hover:text-brand-gold transition-colors" />
                 </a>
               ))}
             </div>
           </div>
 
           {/* Column 2: Quick Links */}
-          <div className="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-2 flex flex-col gap-5 lg:border-r lg:border-white/10 lg:pl-8 lg:pr-4">
+          <div className="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-2 flex flex-col gap-5 lg:border-r lg:border-brand-gold/10 lg:pl-8 lg:pr-4">
             <h4 className="text-brand-gold font-sans text-[11px] font-bold tracking-[0.2em] uppercase leading-none">
               QUICK LINKS
             </h4>
-            <ul className="flex flex-col gap-3 font-sans text-[13.5px] text-zinc-400">
+            <ul className="flex flex-col gap-3 font-sans text-[13.5px] text-zinc-600">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="hover:text-white transition-colors duration-200"
+                    className="hover:text-brand-gold transition-colors duration-200"
                   >
                     {link.name}
                   </Link>
@@ -119,16 +119,16 @@ export default function Footer() {
           </div>
 
           {/* Column 3: Our Services */}
-          <div className="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-2 flex flex-col gap-5 lg:border-r lg:border-white/10 lg:pl-8 lg:pr-4">
+          <div className="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-2 flex flex-col gap-5 lg:border-r lg:border-brand-gold/10 lg:pl-8 lg:pr-4">
             <h4 className="text-brand-gold font-sans text-[11px] font-bold tracking-[0.2em] uppercase leading-none">
               OUR SERVICES
             </h4>
-            <ul className="flex flex-col gap-3 font-sans text-[13.5px] text-zinc-400">
+            <ul className="flex flex-col gap-3 font-sans text-[13.5px] text-zinc-600">
               {serviceLinks.map((service) => (
                 <li key={service.href}>
                   <Link
                     href={service.href}
-                    className="hover:text-white transition-colors duration-200"
+                    className="hover:text-brand-gold transition-colors duration-200"
                   >
                     {service.name}
                   </Link>
@@ -138,16 +138,16 @@ export default function Footer() {
           </div>
 
           {/* Column 4: Contact */}
-          <div className="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-2 flex flex-col gap-5 lg:border-r lg:border-white/10 lg:pl-8 lg:pr-4">
+          <div className="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-2 flex flex-col gap-5 lg:border-r lg:border-brand-gold/10 lg:pl-8 lg:pr-4">
             <h4 className="text-brand-gold font-sans text-[11px] font-bold tracking-[0.2em] uppercase leading-none">
               CONTACT
             </h4>
-            <ul className="flex flex-col gap-3 font-sans text-[13.5px] text-zinc-400">
+            <ul className="flex flex-col gap-3 font-sans text-[13.5px] text-zinc-600">
               {contactLinks.map((contact) => (
                 <li key={contact.href}>
                   <Link
                     href={contact.href}
-                    className="hover:text-white transition-colors duration-200"
+                    className="hover:text-brand-gold transition-colors duration-200"
                   >
                     {contact.name}
                   </Link>
@@ -162,11 +162,11 @@ export default function Footer() {
               GET IN TOUCH
             </h4>
 
-            <div className="flex flex-col gap-4 font-sans text-[13.5px] text-zinc-400">
+            <div className="flex flex-col gap-4 font-sans text-[13.5px] text-zinc-600">
               {/* Phone item */}
               <a
                 href="tel:+233501523779"
-                className="flex items-center gap-3 hover:text-white transition-all group"
+                className="flex items-center gap-3 hover:text-brand-gold transition-all group"
               >
                 <Phone className="w-[19px] h-[19px] text-brand-gold shrink-0" />
                 <span>+233501523779</span>
@@ -175,7 +175,7 @@ export default function Footer() {
               {/* Email item */}
               <a
                 href="mailto:info@caliwoodgh.com"
-                className="flex items-center gap-3 hover:text-white transition-all group"
+                className="flex items-center gap-3 hover:text-brand-gold transition-all group"
               >
                 <Mail className="w-[19px] h-[19px] text-brand-gold shrink-0" />
                 <span className="break-all">info@caliwoodgh.com</span>

@@ -69,7 +69,7 @@ export default function Process() {
           <span className="text-brand-gold font-sans text-xs font-bold tracking-[0.25em] uppercase block mb-3">
             OUR PROCESS
           </span>
-          <h2 className="font-serif text-3xl sm:text-[35px] leading-tight text-neutral-900 font-normal tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-[35px] leading-tight text-brand-dark font-normal tracking-tight">
             From First Conversation
             <br />
             to Finished Space
@@ -109,7 +109,7 @@ export default function Process() {
                   {step.num} /
                 </span>
 
-                <h3 className="text-neutral-900 font-serif text-[18px] sm:text-[19px] font-bold tracking-tight mb-2 leading-snug">
+                <h3 className="text-brand-dark font-serif text-[18px] sm:text-[19px] font-bold tracking-tight mb-2 leading-snug">
                   {step.title}
                 </h3>
 
@@ -160,7 +160,7 @@ export default function Process() {
                   {step.num}
                 </span>
 
-                <h3 className="text-neutral-900 font-serif text-[17px] font-bold tracking-tight mb-2.5 leading-snug">
+                <h3 className="text-brand-dark font-serif text-[17px] font-bold tracking-tight mb-2.5 leading-snug">
                   {step.title}
                 </h3>
 

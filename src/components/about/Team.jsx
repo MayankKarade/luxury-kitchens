@@ -146,7 +146,7 @@ export default function Team() {
                   key={idx}
                   className="flex-[0_0_100%] sm:flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_20%] pl-4 sm:pl-5 min-w-0"
                 >
-                  <div className="bg-brand-white rounded-[4px]  flex flex-col h-full border border-zinc-100/90 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] transition-all duration-300 group">
+                  <div className="bg-brand-blush/60 rounded-[4px]  flex flex-col h-full border border-zinc-100/90 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.06)] transition-all duration-300 group">
                     {/* Photo with beautiful padding margin layout as shown inside reference card */}
                     <div className=" relative overflow-hidden aspect-[4/3] rounded-[2px]  w-full bg-neutral-100 mb-4 sm:mb-5">
                       <Image
@@ -162,7 +162,7 @@ export default function Team() {
                     {/* Member Information & Contacts layout */}
                     <div className="flex flex-col flex-grow items-start justify-between px-3.5">
                       <div className="flex flex-col gap-1 w-full">
-                        <h4 className="font-sans font-bold text-[15px] sm:text-[16px] text-[#1c1e23] tracking-wide leading-tight group-hover:text-brand-gold transition-colors duration-200">
+                        <h4 className="font-sans font-bold text-[15px] sm:text-[16px] text-brand-dark tracking-wide leading-tight group-hover:text-brand-gold transition-colors duration-200">
                           {member.name}
                         </h4>
                         <span className="text-[12.5px] sm:text-[13px] text-zinc-500 font-sans tracking-wide">

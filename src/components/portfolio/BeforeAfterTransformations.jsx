@@ -36,7 +36,7 @@ function TransformationCard({ project, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.06 }}
-      className="overflow-hidden rounded-lg border border-neutral-200 bg-[#010129] shadow-sm"
+      className="overflow-hidden rounded-lg border border-neutral-200 bg-brand-blush/60 shadow-sm"
     >
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image
@@ -64,7 +64,7 @@ function TransformationCard({ project, index }) {
           className="pointer-events-none absolute inset-y-0 z-10 w-px bg-white"
           style={{ left: `${position}%` }}
         >
-          <div className="absolute left-1/2 top-1/2 flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white bg-brand-dark text-white shadow-lg">
+          <div className="absolute left-1/2 top-1/2 flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white bg-brand-gold text-white shadow-lg">
             <svg
               viewBox="0 0 24 24"
               aria-hidden="true"
@@ -101,7 +101,7 @@ function TransformationCard({ project, index }) {
         </span>
       </div>
 
-      <div className="px-4 py-3 text-white">
+      <div className="px-4 py-3 text-brand-dark">
         <h3 className="font-sans text-[13px] font-bold">{project.title}</h3>
       </div>
     </motion.article>
@@ -112,7 +112,7 @@ export default function BeforeAfterTransformations() {
   return (
     <section
       id="transformations"
-      className="bg-brand-white px-4 py-12 text-zinc-900 sm:px-10 sm:py-14 md:px-16"
+      className="bg-brand-white px-4 py-12 text-brand-dark sm:px-10 sm:py-14 md:px-16"
     >
       <div className="mx-auto ">
         <div className="mb-7 flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-center">

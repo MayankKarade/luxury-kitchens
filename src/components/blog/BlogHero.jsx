@@ -81,8 +81,8 @@ export default function BlogHero({ activeCategorySlug, onCategorySelect }) {
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/55 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/35" />
+        <div className="absolute inset-0 theme-hero-wash" />
+        <div className="absolute inset-0 theme-hero-bottom" />
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[430px]  flex-col justify-start px-4 pb-12 sm:min-h-[500px] sm:px-10 md:px-16 lg:min-h-[510px] lg:pb-28">
@@ -94,29 +94,29 @@ export default function BlogHero({ activeCategorySlug, onCategorySelect }) {
         >
           <motion.div
             variants={fadeInUp}
-            className="w-fit px-3 py-0.5 rounded-full flex items-center bg-brand-gold/40 gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8"
+            className="w-fit px-3 py-0.5 rounded-full flex items-center bg-white/70 border border-brand-gold/10 gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8"
           >
             <Link
               href="/"
-              className="text-white font-medium hover:font-bold transition-all duration-150"
+              className="text-brand-dark font-medium hover:font-bold transition-all duration-150"
             >
               Home
             </Link>
-            <span className="text-white font-normal px-0.5">&gt;</span>
-            <span className="text-white font-medium hover:font-bold transition-all duration-150">
+            <span className="text-brand-dark font-normal px-0.5">&gt;</span>
+            <span className="text-brand-dark font-medium hover:font-bold transition-all duration-150">
               Blog &amp; Insights
             </span>
           </motion.div>
 
           <motion.span
             variants={fadeInUp}
-            className="bg-brand-gold text-white rounded-full px-3 py-0.5 font-sans text-xs font-bold tracking-[0.25em] uppercase block w-fit"
+            className="bg-brand-gold/7 text-brand-gold rounded-full px-3 py-0.5 font-sans text-xs font-bold tracking-[0.25em] uppercase block w-fit"
           >
             BLOG &amp; INSIGHTS
           </motion.span>
           <motion.h1
             variants={fadeInUp}
-            className="mt-4 font-serif text-4xl font-medium leading-[1.1] text-white sm:text-5xl lg:text-[60px]"
+            className="mt-4 font-serif text-4xl font-medium leading-[1.1] text-brand-dark sm:text-5xl lg:text-[60px]"
           >
             Ideas. Inspiration.
             <br />
@@ -128,7 +128,7 @@ export default function BlogHero({ activeCategorySlug, onCategorySelect }) {
           />
           <motion.p
             variants={fadeInUp}
-            className="max-w-md text-sm font-medium leading-7 text-zinc-200 sm:text-base"
+            className="max-w-md text-sm font-medium leading-7 text-zinc-700 sm:text-base"
           >
             Explore expert tips, design trends, and inspiration to help you
             create beautiful, functional spaces.
@@ -159,7 +159,7 @@ export default function BlogHero({ activeCategorySlug, onCategorySelect }) {
                   className={`flex min-h-[108px] items-center gap-3 rounded-xl border px-5 py-5 text-left shadow-xl transition-all duration-300 sm:min-h-[150px] sm:flex-col sm:items-center sm:justify-center sm:gap-0 sm:text-center lg:shadow-2xl ${
                     isActive
                       ? "border-brand-gold bg-brand-gold text-white"
-                      : "border-white/12 bg-[#010129] hover:border-brand-gold/70"
+                      : "border-brand-gold/10 bg-white/85 hover:border-brand-gold/70"
                   }`}
                 >
                   <CategoryIcon
@@ -169,7 +169,7 @@ export default function BlogHero({ activeCategorySlug, onCategorySelect }) {
                     strokeWidth={1.6}
                   />
                   <div className="min-w-0">
-                    <span className="block font-serif text-lg font-semibold leading-snug text-white sm:max-w-[170px] sm:text-lg">
+                    <span className={`block font-serif text-lg font-semibold leading-snug sm:max-w-[170px] sm:text-lg ${isActive ? "text-white" : "text-brand-dark"}`}>
                       {title}
                     </span>
                     <p

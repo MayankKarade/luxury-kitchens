@@ -227,10 +227,10 @@ export default function Expertise() {
             <span className="font-sans text-[12.5px] font-bold uppercase tracking-[0.2em] text-brand-gold">
               OUR EXPERTISE
             </span>
-            <h2 className="font-serif text-3xl font-semibold leading-[1.15] tracking-tight text-[#111827] sm:text-4xl md:text-[40px]">
+            <h2 className="font-serif text-3xl font-semibold leading-[1.15] tracking-tight text-brand-dark sm:text-4xl md:text-[40px]">
               Complete Furniture Solutions
               <br />
-              <span className="font-semibold text-[#111827]">
+              <span className="font-semibold text-brand-dark">
                 Crafted Around You
               </span>
             </h2>
@@ -295,7 +295,7 @@ export default function Expertise() {
                   <motion.div
                     variants={cardVariants}
                     whileHover="hover"
-                    className="group flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-200/50 bg-brand-white shadow-sm transition-all duration-300 hover:shadow-lg"
+                    className="group flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-200/50 bg-brand-blush/60 shadow-sm transition-all duration-300 hover:shadow-lg"
                   >
                     <div className="relative">
                       <div className="relative h-44 shrink-0 overflow-hidden">
@@ -309,16 +309,16 @@ export default function Expertise() {
                         />
                       </div>
                       <motion.div
-                        className="absolute -bottom-6 left-5 z-40 flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-[#010129] shadow-lg transition-all duration-200 group-hover:scale-[1.1] group-hover:rotate-6"
+                        className="absolute -bottom-6 left-5 z-40 flex h-11 w-11 items-center justify-center rounded-xl border border-brand-gold/10 bg-brand-light shadow-lg transition-all duration-200 group-hover:scale-[1.1] group-hover:rotate-6"
                         transition={{ type: "spring", stiffness: 300 }}
                       >
                         <ServiceBadgeIcon service={service} />
                       </motion.div>
                     </div>
 
-                    <div className="flex flex-grow flex-col justify-between bg-brand-white px-3 pb-6 pt-8">
+                    <div className="flex flex-grow flex-col justify-between bg-brand-blush/60 px-3 pb-6 pt-8">
                       <div className="flex flex-col gap-2.5">
-                        <h3 className="font-serif text-[18px] font-bold leading-snug tracking-tight text-[#111827] md:text-[18px]">
+                        <h3 className="font-serif text-[18px] font-bold leading-snug tracking-tight text-brand-dark md:text-[18px]">
                           {service.title}
                         </h3>
                         <p className="min-h-[52px] font-sans text-xs leading-relaxed text-zinc-500 sm:text-[13px]">

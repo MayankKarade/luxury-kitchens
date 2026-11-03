@@ -31,7 +31,6 @@ export const API_ENDPOINTS = {
     contact: `${API_BASE_URL}/contact-enquiry`,
   },
   Policy: {
-    privacy: `${API_BASE_URL}/privacy_policy`,
     terms: `${API_BASE_URL}/terms_policy`,
     return: `${API_BASE_URL}/return_policy`,
   },

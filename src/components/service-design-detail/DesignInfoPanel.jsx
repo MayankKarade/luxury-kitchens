@@ -28,7 +28,7 @@ export default function DesignInfoPanel({ product }) {
       <span className="text-xs font-bold uppercase tracking-[0.18em] text-brand-gold">
         {product.serviceLabel}
       </span>
-      <h1 className="mt-2 font-serif text-3xl font-semibold leading-tight text-neutral-900 ">
+      <h1 className="mt-2 font-serif text-3xl font-semibold leading-tight text-brand-dark ">
         {product.title}
       </h1>
       <Rating product={product} />
@@ -39,7 +39,7 @@ export default function DesignInfoPanel({ product }) {
       />
 
       <div className="mt-3">
-        <p className="text-2xl font-bold text-neutral-900">{product.price}</p>
+        <p className="text-2xl font-bold text-brand-dark">{product.price}</p>
         <p className="mt-1 text-xs font-semibold text-zinc-500">
           {product.note}
         </p>
@@ -55,7 +55,7 @@ export default function DesignInfoPanel({ product }) {
         </Link>
         <Link
           href="/consultation"
-          className="inline-flex h-12 items-center justify-center gap-4 rounded-md border border-neutral-300 bg-white px-5 text-[11px] font-bold uppercase tracking-wide text-neutral-900 transition-colors hover:border-brand-gold hover:text-brand-gold"
+          className="inline-flex h-12 items-center justify-center gap-4 rounded-md border border-neutral-300 bg-white px-5 text-[11px] font-bold uppercase tracking-wide text-brand-dark transition-colors hover:border-brand-gold hover:text-brand-gold"
         >
           Request A Quote
           <DetailIcon name="arrow" className="h-4 w-4" />
@@ -70,7 +70,7 @@ export default function DesignInfoPanel({ product }) {
           href="https://wa.me/233501523779"
           target="_blank"
           rel="noreferrer"
-          className="inline-flex h-11 items-center justify-center gap-3 rounded-md border border-neutral-200 bg-white px-6 text-[11px] font-bold uppercase tracking-wide text-neutral-900 transition-colors hover:border-[#25d366] hover:text-[#25d366]"
+          className="inline-flex h-11 items-center justify-center gap-3 rounded-md border border-neutral-200 bg-white px-6 text-[11px] font-bold uppercase tracking-wide text-brand-dark transition-colors hover:border-[#25d366] hover:text-[#25d366]"
         >
           Chat On WhatsApp
           <DetailIcon name="whatsapp" className="h-4 w-4 text-[#25d366]" />

@@ -101,7 +101,7 @@ export default function ImageGallery({ galleryImages }) {
             <button
               type="button"
               onClick={() => openLightbox(0)}
-              className="absolute bottom-5 left-1/2 inline-flex -translate-x-1/2 items-center gap-3 rounded-md border border-white/10 bg-brand-dark/72 px-8 py-3 text-[12px] font-extrabold tracking-wide text-white shadow-2xl backdrop-blur-sm transition-colors hover:bg-brand-gold hover:text-white"
+              className="absolute bottom-5 left-1/2 inline-flex -translate-x-1/2 items-center gap-3 rounded-md border border-brand-gold/15 bg-white/85 px-8 py-3 text-[12px] font-extrabold tracking-wide text-brand-dark shadow-2xl backdrop-blur-sm transition-colors hover:bg-brand-gold hover:text-white"
             >
               VIEW MORE PHOTOS
               <GalleryIcon name="photos" className="h-5 w-5" />
@@ -123,7 +123,7 @@ export default function ImageGallery({ galleryImages }) {
           event.preventDefault();
           setLightboxOpen(false);
         }}
-        className="fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none border-0 bg-black/95 p-0 text-white backdrop:bg-black/95"
+        className="fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none border-0 bg-brand-light/98 p-0 text-brand-dark backdrop:bg-brand-dark/45"
       >
         {images.length > 0 && (
           <div
@@ -134,7 +134,7 @@ export default function ImageGallery({ galleryImages }) {
                 <span id="gallery-lightbox-title" className="block text-[10px] font-black uppercase tracking-[0.25em] text-brand-gold">
                   Images Gallery
                 </span>
-                <span className="mt-1 block truncate font-serif text-sm font-bold text-zinc-100 sm:text-base">
+                <span className="mt-1 block truncate font-serif text-sm font-bold text-brand-dark sm:text-base">
                   Frame {selectedIndex + 1} of {images.length}
                 </span>
               </div>
@@ -142,13 +142,13 @@ export default function ImageGallery({ galleryImages }) {
                 type="button"
                 onClick={() => setLightboxOpen(false)}
                 aria-label="Close image gallery"
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-all hover:scale-105 hover:bg-brand-gold hover:text-white"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-brand-gold/15 bg-white/85 transition-all hover:scale-105 hover:bg-brand-gold hover:text-white"
               >
                 <X className="h-5 w-5" />
               </button>
             </div>
 
-            <div className="relative mt-4 min-h-0 w-full max-w-5xl flex-1 overflow-hidden rounded-xl border border-white/5 shadow-2xl">
+            <div className="relative mt-4 min-h-0 w-full max-w-5xl flex-1 overflow-hidden rounded-xl border border-brand-gold/10 shadow-2xl">
               <Image
                 src={images[selectedIndex].image}
                 alt={`Gallery expanded view ${selectedIndex + 1}`}
@@ -162,7 +162,7 @@ export default function ImageGallery({ galleryImages }) {
                     type="button"
                     onClick={() => changeImage(-1)}
                     aria-label="Previous image"
-                    className="absolute left-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/60 text-white shadow-lg backdrop-blur-sm transition-colors hover:bg-brand-gold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:left-4 sm:h-12 sm:w-12"
+                    className="absolute left-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-brand-gold/20 bg-white/90 text-brand-dark shadow-lg backdrop-blur-sm transition-colors hover:bg-brand-gold hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-gold sm:left-4 sm:h-12 sm:w-12"
                   >
                     <ArrowLeft aria-hidden="true" className="h-5 w-5" />
                   </button>
@@ -170,7 +170,7 @@ export default function ImageGallery({ galleryImages }) {
                     type="button"
                     onClick={() => changeImage(1)}
                     aria-label="Next image"
-                    className="absolute right-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/60 text-white shadow-lg backdrop-blur-sm transition-colors hover:bg-brand-gold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:right-4 sm:h-12 sm:w-12"
+                    className="absolute right-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-brand-gold/20 bg-white/90 text-brand-dark shadow-lg backdrop-blur-sm transition-colors hover:bg-brand-gold hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-gold sm:right-4 sm:h-12 sm:w-12"
                   >
                     <ArrowRight aria-hidden="true" className="h-5 w-5" />
                   </button>

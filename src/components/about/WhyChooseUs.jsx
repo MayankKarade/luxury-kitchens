@@ -41,7 +41,7 @@ export default function WhyChooseUs() {
   return (
     <section
       id="why-choose-us"
-      className=" py-12 sm:py-16  bg-[#010129] text-white relative select-none overflow-hidden"
+      className=" py-12 sm:py-16  bg-brand-blush text-brand-dark relative select-none overflow-hidden"
     >
       {/* Immersive organic dark gold marble / vein background matching reference image */}
       <div className="absolute inset-0 opacity-15 pointer-events-none">
@@ -57,7 +57,7 @@ export default function WhyChooseUs() {
           <span className="text-brand-gold font-sans text-xs font-bold tracking-[0.25em] uppercase block mb-3">
             WHY CHOOSE US
           </span>
-          <h2 className="font-serif text-3xl sm:text-[34px] font-normal leading-[1.12] text-brand-white tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-[34px] font-normal leading-[1.12] text-brand-dark tracking-tight">
             A Thoughtful Approach to Custom Furniture
           </h2>
         </div>
@@ -71,7 +71,7 @@ export default function WhyChooseUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.05 }}
-              className="bg-[#0b0c11]/80 backdrop-blur-md border border-zinc-800 rounded-2xl p-4 flex flex-col items-center text-center h-full shadow-[0_20px_50px_rgba(0,0,0,0.35)] hover:border-brand-gold/40 hover:shadow-[0_25px_60px_rgba(0,0,0,0.55)] transition-all duration-300 hover:-translate-y-1 group"
+              className="bg-white/80 backdrop-blur-md border border-brand-gold/10 rounded-2xl p-4 flex flex-col items-center text-center h-full shadow-[0_20px_50px_rgba(70,40,25,0.08)] hover:border-brand-gold/40 hover:shadow-[0_25px_60px_rgba(70,40,25,0.08)] transition-all duration-300 hover:-translate-y-1 group"
             >
               {/* Gold icon asset centered in a stable box */}
               <div className="mb-6 flex h-14 w-14 items-center justify-center transform transition-transform duration-300 group-hover:scale-110">
@@ -87,10 +87,10 @@ export default function WhyChooseUs() {
 
               {/* Card headers and responsive details description */}
               <div className="flex flex-col items-center flex-grow">
-                <h4 className="text-[14px] font-sans font-bold text-white tracking-wide leading-snug mb-3">
+                <h4 className="text-[14px] font-sans font-bold text-brand-dark tracking-wide leading-snug mb-3">
                   {card.title}
                 </h4>
-                <p className="text-[12px] text-zinc-400 font-sans leading-relaxed">
+                <p className="text-[12px] text-zinc-600 font-sans leading-relaxed">
                   {card.desc}
                 </p>
               </div>

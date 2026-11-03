@@ -85,8 +85,8 @@ export default function PortfolioHero() {
           referrerPolicy="no-referrer"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/55 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/35" />
+        <div className="absolute inset-0 theme-hero-wash" />
+        <div className="absolute inset-0 theme-hero-bottom" />
         <div className="absolute top-1/2 left-2/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-brand-gold/5 blur-[180px] pointer-events-none rounded-full" />
       </div>
 
@@ -97,22 +97,22 @@ export default function PortfolioHero() {
           initial="hidden"
           animate="visible"
         >
-          <div className="w-fit px-3 py-0.5 rounded-full flex items-center bg-brand-gold/40 gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8">
+          <div className="w-fit px-3 py-0.5 rounded-full flex items-center bg-white/70 border border-brand-gold/10 gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8">
             <Link
               href="/"
-              className="text-white font-medium hover:font-bold transition-all duration-150"
+              className="text-brand-dark font-medium hover:font-bold transition-all duration-150"
             >
               Home
             </Link>
-            <span className="text-white font-normal px-0.5">&gt;</span>
-            <span className="text-white font-medium hover:font-bold transition-all duration-150">
+            <span className="text-brand-dark font-normal px-0.5">&gt;</span>
+            <span className="text-brand-dark font-medium hover:font-bold transition-all duration-150">
               Portfolio
             </span>
           </div>
           {/* Gold label – original */}
           <motion.span
             variants={fadeInUp}
-            className="bg-brand-gold text-white rounded-full px-3 py-0.5 font-sans text-xs font-bold tracking-[0.25em] uppercase block w-fit"
+            className="bg-brand-gold/7 text-brand-gold rounded-full px-3 py-0.5 font-sans text-xs font-bold tracking-[0.25em] uppercase block w-fit"
           >
             OUR PORTFOLIO
           </motion.span>
@@ -120,7 +120,7 @@ export default function PortfolioHero() {
           {/* Heading – original text, but gradient styling from Hero optional (kept simple) */}
           <motion.h1
             variants={fadeInUp}
-            className="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium text-white leading-[1.08] tracking-tight"
+            className="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium text-brand-dark leading-[1.08] tracking-tight"
           >
             Furniture Made <br />
             for Real Spaces
@@ -129,7 +129,7 @@ export default function PortfolioHero() {
           {/* Description – original */}
           <motion.p
             variants={fadeInUp}
-            className="text-base sm:text-lg text-zinc-400 tracking-wide font-sans font-medium max-w-xl leading-relaxed"
+            className="text-base sm:text-lg text-zinc-600 tracking-wide font-sans font-medium max-w-xl leading-relaxed"
           >
             Explore selected Cali Wood projects across kitchens, fitted
             wardrobes, TV units, corporate furniture and custom interiors, each
@@ -145,7 +145,7 @@ export default function PortfolioHero() {
         animate="visible"
       >
         <div className="flex w-full justify-end">
-          <div className="w-full bg-brand-dark/20 backdrop-blur-xs border border-white/10 rounded-xl px-4 py-6 shadow-2xl relative overflow-hidden">
+          <div className="w-full bg-white/70 backdrop-blur-xs border border-brand-gold/10 rounded-xl px-4 py-6 shadow-2xl relative overflow-hidden">
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4 px-2 ">
               {categories.map((cat) => {
                 const Icon = cat.icon;
@@ -163,10 +163,10 @@ export default function PortfolioHero() {
                       />
                     </div>
                     <div className="flex flex-col items-start">
-                      <h4 className="text-white font-semibold text-xs sm:text-sm tracking-wide font-sans">
+                      <h4 className="text-brand-dark font-semibold text-xs sm:text-sm tracking-wide font-sans">
                         {cat.label}
                       </h4>
-                      <p className="text-[11px] sm:text-xs text-gray-400 mt-0.5 font-sans">
+                      <p className="text-[11px] sm:text-xs text-zinc-600 mt-0.5 font-sans">
                         {cat.count}
                       </p>
                     </div>

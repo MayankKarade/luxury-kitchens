@@ -26,7 +26,7 @@ const stagger = {
 
 export default function ConsultationHero() {
   return (
-    <section className="relative min-h-[620px] overflow-hidden bg-brand-dark pt-28 sm:pt-36 lg:min-h-[660px]">
+    <section className="relative min-h-[620px] overflow-hidden bg-brand-blush pt-28 sm:pt-36 lg:min-h-[660px]">
       <div className="absolute inset-0">
         <Image
           src={heroImg}
@@ -36,8 +36,8 @@ export default function ConsultationHero() {
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/55 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/35" />
+        <div className="absolute inset-0 theme-hero-wash" />
+        <div className="absolute inset-0 theme-hero-bottom" />
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[490px]  flex-col justify-center px-4 pb-10 sm:px-10 md:px-16">
@@ -49,29 +49,29 @@ export default function ConsultationHero() {
         >
           <motion.div
             variants={fadeInUp}
-            className="w-fit px-3 py-0.5 rounded-full flex items-center bg-brand-gold/40 gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8"
+            className="w-fit px-3 py-0.5 rounded-full flex items-center bg-white/70 border border-brand-gold/10 gap-1.5 text-xs font-sans tracking-[0.12em] text-brand-gold/90 uppercase mb-8"
           >
             <Link
               href="/"
-              className="text-white font-medium hover:font-bold transition-all duration-150"
+              className="text-brand-dark font-medium hover:font-bold transition-all duration-150"
             >
               Home
             </Link>
-            <span className="text-white font-normal px-0.5">&gt;</span>
-            <span className="text-white font-medium hover:font-bold transition-all duration-150">
+            <span className="text-brand-dark font-normal px-0.5">&gt;</span>
+            <span className="text-brand-dark font-medium hover:font-bold transition-all duration-150">
               Consultation
             </span>
           </motion.div>
 
           <motion.span
             variants={fadeInUp}
-            className="bg-brand-gold text-white rounded-full px-3 py-0.5 font-sans text-xs font-bold tracking-[0.25em] uppercase block w-fit"
+            className="bg-brand-gold/7 text-brand-gold rounded-full px-3 py-0.5 font-sans text-xs font-bold tracking-[0.25em] uppercase block w-fit"
           >
             CONSULTATION
           </motion.span>
           <motion.h1
             variants={fadeInUp}
-            className="mt-4 font-serif text-4xl font-medium leading-[1.08] text-white drop-shadow-[0_3px_18px_rgba(0,0,0,0.65)] sm:text-5xl lg:text-[62px]"
+            className="mt-4 font-serif text-4xl font-medium leading-[1.08] text-brand-dark drop-shadow-[0_3px_18px_rgba(70,40,25,0.08)] sm:text-5xl lg:text-[62px]"
           >
             Let&apos;s Design
             <br />
@@ -81,7 +81,7 @@ export default function ConsultationHero() {
           </motion.h1>
           <motion.p
             variants={fadeInUp}
-            className="mt-6 max-w-lg text-sm font-semibold leading-7 text-zinc-100 sm:text-base"
+            className="mt-6 max-w-lg text-sm font-semibold leading-7 text-zinc-700 sm:text-base"
           >
             Book a consultation with our experts and take the first step towards
             your luxury kitchen or interior.
@@ -92,19 +92,19 @@ export default function ConsultationHero() {
           variants={stagger}
           initial="hidden"
           animate="visible"
-          className="mt-10 grid max-w-4xl grid-cols-1 gap-px overflow-hidden border-y border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-10 grid max-w-4xl grid-cols-1 gap-px overflow-hidden border-y border-brand-gold/10 bg-brand-blush/60 sm:grid-cols-2 lg:grid-cols-4"
         >
           {heroHighlights.map((item) => (
             <motion.div
               key={item.title}
               variants={fadeInUp}
-              className="flex items-center gap-3 bg-brand-dark/18 px-4 py-4 backdrop-blur-xs"
+              className="flex items-center gap-3 bg-white/70 px-4 py-4 backdrop-blur-xs"
             >
               <ConsultationIcon
                 name={item.icon}
                 className="h-7 w-7 shrink-0 text-brand-gold"
               />
-              <span className="text-xs font-extrabold text-white">
+              <span className="text-xs font-extrabold text-brand-dark">
                 {item.title}
               </span>
             </motion.div>

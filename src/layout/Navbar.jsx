@@ -21,11 +21,9 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const { openModal } = useConsultation();
   const pathname = usePathname(); // Get current route
-  const desktopMetaTextClass = scrolled ? "text-white" : "text-gray-300";
-  const desktopSeparatorClass = scrolled ? "text-white/45" : "text-white/20";
-  const desktopNavTextClass = scrolled
-    ? "text-white hover:text-brand-gold"
-    : "text-gray-300 hover:text-brand-gold";
+  const desktopMetaTextClass = "text-zinc-600";
+  const desktopSeparatorClass = "text-zinc-300";
+  const desktopNavTextClass = "text-brand-dark hover:text-brand-gold";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,11 +62,11 @@ export default function Navbar() {
     <header
       className={`w-full fixed top-0 left-0 z-[60000] transition-all duration-300 ${
         scrolled
-          ? "bg-brand-dark/98 shadow-2xl border-b border-white/5"
-          : "bg-black/25 backdrop-blur-[2px]"
+          ? "bg-white border-b border-black/5 shadow-md"
+          : "bg-white border-b border-black/5 shadow-[0_4px_24px_rgba(0,0,0,0.04)]"
       }`}
     >
-      <div className="max-w-[1800px] mx-auto px-4 sm:px-10 lg:px-16 pt-3 pb-2 lg:pt-5 lg:pb-0 flex justify-between items-center">
+      <div className="max-w-[1800px] mx-auto px-4 sm:px-10 lg:px-16 py-2.5 flex justify-between items-center">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center group shrink-0">
           <Image
@@ -108,7 +106,7 @@ export default function Navbar() {
               <span>Mon - Sat: 09.00 AM - 06.00 PM</span>
             </div>
           </div>
-          <div className="flex items-center gap-8 pl-5 py-2 bg-brand-gold/10 rounded-md">
+          <div className={`flex items-center gap-8 pl-5 py-2 rounded-md bg-white`}>
             <div className="flex items-center gap-3">
               {navLinks.map((link) => (
                 <Link
@@ -152,9 +150,9 @@ export default function Navbar() {
             aria-label="Toggle Menu"
           >
             {mobileMenuOpen ? (
-              <X className="w-6 h-6 text-white" />
+              <X className={`w-6 h-6 text-brand-dark`} />
             ) : (
-              <Menu className="w-6 h-6 text-white" />
+              <Menu className={`w-6 h-6 text-brand-dark`} />
             )}
           </button>
         </div>
@@ -162,7 +160,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer Navigation */}
       <div
-        className={`xl:hidden fixed inset-x-0 top-0 h-screen bg-[#010129]/98 backdrop-blur-lg z-40 transition-all duration-300 transform ${
+        className={`xl:hidden fixed inset-x-0 top-0 h-screen bg-white backdrop-blur-lg z-40 transition-all duration-300 transform ${
           mobileMenuOpen
             ? "translate-y-0 opacity-100"
             : "-translate-y-full opacity-0 pointer-events-none"
@@ -174,7 +172,7 @@ export default function Navbar() {
             className="absolute top-6 right-6 p-2 rounded-md bg-brand-white/10 hover:bg-brand-white/20 transition-colors focus:outline-none"
             aria-label="Close menu"
           >
-            <X className="w-6 h-6 text-white" />
+            <X className={`w-6 h-6 text-brand-dark`} />
           </button>
 
           <div className="flex flex-col gap-4">
@@ -183,10 +181,10 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`text-sm font-semibold tracking-widest py-3 border-b border-white/5 flex justify-between items-center ${
+                className={`text-sm font-semibold tracking-widest py-3 border-b border-brand-gold/10 flex justify-between items-center ${
                   isActive(link.href)
                     ? "text-brand-gold"
-                    : "text-gray-300 hover:text-white"
+                    : "text-brand-dark hover:text-brand-gold"
                 }`}
               >
                 <span>{link.name}</span>
@@ -206,7 +204,7 @@ export default function Navbar() {
               <Calendar className="w-4 h-4" />
               <span>BOOK APPOINTMENT</span>
             </button>
-            <div className="flex flex-col gap-2.5 text-xs text-gray-400 font-sans mt-4">
+            <div className={`flex flex-col gap-2.5 text-xs text-zinc-600 font-sans mt-4`}>
               <p>Phone: +233501523779</p>
               <p>Email: info@caliwoodgh.com</p>
             </div>
